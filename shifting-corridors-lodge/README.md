@@ -53,6 +53,7 @@ A toggle button in the top right corner allows users to switch between themes.
 - React Router
 - React Markdown
 - React Calendar
+- Cloudflare Workers (for deployment)
 
 ### Project Structure
 ```
@@ -76,6 +77,10 @@ shifting-corridors-lodge/
 │   │   └── ThemeContext.tsx # Theme context provider
 │   ├── App.tsx              # Main application component
 │   └── index.tsx            # Entry point
+├── workers-site/            # Cloudflare Workers configuration
+│   ├── index.js             # Worker script
+│   └── package.json         # Worker dependencies
+├── wrangler.toml            # Cloudflare Wrangler configuration
 └── package.json             # Dependencies and scripts
 ```
 
@@ -97,7 +102,34 @@ Tests verify that:
 
 ## Deployment
 
-To deploy the website to ShiftingCorridors.com:
+### Deploying to Cloudflare Workers
+
+This project is configured to deploy to Cloudflare Workers using Wrangler:
+
+1. Install Wrangler globally (if not already installed):
+```bash
+npm install -g wrangler
+```
+
+2. Authenticate with Cloudflare:
+```bash
+wrangler login
+```
+
+3. Build and deploy the site:
+```bash
+npm run build
+npm run deploy
+```
+
+4. To preview the site before deploying:
+```bash
+npm run preview
+```
+
+### Manual Deployment
+
+Alternatively, you can deploy the static files manually:
 
 1. Build the production version:
 ```bash

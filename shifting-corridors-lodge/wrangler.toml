@@ -1,0 +1,12 @@
+# Basic configuration
+name = "shifting-corridors-lodge"
+main = "workers-site/index.js"
+compatibility_date = "2025-06-24"
+
+# Site configuration - this tells Wrangler where your static assets are
+[site]
+bucket = "./build"
+
+# Routes configuration
+[env.production]
+routes = ["shiftingcorridor.com/*", "www.shiftingcorridor.com/*"]

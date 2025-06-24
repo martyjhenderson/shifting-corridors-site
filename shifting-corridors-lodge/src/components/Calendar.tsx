@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import moment from 'moment';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
 import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
 
-// Note: This calendar component explicitly sets Sunday as the first day of the week
-// to ensure proper alignment between day headers and calendar days.
-//
-// Important: Date parsing from strings like '2025-06-29' can be affected by timezone issues.
-// We handle this by manually parsing the date parts and creating a Date object with the local timezone,
-// ensuring events appear on their correct calendar day.
+// Simplified calendar component that avoids using moment.js for better performance
 
 interface Event {
   date: Date;
@@ -46,10 +40,6 @@ const StyledCalendarContainer = styled.div<{ theme: any }>`
     font-family: ${props => props.theme.fonts.main};
     font-weight: bold;
     transition: all 0.3s ease;
-  }
-
-  .calendar-nav-button:hover {
-    background-color: ${props => props.theme.colors.accent};
   }
 
   .calendar-month {
@@ -118,43 +108,89 @@ const StyledCalendarContainer = styled.div<{ theme: any }>`
     transition: all 0.3s ease;
   }
 
-  .event-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
   .event-link {
     color: ${props => props.theme.colors.text};
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
+
+// Helper functions for date manipulation without moment.js
+const formatMonth = (date: Date): string => {
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  return `${months[date.getMonth()]} ${date.getFullYear()}`;
+};
+
+const formatDate = (date: Date): string => {
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+};
+
+const isSameDay = (date1: Date, date2: Date): boolean => {
+  return date1.getFullYear() === date2.getFullYear() &&
+         date1.getMonth() === date2.getMonth() &&
+         date1.getDate() === date2.getDate();
+};
 
 const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) => {
   const { theme } = useTheme();
   const navigate = useNavigate();
-  const [currentDate, setCurrentDate] = useState(moment());
-  const [selectedDate, setSelectedDate] = useState(moment());
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [eventsData, setEventsData] = useState<Event[]>(events);
+  const [calendarDays, setCalendarDays] = useState<Date[]>([]);
+  const [eventsByDate, setEventsByDate] = useState<Map<string, Event[]>>(new Map());
 
+  // Generate calendar days for the current month
   useEffect(() => {
-    // Fetch events from markdown files
+    const days: Date[] = [];
+    
+    // Get the first day of the month
+    const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+    
+    // Get the last day of the month
+    const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
+    
+    // Get the first day of the calendar (might be in the previous month)
+    const startDay = new Date(firstDay);
+    startDay.setDate(1 - firstDay.getDay()); // Go back to the previous Sunday
+    
+    // Get the last day of the calendar (might be in the next month)
+    const endDay = new Date(lastDay);
+    const daysToAdd = 6 - lastDay.getDay();
+    endDay.setDate(lastDay.getDate() + daysToAdd); // Go forward to the next Saturday
+    
+    // Generate all days in the calendar
+    const currentDay = new Date(startDay);
+    while (currentDay <= endDay) {
+      days.push(new Date(currentDay));
+      currentDay.setDate(currentDay.getDate() + 1);
+    }
+    
+    setCalendarDays(days);
+  }, [currentMonth]);
+
+  // Fetch events and organize them by date
+  useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // Use the events passed as props or fetch from markdown files
         if (events.length === 0) {
-          // Get events from markdown files
           const markdownEvents = await getMarkdownFiles('calendar');
           
-          // Convert markdown events to calendar events
           const calendarEvents = markdownEvents.map(event => {
-            // Fix timezone issue by ensuring the date is parsed correctly
-            // Format: YYYY-MM-DD with time set to noon to avoid timezone issues
+            // Parse date from YYYY-MM-DD format
             const dateParts = event.meta.date.split('-');
             const year = parseInt(dateParts[0]);
             const month = parseInt(dateParts[1]) - 1; // JS months are 0-indexed
             const day = parseInt(dateParts[2]);
-            const eventDate = new Date(year, month, day, 12, 0, 0);
+            const eventDate = new Date(year, month, day);
             
             return {
               date: eventDate,
@@ -162,6 +198,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
               url: event.meta.url || `/events/${event.slug}`,
             };
           });
+          
           setEventsData(calendarEvents);
         } else {
           setEventsData(events);
@@ -174,75 +211,40 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
     fetchEvents();
   }, [events]);
 
+  // Organize events by date for efficient lookup
+  useEffect(() => {
+    const map = new Map<string, Event[]>();
+    
+    eventsData.forEach(event => {
+      const dateKey = `${event.date.getFullYear()}-${event.date.getMonth()}-${event.date.getDate()}`;
+      
+      if (!map.has(dateKey)) {
+        map.set(dateKey, []);
+      }
+      
+      map.get(dateKey)!.push(event);
+    });
+    
+    setEventsByDate(map);
+  }, [eventsData]);
+
+  // Navigation handlers
   const prevMonth = () => {
-    setCurrentDate(moment(currentDate).subtract(1, 'month'));
+    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
   };
 
   const nextMonth = () => {
-    setCurrentDate(moment(currentDate).add(1, 'month'));
+    setCurrentMonth(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
   };
 
-  const handleDateClick = (date: moment.Moment) => {
+  const handleDateClick = (date: Date) => {
     setSelectedDate(date);
   };
 
-  const renderCalendarDays = () => {
-    // Explicitly set Sunday as the first day of the week
-    const startDay = moment(currentDate).startOf('month').startOf('week').day(0);
-    const endDay = moment(currentDate).endOf('month').endOf('week').day(6);
-    
-    const days: React.ReactNode[] = [];
-    const day = startDay.clone();
-    
-    // Add day headers
-    const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d, i) => (
-      <div key={`header-${i}`} className="calendar-day-header">
-        {d}
-      </div>
-    ));
-    days.push(...dayHeaders);
-    
-    // Add calendar days
-    while (day.isSameOrBefore(endDay)) {
-      const isCurrentMonth = day.month() === currentDate.month();
-      const isToday = day.isSame(moment(), 'day');
-      const isSelected = day.isSame(selectedDate, 'day');
-      const hasEvent = eventsData.some(event => {
-        // Ensure proper date comparison by creating a new moment object from the event date
-        // and setting hours, minutes, seconds to 0 for both dates to compare only the date part
-        const eventDate = moment(event.date).startOf('day');
-        const dayDate = day.clone().startOf('day');
-        return eventDate.isSame(dayDate, 'day');
-      });
-      
-      const className = `calendar-day ${isCurrentMonth ? '' : 'other-month'} ${
-        isToday ? 'today' : ''
-      } ${isSelected ? 'selected' : ''} ${hasEvent ? 'has-event' : ''}`;
-      
-      // Create a new moment object for this specific day
-      const currentDay = day.clone();
-      
-      days.push(
-        <div
-          key={currentDay.format('YYYY-MM-DD')}
-          className={className}
-          onClick={() => handleDateClick(currentDay)}
-        >
-          {currentDay.date()}
-        </div>
-      );
-      
-      day.add(1, 'day');
-    }
-    
-    return days;
-  };
-
-  const selectedDateEvents = eventsData.filter(event => {
-    const eventDate = moment(event.date).startOf('day');
-    const selDate = selectedDate.clone().startOf('day');
-    return eventDate.isSame(selDate, 'day');
-  });
+  // Get events for the selected date
+  const selectedDateEvents = eventsData.filter(event => 
+    isSameDay(event.date, selectedDate)
+  );
 
   return (
     <StyledCalendarContainer theme={theme}>
@@ -255,7 +257,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
           Previous
         </button>
         <div className="calendar-month">
-          {currentDate.format('MMMM YYYY')}
+          {formatMonth(currentMonth)}
         </div>
         <button className="calendar-nav-button" onClick={nextMonth}>
           Next
@@ -263,26 +265,54 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
       </div>
       
       <div className="calendar-grid">
-        {renderCalendarDays()}
+        {/* Day headers */}
+        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
+          <div key={`header-${index}`} className="calendar-day-header">
+            {day}
+          </div>
+        ))}
+        
+        {/* Calendar days */}
+        {calendarDays.map((day, index) => {
+          const isCurrentMonth = day.getMonth() === currentMonth.getMonth();
+          const isToday = isSameDay(day, new Date());
+          const isSelected = isSameDay(day, selectedDate);
+          
+          // Check if this day has events
+          const dateKey = `${day.getFullYear()}-${day.getMonth()}-${day.getDate()}`;
+          const hasEvent = eventsByDate.has(dateKey);
+          
+          const className = `calendar-day ${isCurrentMonth ? '' : 'other-month'} ${
+            isToday ? 'today' : ''
+          } ${isSelected ? 'selected' : ''} ${hasEvent ? 'has-event' : ''}`;
+          
+          return (
+            <div
+              key={`day-${index}`}
+              className={className}
+              onClick={() => handleDateClick(day)}
+            >
+              {day.getDate()}
+            </div>
+          );
+        })}
       </div>
       
       <div className="event-list">
         <h3 style={{ fontFamily: theme.fonts.heading, color: theme.colors.secondary }}>
-          Events on {selectedDate.format('MMMM D, YYYY')}
+          Events on {formatDate(selectedDate)}
         </h3>
         {selectedDateEvents.length > 0 ? (
           selectedDateEvents.map((event, index) => (
-              <div key={index} className="event-item">
-                <div 
-                  className="event-link" 
-                  onClick={() => navigate(event.url)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {event.title}
-                </div>
+            <div key={index} className="event-item">
+              <div 
+                className="event-link" 
+                onClick={() => navigate(event.url)}
+              >
+                {event.title}
               </div>
-            )
-          )
+            </div>
+          ))
         ) : (
           <p>No events scheduled for this date.</p>
         )}

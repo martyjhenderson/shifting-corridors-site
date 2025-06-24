@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "shifting-corridors-lodge-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare worker for Shifting Corridors Lodge",
+  "main": "index.js",
+  "type": "module",
+  "author": "Shifting Corridors Lodge",
+  "license": "MIT",
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.0"
+  }
+}
