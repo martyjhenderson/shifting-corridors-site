@@ -29,6 +29,12 @@ export const getMarkdownFiles = async (directory: string): Promise<MarkdownConte
   try {
     console.log(`Fetching markdown files from directory: ${directory}`);
     
+    // Always use fallback data in production to avoid API issues
+    if (process.env.NODE_ENV === 'production') {
+      console.log(`Using fallback data for ${directory} in production environment`);
+      return getFallbackData(directory);
+    }
+    
     // Get a list of files in the directory
     const response = await fetch(`/api/files?directory=src/content/${directory}`);
     
