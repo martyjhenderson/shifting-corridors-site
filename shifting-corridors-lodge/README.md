@@ -21,7 +21,7 @@ This website centralizes information for players and game masters, providing a c
 
 ### Contact
 - Provides contact information for the lodge
-- Features the lodge email: lodge@shiftingcorridors.com
+- Features the lodge email: lodge@shiftingcorridor.com
 
 ### News
 - Displays news articles created in markdown

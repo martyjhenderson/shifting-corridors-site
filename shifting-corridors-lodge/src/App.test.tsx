@@ -23,7 +23,7 @@ jest.mock('./components/Contact', () => {
   const MockContact = () => (
     <div>
       <div>Contact Us</div>
-      <a href="mailto:lodge@shiftingcorridors.com">lodge@shiftingcorridors.com</a>
+      <a href="mailto:lodge@shiftingcorridor.com">lodge@shiftingcorridor.com</a>
     </div>
   );
   return MockContact;
@@ -103,7 +103,7 @@ describe('App Component', () => {
     );
     const contactElement = screen.getByText(/Contact Us/i);
     expect(contactElement).toBeInTheDocument();
-    const emailElement = screen.getByText(/lodge@shiftingcorridors.com/i);
+    const emailElement = screen.getByText(/lodge@shiftingcorridor.com/i);
     expect(emailElement).toBeInTheDocument();
   });
 });

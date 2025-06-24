@@ -51,8 +51,8 @@ const Contact: React.FC = () => {
       <div className="contact-info">
         <p>Have questions about our events or want to join our community?</p>
         <p>Reach out to us at:</p>
-        <a href="mailto:lodge@shiftingcorridors.com" className="contact-email">
-          lodge@shiftingcorridors.com
+        <a href="mailto:lodge@shiftingcorridor.com" className="contact-email">
+          lodge@shiftingcorridor.com
         </a>
       </div>
     </StyledContactContainer>
