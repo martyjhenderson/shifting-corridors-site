@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getMarkdownFiles, MarkdownContent } from '../utils/markdown/markdownUtils';
+import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
 
 // Note: This calendar component explicitly sets Sunday as the first day of the week
 // to ensure proper alignment between day headers and calendar days.

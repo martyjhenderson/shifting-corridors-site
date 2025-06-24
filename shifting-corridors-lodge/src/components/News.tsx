@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getMarkdownFiles, MarkdownContent } from '../utils/markdown/markdownUtils';
+import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
 
 interface NewsArticle {
   id: string;
