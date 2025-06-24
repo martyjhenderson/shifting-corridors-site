@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getMarkdownFiles, MarkdownContent } from '../utils/markdown/markdownUtils';
+import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
 
 interface EventDetailsProps {
   eventId?: string;
@@ -81,7 +81,6 @@ const EventDetails: React.FC<EventDetailsProps> = ({ eventId }) => {
   const navigate = useNavigate();
   const params = useParams<{ eventId: string }>();
   const [eventContent, setEventContent] = useState<string>('');
-  const [eventMeta, setEventMeta] = useState<any>({});
   const id = eventId || params.eventId;
 
   useEffect(() => {
@@ -105,19 +104,8 @@ const EventDetails: React.FC<EventDetailsProps> = ({ eventId }) => {
         
         if (event) {
           setEventContent(event.content);
-          setEventMeta({
-            title: event.meta.title,
-            date: new Date(event.meta.date).toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            }),
-            location: event.meta.location,
-            address: event.meta.address
-          });
         } else {
           setEventContent('# Event Not Found\n\nThe requested event could not be found.');
-          setEventMeta({});
         }
       } catch (error) {
         console.error('Error fetching event content:', error);

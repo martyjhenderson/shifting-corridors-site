@@ -1,0 +1,19 @@
+{
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/manifest.json", "dest": "/manifest.json" },
+    { "src": "/logo192.png", "dest": "/logo192.png" },
+    { "src": "/logo512.png", "dest": "/logo512.png" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "env": {
+    "NODE_OPTIONS": "--max-old-space-size=4096"
+  }
+}
