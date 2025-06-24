@@ -2,12 +2,15 @@
   "installCommand": "npm install --force",
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "build",
-  "framework": "remix",
+  "framework": "create-react-app",
   "routes": [
     { "handle": "filesystem" },
     { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/build/(.*)", "dest": "/build/$1" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/manifest.json", "dest": "/manifest.json" },
+    { "src": "/logo192.png", "dest": "/logo192.png" },
+    { "src": "/logo512.png", "dest": "/logo512.png" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
   "env": {
