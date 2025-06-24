@@ -27,11 +27,8 @@ export interface MarkdownContent {
  */
 export const getMarkdownFiles = async (directory: string): Promise<MarkdownContent[]> => {
   try {
-    console.log(`Fetching markdown files from directory: ${directory}`);
-    
     // Always use fallback data in production to avoid API issues
     if (process.env.NODE_ENV === 'production') {
-      console.log(`Using fallback data for ${directory} in production environment`);
       return getFallbackData(directory);
     }
     
@@ -39,16 +36,12 @@ export const getMarkdownFiles = async (directory: string): Promise<MarkdownConte
     const response = await fetch(`/api/files?directory=src/content/${directory}`);
     
     if (!response.ok) {
-      console.error(`Failed to fetch files from ${directory}:`, response.statusText);
-      console.log(`Falling back to hardcoded data for ${directory}`);
       return getFallbackData(directory);
     }
     
     const files = await response.json();
-    console.log(`Found ${files.length} files in ${directory}:`, files);
     
     if (!files || files.length === 0) {
-      console.log(`No files found in ${directory}, using fallback data`);
       return getFallbackData(directory);
     }
     
@@ -57,13 +50,9 @@ export const getMarkdownFiles = async (directory: string): Promise<MarkdownConte
       files.map((file: string) => parseMarkdownFile(`src/content/${directory}/${file}`))
     );
     
-    console.log(`Parsed ${markdownContents.length} markdown files from ${directory}`);
     return markdownContents;
   } catch (error) {
-    console.error(`Error fetching markdown files from ${directory}:`, error);
-    
     // Fallback to hardcoded data for demo purposes
-    console.log(`Using fallback data for ${directory} due to error`);
     return getFallbackData(directory);
   }
 };
@@ -75,15 +64,12 @@ export const getMarkdownFiles = async (directory: string): Promise<MarkdownConte
  */
 export const parseMarkdownFile = async (filePath: string): Promise<MarkdownContent> => {
   try {
-    console.log(`Parsing markdown file: ${filePath}`);
     // Fetch the file content
     const response = await fetch(`/api/file?path=${encodeURIComponent(filePath)}`);
     
     if (!response.ok) {
-      console.error(`Failed to fetch file ${filePath}:`, response.statusText);
       // For development/testing, try to extract the filename and check if we have fallback data
       const fileName = filePath.split('/').pop()?.replace(/\.md$/, '') || '';
-      console.log(`Attempting to find fallback data for: ${fileName}`);
       
       // Extract directory from filePath
       const directory = filePath.split('/').slice(-2, -1)[0];
@@ -91,7 +77,6 @@ export const parseMarkdownFile = async (filePath: string): Promise<MarkdownConte
       const matchingFallback = fallbackData.find(item => item.slug === fileName);
       
       if (matchingFallback) {
-        console.log(`Found fallback data for ${fileName}`);
         return matchingFallback;
       }
       
@@ -103,11 +88,9 @@ export const parseMarkdownFile = async (filePath: string): Promise<MarkdownConte
     }
     
     const fileContent = await response.text();
-    console.log(`File content received for ${filePath}`);
     
     // Parse the frontmatter and content
     const { data, content } = matter(fileContent);
-    console.log(`Parsed frontmatter for ${filePath}:`, data);
     
     // Extract the slug from the file path
     const slug = filePath.split('/').pop()?.replace(/\.md$/, '') || '';
@@ -118,7 +101,6 @@ export const parseMarkdownFile = async (filePath: string): Promise<MarkdownConte
       slug
     };
   } catch (error) {
-    console.error(`Error parsing markdown file ${filePath}:`, error);
     return {
       meta: { title: '', date: '' },
       content: '',

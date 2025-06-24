@@ -156,15 +156,12 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
             const day = parseInt(dateParts[2]);
             const eventDate = new Date(year, month, day, 12, 0, 0);
             
-            console.log(`Processing event: ${event.meta.title}, Date from meta: ${event.meta.date}, Parsed date: ${eventDate.toISOString()}, Day of week: ${eventDate.getDay()}`);
             return {
               date: eventDate,
               title: event.meta.title,
               url: event.meta.url || `/events/${event.slug}`,
             };
           });
-          
-          console.log('Calendar events:', calendarEvents);
           setEventsData(calendarEvents);
         } else {
           setEventsData(events);
@@ -186,7 +183,6 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
   };
 
   const handleDateClick = (date: moment.Moment) => {
-    console.log('Date clicked:', date.format('YYYY-MM-DD'));
     setSelectedDate(date);
   };
 
@@ -275,23 +271,18 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
           Events on {selectedDate.format('MMMM D, YYYY')}
         </h3>
         {selectedDateEvents.length > 0 ? (
-          selectedDateEvents.map((event, index) => {
-            console.log('Rendering event link:', event);
-            return (
+          selectedDateEvents.map((event, index) => (
               <div key={index} className="event-item">
                 <div 
                   className="event-link" 
-                  onClick={() => {
-                    console.log('Event clicked:', event);
-                    navigate(event.url);
-                  }}
+                  onClick={() => navigate(event.url)}
                   style={{ cursor: 'pointer' }}
                 >
                   {event.title}
                 </div>
               </div>
-            );
-          })
+            )
+          )
         ) : (
           <p>No events scheduled for this date.</p>
         )}
