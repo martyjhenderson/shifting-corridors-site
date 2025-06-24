@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "@remix-run/dev": "^2.8.1",
+    "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
+    "@remix-run/serve": "^2.8.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -31,12 +33,12 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "remix build",
     "test": "craco test",
     "eject": "react-scripts eject",
     "server": "node server.js",
     "dev": "concurrently \"npm run start\" \"npm run server\"",
-    "vercel-build": "craco build"
+    "vercel-build": "remix build"
   },
   "eslintConfig": {
     "extends": [

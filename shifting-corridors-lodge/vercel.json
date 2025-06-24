@@ -2,10 +2,13 @@
   "installCommand": "npm install --force",
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "build",
+  "framework": "remix",
   "routes": [
     { "handle": "filesystem" },
     { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/.*", "dest": "/index.html" }
+    { "src": "/build/(.*)", "dest": "/build/$1" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ],
   "env": {
     "NODE_OPTIONS": "--max-old-space-size=4096"
