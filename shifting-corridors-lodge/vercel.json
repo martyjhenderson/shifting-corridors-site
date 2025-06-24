@@ -1,9 +1,12 @@
 {
-  "framework": "create-react-app",
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run vercel-build",
   "outputDirectory": "build",
   "routes": [
     { "handle": "filesystem" },
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/.*", "dest": "/index.html" }
-  ]
+  ],
+  "env": {
+    "NODE_OPTIONS": "--max-old-space-size=4096"
+  }
 }
