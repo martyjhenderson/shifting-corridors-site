@@ -1,0 +1,28 @@
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add some basic styles for the app */
+body {
+  line-height: 1.6;
+}
+
+/* Custom calendar styles */
+.calendar-grid {
+  width: 100%;
+  font-family: inherit;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
