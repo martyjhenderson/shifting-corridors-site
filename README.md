@@ -85,5 +85,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Contact
 
 For questions or more information about the Shifting Corridors Lodge, please contact:
-- Email: lodge@shiftingcorridors.com
+- Email: lodge@shiftingcorridor.com
 - Website: [shiftingcorridor.com](https://shiftingcorridor.com)
