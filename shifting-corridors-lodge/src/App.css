@@ -356,6 +356,8 @@ body {
   .calendar-nav-button {
     padding: 6px 10px;
     font-size: 1rem;
+    min-height: 44px; /* Touch-friendly minimum */
+    min-width: 44px;
   }
   
   .calendar-month {
@@ -366,11 +368,44 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+    min-height: 44px; /* Touch-friendly minimum */
+    padding: 12px 15px;
   }
   
   .event-date-compact {
     min-width: auto;
     text-align: left;
+  }
+  
+  /* Touch-friendly calendar days */
+  .calendar-day {
+    min-height: 44px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  
+  /* Larger touch targets for event items */
+  .event-item {
+    min-height: 44px;
+    padding: 12px 15px;
+    touch-action: manipulation;
+  }
+}
+
+/* Tablet responsive adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .sidebar {
+    flex-direction: row;
+    gap: 30px;
+  }
+  
+  .sidebar > * {
+    flex: 1;
   }
 }/* Con
 tact component styles */

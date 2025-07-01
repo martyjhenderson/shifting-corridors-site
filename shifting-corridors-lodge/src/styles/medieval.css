@@ -6,6 +6,11 @@
   --color-background: #F5E6D3;
   --color-text: #2F1B14;
   --color-accent: #CD853F;
+  --color-primary-rgb: 139, 69, 19;
+  --color-secondary-rgb: 210, 105, 30;
+  --color-background-rgb: 245, 230, 211;
+  --color-text-rgb: 47, 27, 20;
+  --color-accent-rgb: 205, 133, 63;
   --font-heading: 'Cinzel', serif;
   --font-body: 'Crimson Text', serif;
   

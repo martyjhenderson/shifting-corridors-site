@@ -6,6 +6,11 @@
   --color-background: #0F0F23;
   --color-text: #E0E0E0;
   --color-accent: #FF6347;
+  --color-primary-rgb: 0, 206, 209;
+  --color-secondary-rgb: 65, 105, 225;
+  --color-background-rgb: 15, 15, 35;
+  --color-text-rgb: 224, 224, 224;
+  --color-accent-rgb: 255, 99, 71;
   --font-heading: 'Orbitron', sans-serif;
   --font-body: 'Exo 2', sans-serif;
   
@@ -557,33 +562,254 @@
   letter-spacing: 0.5px;
 }
 
-/* Mobile Responsiveness */
+/* EventDetails Component Styles */
+.theme-sci-fi .event-details-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.theme-sci-fi .event-details-header {
+  margin-bottom: 24px;
+}
+
+.theme-sci-fi .event-details-loading,
+.theme-sci-fi .event-details-error {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--color-text);
+}
+
+.theme-sci-fi .event-details-error h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-sci-fi .event-details-content {
+  line-height: 1.7;
+}
+
+.theme-sci-fi .event-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.theme-sci-fi .event-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 20px 0;
+  font-size: 2.2em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.theme-sci-fi .event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theme-sci-fi .event-date-time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.theme-sci-fi .event-date {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-sci-fi .event-time {
+  color: var(--color-secondary);
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.theme-sci-fi .event-game-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.theme-sci-fi .event-description {
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(0, 206, 209, 0.1);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 4px 4px 0;
+}
+
+.theme-sci-fi .event-description p {
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.theme-sci-fi .event-content {
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.theme-sci-fi .content-heading-1,
+.theme-sci-fi .content-heading-2,
+.theme-sci-fi .content-heading-3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-top: 32px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-sci-fi .content-heading-1 {
+  font-size: 1.8em;
+}
+
+.theme-sci-fi .content-heading-2 {
+  font-size: 1.5em;
+}
+
+.theme-sci-fi .content-heading-3 {
+  font-size: 1.3em;
+}
+
+.theme-sci-fi .content-paragraph {
+  margin-bottom: 16px;
+  color: var(--color-text);
+}
+
+.theme-sci-fi .content-list {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.theme-sci-fi .content-list-item {
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.theme-sci-fi .content-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.theme-sci-fi .content-link:hover {
+  color: var(--color-accent);
+}
+
+.theme-sci-fi .content-strong {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.theme-sci-fi .content-emphasis {
+  color: var(--color-secondary);
+  font-style: italic;
+}
+
+.theme-sci-fi .content-blockquote {
+  margin: 20px 0;
+  padding: 16px 20px;
+  background: rgba(0, 206, 209, 0.1);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+}
+
+.theme-sci-fi .content-code {
+  background: rgba(0, 206, 209, 0.1);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.theme-sci-fi .content-pre {
+  background: rgba(0, 206, 209, 0.1);
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.theme-sci-fi .content-pre code {
+  background: none;
+  padding: 0;
+}
+
+/* EventDetails Mobile Styles */
 @media (max-width: 768px) {
-  .theme-sci-fi .upcoming-events-container {
-    margin: 8px 0;
+  .theme-sci-fi .event-details-container {
+    margin: 0 16px;
     padding: 16px;
   }
   
-  .theme-sci-fi .upcoming-event-item {
-    flex-direction: column;
-    gap: 8px;
+  .theme-sci-fi .event-title {
+    font-size: 1.8em;
+  }
+  
+  .theme-sci-fi .event-content {
+    font-size: 1em;
+  }
+  
+  .theme-sci-fi .back-button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+
+  .theme-sci-fi .event-game-info {
+    gap: 12px;
+  }
+
+  .theme-sci-fi .event-description {
+    padding: 16px;
+    margin: 16px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-sci-fi .event-details-container {
+    margin: 0 8px;
     padding: 12px;
   }
   
-  .theme-sci-fi .event-priority-indicator,
-  .theme-sci-fi .event-date-info {
-    min-width: auto;
-    text-align: left;
+  .theme-sci-fi .event-title {
+    font-size: 1.6em;
   }
   
-  .theme-sci-fi .event-action-indicator {
-    flex-direction: row;
-    justify-content: space-between;
-    min-width: auto;
-    width: 100%;
+  .theme-sci-fi .event-date {
+    font-size: 1.1em;
   }
-  
-  .theme-sci-fi .event-meta {
+
+  .theme-sci-fi .event-game-info {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
+  }
+
+  .theme-sci-fi .content-heading-1 {
+    font-size: 1.5em;
+  }
+
+  .theme-sci-fi .content-heading-2 {
+    font-size: 1.3em;
+  }
+
+  .theme-sci-fi .content-heading-3 {
+    font-size: 1.2em;
   }
 }

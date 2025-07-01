@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from '../utils/ThemeContext';
-import { themes } from '../styles/themes';
+import { themeClasses } from '../styles/themes';
 import News from '../components/News';
 import { NewsArticle } from '../types';
 import { contentLoader } from '../services/contentLoader';

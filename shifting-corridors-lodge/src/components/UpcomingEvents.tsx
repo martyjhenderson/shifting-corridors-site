@@ -96,6 +96,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events, maxEvents }) =>
                 handleEventClick(event);
               }
             }}
+            style={{ minHeight: '44px', touchAction: 'manipulation' }}
           >
             <div className="event-priority-indicator">
               {index === 0 && <span className="next-event-badge">Next</span>}

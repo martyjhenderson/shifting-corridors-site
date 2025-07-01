@@ -104,8 +104,8 @@ export interface CalendarProps {
 }
 
 export interface GameMastersProps {
-  gamemasters: GameMaster[];
-  onGameMasterSelect: (gm: GameMaster) => void;
+  gamemasters?: GameMaster[];
+  onGameMasterSelect?: (gm: GameMaster) => void;
 }
 
 export interface NewsProps {

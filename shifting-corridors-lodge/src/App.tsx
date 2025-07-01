@@ -11,6 +11,7 @@ import ThemeSelector from './components/ThemeSelector';
 import './App.css';
 import './styles/medieval.css';
 import './styles/sci-fi.css';
+import './styles/mobile.css';
 
 // Import Google Fonts
 const fontLink = document.createElement('link');

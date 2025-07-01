@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../utils/ThemeContext';
 import { contentLoader } from '../services/contentLoader';
@@ -13,6 +13,11 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
   const [eventsData, setEventsData] = useState<CalendarEvent[]>(events);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  
+  // Touch/swipe handling
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   // Load events from content loader if not provided via props
   useEffect(() => {
@@ -104,14 +109,41 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
     setSelectedDate(null);
   };
 
+  // Touch event handlers for swipe navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartX.current || !touchStartY.current) return;
+
+    const touch = e.changedTouches[0];
+    const deltaX = touch.clientX - touchStartX.current;
+    const deltaY = touch.clientY - touchStartY.current;
+    
+    // Only trigger swipe if horizontal movement is greater than vertical
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      if (deltaX > 0) {
+        // Swipe right - go to previous month
+        navigateMonth('prev');
+      } else {
+        // Swipe left - go to next month
+        navigateMonth('next');
+      }
+    }
+    
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   const renderCalendarGrid = () => {
-    const monthEvents = getEventsForMonth(currentMonth);
     const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
-    const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
     const startDate = new Date(firstDay);
     startDate.setDate(startDate.getDate() - firstDay.getDay());
 
-    const days = [];
+    const days: React.ReactElement[] = [];
     const today = new Date();
     
     // Generate 6 weeks of days
@@ -213,7 +245,12 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
           ))}
         </div>
         
-        <div className="calendar-grid">
+        <div 
+          className="calendar-grid"
+          ref={calendarRef}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {renderCalendarGrid()}
         </div>
       </div>

@@ -7,7 +7,7 @@ import { analyticsService } from '../services/analyticsService';
 const GameMasters: React.FC<GameMastersProps> = ({ 
   gamemasters, 
   onGameMasterSelect 
-}) => {
+} = {}) => {
   const { currentTheme } = useTheme();
   const [localGameMasters, setLocalGameMasters] = useState<GameMaster[]>([]);
   const [selectedGM, setSelectedGM] = useState<GameMaster | null>(null);
