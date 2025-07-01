@@ -1,5 +1,30 @@
 import matter from 'gray-matter';
-import { CalendarEvent, GameMaster, NewsArticle, MarkdownContent, ContentLoader } from '../types';
+import { 
+  CalendarEvent, 
+  GameMaster, 
+  NewsArticle, 
+  MarkdownContent, 
+  ContentLoader,
+  ContentError
+} from '../types';
+import { 
+  validateEventFrontmatter,
+  validateGameMasterFrontmatter,
+  validateNewsFrontmatter,
+  validateCalendarEvent,
+  validateGameMaster,
+  validateNewsArticle,
+  sanitizeContent,
+  extractExcerpt,
+  parseDate
+} from '../utils/validation';
+import { 
+  getFallbackEvents,
+  getFallbackGameMasters,
+  getFallbackNews,
+  mergeWithFallback,
+  getErrorFallbackContent
+} from '../utils/fallbackContent';
 
 // Static content data extracted from markdown files
 // This approach ensures the content is available at build time for static deployment
@@ -212,26 +237,43 @@ Stay tuned for more updates and events!`
 
 /**
  * Content loading service that handles markdown file parsing and content transformation
+ * with comprehensive error handling and fallback mechanisms
  */
 class ContentLoaderService implements ContentLoader {
   private contentCache: Map<string, any> = new Map();
   private cacheExpiry: Map<string, number> = new Map();
+  private errorCache: Map<string, ContentError> = new Map();
   private readonly CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+  private readonly MAX_RETRIES = 3;
+  private readonly RETRY_DELAY = 1000; // 1 second
 
   /**
-   * Parse a markdown file content
+   * Parse a markdown file content with comprehensive error handling
    */
   async parseMarkdownFile(filePath: string): Promise<MarkdownContent> {
     try {
       // For static builds, we don't actually fetch files by path
       // This method is kept for interface compatibility
       const { data, content } = matter('');
+      
+      // Validate and sanitize content
+      const sanitizedContent = sanitizeContent(content || '');
+      
       return {
-        frontmatter: data,
-        content
+        frontmatter: data || {},
+        content: sanitizedContent
       };
     } catch (error) {
-      console.error(`Error parsing markdown file ${filePath}:`, error);
+      const contentError: ContentError = {
+        type: 'parsing',
+        message: `Failed to parse markdown file: ${filePath}`,
+        details: error,
+        timestamp: new Date(),
+        retryable: false
+      };
+      
+      this.logError('parseMarkdownFile', contentError);
+      
       return {
         frontmatter: {},
         content: ''
@@ -240,33 +282,54 @@ class ContentLoaderService implements ContentLoader {
   }
 
   /**
-   * Parse markdown content string
+   * Parse markdown content string with validation and error handling
    */
   private parseMarkdownContent(markdownContent: string, fileName: string): MarkdownContent {
     try {
+      if (!markdownContent || typeof markdownContent !== 'string') {
+        throw new Error('Invalid markdown content');
+      }
+
       const parsed = matter(markdownContent);
       if (!parsed) {
         throw new Error('Failed to parse markdown');
       }
+      
+      // Sanitize content
+      const sanitizedContent = sanitizeContent(parsed.content || '');
       
       return {
         frontmatter: {
           ...parsed.data,
           id: fileName.replace('.md', '')
         },
-        content: parsed.content || ''
+        content: sanitizedContent
       };
     } catch (error) {
-      console.error(`Error parsing markdown content for ${fileName}:`, error);
+      const contentError: ContentError = {
+        type: 'parsing',
+        message: `Failed to parse markdown content for ${fileName}`,
+        details: error,
+        timestamp: new Date(),
+        retryable: false
+      };
+      
+      this.logError('parseMarkdownContent', contentError);
+      
+      // Return minimal valid structure
       return {
-        frontmatter: { id: fileName.replace('.md', '') },
-        content: markdownContent || ''
+        frontmatter: { 
+          id: fileName.replace('.md', ''),
+          title: 'Content Loading Error',
+          date: new Date().toISOString()
+        },
+        content: 'Content could not be loaded. Please try again later.'
       };
     }
   }
 
   /**
-   * Load calendar events from markdown files
+   * Load calendar events from markdown files with comprehensive error handling
    */
   async loadCalendarEvents(): Promise<CalendarEvent[]> {
     const cacheKey = 'calendar-events';
@@ -278,41 +341,101 @@ class ContentLoaderService implements ContentLoader {
 
     try {
       const events: CalendarEvent[] = [];
+      const errors: ContentError[] = [];
 
       for (const file of STATIC_CONTENT.calendar) {
-        const parsed = this.parseMarkdownContent(file.content, file.filename);
-        
-        // Transform markdown content to CalendarEvent
-        const event: CalendarEvent = {
-          id: parsed.frontmatter.id || file.filename.replace('.md', ''),
-          title: parsed.frontmatter.title || 'Untitled Event',
-          date: this.parseDate(parsed.frontmatter.date),
-          description: this.extractDescription(parsed.content),
-          content: parsed.content,
-          gamemaster: parsed.frontmatter.gamemaster,
-          gameType: this.determineGameType(parsed.frontmatter.title || '', parsed.content),
-          maxPlayers: parsed.frontmatter.maxPlayers
-        };
+        try {
+          const parsed = this.parseMarkdownContent(file.content, file.filename);
+          
+          // Validate frontmatter
+          const { result: validationResult, validated } = validateEventFrontmatter(parsed.frontmatter);
+          
+          if (!validationResult.isValid) {
+            errors.push({
+              type: 'validation',
+              message: `Event validation failed for ${file.filename}: ${validationResult.errors.join(', ')}`,
+              details: { errors: validationResult.errors, warnings: validationResult.warnings },
+              timestamp: new Date(),
+              retryable: false
+            });
+          }
 
-        events.push(event);
+          // Log warnings
+          if (validationResult.warnings.length > 0) {
+            console.warn(`Event warnings for ${file.filename}:`, validationResult.warnings);
+          }
+          
+          // Transform markdown content to CalendarEvent with validated data
+          const event: CalendarEvent = {
+            id: validated.id || file.filename.replace('.md', ''),
+            title: validated.title || 'Untitled Event',
+            date: validated.date instanceof Date ? validated.date : parseDate(validated.date),
+            description: this.extractDescription(parsed.content),
+            content: parsed.content,
+            gamemaster: validated.gamemaster,
+            gameType: validated.gameType || this.determineGameType(validated.title || '', parsed.content) || 'Pathfinder',
+            maxPlayers: validated.maxPlayers
+          };
+
+          // Final validation of the complete event object
+          const eventValidation = validateCalendarEvent(event);
+          if (eventValidation.isValid) {
+            events.push(event);
+          } else {
+            errors.push({
+              type: 'validation',
+              message: `Complete event validation failed for ${file.filename}`,
+              details: eventValidation,
+              timestamp: new Date(),
+              retryable: false
+            });
+          }
+
+        } catch (fileError) {
+          errors.push({
+            type: 'parsing',
+            message: `Failed to process event file ${file.filename}`,
+            details: fileError,
+            timestamp: new Date(),
+            retryable: true
+          });
+        }
+      }
+
+      // Log errors but don't fail completely
+      if (errors.length > 0) {
+        errors.forEach(error => this.logError('loadCalendarEvents', error));
       }
 
       // Sort events by date
       events.sort((a, b) => a.date.getTime() - b.date.getTime());
 
+      // If we have some events, use them; otherwise use fallback
+      const finalEvents = events.length > 0 
+        ? mergeWithFallback(events, getFallbackEvents())
+        : getFallbackEvents();
+
       // Cache the results
-      this.contentCache.set(cacheKey, events);
+      this.contentCache.set(cacheKey, finalEvents);
       this.cacheExpiry.set(cacheKey, Date.now() + this.CACHE_DURATION);
 
-      return events;
+      return finalEvents;
     } catch (error) {
-      console.error('Error loading calendar events:', error);
-      return this.getFallbackCalendarEvents();
+      const contentError: ContentError = {
+        type: 'unknown',
+        message: 'Critical error loading calendar events',
+        details: error,
+        timestamp: new Date(),
+        retryable: true
+      };
+      
+      this.logError('loadCalendarEvents', contentError);
+      return getFallbackEvents();
     }
   }
 
   /**
-   * Load game masters from markdown files
+   * Load game masters from markdown files with comprehensive error handling
    */
   async loadGameMasters(): Promise<GameMaster[]> {
     const cacheKey = 'game-masters';
@@ -324,39 +447,99 @@ class ContentLoaderService implements ContentLoader {
 
     try {
       const gameMasters: GameMaster[] = [];
+      const errors: ContentError[] = [];
 
       for (const file of STATIC_CONTENT.gamemasters) {
-        const parsed = this.parseMarkdownContent(file.content, file.filename);
-        
-        // Transform markdown content to GameMaster
-        const gameMaster: GameMaster = {
-          id: parsed.frontmatter.id || file.filename.replace('.md', ''),
-          name: this.formatGameMasterName(parsed.frontmatter.firstName, parsed.frontmatter.lastInitial),
-          organizedPlayId: String(parsed.frontmatter.organizedPlayNumber || ''),
-          games: this.parseGames(parsed.frontmatter.games),
-          bio: parsed.content.trim(),
-          avatar: parsed.frontmatter.avatar
-        };
+        try {
+          const parsed = this.parseMarkdownContent(file.content, file.filename);
+          
+          // Validate frontmatter
+          const { result: validationResult, validated } = validateGameMasterFrontmatter(parsed.frontmatter);
+          
+          if (!validationResult.isValid) {
+            errors.push({
+              type: 'validation',
+              message: `Game master validation failed for ${file.filename}: ${validationResult.errors.join(', ')}`,
+              details: { errors: validationResult.errors, warnings: validationResult.warnings },
+              timestamp: new Date(),
+              retryable: false
+            });
+          }
 
-        gameMasters.push(gameMaster);
+          // Log warnings
+          if (validationResult.warnings.length > 0) {
+            console.warn(`Game master warnings for ${file.filename}:`, validationResult.warnings);
+          }
+          
+          // Transform markdown content to GameMaster with validated data
+          const gameMaster: GameMaster = {
+            id: validated.id || file.filename.replace('.md', ''),
+            name: this.formatGameMasterName(validated.firstName, validated.lastInitial),
+            organizedPlayId: String(validated.organizedPlayNumber || '00000'),
+            games: validated.games || ['Pathfinder'],
+            bio: sanitizeContent(parsed.content.trim()),
+            avatar: validated.avatar
+          };
+
+          // Final validation of the complete game master object
+          const gmValidation = validateGameMaster(gameMaster);
+          if (gmValidation.isValid) {
+            gameMasters.push(gameMaster);
+          } else {
+            errors.push({
+              type: 'validation',
+              message: `Complete game master validation failed for ${file.filename}`,
+              details: gmValidation,
+              timestamp: new Date(),
+              retryable: false
+            });
+          }
+
+        } catch (fileError) {
+          errors.push({
+            type: 'parsing',
+            message: `Failed to process game master file ${file.filename}`,
+            details: fileError,
+            timestamp: new Date(),
+            retryable: true
+          });
+        }
+      }
+
+      // Log errors but don't fail completely
+      if (errors.length > 0) {
+        errors.forEach(error => this.logError('loadGameMasters', error));
       }
 
       // Sort by name
       gameMasters.sort((a, b) => a.name.localeCompare(b.name));
 
+      // If we have some game masters, use them; otherwise use fallback
+      const finalGameMasters = gameMasters.length > 0 
+        ? mergeWithFallback(gameMasters, getFallbackGameMasters())
+        : getFallbackGameMasters();
+
       // Cache the results
-      this.contentCache.set(cacheKey, gameMasters);
+      this.contentCache.set(cacheKey, finalGameMasters);
       this.cacheExpiry.set(cacheKey, Date.now() + this.CACHE_DURATION);
 
-      return gameMasters;
+      return finalGameMasters;
     } catch (error) {
-      console.error('Error loading game masters:', error);
-      return this.getFallbackGameMasters();
+      const contentError: ContentError = {
+        type: 'unknown',
+        message: 'Critical error loading game masters',
+        details: error,
+        timestamp: new Date(),
+        retryable: true
+      };
+      
+      this.logError('loadGameMasters', contentError);
+      return getFallbackGameMasters();
     }
   }
 
   /**
-   * Load news articles from markdown files
+   * Load news articles from markdown files with comprehensive error handling
    */
   async loadNewsArticles(): Promise<NewsArticle[]> {
     const cacheKey = 'news-articles';
@@ -368,34 +551,94 @@ class ContentLoaderService implements ContentLoader {
 
     try {
       const articles: NewsArticle[] = [];
+      const errors: ContentError[] = [];
 
       for (const file of STATIC_CONTENT.news) {
-        const parsed = this.parseMarkdownContent(file.content, file.filename);
-        
-        // Transform markdown content to NewsArticle
-        const article: NewsArticle = {
-          id: parsed.frontmatter.id || file.filename.replace('.md', ''),
-          title: parsed.frontmatter.title || 'Untitled Article',
-          date: this.parseDate(parsed.frontmatter.date),
-          excerpt: parsed.frontmatter.excerpt || this.extractExcerpt(parsed.content),
-          content: parsed.content,
-          author: parsed.frontmatter.author
-        };
+        try {
+          const parsed = this.parseMarkdownContent(file.content, file.filename);
+          
+          // Validate frontmatter
+          const { result: validationResult, validated } = validateNewsFrontmatter(parsed.frontmatter);
+          
+          if (!validationResult.isValid) {
+            errors.push({
+              type: 'validation',
+              message: `News article validation failed for ${file.filename}: ${validationResult.errors.join(', ')}`,
+              details: { errors: validationResult.errors, warnings: validationResult.warnings },
+              timestamp: new Date(),
+              retryable: false
+            });
+          }
 
-        articles.push(article);
+          // Log warnings
+          if (validationResult.warnings.length > 0) {
+            console.warn(`News article warnings for ${file.filename}:`, validationResult.warnings);
+          }
+          
+          // Transform markdown content to NewsArticle with validated data
+          const article: NewsArticle = {
+            id: validated.id || file.filename.replace('.md', ''),
+            title: validated.title || 'Untitled Article',
+            date: validated.date instanceof Date ? validated.date : parseDate(validated.date),
+            excerpt: validated.excerpt || extractExcerpt(parsed.content),
+            content: sanitizeContent(parsed.content),
+            author: validated.author
+          };
+
+          // Final validation of the complete article object
+          const articleValidation = validateNewsArticle(article);
+          if (articleValidation.isValid) {
+            articles.push(article);
+          } else {
+            errors.push({
+              type: 'validation',
+              message: `Complete news article validation failed for ${file.filename}`,
+              details: articleValidation,
+              timestamp: new Date(),
+              retryable: false
+            });
+          }
+
+        } catch (fileError) {
+          errors.push({
+            type: 'parsing',
+            message: `Failed to process news file ${file.filename}`,
+            details: fileError,
+            timestamp: new Date(),
+            retryable: true
+          });
+        }
+      }
+
+      // Log errors but don't fail completely
+      if (errors.length > 0) {
+        errors.forEach(error => this.logError('loadNewsArticles', error));
       }
 
       // Sort by date (newest first)
       articles.sort((a, b) => b.date.getTime() - a.date.getTime());
 
+      // If we have some articles, use them; otherwise use fallback
+      const finalArticles = articles.length > 0 
+        ? mergeWithFallback(articles, getFallbackNews())
+        : getFallbackNews();
+
       // Cache the results
-      this.contentCache.set(cacheKey, articles);
+      this.contentCache.set(cacheKey, finalArticles);
       this.cacheExpiry.set(cacheKey, Date.now() + this.CACHE_DURATION);
 
-      return articles;
+      return finalArticles;
     } catch (error) {
-      console.error('Error loading news articles:', error);
-      return this.getFallbackNewsArticles();
+      const contentError: ContentError = {
+        type: 'unknown',
+        message: 'Critical error loading news articles',
+        details: error,
+        timestamp: new Date(),
+        retryable: true
+      };
+      
+      this.logError('loadNewsArticles', contentError);
+      return getFallbackNews();
     }
   }
 
@@ -406,40 +649,8 @@ class ContentLoaderService implements ContentLoader {
     return expiry ? Date.now() < expiry : false;
   }
 
-  private parseDate(dateString: any): Date {
-    if (!dateString) return new Date();
-    
-    // Handle various date formats
-    if (typeof dateString === 'string') {
-      // Try parsing ISO format first
-      const isoDate = new Date(dateString);
-      if (!isNaN(isoDate.getTime())) {
-        return isoDate;
-      }
-    }
-    
-    return new Date(dateString);
-  }
-
   private extractDescription(content: string): string {
-    // Extract first paragraph or first 200 characters
-    const lines = content.split('\n').filter(line => line.trim() && !line.startsWith('#'));
-    const firstParagraph = lines[0] || '';
-    return firstParagraph.length > 200 
-      ? firstParagraph.substring(0, 200) + '...'
-      : firstParagraph;
-  }
-
-  private extractExcerpt(content: string): string {
-    // Extract first 150 characters of meaningful content
-    const cleanContent = content
-      .replace(/^#.*$/gm, '') // Remove headers
-      .replace(/\n\s*\n/g, '\n') // Remove extra newlines
-      .trim();
-    
-    return cleanContent.length > 150 
-      ? cleanContent.substring(0, 150) + '...'
-      : cleanContent;
+    return extractExcerpt(content, 200);
   }
 
   private determineGameType(title: string, content: string): 'Pathfinder' | 'Starfinder' | 'Legacy' {
@@ -467,43 +678,78 @@ class ContentLoaderService implements ContentLoader {
     return [];
   }
 
-  // Fallback data methods for error handling
+  // Error handling and logging methods
 
-  private getFallbackCalendarEvents(): CalendarEvent[] {
-    return [
-      {
-        id: 'fallback-event',
-        title: 'Gaming Event',
-        date: new Date(),
-        description: 'Check back later for event details.',
-        content: 'Event information will be available soon.',
-        gameType: 'Pathfinder'
-      }
-    ];
+  private logError(context: string, error: ContentError): void {
+    console.error(`[ContentLoader:${context}] ${error.type.toUpperCase()}: ${error.message}`, {
+      details: error.details,
+      timestamp: error.timestamp,
+      retryable: error.retryable
+    });
+    
+    // Store error for potential retry logic
+    this.errorCache.set(`${context}-${error.timestamp.getTime()}`, error);
+    
+    // Clean up old errors (keep only last 10)
+    if (this.errorCache.size > 10) {
+      const oldestKey = Array.from(this.errorCache.keys())[0];
+      this.errorCache.delete(oldestKey);
+    }
   }
 
-  private getFallbackGameMasters(): GameMaster[] {
-    return [
-      {
-        id: 'fallback-gm',
-        name: 'Game Master',
-        organizedPlayId: '00000',
-        games: ['Pathfinder'],
-        bio: 'Game Master information will be available soon.'
-      }
-    ];
+  /**
+   * Get recent errors for debugging
+   */
+  getRecentErrors(): ContentError[] {
+    return Array.from(this.errorCache.values())
+      .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
+      .slice(0, 5);
   }
 
-  private getFallbackNewsArticles(): NewsArticle[] {
-    return [
-      {
-        id: 'fallback-news',
-        title: 'Welcome to Shifting Corridors Lodge',
-        date: new Date(),
-        excerpt: 'Stay tuned for news and updates.',
-        content: 'News and updates will be posted here.'
+  /**
+   * Check if the system is likely offline
+   */
+  private async checkConnectivity(): Promise<boolean> {
+    try {
+      // Try to fetch a small resource to check connectivity
+      const response = await fetch('/favicon.ico', { 
+        method: 'HEAD',
+        cache: 'no-cache',
+        signal: AbortSignal.timeout(5000)
+      });
+      return response.ok;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
+   * Retry failed operations with exponential backoff
+   */
+  private async retryOperation<T>(
+    operation: () => Promise<T>,
+    maxRetries: number = this.MAX_RETRIES,
+    delay: number = this.RETRY_DELAY
+  ): Promise<T> {
+    let lastError: Error;
+    
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        return await operation();
+      } catch (error) {
+        lastError = error instanceof Error ? error : new Error(String(error));
+        
+        if (attempt === maxRetries) {
+          throw lastError;
+        }
+        
+        // Exponential backoff
+        const waitTime = delay * Math.pow(2, attempt - 1);
+        await new Promise(resolve => setTimeout(resolve, waitTime));
       }
-    ];
+    }
+    
+    throw lastError!;
   }
 
   /**
@@ -512,6 +758,28 @@ class ContentLoaderService implements ContentLoader {
   clearCache(): void {
     this.contentCache.clear();
     this.cacheExpiry.clear();
+  }
+
+  /**
+   * Clear error cache
+   */
+  clearErrors(): void {
+    this.errorCache.clear();
+  }
+
+  /**
+   * Get cache statistics for debugging
+   */
+  getCacheStats(): {
+    contentCacheSize: number;
+    errorCacheSize: number;
+    cachedKeys: string[];
+  } {
+    return {
+      contentCacheSize: this.contentCache.size,
+      errorCacheSize: this.errorCache.size,
+      cachedKeys: Array.from(this.contentCache.keys())
+    };
   }
 }
 

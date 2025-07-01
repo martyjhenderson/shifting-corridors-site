@@ -60,6 +60,8 @@ describe('ContentLoader Integration Tests', () => {
     const gameMasters = await contentLoader.loadGameMasters();
     const articles = await contentLoader.loadNewsArticles();
 
+
+
     // Check for expected content
     expect(events.some(e => e.title.includes('Pathfinder'))).toBe(true);
     expect(events.some(e => e.title.includes('Starfinder'))).toBe(true);

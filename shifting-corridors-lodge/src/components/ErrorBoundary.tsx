@@ -57,20 +57,88 @@ const DefaultErrorFallback: React.FC<{ error?: Error }> = ({ error }) => {
     window.location.reload();
   };
 
+  const handleReportError = () => {
+    // In a real app, this would send error reports to a service
+    console.log('Error reported:', error);
+    alert('Error report sent. Thank you for helping us improve!');
+  };
+
+  const getErrorType = (error?: Error): string => {
+    if (!error) return 'unknown';
+    
+    if (error.message.includes('network') || error.message.includes('fetch')) {
+      return 'network';
+    }
+    if (error.message.includes('parse') || error.message.includes('JSON')) {
+      return 'parsing';
+    }
+    if (error.name === 'ChunkLoadError') {
+      return 'chunk-load';
+    }
+    return 'application';
+  };
+
+  const getErrorMessage = (errorType: string): string => {
+    switch (errorType) {
+      case 'network':
+        return 'We\'re having trouble connecting to our servers. Please check your internet connection and try again.';
+      case 'parsing':
+        return 'We encountered an issue processing the content. This is usually temporary.';
+      case 'chunk-load':
+        return 'Failed to load part of the application. This often happens after updates.';
+      default:
+        return 'We encountered an unexpected error. Please try refreshing the page.';
+    }
+  };
+
+  const errorType = getErrorType(error);
+  const errorMessage = getErrorMessage(errorType);
+
   return (
     <div className={`error-boundary-fallback ${currentTheme.components.panel}`}>
       <div className="error-content">
-        <h2 className="error-title">Something went wrong</h2>
-        <p className="error-message">
-          We encountered an unexpected error. Please try refreshing the page.
-        </p>
+        <h2 className="error-title">Oops! Something went wrong</h2>
+        <p className="error-message">{errorMessage}</p>
+        
+        {errorType === 'network' && (
+          <div className="error-suggestions">
+            <h3>Try these steps:</h3>
+            <ul>
+              <li>Check your internet connection</li>
+              <li>Disable any ad blockers temporarily</li>
+              <li>Try refreshing the page</li>
+              <li>Wait a moment and try again</li>
+            </ul>
+          </div>
+        )}
+
+        {errorType === 'chunk-load' && (
+          <div className="error-suggestions">
+            <h3>This usually fixes the issue:</h3>
+            <ul>
+              <li>Refresh the page (the app may have been updated)</li>
+              <li>Clear your browser cache</li>
+              <li>Try opening the site in a new tab</li>
+            </ul>
+          </div>
+        )}
         
         {error && process.env.NODE_ENV === 'development' && (
           <details className="error-details">
             <summary>Error Details (Development)</summary>
             <pre className="error-stack">
-              {error.message}
-              {error.stack && `\n\n${error.stack}`}
+              <strong>Error Type:</strong> {errorType}
+              <br />
+              <strong>Message:</strong> {error.message}
+              {error.stack && (
+                <>
+                  <br />
+                  <br />
+                  <strong>Stack Trace:</strong>
+                  <br />
+                  {error.stack}
+                </>
+              )}
             </pre>
           </details>
         )}
@@ -82,6 +150,16 @@ const DefaultErrorFallback: React.FC<{ error?: Error }> = ({ error }) => {
           >
             Refresh Page
           </button>
+          
+          {process.env.NODE_ENV === 'production' && (
+            <button 
+              onClick={handleReportError}
+              className={`report-button ${currentTheme.components.button}`}
+              style={{ marginLeft: '10px' }}
+            >
+              Report Issue
+            </button>
+          )}
         </div>
       </div>
     </div>

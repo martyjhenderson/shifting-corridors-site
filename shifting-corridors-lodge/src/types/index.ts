@@ -41,6 +41,9 @@ export interface ContentState {
   loading: boolean;
   error: string | null;
   lastUpdated: Date;
+  retryCount: number;
+  isOffline: boolean;
+  hasPartialData: boolean;
 }
 
 export interface ContentActions {
@@ -48,6 +51,8 @@ export interface ContentActions {
   refreshContent: () => Promise<void>;
   selectEvent: (eventId: string) => void;
   selectGameMaster: (gmId: string) => void;
+  retryLoad: () => Promise<void>;
+  clearError: () => void;
 }
 
 // Theme system interfaces
@@ -136,4 +141,55 @@ export interface ContentLoader {
   loadGameMasters(): Promise<GameMaster[]>;
   loadNewsArticles(): Promise<NewsArticle[]>;
   parseMarkdownFile(path: string): Promise<MarkdownContent>;
+}
+
+// Error handling types
+export interface ContentError {
+  type: 'network' | 'parsing' | 'validation' | 'unknown';
+  message: string;
+  details?: any;
+  timestamp: Date;
+  retryable: boolean;
+}
+
+export interface ValidationResult {
+  isValid: boolean;
+  errors: string[];
+  warnings: string[];
+}
+
+export interface FallbackContent {
+  events: CalendarEvent[];
+  gamemasters: GameMaster[];
+  news: NewsArticle[];
+}
+
+// Frontmatter validation schemas
+export interface EventFrontmatter {
+  title?: string;
+  date?: string | Date;
+  gamemaster?: string;
+  gameType?: 'Pathfinder' | 'Starfinder' | 'Legacy';
+  maxPlayers?: number;
+  location?: string;
+  address?: string;
+  url?: string;
+}
+
+export interface GameMasterFrontmatter {
+  firstName?: string;
+  lastInitial?: string;
+  name?: string;
+  organizedPlayNumber?: string | number;
+  organizedPlayId?: string;
+  games?: string[];
+  avatar?: string;
+}
+
+export interface NewsFrontmatter {
+  title?: string;
+  date?: string | Date;
+  author?: string;
+  excerpt?: string;
+  id?: string;
 }
