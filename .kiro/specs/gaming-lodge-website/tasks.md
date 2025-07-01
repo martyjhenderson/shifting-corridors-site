@@ -30,7 +30,7 @@
   - Write comprehensive tests for content loading and parsing functionality
   - _Requirements: 1.4, 3.4, 4.3, 8.2_
 
-- [ ] 5. Calendar component implementation
+- [x] 5. Calendar component implementation
   - Create Calendar component that displays events from markdown files
   - Implement event sorting and filtering by date
   - Add event selection functionality with detailed view
@@ -38,7 +38,7 @@
   - Write unit tests for calendar component and event handling
   - _Requirements: 1.1, 1.2, 1.3, 6.1, 6.2, 8.1_
 
-- [ ] 6. UpcomingEvents side panel component
+- [x] 6. UpcomingEvents side panel component
   - Build UpcomingEvents component that shows next 3 upcoming events
   - Implement chronological sorting with nearest event first
   - Add click navigation to detailed event views

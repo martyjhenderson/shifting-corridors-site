@@ -82,3 +82,223 @@
   padding: 8px 12px;
   cursor: pointer;
 }
+
+/* UpcomingEvents Component Styles */
+.theme-medieval .upcoming-events-container {
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.theme-medieval .upcoming-events-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-medieval .event-count {
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: normal;
+}
+
+.theme-medieval .upcoming-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.theme-medieval .upcoming-event-item {
+  background: var(--color-background);
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+}
+
+.theme-medieval .upcoming-event-item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+}
+
+.theme-medieval .upcoming-event-item:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.theme-medieval .event-priority-indicator {
+  min-width: 50px;
+}
+
+.theme-medieval .next-event-badge {
+  background: var(--color-primary);
+  color: var(--color-background);
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.theme-medieval .event-date-info {
+  min-width: 80px;
+  text-align: center;
+}
+
+.theme-medieval .event-date-primary {
+  font-weight: bold;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+}
+
+.theme-medieval .event-time {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  margin-top: 2px;
+}
+
+.theme-medieval .event-details {
+  flex: 1;
+}
+
+.theme-medieval .event-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.theme-medieval .event-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.theme-medieval .game-type-badge {
+  background: var(--color-accent);
+  color: var(--color-background);
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.theme-medieval .game-type-badge.pathfinder {
+  background: #8B4513;
+}
+
+.theme-medieval .game-type-badge.starfinder {
+  background: #4169E1;
+}
+
+.theme-medieval .game-type-badge.legacy {
+  background: #CD853F;
+}
+
+.theme-medieval .gamemaster-info,
+.theme-medieval .player-info {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+
+.theme-medieval .event-description {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.theme-medieval .event-action-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 60px;
+}
+
+.theme-medieval .click-hint {
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  text-align: center;
+}
+
+.theme-medieval .arrow-indicator {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.theme-medieval .no-upcoming-events {
+  text-align: center;
+  padding: 20px;
+  color: var(--color-accent);
+}
+
+.theme-medieval .check-back-message {
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.theme-medieval .more-events-indicator {
+  text-align: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-accent);
+}
+
+.theme-medieval .more-events-indicator p {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .theme-medieval .upcoming-events-container {
+    margin: 8px 0;
+    padding: 16px;
+  }
+  
+  .theme-medieval .upcoming-event-item {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .theme-medieval .event-priority-indicator,
+  .theme-medieval .event-date-info {
+    min-width: auto;
+    text-align: left;
+  }
+  
+  .theme-medieval .event-action-indicator {
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .theme-medieval .event-meta {
+    gap: 8px;
+  }
+}
