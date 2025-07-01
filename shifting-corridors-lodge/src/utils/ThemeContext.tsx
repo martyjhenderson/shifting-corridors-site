@@ -89,6 +89,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     if (theme) {
       setCurrentTheme(theme);
       localStorage.setItem('lodge-theme', themeName);
+      
+
+      
       // Track theme switch event
       analyticsService.trackThemeSwitch(themeName);
     }

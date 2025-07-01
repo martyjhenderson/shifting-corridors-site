@@ -53,7 +53,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
       const hasFailures = results.some(result => result.status === 'rejected');
       const hasPartialData = events.length > 0 || gamemasters.length > 0 || news.length > 0;
 
-      let errorMessage = null;
+      let errorMessage: string | null = null;
       if (hasFailures && !hasPartialData) {
         errorMessage = 'Unable to load content. Please check your connection and try again.';
       } else if (hasFailures && hasPartialData) {

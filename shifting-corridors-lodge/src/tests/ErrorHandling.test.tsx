@@ -5,6 +5,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import { ContentProvider, useContent } from '../utils/ContentContext';
 import { ThemeProvider } from '../utils/ThemeContext';
 import { contentLoader } from '../services/contentLoader';
+import { CalendarEvent } from '../types';
 import { 
   validateEventFrontmatter,
   validateGameMasterFrontmatter,
@@ -497,8 +498,15 @@ describe('Error Handling', () => {
     });
 
     it('should merge real content with fallback', () => {
-      const realEvents = [
-        { id: 'real-event', title: 'Real Event', date: new Date(), description: '', content: '', gameType: 'Pathfinder' as const }
+      const realEvents: CalendarEvent[] = [
+        { 
+          id: 'real-event', 
+          title: 'Real Event', 
+          date: new Date(), 
+          description: '', 
+          content: '', 
+          gameType: 'Pathfinder' as const 
+        }
       ];
       const fallbackEvents = getFallbackContent().events;
       

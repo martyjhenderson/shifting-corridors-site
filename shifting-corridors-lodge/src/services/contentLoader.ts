@@ -22,9 +22,9 @@ import {
   getFallbackEvents,
   getFallbackGameMasters,
   getFallbackNews,
-  mergeWithFallback,
-  getErrorFallbackContent
+  mergeWithFallback
 } from '../utils/fallbackContent';
+import { contentCache, markdownCache } from '../utils/performance';
 
 // Static content data extracted from markdown files
 // This approach ensures the content is available at build time for static deployment
@@ -240,8 +240,6 @@ Stay tuned for more updates and events!`
  * with comprehensive error handling and fallback mechanisms
  */
 class ContentLoaderService implements ContentLoader {
-  private contentCache: Map<string, any> = new Map();
-  private cacheExpiry: Map<string, number> = new Map();
   private errorCache: Map<string, ContentError> = new Map();
   private readonly CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
   private readonly MAX_RETRIES = 3;
@@ -299,10 +297,7 @@ class ContentLoaderService implements ContentLoader {
       const sanitizedContent = sanitizeContent(parsed.content || '');
       
       return {
-        frontmatter: {
-          ...parsed.data,
-          id: fileName.replace('.md', '')
-        },
+        frontmatter: parsed.data,
         content: sanitizedContent
       };
     } catch (error) {
@@ -319,7 +314,6 @@ class ContentLoaderService implements ContentLoader {
       // Return minimal valid structure
       return {
         frontmatter: { 
-          id: fileName.replace('.md', ''),
           title: 'Content Loading Error',
           date: new Date().toISOString()
         },
@@ -335,8 +329,9 @@ class ContentLoaderService implements ContentLoader {
     const cacheKey = 'calendar-events';
     
     // Check cache first
-    if (this.isCacheValid(cacheKey)) {
-      return this.contentCache.get(cacheKey);
+    const cached = contentCache.get(cacheKey);
+    if (cached) {
+      return cached;
     }
 
     try {
@@ -367,7 +362,7 @@ class ContentLoaderService implements ContentLoader {
           
           // Transform markdown content to CalendarEvent with validated data
           const event: CalendarEvent = {
-            id: validated.id || file.filename.replace('.md', ''),
+            id: file.filename.replace('.md', ''),
             title: validated.title || 'Untitled Event',
             date: validated.date instanceof Date ? validated.date : parseDate(validated.date),
             description: this.extractDescription(parsed.content),
@@ -416,8 +411,7 @@ class ContentLoaderService implements ContentLoader {
         : getFallbackEvents();
 
       // Cache the results
-      this.contentCache.set(cacheKey, finalEvents);
-      this.cacheExpiry.set(cacheKey, Date.now() + this.CACHE_DURATION);
+      contentCache.set(cacheKey, finalEvents, this.CACHE_DURATION);
 
       return finalEvents;
     } catch (error) {
@@ -441,8 +435,9 @@ class ContentLoaderService implements ContentLoader {
     const cacheKey = 'game-masters';
     
     // Check cache first
-    if (this.isCacheValid(cacheKey)) {
-      return this.contentCache.get(cacheKey);
+    const cached = contentCache.get(cacheKey);
+    if (cached) {
+      return cached;
     }
 
     try {
@@ -473,10 +468,10 @@ class ContentLoaderService implements ContentLoader {
           
           // Transform markdown content to GameMaster with validated data
           const gameMaster: GameMaster = {
-            id: validated.id || file.filename.replace('.md', ''),
+            id: file.filename.replace('.md', ''),
             name: this.formatGameMasterName(validated.firstName, validated.lastInitial),
             organizedPlayId: String(validated.organizedPlayNumber || '00000'),
-            games: validated.games || ['Pathfinder'],
+            games: (validated.games || ['Pathfinder']) as ('Pathfinder' | 'Starfinder' | 'Legacy')[],
             bio: sanitizeContent(parsed.content.trim()),
             avatar: validated.avatar
           };
@@ -520,8 +515,7 @@ class ContentLoaderService implements ContentLoader {
         : getFallbackGameMasters();
 
       // Cache the results
-      this.contentCache.set(cacheKey, finalGameMasters);
-      this.cacheExpiry.set(cacheKey, Date.now() + this.CACHE_DURATION);
+      contentCache.set(cacheKey, finalGameMasters, this.CACHE_DURATION);
 
       return finalGameMasters;
     } catch (error) {
@@ -545,8 +539,9 @@ class ContentLoaderService implements ContentLoader {
     const cacheKey = 'news-articles';
     
     // Check cache first
-    if (this.isCacheValid(cacheKey)) {
-      return this.contentCache.get(cacheKey);
+    const cached = contentCache.get(cacheKey);
+    if (cached) {
+      return cached;
     }
 
     try {
@@ -577,7 +572,7 @@ class ContentLoaderService implements ContentLoader {
           
           // Transform markdown content to NewsArticle with validated data
           const article: NewsArticle = {
-            id: validated.id || file.filename.replace('.md', ''),
+            id: (validated as any).id || file.filename.replace('.md', ''),
             title: validated.title || 'Untitled Article',
             date: validated.date instanceof Date ? validated.date : parseDate(validated.date),
             excerpt: validated.excerpt || extractExcerpt(parsed.content),
@@ -624,8 +619,7 @@ class ContentLoaderService implements ContentLoader {
         : getFallbackNews();
 
       // Cache the results
-      this.contentCache.set(cacheKey, finalArticles);
-      this.cacheExpiry.set(cacheKey, Date.now() + this.CACHE_DURATION);
+      contentCache.set(cacheKey, finalArticles, this.CACHE_DURATION);
 
       return finalArticles;
     } catch (error) {
@@ -643,11 +637,6 @@ class ContentLoaderService implements ContentLoader {
   }
 
   // Helper methods
-
-  private isCacheValid(key: string): boolean {
-    const expiry = this.cacheExpiry.get(key);
-    return expiry ? Date.now() < expiry : false;
-  }
 
   private extractDescription(content: string): string {
     return extractExcerpt(content, 200);
@@ -668,15 +657,7 @@ class ContentLoaderService implements ContentLoader {
     return firstName || 'Unknown GM';
   }
 
-  private parseGames(games: any): ('Pathfinder' | 'Starfinder' | 'Legacy')[] {
-    if (!games) return [];
-    if (Array.isArray(games)) {
-      return games.filter(game => 
-        ['Pathfinder', 'Starfinder', 'Legacy'].includes(game)
-      );
-    }
-    return [];
-  }
+
 
   // Error handling and logging methods
 
@@ -706,58 +687,13 @@ class ContentLoaderService implements ContentLoader {
       .slice(0, 5);
   }
 
-  /**
-   * Check if the system is likely offline
-   */
-  private async checkConnectivity(): Promise<boolean> {
-    try {
-      // Try to fetch a small resource to check connectivity
-      const response = await fetch('/favicon.ico', { 
-        method: 'HEAD',
-        cache: 'no-cache',
-        signal: AbortSignal.timeout(5000)
-      });
-      return response.ok;
-    } catch {
-      return false;
-    }
-  }
 
-  /**
-   * Retry failed operations with exponential backoff
-   */
-  private async retryOperation<T>(
-    operation: () => Promise<T>,
-    maxRetries: number = this.MAX_RETRIES,
-    delay: number = this.RETRY_DELAY
-  ): Promise<T> {
-    let lastError: Error;
-    
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        return await operation();
-      } catch (error) {
-        lastError = error instanceof Error ? error : new Error(String(error));
-        
-        if (attempt === maxRetries) {
-          throw lastError;
-        }
-        
-        // Exponential backoff
-        const waitTime = delay * Math.pow(2, attempt - 1);
-        await new Promise(resolve => setTimeout(resolve, waitTime));
-      }
-    }
-    
-    throw lastError!;
-  }
 
   /**
    * Clear the content cache
    */
   clearCache(): void {
-    this.contentCache.clear();
-    this.cacheExpiry.clear();
+    contentCache.clear();
   }
 
   /**
@@ -776,9 +712,9 @@ class ContentLoaderService implements ContentLoader {
     cachedKeys: string[];
   } {
     return {
-      contentCacheSize: this.contentCache.size,
+      contentCacheSize: contentCache.size(),
       errorCacheSize: this.errorCache.size,
-      cachedKeys: Array.from(this.contentCache.keys())
+      cachedKeys: []
     };
   }
 }

@@ -1,0 +1,129 @@
+/* Performance-optimized CSS */
+
+/* Lazy loading styles */
+.lazy-image {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+.lazy-image.error {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+/* Loading spinner optimization */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color, #8B4513);
+  animation: spin 1s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Critical CSS for above-the-fold content */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--border-color, #ddd);
+  background: var(--header-bg, #fff);
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary-color, #8B4513);
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  padding: 2rem;
+  flex: 1;
+}
+
+/* Performance hints */
+.main-content {
+  contain: layout style;
+}
+
+.sidebar {
+  contain: layout style;
+}
+
+/* Optimize repaints */
+.component-error {
+  contain: layout style paint;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--error-bg, #fee);
+  border: 1px solid var(--error-border, #fcc);
+  color: var(--error-text, #c33);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .lazy-image,
+  .spinner {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .component-error {
+    border-width: 2px;
+  }
+  
+  .spinner {
+    border-width: 4px;
+  }
+}

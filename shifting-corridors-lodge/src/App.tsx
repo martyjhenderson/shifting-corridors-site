@@ -1,20 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, useParams, Navigate } from 'react-router-dom';
 import { ThemeProvider, useTheme } from './utils/ThemeContext';
 import { ContentProvider, useContent } from './utils/ContentContext';
 import { analyticsService } from './services/analyticsService';
-import CalendarComponent from './components/Calendar';
-import GameMasters from './components/GameMasters';
-import Contact from './components/Contact';
-import News from './components/News';
-import EventDetails from './components/EventDetails';
-import UpcomingEvents from './components/UpcomingEvents';
-import ThemeSelector from './components/ThemeSelector';
+import { addResourceHints, preloadResource } from './utils/performance';
+import { initWebVitals, initPerformanceObserver } from './utils/webVitals';
 import ErrorBoundary from './components/ErrorBoundary';
+
+// Lazy load non-critical components
+const CalendarComponent = lazy(() => import('./components/Calendar'));
+const GameMasters = lazy(() => import('./components/GameMasters'));
+const Contact = lazy(() => import('./components/Contact'));
+const News = lazy(() => import('./components/News'));
+const EventDetails = lazy(() => import('./components/EventDetails'));
+const UpcomingEvents = lazy(() => import('./components/UpcomingEvents'));
+
+// Keep critical components as regular imports for immediate loading
+import ThemeSelector from './components/ThemeSelector';
 import './App.css';
+import './styles/performance.css';
 import './styles/medieval.css';
 import './styles/sci-fi.css';
 import './styles/mobile.css';
+
+// Performance optimizations
+addResourceHints();
+
+// Preload critical resources
+preloadResource('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&family=Orbitron:wght@400;500;700&family=Exo+2:wght@400;500;600&display=swap', 'style');
+
+// Import Google Fonts with performance optimization
+const fontLink = document.createElement('link');
+fontLink.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&family=Orbitron:wght@400;500;700&family=Exo+2:wght@400;500;600&display=swap';
+fontLink.rel = 'stylesheet';
+fontLink.media = 'print';
+fontLink.onload = () => { fontLink.media = 'all'; };
+document.head.appendChild(fontLink);
+
+// Initialize performance monitoring
+initWebVitals();
+initPerformanceObserver();
 
 // Loading component
 const LoadingSpinner: React.FC = () => {
@@ -64,10 +89,12 @@ const EventDetailsRoute: React.FC = () => {
 
   return (
     <div className={`event-details-page ${currentTheme.components.container}`}>
-      <EventDetails 
-        event={event} 
-        onBack={() => window.history.back()} 
-      />
+      <Suspense fallback={<LoadingSpinner />}>
+        <EventDetails 
+          event={event} 
+          onBack={() => window.history.back()} 
+        />
+      </Suspense>
     </div>
   );
 };
@@ -93,12 +120,14 @@ const MainContent: React.FC = () => {
             <p>Unable to load calendar. Please refresh the page.</p>
           </div>
         }>
-          <CalendarComponent 
-            events={events}
-            onEventSelect={(event) => {
-              window.location.href = `/events/${event.id}`;
-            }}
-          />
+          <Suspense fallback={<LoadingSpinner />}>
+            <CalendarComponent 
+              events={events}
+              onEventSelect={(event) => {
+                window.location.href = `/events/${event.id}`;
+              }}
+            />
+          </Suspense>
         </ErrorBoundary>
 
         <ErrorBoundary fallback={
@@ -106,7 +135,9 @@ const MainContent: React.FC = () => {
             <p>Unable to load news. Please refresh the page.</p>
           </div>
         }>
-          <News articles={news} maxItems={5} />
+          <Suspense fallback={<LoadingSpinner />}>
+            <News articles={news} maxItems={5} />
+          </Suspense>
         </ErrorBoundary>
       </main>
 
@@ -116,7 +147,9 @@ const MainContent: React.FC = () => {
             <p>Unable to load upcoming events.</p>
           </div>
         }>
-          <UpcomingEvents events={events} maxEvents={3} />
+          <Suspense fallback={<LoadingSpinner />}>
+            <UpcomingEvents events={events} maxEvents={3} />
+          </Suspense>
         </ErrorBoundary>
 
         <ErrorBoundary fallback={
@@ -124,12 +157,14 @@ const MainContent: React.FC = () => {
             <p>Unable to load game masters.</p>
           </div>
         }>
-          <GameMasters 
-            gamemasters={gamemasters}
-            onGameMasterSelect={(gm) => {
-              analyticsService.trackContentInteraction('gm', gm.id);
-            }}
-          />
+          <Suspense fallback={<LoadingSpinner />}>
+            <GameMasters 
+              gamemasters={gamemasters}
+              onGameMasterSelect={(gm) => {
+                analyticsService.trackContentInteraction('gm', gm.id);
+              }}
+            />
+          </Suspense>
         </ErrorBoundary>
 
         <ErrorBoundary fallback={
@@ -137,7 +172,9 @@ const MainContent: React.FC = () => {
             <p>Unable to load contact information.</p>
           </div>
         }>
-          <Contact />
+          <Suspense fallback={<LoadingSpinner />}>
+            <Contact />
+          </Suspense>
         </ErrorBoundary>
       </aside>
     </div>
@@ -178,6 +215,7 @@ const App: React.FC = () => {
     <ErrorBoundary
       onError={(error, errorInfo) => {
         console.error('App-level error:', error, errorInfo);
+        // Could send to error reporting service here
       }}
     >
       <ThemeProvider>
