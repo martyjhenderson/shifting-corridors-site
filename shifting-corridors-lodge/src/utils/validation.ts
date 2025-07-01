@@ -246,6 +246,11 @@ export const validateCalendarEvent = (event: Partial<CalendarEvent>): Validation
   const errors: string[] = [];
   const warnings: string[] = [];
 
+  if (!event || typeof event !== 'object') {
+    errors.push('Event must be a valid object');
+    return { isValid: false, errors, warnings };
+  }
+
   if (!event.id || typeof event.id !== 'string') {
     errors.push('Event ID is required');
   }
@@ -272,6 +277,11 @@ export const validateCalendarEvent = (event: Partial<CalendarEvent>): Validation
 export const validateGameMaster = (gm: Partial<GameMaster>): ValidationResult => {
   const errors: string[] = [];
   const warnings: string[] = [];
+
+  if (!gm || typeof gm !== 'object') {
+    errors.push('Game master must be a valid object');
+    return { isValid: false, errors, warnings };
+  }
 
   if (!gm.id || typeof gm.id !== 'string') {
     errors.push('Game master ID is required');
@@ -304,6 +314,11 @@ export const validateNewsArticle = (article: Partial<NewsArticle>): ValidationRe
   const errors: string[] = [];
   const warnings: string[] = [];
 
+  if (!article || typeof article !== 'object') {
+    errors.push('News article must be a valid object');
+    return { isValid: false, errors, warnings };
+  }
+
   if (!article.id || typeof article.id !== 'string') {
     errors.push('News article ID is required');
   }
@@ -328,7 +343,7 @@ export const validateNewsArticle = (article: Partial<NewsArticle>): ValidationRe
 };
 
 /**
- * Parse date from various formats
+ * Parse date from various formats, handling timezone issues
  */
 export const parseDate = (dateInput: any): Date => {
   if (dateInput instanceof Date) {
@@ -336,26 +351,32 @@ export const parseDate = (dateInput: any): Date => {
   }
 
   if (typeof dateInput === 'string') {
-    // Try ISO format first
-    const isoDate = new Date(dateInput);
-    if (!isNaN(isoDate.getTime())) {
-      return isoDate;
+    // Handle YYYY-MM-DD format specifically to avoid timezone issues
+    const isoDateMatch = dateInput.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (isoDateMatch) {
+      const [, year, month, day] = isoDateMatch;
+      // Create date in local timezone to avoid UTC conversion issues
+      return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
     }
 
-    // Try other common formats
-    const formats = [
-      /^\d{4}-\d{2}-\d{2}$/, // YYYY-MM-DD
-      /^\d{2}\/\d{2}\/\d{4}$/, // MM/DD/YYYY
-      /^\d{2}-\d{2}-\d{4}$/, // MM-DD-YYYY
-    ];
+    // Handle MM/DD/YYYY format
+    const usDateMatch = dateInput.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+    if (usDateMatch) {
+      const [, month, day, year] = usDateMatch;
+      return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    }
 
-    for (const format of formats) {
-      if (format.test(dateInput)) {
-        const parsed = new Date(dateInput);
-        if (!isNaN(parsed.getTime())) {
-          return parsed;
-        }
-      }
+    // Handle MM-DD-YYYY format
+    const dashDateMatch = dateInput.match(/^(\d{2})-(\d{2})-(\d{4})$/);
+    if (dashDateMatch) {
+      const [, month, day, year] = dashDateMatch;
+      return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    }
+
+    // Try other formats as fallback
+    const fallbackDate = new Date(dateInput);
+    if (!isNaN(fallbackDate.getTime())) {
+      return fallbackDate;
     }
   }
 

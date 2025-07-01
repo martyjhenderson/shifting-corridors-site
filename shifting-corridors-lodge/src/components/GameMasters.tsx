@@ -15,7 +15,7 @@ const GameMasters: React.FC<GameMastersProps> = ({
   const [error, setError] = useState<string | null>(null);
 
   // Use provided gamemasters prop or load them locally
-  const displayGameMasters = gamemasters || localGameMasters;
+  const displayGameMasters = gamemasters || localGameMasters || [];
 
   useEffect(() => {
     // Only load locally if no gamemasters prop provided

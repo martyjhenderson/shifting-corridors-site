@@ -51,7 +51,7 @@ export const ContentProvider: React.FC<ContentProviderProps> = ({ children }) =>
 
       // Check if we have partial failures
       const hasFailures = results.some(result => result.status === 'rejected');
-      const hasPartialData = events.length > 0 || gamemasters.length > 0 || news.length > 0;
+      const hasPartialData = (events?.length || 0) > 0 || (gamemasters?.length || 0) > 0 || (news?.length || 0) > 0;
 
       let errorMessage: string | null = null;
       if (hasFailures && !hasPartialData) {

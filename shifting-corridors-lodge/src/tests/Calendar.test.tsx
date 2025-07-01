@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '../utils/ThemeContext';
 import Calendar from '../components/Calendar';
 import { CalendarEvent } from '../types';
@@ -9,6 +10,13 @@ jest.mock('../services/contentLoader', () => ({
   contentLoader: {
     loadCalendarEvents: jest.fn()
   }
+}));
+
+// Mock react-router-dom
+const mockNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockNavigate,
 }));
 
 import { contentLoader } from '../services/contentLoader';
@@ -36,18 +44,26 @@ const mockEvents: CalendarEvent[] = [
 
 const mockOnEventSelect = jest.fn();
 
+// Helper function to render Calendar with required providers
+const renderCalendar = (events: CalendarEvent[] = mockEvents, onEventSelect = mockOnEventSelect) => {
+  return render(
+    <MemoryRouter>
+      <ThemeProvider>
+        <Calendar events={events} onEventSelect={onEventSelect} />
+      </ThemeProvider>
+    </MemoryRouter>
+  );
+};
+
 describe('Calendar Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockNavigate.mockClear();
     (contentLoader.loadCalendarEvents as jest.Mock).mockResolvedValue(mockEvents);
   });
 
   test('renders calendar with current month', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     const currentDate = new Date();
     const monthYear = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -58,11 +74,7 @@ describe('Calendar Component', () => {
   });
 
   test('renders navigation buttons', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     await waitFor(() => {
       expect(screen.getByLabelText('Previous month')).toBeInTheDocument();
@@ -71,11 +83,7 @@ describe('Calendar Component', () => {
   });
 
   test('renders weekday headers', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     await waitFor(() => {
       expect(screen.getByText('Sun')).toBeInTheDocument();
@@ -89,11 +97,7 @@ describe('Calendar Component', () => {
   });
 
   test('displays upcoming events section', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     await waitFor(() => {
       expect(screen.getByText('Upcoming Events')).toBeInTheDocument();
@@ -103,11 +107,7 @@ describe('Calendar Component', () => {
   });
 
   test('calls onEventSelect when event is clicked', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     await waitFor(() => {
       const eventElement = screen.getByText('Pathfinder Society Game');
@@ -118,11 +118,7 @@ describe('Calendar Component', () => {
   });
 
   test('navigates to next month when next button is clicked', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     const nextButton = screen.getByLabelText('Next month');
     fireEvent.click(nextButton);
@@ -137,11 +133,7 @@ describe('Calendar Component', () => {
   });
 
   test('navigates to previous month when previous button is clicked', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     const prevButton = screen.getByLabelText('Previous month');
     fireEvent.click(prevButton);
@@ -156,11 +148,7 @@ describe('Calendar Component', () => {
   });
 
   test('loads events from content loader when no events provided', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={[]} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar([]);
 
     await waitFor(() => {
       expect(contentLoader.loadCalendarEvents).toHaveBeenCalled();
@@ -172,11 +160,7 @@ describe('Calendar Component', () => {
       () => new Promise(resolve => setTimeout(resolve, 1000))
     );
 
-    render(
-      <ThemeProvider>
-        <Calendar events={[]} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar([]);
 
     expect(screen.getByText('Loading events...')).toBeInTheDocument();
   });
@@ -184,11 +168,7 @@ describe('Calendar Component', () => {
   test('displays error state and retry button', async () => {
     (contentLoader.loadCalendarEvents as jest.Mock).mockRejectedValue(new Error('Failed to load'));
 
-    render(
-      <ThemeProvider>
-        <Calendar events={[]} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar([]);
 
     await waitFor(() => {
       expect(screen.getByText('Failed to load events')).toBeInTheDocument();
@@ -200,11 +180,7 @@ describe('Calendar Component', () => {
     // Mock empty events before rendering
     (contentLoader.loadCalendarEvents as jest.Mock).mockResolvedValue([]);
 
-    render(
-      <ThemeProvider>
-        <Calendar events={[]} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar([]);
 
     await waitFor(() => {
       expect(screen.getByText('No upcoming events scheduled.')).toBeInTheDocument();
@@ -212,11 +188,7 @@ describe('Calendar Component', () => {
   });
 
   test('displays event indicators on calendar days with events', async () => {
-    render(
-      <ThemeProvider>
-        <Calendar events={mockEvents} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar();
 
     await waitFor(() => {
       // Check if calendar grid is rendered
@@ -236,11 +208,7 @@ describe('Calendar Component', () => {
       gameType: 'Pathfinder'
     };
 
-    render(
-      <ThemeProvider>
-        <Calendar events={[todayEvent]} onEventSelect={mockOnEventSelect} />
-      </ThemeProvider>
-    );
+    renderCalendar([todayEvent]);
 
     await waitFor(() => {
       // Find today's date in the calendar and click it

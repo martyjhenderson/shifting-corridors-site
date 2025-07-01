@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, act, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from '../utils/ThemeContext';
 import { ContentProvider } from '../utils/ContentContext';
@@ -127,7 +127,9 @@ describe('Comprehensive Test Coverage Validation', () => {
         expect(screen.getByText('Test Event')).toBeInTheDocument();
       });
 
-      // Test without events
+      // Test without events - mock content loader to return empty array
+      (contentLoader.loadCalendarEvents as jest.Mock).mockResolvedValue([]);
+      
       rerender(
         <ThemeProvider>
           <Calendar events={[]} onEventSelect={mockOnEventSelect} />
@@ -193,7 +195,7 @@ describe('Comprehensive Test Coverage Validation', () => {
       );
 
       await waitFor(() => {
-        expect(screen.getByText('No news articles available.')).toBeInTheDocument();
+        expect(screen.getByText('No news articles available at this time.')).toBeInTheDocument();
       });
     });
 
@@ -217,7 +219,7 @@ describe('Comprehensive Test Coverage Validation', () => {
       );
 
       await waitFor(() => {
-        expect(screen.getByText('No upcoming events.')).toBeInTheDocument();
+        expect(screen.getByText('No upcoming events scheduled.')).toBeInTheDocument();
       });
     });
 
@@ -263,7 +265,7 @@ describe('Comprehensive Test Coverage Validation', () => {
         </ThemeProvider>
       );
 
-      expect(screen.getByText('Contact Us')).toBeInTheDocument();
+      expect(screen.getByText('Contact Information')).toBeInTheDocument();
       expect(screen.getByText('lodge@shiftingcorridor.com')).toBeInTheDocument();
     });
 
@@ -275,9 +277,11 @@ describe('Comprehensive Test Coverage Validation', () => {
       const mockOnError = jest.fn();
       
       render(
-        <ErrorBoundary onError={mockOnError}>
-          <ThrowError />
-        </ErrorBoundary>
+        <ThemeProvider>
+          <ErrorBoundary onError={mockOnError}>
+            <ThrowError />
+          </ErrorBoundary>
+        </ThemeProvider>
       );
 
       expect(screen.getByText('Oops! Something went wrong')).toBeInTheDocument();
@@ -329,19 +333,26 @@ describe('Comprehensive Test Coverage Validation', () => {
   describe('Utility Function Coverage Tests', () => {
     test('validation functions handle all scenarios', () => {
       // Test valid data
-      expect(validateCalendarEvent(mockEvents[0])).toBe(true);
-      expect(validateGameMaster(mockGameMasters[0])).toBe(true);
-      expect(validateNewsArticle(mockNews[0])).toBe(true);
+      expect(validateCalendarEvent(mockEvents[0]).isValid).toBe(true);
+      expect(validateGameMaster(mockGameMasters[0]).isValid).toBe(true);
+      expect(validateNewsArticle(mockNews[0]).isValid).toBe(true);
 
       // Test invalid data
-      expect(validateCalendarEvent({})).toBe(false);
-      expect(validateGameMaster({})).toBe(false);
-      expect(validateNewsArticle({})).toBe(false);
+      expect(validateCalendarEvent({}).isValid).toBe(false);
+      expect(validateGameMaster({}).isValid).toBe(false);
+      expect(validateNewsArticle({}).isValid).toBe(false);
 
-      // Test null/undefined
-      expect(validateCalendarEvent(null as any)).toBe(false);
-      expect(validateGameMaster(undefined as any)).toBe(false);
-      expect(validateNewsArticle(null as any)).toBe(false);
+      // Test null/undefined - these should be handled gracefully
+      const nullResult = validateCalendarEvent(null as any);
+      expect(nullResult.isValid).toBe(false);
+      expect(nullResult.errors.length).toBeGreaterThan(0);
+      
+      const undefinedResult = validateGameMaster(undefined as any);
+      expect(undefinedResult.isValid).toBe(false);
+      expect(undefinedResult.errors.length).toBeGreaterThan(0);
+      const nullNewsResult = validateNewsArticle(null as any);
+      expect(nullNewsResult.isValid).toBe(false);
+      expect(nullNewsResult.errors.length).toBeGreaterThan(0);
     });
 
     test('fallback content functions provide defaults', () => {
@@ -381,7 +392,7 @@ describe('Comprehensive Test Coverage Validation', () => {
       });
 
       // Test persistence
-      expect(localStorage.setItem).toHaveBeenCalledWith('selectedTheme', 'sci-fi');
+      expect(localStorage.setItem).toHaveBeenCalledWith('lodge-theme', 'sci-fi');
     });
 
     test('ContentContext handles all content operations', async () => {

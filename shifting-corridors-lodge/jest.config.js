@@ -6,6 +6,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
     '@remix-run/(.*)': '<rootDir>/node_modules/@remix-run/$1',
+    '^react-markdown$': '<rootDir>/src/__mocks__/react-markdown.js',
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   transformIgnorePatterns: [

@@ -416,8 +416,8 @@ describe('Error Handling', () => {
 
     describe('parseDate', () => {
       it('should parse valid date strings', () => {
-        expect(parseDate('2025-07-01')).toEqual(new Date('2025-07-01'));
-        expect(parseDate('07/01/2025')).toEqual(new Date('07/01/2025'));
+        expect(parseDate('2025-07-01')).toEqual(new Date(2025, 6, 1)); // Local timezone
+        expect(parseDate('07/01/2025')).toEqual(new Date(2025, 6, 1)); // Local timezone
       });
 
       it('should handle Date objects', () => {

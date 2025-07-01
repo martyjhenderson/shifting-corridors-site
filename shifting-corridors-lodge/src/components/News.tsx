@@ -71,7 +71,7 @@ const News: React.FC<NewsProps> = ({ articles: propArticles, maxItems }) => {
   };
 
   // Get articles to display (sorted newest first, limited by maxItems)
-  const articlesToDisplay = state.articles
+  const articlesToDisplay = (state.articles || [])
     .sort((a, b) => b.date.getTime() - a.date.getTime())
     .slice(0, maxItems);
 

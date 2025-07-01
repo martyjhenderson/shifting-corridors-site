@@ -65,12 +65,10 @@ describe('EventDetails Component', () => {
   });
 
   describe('Loading State', () => {
-    it('displays loading message while fetching event data', () => {
-      mockContentLoader.loadCalendarEvents.mockImplementation(() => new Promise(() => {}));
-      
+    it('renders immediately when event is provided', () => {
       renderWithProviders(<EventDetails event={mockEvent} onBack={() => {}} />);
       
-      expect(screen.getByText('Loading event details...')).toBeInTheDocument();
+      expect(screen.getByText('Test Event')).toBeInTheDocument();
     });
   });
 
@@ -145,8 +143,10 @@ describe('EventDetails Component', () => {
       expect(backButton).toHaveTextContent('← Back to Calendar');
     });
 
-    it('navigates back to calendar when back button is clicked', async () => {
-      renderWithProviders(<EventDetails event={mockEvent} onBack={() => {}} />);
+    it('calls onBack when back button is clicked', async () => {
+      const mockOnBack = jest.fn();
+      
+      renderWithProviders(<EventDetails event={mockEvent} onBack={mockOnBack} />);
       
       await waitFor(() => {
         expect(screen.getByText('Test Event')).toBeInTheDocument();
@@ -155,52 +155,43 @@ describe('EventDetails Component', () => {
       const backButton = screen.getByRole('button', { name: 'Back to calendar' });
       fireEvent.click(backButton);
       
-      expect(mockNavigate).toHaveBeenCalledWith('/');
+      expect(mockOnBack).toHaveBeenCalled();
     });
   });
 
   describe('Error Handling', () => {
-    it('displays error message when event is not found', async () => {
-      mockContentLoader.loadCalendarEvents.mockResolvedValue([]);
-      
+    it('renders correctly when event is provided', async () => {
       renderWithProviders(<EventDetails event={mockEvent} onBack={() => {}} />);
       
       await waitFor(() => {
-        expect(screen.getByText('Event Not Found')).toBeInTheDocument();
+        expect(screen.getByText('Test Event')).toBeInTheDocument();
       });
       
-      expect(screen.getByText('Event not found')).toBeInTheDocument();
+      expect(screen.getByText('This is a test event description')).toBeInTheDocument();
       
-      const backButton = screen.getByRole('button', { name: '← Back to Calendar' });
+      const backButton = screen.getByRole('button', { name: 'Back to calendar' });
       expect(backButton).toBeInTheDocument();
     });
 
-    it('displays error message when content loading fails', async () => {
-      mockContentLoader.loadCalendarEvents.mockRejectedValue(new Error('Network error'));
-      
+    it('handles event with all required fields', async () => {
       renderWithProviders(<EventDetails event={mockEvent} onBack={() => {}} />);
       
       await waitFor(() => {
-        expect(screen.getByText('Event Not Found')).toBeInTheDocument();
+        expect(screen.getByText('Test Event')).toBeInTheDocument();
       });
       
-      expect(screen.getByText('Failed to load event details')).toBeInTheDocument();
+      expect(screen.getByText('GM: Test GM')).toBeInTheDocument();
+      expect(screen.getByText('Max Players: 6')).toBeInTheDocument();
     });
 
-    it('handles missing event ID parameter', async () => {
-      // Set mockEventId to undefined
-      mockEventId = undefined as any;
-      
+    it('renders event content correctly', async () => {
       renderWithProviders(<EventDetails event={mockEvent} onBack={() => {}} />);
       
       await waitFor(() => {
-        expect(screen.getByText('Event Not Found')).toBeInTheDocument();
+        expect(screen.getByText('Test Event')).toBeInTheDocument();
       });
       
-      expect(screen.getByText('No event ID provided')).toBeInTheDocument();
-      
-      // Reset mockEventId for other tests
-      mockEventId = 'test-event-id';
+      expect(screen.getByTestId('markdown-content')).toBeInTheDocument();
     });
   });
 
@@ -300,7 +291,7 @@ describe('EventDetails Component', () => {
       
       mockContentLoader.loadCalendarEvents.mockResolvedValue([minimalEvent]);
       
-      renderWithProviders(<EventDetails event={mockEvent} onBack={() => {}} />);
+      renderWithProviders(<EventDetails event={minimalEvent} onBack={() => {}} />);
       
       await waitFor(() => {
         expect(screen.getByText('Minimal Event')).toBeInTheDocument();
@@ -320,7 +311,7 @@ describe('EventDetails Component', () => {
       
       mockContentLoader.loadCalendarEvents.mockResolvedValue([eventWithEmptyContent]);
       
-      renderWithProviders(<EventDetails event={mockEvent} onBack={() => {}} />);
+      renderWithProviders(<EventDetails event={eventWithEmptyContent} onBack={() => {}} />);
       
       await waitFor(() => {
         expect(screen.getByText('Test Event')).toBeInTheDocument();

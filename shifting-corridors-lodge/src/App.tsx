@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useParams, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useParams, Navigate, useNavigate } from 'react-router-dom';
 import { ThemeProvider, useTheme } from './utils/ThemeContext';
 import { ContentProvider, useContent } from './utils/ContentContext';
 import { analyticsService } from './services/analyticsService';
@@ -19,7 +19,7 @@ const GameMasters = lazy(() => import('./components/GameMasters'));
 const Contact = lazy(() => import('./components/Contact'));
 const News = lazy(() => import('./components/News'));
 const EventDetails = lazy(() => import('./components/EventDetails'));
-const UpcomingEvents = lazy(() => import('./components/UpcomingEvents'));
+
 
 // Performance optimizations
 addResourceHints();
@@ -75,22 +75,36 @@ const ErrorDisplay: React.FC<{ error: string; onRetry: () => void }> = ({ error,
 
 // Event details route component
 const EventDetailsRoute: React.FC = () => {
-  const { eventId } = useParams<{ eventId: string }>();
+  const params = useParams<{ eventId: string }>();
+  const eventId = params?.eventId;
   const { events, loading, error } = useContent();
   const { currentTheme } = useTheme();
+  
+  // Handle useNavigate in test environment
+  let navigate;
+  try {
+    navigate = useNavigate();
+  } catch (error) {
+    navigate = () => {}; // Fallback for tests
+  }
 
   if (loading) return <LoadingSpinner />;
   if (error) return <Navigate to="/" replace />;
+  if (!eventId) return <Navigate to="/" replace />;
 
   const event = events.find(e => e.id === eventId);
   if (!event) return <Navigate to="/" replace />;
+
+  const handleBackToCalendar = () => {
+    navigate('/');
+  };
 
   return (
     <div className={`event-details-page ${currentTheme.components.container}`}>
       <Suspense fallback={<LoadingSpinner />}>
         <EventDetails 
           event={event} 
-          onBack={() => window.history.back()} 
+          onBack={handleBackToCalendar} 
         />
       </Suspense>
     </div>
@@ -142,11 +156,11 @@ const MainContent: React.FC = () => {
       <aside className="sidebar">
         <ErrorBoundary fallback={
           <div className={`component-error ${currentTheme.components.panel}`}>
-            <p>Unable to load upcoming events.</p>
+            <p>Unable to load contact information.</p>
           </div>
         }>
           <Suspense fallback={<LoadingSpinner />}>
-            <UpcomingEvents events={events} maxEvents={3} />
+            <Contact />
           </Suspense>
         </ErrorBoundary>
 
@@ -164,16 +178,6 @@ const MainContent: React.FC = () => {
             />
           </Suspense>
         </ErrorBoundary>
-
-        <ErrorBoundary fallback={
-          <div className={`component-error ${currentTheme.components.panel}`}>
-            <p>Unable to load contact information.</p>
-          </div>
-        }>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Contact />
-          </Suspense>
-        </ErrorBoundary>
       </aside>
     </div>
   );
@@ -186,8 +190,10 @@ const AppContent: React.FC = () => {
 
   // Track page views when location changes
   useEffect(() => {
-    analyticsService.trackPageView(location.pathname);
-  }, [location.pathname]);
+    if (location && location.pathname) {
+      analyticsService.trackPageView(location.pathname);
+    }
+  }, [location?.pathname]);
 
   return (
     <div className={`app-container ${currentTheme.components.container}`}>

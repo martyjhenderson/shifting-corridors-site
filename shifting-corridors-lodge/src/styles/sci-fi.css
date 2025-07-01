@@ -404,6 +404,9 @@
   align-items: flex-start;
   gap: 12px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent content from overflowing the container */
 }
 
 .theme-sci-fi .upcoming-event-item:hover {
@@ -453,6 +456,8 @@
 
 .theme-sci-fi .event-details {
   flex: 1;
+  min-width: 0; /* Allow flex item to shrink below its content size */
+  overflow: hidden; /* Prevent text overflow */
 }
 
 .theme-sci-fi .event-title {
@@ -512,6 +517,8 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .theme-sci-fi .event-action-indicator {
@@ -811,5 +818,213 @@
 
   .theme-sci-fi .content-heading-3 {
     font-size: 1.2em;
+  }
+}
+
+/* News Component Container Styles */
+.theme-sci-fi .news-container {
+  background: var(--color-background);
+  border: 1px solid var(--color-secondary);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 0 10px rgba(0, 206, 209, 0.1);
+}
+
+.theme-sci-fi .news-container h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* News Mobile Styles */
+@media (max-width: 768px) {
+  .theme-sci-fi .news-container {
+    margin: 8px 0;
+    padding: 16px;
+  }
+  
+  .theme-sci-fi .news-container h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* GameMasters Component Styles */
+.theme-sci-fi .gamemasters-container {
+  background: var(--color-background);
+  border: 1px solid var(--color-secondary);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 0 10px rgba(0, 206, 209, 0.1);
+}
+
+.theme-sci-fi .gamemasters-container h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* GameMasters Mobile Styles */
+@media (max-width: 768px) {
+  .theme-sci-fi .gamemasters-container {
+    margin: 8px 0;
+    padding: 16px;
+  }
+  
+  .theme-sci-fi .gamemasters-container h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Contact Component Styles */
+.theme-sci-fi .contact-container {
+  background: var(--color-background);
+  border: 1px solid var(--color-secondary);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 0 10px rgba(0, 206, 209, 0.1);
+}
+
+.theme-sci-fi .contact-container h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-sci-fi .contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theme-sci-fi .contact-section {
+  margin-bottom: 12px;
+}
+
+.theme-sci-fi .contact-section h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.theme-sci-fi .contact-section h4 {
+  font-family: var(--font-heading);
+  color: var(--color-secondary);
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.theme-sci-fi .contact-section p {
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.theme-sci-fi .contact-email-section {
+  background: rgba(0, 206, 209, 0.1);
+  border-left: 3px solid var(--color-accent);
+  padding: 12px;
+  border-radius: 0 4px 4px 0;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.theme-sci-fi .contact-email {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.theme-sci-fi .contact-email:hover {
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+
+/* UpcomingEvents Mobile Styles */
+@media (max-width: 768px) {
+  .theme-sci-fi .upcoming-events-container {
+    margin: 8px 0;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .theme-sci-fi .upcoming-event-item {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+  
+  .theme-sci-fi .event-priority-indicator,
+  .theme-sci-fi .event-date-info {
+    min-width: auto;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .theme-sci-fi .event-details {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .theme-sci-fi .event-action-indicator {
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: auto;
+    width: 100%;
+    margin-top: 8px;
+  }
+  
+  .theme-sci-fi .event-meta {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
+
+/* Contact Mobile Styles */
+@media (max-width: 768px) {
+  .theme-sci-fi .contact-container {
+    margin: 8px 0;
+    padding: 16px;
+  }
+  
+  .theme-sci-fi .contact-container h2 {
+    font-size: 1.3rem;
+  }
+  
+  .theme-sci-fi .contact-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .theme-sci-fi .contact-section h4 {
+    font-size: 0.9rem;
+  }
+  
+  .theme-sci-fi .contact-email {
+    font-size: 1rem;
+    word-break: break-all;
   }
 }

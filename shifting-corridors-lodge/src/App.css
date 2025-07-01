@@ -36,11 +36,13 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  align-items: start;
 }
 
 @media (min-width: 768px) {
   .main-grid {
     grid-template-columns: 2fr 1fr;
+    align-items: start;
   }
 }
 
@@ -48,18 +50,43 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 0; /* Prevent flex items from growing beyond content */
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: stretch; /* Ensure all sidebar items have consistent width */
+  min-height: 0; /* Prevent flex items from growing beyond content */
 }
 
 /* Custom calendar styles */
 .calendar-grid {
   width: 100%;
   font-family: inherit;
+}
+
+/* Panel alignment and consistency */
+.sidebar > * {
+  width: 100%;
+  box-sizing: border-box;
+  align-self: stretch;
+}
+
+/* Ensure all panels have consistent base styling */
+[class*="-container"], [class*="-panel"], [class*="-card"] {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Fix any potential layout issues with flex containers */
+.sidebar .upcoming-events-container,
+.sidebar .gamemasters-container,
+.sidebar .contact-container,
+.sidebar .news-container {
+  flex-shrink: 0;
+  width: 100%;
 }
 
 /* Responsive adjustments */
@@ -339,6 +366,14 @@ body {
 
 /* Mobile responsive adjustments for calendar */
 @media (max-width: 768px) {
+  .main-grid {
+    gap: 15px;
+  }
+  
+  .sidebar {
+    gap: 15px;
+  }
+  
   .calendar-day {
     min-height: 60px;
     padding: 2px;
@@ -390,6 +425,13 @@ body {
     padding: 12px 15px;
     touch-action: manipulation;
   }
+  
+  /* Ensure sidebar components maintain proper alignment on mobile */
+  .sidebar > * {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
 }
 
 /* Tablet responsive adjustments */
@@ -402,10 +444,13 @@ body {
   .sidebar {
     flex-direction: row;
     gap: 30px;
+    align-items: stretch; /* Ensure equal height for all sidebar items */
   }
   
   .sidebar > * {
     flex: 1;
+    min-height: 0; /* Allow items to shrink */
+    align-self: stretch; /* Make all items same height */
   }
 }/* Con
 tact component styles */
@@ -472,8 +517,8 @@ Details component styles */
 }
 
 .gm-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   margin-top: 20px;
 }
@@ -610,7 +655,6 @@ Details component styles */
 /* Tablet responsive adjustments */
 @media (max-width: 1024px) {
   .gm-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 }
@@ -618,7 +662,6 @@ Details component styles */
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
   .gm-grid {
-    grid-template-columns: 1fr;
     gap: 15px;
   }
   

@@ -11,6 +11,15 @@ const EventDetails: React.FC<EventDetailsProps> = ({ event, onBack }) => {
     onBack();
   };
 
+
+
+  // Track event view
+  React.useEffect(() => {
+    if (event?.id) {
+      analyticsService.trackContentInteraction('event', event.id);
+    }
+  }, [event?.id]);
+
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
@@ -28,13 +37,6 @@ const EventDetails: React.FC<EventDetailsProps> = ({ event, onBack }) => {
     });
   };
 
-  // Track event view
-  React.useEffect(() => {
-    if (event?.id) {
-      analyticsService.trackContentInteraction('event', event.id);
-    }
-  }, [event?.id]);
-
   return (
     <div className={`event-details-container ${currentTheme.components.card}`}>
       <div className="event-details-header">
@@ -50,34 +52,29 @@ const EventDetails: React.FC<EventDetailsProps> = ({ event, onBack }) => {
       <article className="event-details-content">
         <header className="event-header">
           <h1 className="event-title">{event.title}</h1>
-          
           <div className="event-meta">
             <div className="event-date-time">
               <span className="event-date">{formatDate(event.date)}</span>
               <span className="event-time">{formatTime(event.date)}</span>
             </div>
-            
-            <div className="event-game-info">
+            <div className="event-badges">
               <span className={`game-type-badge ${event.gameType.toLowerCase()}`}>
                 {event.gameType}
               </span>
-              {event.gamemaster && (
-                <span className="gamemaster-info">
-                  GM: {event.gamemaster}
-                </span>
-              )}
-              {event.maxPlayers && (
-                <span className="player-info">
-                  Max Players: {event.maxPlayers}
-                </span>
-              )}
             </div>
           </div>
+          {event.description && (
+            <p className="event-description">{event.description}</p>
+          )}
+          <div className="event-details-meta">
+            {event.gamemaster && (
+              <span className="event-gamemaster">GM: {event.gamemaster}</span>
+            )}
+            {event.maxPlayers && (
+              <span className="event-max-players">Max Players: {event.maxPlayers}</span>
+            )}
+          </div>
         </header>
-
-        <div className="event-description">
-          <p>{event.description}</p>
-        </div>
 
         <div className="event-content">
           <ReactMarkdown

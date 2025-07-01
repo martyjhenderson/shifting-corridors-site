@@ -10,7 +10,7 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
   const { currentTheme } = useTheme();
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [eventsData, setEventsData] = useState<CalendarEvent[]>(events);
+  const [eventsData, setEventsData] = useState<CalendarEvent[]>(events || []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
@@ -21,7 +21,7 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
 
   // Load events from content loader if not provided via props
   useEffect(() => {
-    if (events.length === 0) {
+    if (!events || events.length === 0) {
       loadEvents();
     } else {
       setEventsData(events);
@@ -59,7 +59,7 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
   };
 
   const getEventsForDate = (date: Date) => {
-    return eventsData.filter(event => 
+    return (eventsData || []).filter(event => 
       event.date.toDateString() === date.toDateString()
     );
   };
@@ -73,7 +73,7 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
 
   const getUpcomingEvents = () => {
     const now = new Date();
-    return eventsData
+    return (eventsData || [])
       .filter(event => event.date >= now)
       .sort((a, b) => a.date.getTime() - b.date.getTime());
   };

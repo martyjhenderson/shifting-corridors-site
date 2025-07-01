@@ -142,7 +142,7 @@
   - Test content loading with updated files to ensure compatibility with the ContentLoader service
   - _Requirements: 1.4, 3.4, 4.3_
 
-- [ ] 19. Verify website functionality and fix runtime errors
+- [x] 19. Verify website functionality and fix runtime errors
   - Run npm install to ensure all dependencies are properly installed
   - Execute npm start to launch the development server and verify the website loads without errors
   - Test all major functionality including theme switching, content loading, and component rendering
@@ -150,3 +150,73 @@
   - Verify that all components render correctly and content loads from markdown files
   - Run npm test to ensure all tests pass and fix any failing test cases
   - _Requirements: 9.3, 8.1, 8.4_
+
+- [x] 20. Fix Contact Information panel content loading issue
+  - Investigate why Contact Information panel is loading game event content instead of contact details
+  - Ensure Contact component is properly isolated and not receiving event data
+  - Verify that the Contact component renders the correct static contact information
+  - Test that contact information displays consistently across different themes
+  - _Requirements: Contact information display bug fix_
+
+- [x] 21. Fix panel layout alignment and styling issues
+  - Fix misaligned text in UpcomingEvents component that appears off the box boundaries
+  - Ensure all panel components have consistent box styling and proper spacing
+  - Fix boxes near the bottom that appear significantly below the main content area
+  - Implement proper CSS Grid/Flexbox alignment for sidebar components
+  - Ensure consistent panel heights and proper responsive behavior on mobile and desktop
+  - Add missing CSS styles for UpcomingEvents component layout and alignment
+  - _Requirements: 6.1, 6.2, 6.4 - Mobile responsiveness and layout consistency_
+
+- [x] 22. Remove duplicate UpcomingEvents section and fix layout
+  - Remove the UpcomingEvents component from the sidebar to eliminate duplicate sections
+  - Keep only the upcoming events section that appears below the main calendar
+  - Ensure the remaining upcoming events display is properly integrated with the calendar
+  - _Requirements: Layout cleanup and user experience improvement_
+
+- [x] 23. Fix EventDetails back navigation functionality
+  - Fix the "Back to Calendar" button in EventDetails component to properly return to the main calendar view
+  - Ensure navigation works correctly instead of going to the next most recent event
+  - Implement proper routing back to the home page with calendar view
+  - _Requirements: 1.3, 6.3 - Event detail navigation_
+
+- [x] 24. Update Contact Information content
+  - Remove the "Game Locations" section from the Contact component
+  - Replace with contact email information directing users to "lodge@shiftingcorridor.com"
+  - Add appropriate messaging about reaching out for additional information
+  - _Requirements: Contact information content update_
+
+- [x] 25. Fix date display offset issue
+  - Investigate why events with date "2025-07-13" are showing on 7/12 instead of 7/13
+  - Fix date parsing and display logic to show events on the correct calendar dates
+  - Ensure timezone handling doesn't cause date shifts
+  - _Requirements: 1.1, 1.2 - Calendar event display accuracy_
+
+- [x] 26. Stack Game Masters boxes vertically
+  - Change Game Masters component layout from horizontal grid to vertical stack
+  - Update CSS to display Game Master cards in a single column layout
+  - Ensure proper spacing and alignment in vertical layout
+  - _Requirements: 3.1, 6.1 - Game Masters display layout_
+
+- [x] 27. Remove event details box above event content
+  - Remove the upper details box that appears above the actual event details
+  - Keep only the lower event details section showing
+  - Clean up event display layout for better user experience
+  - _Requirements: 1.3 - Event detail display cleanup_
+
+- [x] 28. Fix incorrect Game Master assignment in events
+  - Investigate why July 8, 2025 event shows GM "josh-g" when markdown says "marty-h"
+  - Check content loading and parsing logic for Game Master assignment
+  - Ensure events display the correct Game Master from their markdown frontmatter
+  - _Requirements: 1.4, 3.4 - Content loading accuracy_
+
+- [x] 29. Remove placeholder news article when real news loads
+  - Remove the placeholder news article that appears alongside the real news article
+  - Ensure only the actual news content is displayed when it loads successfully
+  - Clean up news display to show only legitimate news items
+  - _Requirements: 4.1, 4.2 - News display cleanup_
+
+- [x] 30. Swap positions of Contact and Game Masters in sidebar
+  - Move Contact Information to appear above Game Masters in the sidebar
+  - Ensure Contact appears near the top on desktop browsers
+  - Maintain proper responsive behavior on mobile devices
+  - _Requirements: Layout improvement and user experience_

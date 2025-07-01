@@ -9,6 +9,13 @@ import UpcomingEvents from '../components/UpcomingEvents';
 import News from '../components/News';
 import { CalendarEvent, GameMaster, NewsArticle } from '../types';
 
+// Mock react-router-dom
+const mockNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockNavigate,
+}));
+
 // Test wrapper component
 const TestWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <BrowserRouter>

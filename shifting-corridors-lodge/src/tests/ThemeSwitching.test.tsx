@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider, useTheme } from '../utils/ThemeContext';
 import { ContentProvider } from '../utils/ContentContext';
@@ -12,9 +12,31 @@ jest.mock('../services/contentLoader', () => ({
     loadCalendarEvents: jest.fn().mockResolvedValue([]),
     loadGameMasters: jest.fn().mockResolvedValue([]),
     loadNewsArticles: jest.fn().mockResolvedValue([]),
-    clearCache: jest.fn()
+    clearCache: jest.fn(),
+    clearErrors: jest.fn()
   }
 }));
+
+// Mock react-router-dom
+jest.mock('react-router-dom', () => {
+  const React = require('react');
+  return {
+    ...jest.requireActual('react-router-dom'),
+    useLocation: () => ({
+      pathname: '/',
+      search: '',
+      hash: '',
+      state: null,
+      key: 'default'
+    }),
+    useNavigate: () => jest.fn(),
+    useParams: () => ({}),
+    BrowserRouter: ({ children }: { children: React.ReactNode }) => React.createElement('div', null, children),
+    Routes: ({ children }: { children: React.ReactNode }) => React.createElement('div', null, children),
+    Route: ({ element }: { element: React.ReactNode }) => element || React.createElement('div'),
+    Navigate: ({ to }: { to: string }) => React.createElement('div', null, `Navigate to ${to}`),
+  };
+});
 
 // Mock analytics service
 jest.mock('../services/analyticsService', () => ({
@@ -99,7 +121,7 @@ describe('End-to-End Theme Switching Tests', () => {
     });
 
     // Should persist to localStorage
-    expect(localStorage.setItem).toHaveBeenCalledWith('selectedTheme', 'sci-fi');
+    expect(localStorage.setItem).toHaveBeenCalledWith('lodge-theme', 'sci-fi');
 
     // Switch back to medieval
     await user.click(screen.getByTestId('set-medieval'));
@@ -108,7 +130,7 @@ describe('End-to-End Theme Switching Tests', () => {
       expect(screen.getByTestId('current-theme')).toHaveTextContent('medieval');
     });
 
-    expect(localStorage.setItem).toHaveBeenCalledWith('selectedTheme', 'medieval');
+    expect(localStorage.setItem).toHaveBeenCalledWith('lodge-theme', 'medieval');
   });
 
   test('theme switching tracks analytics events', async () => {
@@ -120,9 +142,9 @@ describe('End-to-End Theme Switching Tests', () => {
       </ThemeProvider>
     );
 
-    // Find and click sci-fi theme option
-    const sciFiOption = screen.getByDisplayValue('sci-fi');
-    await user.click(sciFiOption);
+    // Find and change theme selector to sci-fi
+    const themeSelector = screen.getByRole('combobox', { name: /choose theme/i });
+    await user.selectOptions(themeSelector, 'sci-fi');
 
     // Should track theme switch
     await waitFor(() => {
@@ -130,8 +152,7 @@ describe('End-to-End Theme Switching Tests', () => {
     });
 
     // Switch back to medieval
-    const medievalOption = screen.getByDisplayValue('medieval');
-    await user.click(medievalOption);
+    await user.selectOptions(themeSelector, 'medieval');
 
     await waitFor(() => {
       expect(analyticsService.trackThemeSwitch).toHaveBeenCalledWith('medieval');
@@ -151,8 +172,8 @@ describe('End-to-End Theme Switching Tests', () => {
     expect(document.body).toHaveClass('theme-medieval');
 
     // Switch to sci-fi theme
-    const sciFiOption = screen.getByDisplayValue('sci-fi');
-    await user.click(sciFiOption);
+    const themeSelector = screen.getByRole('combobox', { name: /choose theme/i });
+    await user.selectOptions(themeSelector, 'sci-fi');
 
     await waitFor(() => {
       expect(document.body).toHaveClass('theme-sci-fi');
@@ -160,8 +181,7 @@ describe('End-to-End Theme Switching Tests', () => {
     });
 
     // Switch back to medieval
-    const medievalOption = screen.getByDisplayValue('medieval');
-    await user.click(medievalOption);
+    await user.selectOptions(themeSelector, 'medieval');
 
     await waitFor(() => {
       expect(document.body).toHaveClass('theme-medieval');
@@ -184,7 +204,7 @@ describe('End-to-End Theme Switching Tests', () => {
       expect(screen.getByTestId('current-theme')).toHaveTextContent('sci-fi');
     });
 
-    expect(localStorage.getItem).toHaveBeenCalledWith('selectedTheme');
+    expect(localStorage.getItem).toHaveBeenCalledWith('lodge-theme');
   });
 
   test('invalid theme in localStorage falls back to default', async () => {
@@ -279,11 +299,8 @@ describe('End-to-End Theme Switching Tests', () => {
     await user.tab();
     expect(themeSelector).toHaveFocus();
 
-    // Use arrow keys to navigate options
-    await user.keyboard('{ArrowDown}');
-    
-    // Should be able to select with Enter
-    await user.keyboard('{Enter}');
+    // Change the select value
+    await user.selectOptions(themeSelector, 'sci-fi');
 
     // Theme should change
     await waitFor(() => {

@@ -349,9 +349,9 @@ describe('Validation Utilities', () => {
   describe('parseDate', () => {
     it('should parse various date formats', () => {
       const testCases = [
-        { input: '2025-07-15', expected: new Date('2025-07-15') },
-        { input: '07/15/2025', expected: new Date('07/15/2025') },
-        { input: '07-15-2025', expected: new Date('07-15-2025') },
+        { input: '2025-07-15', expected: new Date(2025, 6, 15) }, // Local timezone date
+        { input: '07/15/2025', expected: new Date(2025, 6, 15) }, // Local timezone date
+        { input: '07-15-2025', expected: new Date(2025, 6, 15) }, // Local timezone date
         { input: new Date('2025-07-15'), expected: new Date('2025-07-15') },
         { input: Date.now(), expected: new Date(Date.now()) }
       ];

@@ -41,6 +41,10 @@ class PerformanceCache<T> {
   size(): number {
     return this.cache.size;
   }
+
+  keys(): string[] {
+    return Array.from(this.cache.keys());
+  }
 }
 
 // Singleton cache instances

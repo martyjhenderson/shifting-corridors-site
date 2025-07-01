@@ -674,7 +674,7 @@ class ContentLoaderService implements ContentLoader {
 
       // If we have some articles, use them; otherwise use fallback
       const finalArticles = articles.length > 0 
-        ? mergeWithFallback(articles, getFallbackNews())
+        ? articles  // Use only real articles, no fallback merging for news
         : getFallbackNews();
 
       // Cache the results
@@ -773,7 +773,7 @@ class ContentLoaderService implements ContentLoader {
     return {
       contentCacheSize: contentCache.size(),
       errorCacheSize: this.errorCache.size,
-      cachedKeys: []
+      cachedKeys: contentCache.keys()
     };
   }
 }

@@ -380,6 +380,9 @@
   align-items: flex-start;
   gap: 12px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent content from overflowing the container */
 }
 
 .theme-medieval .upcoming-event-item:hover {
@@ -427,6 +430,8 @@
 
 .theme-medieval .event-details {
   flex: 1;
+  min-width: 0; /* Allow flex item to shrink below its content size */
+  overflow: hidden; /* Prevent text overflow */
 }
 
 .theme-medieval .event-title {
@@ -481,6 +486,8 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .theme-medieval .event-action-indicator {
@@ -711,18 +718,29 @@
   .theme-medieval .upcoming-events-container {
     margin: 8px 0;
     padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .theme-medieval .upcoming-event-item {
     flex-direction: column;
     gap: 8px;
     padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: stretch;
   }
   
   .theme-medieval .event-priority-indicator,
   .theme-medieval .event-date-info {
     min-width: auto;
     text-align: left;
+    width: 100%;
+  }
+  
+  .theme-medieval .event-details {
+    width: 100%;
+    min-width: 0;
   }
   
   .theme-medieval .event-action-indicator {
@@ -730,10 +748,12 @@
     justify-content: space-between;
     min-width: auto;
     width: 100%;
+    margin-top: 8px;
   }
   
   .theme-medieval .event-meta {
     gap: 8px;
+    flex-wrap: wrap;
   }
 
   /* EventDetails Mobile Styles */
@@ -795,5 +815,154 @@
 
   .theme-medieval .content-heading-3 {
     font-size: 1.2em;
+  }
+}
+
+/* News Component Container Styles */
+.theme-medieval .news-container {
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.theme-medieval .news-container h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+}
+
+/* News Mobile Styles */
+@media (max-width: 768px) {
+  .theme-medieval .news-container {
+    margin: 8px 0;
+    padding: 16px;
+  }
+  
+  .theme-medieval .news-container h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* GameMasters Component Styles */
+.theme-medieval .gamemasters-container {
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.theme-medieval .gamemasters-container h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+}
+
+/* GameMasters Mobile Styles */
+@media (max-width: 768px) {
+  .theme-medieval .gamemasters-container {
+    margin: 8px 0;
+    padding: 16px;
+  }
+  
+  .theme-medieval .gamemasters-container h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Contact Component Styles */
+.theme-medieval .contact-container {
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.theme-medieval .contact-container h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+}
+
+.theme-medieval .contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theme-medieval .contact-section {
+  margin-bottom: 12px;
+}
+
+.theme-medieval .contact-section h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.theme-medieval .contact-section h4 {
+  font-family: var(--font-heading);
+  color: var(--color-secondary);
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+}
+
+.theme-medieval .contact-section p {
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.theme-medieval .contact-email-section {
+  background: rgba(139, 69, 19, 0.05);
+  border-left: 3px solid var(--color-accent);
+  padding: 12px;
+  border-radius: 0 6px 6px 0;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.theme-medieval .contact-email {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
+}
+
+.theme-medieval .contact-email:hover {
+  text-decoration: underline;
+  color: var(--color-secondary);
+}
+
+/* Contact Mobile Styles */
+@media (max-width: 768px) {
+  .theme-medieval .contact-container {
+    margin: 8px 0;
+    padding: 16px;
+  }
+  
+  .theme-medieval .contact-container h2 {
+    font-size: 1.3rem;
+  }
+  
+  .theme-medieval .contact-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .theme-medieval .contact-section h4 {
+    font-size: 0.9rem;
+  }
+  
+  .theme-medieval .contact-email {
+    font-size: 1rem;
+    word-break: break-all;
   }
 }
