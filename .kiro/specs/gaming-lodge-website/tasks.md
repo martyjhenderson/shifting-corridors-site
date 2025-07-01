@@ -134,7 +134,7 @@
   - Document removal of Cloudflare dependencies and new AWS-based architecture
   - _Requirements: 10.1, 10.2, 10.3, 10.4_
 
-- [ ] 18. Update existing content to match new format requirements
+- [x] 18. Update existing content to match new format requirements
   - Review and update all existing markdown files in content/calendar to ensure proper frontmatter structure
   - Update content/gamemasters markdown files to include required metadata (name, organizedPlayId, games array)
   - Update content/news markdown files to include proper frontmatter with title, date, author, and excerpt

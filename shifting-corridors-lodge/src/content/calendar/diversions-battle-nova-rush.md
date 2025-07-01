@@ -1,9 +1,11 @@
 ---
-title: Starfinder Society at Diversions - Battle for Nova Rush
-date: 2025-07-23
-url: /events/diversions-battle-nova-rush
-location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+title: "Starfinder Society at Diversions - Battle for Nova Rush"
+date: "2025-07-23"
+gamemaster: "marty-h"
+gameType: "Starfinder"
+maxPlayers: 6
+location: "Diversions"
+address: "119 2nd St #300, Coralville, IA 52241"
 ---
 
 # Starfinder Society at Diversions - Battle for Nova Rush

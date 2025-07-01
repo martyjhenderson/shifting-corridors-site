@@ -1,9 +1,11 @@
 ---
-title: Pathfinder Society at Diversions
-date: 2025-06-25
-url: /events/diversions-game-night
-location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+title: "Pathfinder Society at Diversions"
+date: "2025-06-25"
+gamemaster: "josh-g"
+gameType: "Pathfinder"
+maxPlayers: 12
+location: "Diversions"
+address: "119 2nd St #300, Coralville, IA 52241"
 ---
 
 # Pathfinder Society at Diversions

@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+// import matter from 'gray-matter'; // Commented out due to Buffer compatibility issues
 import { 
   CalendarEvent, 
   GameMaster, 
@@ -33,11 +33,13 @@ const STATIC_CONTENT = {
     {
       filename: 'diversions-game-night.md',
       content: `---
-title: Pathfinder Society at Diversions
-date: 2025-06-25
-url: /events/diversions-game-night
-location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+title: "Pathfinder Society at Diversions"
+date: "2025-06-25"
+gamemaster: "josh-g"
+gameType: "Pathfinder"
+maxPlayers: 12
+location: "Diversions"
+address: "119 2nd St #300, Coralville, IA 52241"
 ---
 
 # Pathfinder Society at Diversions
@@ -63,11 +65,13 @@ Please register in advance using the links above. Space is limited, so sign up e
     {
       filename: 'gcg-29-july.md',
       content: `---
-title: Pathfinder Society at Geek City Games
-date: 2025-06-29
-url: /events/gcg-29Jun2025
-location: Geek City Games
-address: 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+title: "Pathfinder Society at Geek City Games"
+date: "2025-06-29"
+gamemaster: "josh-g"
+gameType: "Pathfinder"
+maxPlayers: 6
+location: "Geek City Games"
+address: "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
 ---
 
 # Pathfinder Society at Geek City Games
@@ -92,11 +96,13 @@ Please register in advance using the links above. Space is limited, so sign up e
     {
       filename: 'diversions-symposium-fallen-god.md',
       content: `---
-title: Pathfinder Society at Diversions - Symposium on a Fallen God
-date: 2025-07-09
-url: /events/diversions-symposium-fallen-god
-location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+title: "Pathfinder Society at Diversions - Symposium on a Fallen God"
+date: "2025-07-09"
+gamemaster: "josh-g"
+gameType: "Pathfinder"
+maxPlayers: 6
+location: "Diversions"
+address: "119 2nd St #300, Coralville, IA 52241"
 ---
 
 # Pathfinder Society at Diversions - Symposium on a Fallen God
@@ -121,11 +127,13 @@ Please register in advance using the link above. Space is limited, so sign up ea
     {
       filename: 'gcg-13-july.md',
       content: `---
-title: Pathfinder Society at Geek City Games
-date: 2025-07-13
-url: /events/gcg-13Jul2025
-location: Geek City Games
-address: 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+title: "Pathfinder Society at Geek City Games"
+date: "2025-07-13"
+gamemaster: "marty-h"
+gameType: "Pathfinder"
+maxPlayers: 6
+location: "Geek City Games"
+address: "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
 ---
 
 # Pathfinder Society at Geek City Games
@@ -150,11 +158,13 @@ Please register in advance using the links above. Space is limited, so sign up e
     {
       filename: 'diversions-battle-nova-rush.md',
       content: `---
-title: Starfinder Society at Diversions - Battle for Nova Rush
-date: 2025-07-23
-url: /events/diversions-battle-nova-rush
-location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+title: "Starfinder Society at Diversions - Battle for Nova Rush"
+date: "2025-07-23"
+gamemaster: "marty-h"
+gameType: "Starfinder"
+maxPlayers: 6
+location: "Diversions"
+address: "119 2nd St #300, Coralville, IA 52241"
 ---
 
 # Starfinder Society at Diversions - Battle for Nova Rush
@@ -185,12 +195,9 @@ Please register in advance using the link above. Space is limited, so sign up ea
     {
       filename: 'marty-h.md',
       content: `---
-firstName: Marty
-lastInitial: H
-organizedPlayNumber: 30480
-games:
-  - Pathfinder
-  - Starfinder
+name: "Marty H"
+organizedPlayId: "30480"
+games: ["Pathfinder", "Starfinder"]
 ---
 
 Marty is the Corridor Venture-Lieutenant and a Game Master who runs scenarios for Pathfinder 2E and Starfinder 2E. He specializes in creating immersive roleplaying experiences and his collection of maps and lending of dice.`
@@ -198,11 +205,9 @@ Marty is the Corridor Venture-Lieutenant and a Game Master who runs scenarios fo
     {
       filename: 'josh-g.md',
       content: `---
-firstName: Josh
-lastInitial: G
-organizedPlayNumber: 13151
-games:
-  - Pathfinder
+name: "Josh G"
+organizedPlayId: "13151"
+games: ["Pathfinder"]
 ---
 
 Josh is an experienced Game Master with a legacy of running games stretching back before Pathfinder existed. His sense of humor and desire to see the players laugh makes for a great experience.`
@@ -212,9 +217,10 @@ Josh is an experienced Game Master with a legacy of running games stretching bac
     {
       filename: 'new-lodge-website.md',
       content: `---
-title: New Lodge Website Launched
-date: 2025-06-23
-id: new-lodge-website
+title: "New Lodge Website Launched"
+date: "2025-06-23"
+author: "Lodge Admin"
+excerpt: "We're excited to announce the launch of our new Shifting Corridors Lodge website! This new site will help us better coordinate events and share information with our community."
 ---
 
 # New Lodge Website Launched
@@ -252,13 +258,13 @@ class ContentLoaderService implements ContentLoader {
     try {
       // For static builds, we don't actually fetch files by path
       // This method is kept for interface compatibility
-      const { data, content } = matter('');
+      const parsed = this.parseFrontmatter('');
       
       // Validate and sanitize content
-      const sanitizedContent = sanitizeContent(content || '');
+      const sanitizedContent = sanitizeContent(parsed.content || '');
       
       return {
-        frontmatter: data || {},
+        frontmatter: parsed.data || {},
         content: sanitizedContent
       };
     } catch (error) {
@@ -280,6 +286,58 @@ class ContentLoaderService implements ContentLoader {
   }
 
   /**
+   * Simple browser-compatible frontmatter parser
+   */
+  private parseFrontmatter(content: string): { data: any; content: string } {
+    const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+    const match = content.match(frontmatterRegex);
+    
+    if (!match) {
+      return { data: {}, content };
+    }
+    
+    const [, frontmatterStr, bodyContent] = match;
+    const data: any = {};
+    
+    // Parse YAML-like frontmatter
+    const lines = frontmatterStr.split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      
+      const colonIndex = trimmed.indexOf(':');
+      if (colonIndex === -1) continue;
+      
+      const key = trimmed.substring(0, colonIndex).trim();
+      let value = trimmed.substring(colonIndex + 1).trim();
+      
+      // Remove quotes
+      if ((value.startsWith('"') && value.endsWith('"')) || 
+          (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1);
+      }
+      
+      // Handle arrays
+      if (value.startsWith('[') && value.endsWith(']')) {
+        const arrayContent = value.slice(1, -1);
+        data[key] = arrayContent.split(',').map(item => {
+          const trimmedItem = item.trim();
+          return (trimmedItem.startsWith('"') && trimmedItem.endsWith('"')) ||
+                 (trimmedItem.startsWith("'") && trimmedItem.endsWith("'"))
+            ? trimmedItem.slice(1, -1)
+            : trimmedItem;
+        });
+      } else {
+        // Handle numbers
+        const numValue = Number(value);
+        data[key] = !isNaN(numValue) && value !== '' ? numValue : value;
+      }
+    }
+    
+    return { data, content: bodyContent };
+  }
+
+  /**
    * Parse markdown content string with validation and error handling
    */
   private parseMarkdownContent(markdownContent: string, fileName: string): MarkdownContent {
@@ -288,7 +346,7 @@ class ContentLoaderService implements ContentLoader {
         throw new Error('Invalid markdown content');
       }
 
-      const parsed = matter(markdownContent);
+      const parsed = this.parseFrontmatter(markdownContent);
       if (!parsed) {
         throw new Error('Failed to parse markdown');
       }
@@ -301,6 +359,7 @@ class ContentLoaderService implements ContentLoader {
         content: sanitizedContent
       };
     } catch (error) {
+      
       const contentError: ContentError = {
         type: 'parsing',
         message: `Failed to parse markdown content for ${fileName}`,
@@ -469,8 +528,8 @@ class ContentLoaderService implements ContentLoader {
           // Transform markdown content to GameMaster with validated data
           const gameMaster: GameMaster = {
             id: file.filename.replace('.md', ''),
-            name: this.formatGameMasterName(validated.firstName, validated.lastInitial),
-            organizedPlayId: String(validated.organizedPlayNumber || '00000'),
+            name: parsed.frontmatter.name || this.formatGameMasterName(validated.firstName, validated.lastInitial),
+            organizedPlayId: String(parsed.frontmatter.organizedPlayId || validated.organizedPlayNumber || '00000'),
             games: (validated.games || ['Pathfinder']) as ('Pathfinder' | 'Starfinder' | 'Legacy')[],
             bio: sanitizeContent(parsed.content.trim()),
             avatar: validated.avatar

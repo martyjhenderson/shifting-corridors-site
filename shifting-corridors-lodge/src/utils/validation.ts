@@ -113,14 +113,14 @@ export const validateGameMasterFrontmatter = (frontmatter: any): {
     games: ['Pathfinder']
   };
 
-  // Validate name fields
+  // Handle new format (name field) or old format (firstName/lastInitial)
   if (frontmatter.name && typeof frontmatter.name === 'string') {
-    // If full name is provided, try to parse it
+    // New format: full name provided
     const nameParts = frontmatter.name.trim().split(' ');
     validated.firstName = nameParts[0] || '';
     validated.lastInitial = nameParts[1]?.charAt(0) || '';
   } else {
-    // Check individual name fields
+    // Old format: individual name fields
     if (!frontmatter.firstName || typeof frontmatter.firstName !== 'string') {
       errors.push('Game master first name is required');
       validated.firstName = 'Unknown';
@@ -136,10 +136,10 @@ export const validateGameMasterFrontmatter = (frontmatter: any): {
     }
   }
 
-  // Validate organized play number
-  const opNumber = frontmatter.organizedPlayNumber || frontmatter.organizedPlayId;
+  // Handle new format (organizedPlayId) or old format (organizedPlayNumber)
+  const opNumber = frontmatter.organizedPlayId || frontmatter.organizedPlayNumber;
   if (!opNumber) {
-    warnings.push('Organized play number is recommended');
+    warnings.push('Organized play ID is recommended');
     validated.organizedPlayNumber = '00000';
   } else {
     validated.organizedPlayNumber = String(opNumber).trim();

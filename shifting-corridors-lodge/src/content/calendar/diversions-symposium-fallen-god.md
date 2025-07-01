@@ -1,9 +1,11 @@
 ---
-title: Pathfinder Society at Diversions - Symposium on a Fallen God
-date: 2025-07-09
-url: /events/diversions-symposium-fallen-god
-location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+title: "Pathfinder Society at Diversions - Symposium on a Fallen God"
+date: "2025-07-09"
+gamemaster: "josh-g"
+gameType: "Pathfinder"
+maxPlayers: 6
+location: "Diversions"
+address: "119 2nd St #300, Coralville, IA 52241"
 ---
 
 # Pathfinder Society at Diversions - Symposium on a Fallen God

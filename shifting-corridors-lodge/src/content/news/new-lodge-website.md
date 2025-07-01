@@ -1,7 +1,8 @@
 ---
-title: New Lodge Website Launched
-date: 2025-06-23
-id: new-lodge-website
+title: "New Lodge Website Launched"
+date: "2025-06-23"
+author: "Lodge Admin"
+excerpt: "We're excited to announce the launch of our new Shifting Corridors Lodge website! This new site will help us better coordinate events and share information with our community."
 ---
 
 # New Lodge Website Launched

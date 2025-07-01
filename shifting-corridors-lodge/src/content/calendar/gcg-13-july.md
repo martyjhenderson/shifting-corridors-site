@@ -1,9 +1,11 @@
 ---
-title: Pathfinder Society at Geek City Games
-date: 2025-07-13
-url: /events/gcg-13Jul2025
-location: Geek City Games
-address: 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+title: "Pathfinder Society at Geek City Games"
+date: "2025-07-13"
+gamemaster: "marty-h"
+gameType: "Pathfinder"
+maxPlayers: 6
+location: "Geek City Games"
+address: "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
 ---
 
 # Pathfinder Society at Geek City Games
