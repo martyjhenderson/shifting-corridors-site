@@ -1,51 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useTheme } from '../utils/ThemeContext';
-import { contentLoader } from '../services/contentLoader';
-import { CalendarEvent } from '../types';
+import { EventDetailsProps } from '../types';
+import { analyticsService } from '../services/analyticsService';
 
-const EventDetails: React.FC = () => {
-  const { eventId } = useParams<{ eventId: string }>();
-  const navigate = useNavigate();
+const EventDetails: React.FC<EventDetailsProps> = ({ event, onBack }) => {
   const { currentTheme } = useTheme();
-  const [event, setEvent] = useState<CalendarEvent | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    loadEventDetails();
-  }, [eventId]);
-
-  const loadEventDetails = async () => {
-    if (!eventId) {
-      setError('No event ID provided');
-      setLoading(false);
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    try {
-      const events = await contentLoader.loadCalendarEvents();
-      const foundEvent = events.find(e => e.id === eventId);
-      
-      if (foundEvent) {
-        setEvent(foundEvent);
-      } else {
-        setError('Event not found');
-      }
-    } catch (err) {
-      setError('Failed to load event details');
-      console.error('Error loading event details:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleBackClick = () => {
-    navigate('/');
+    onBack();
   };
 
   const formatDate = (date: Date) => {
@@ -65,32 +28,12 @@ const EventDetails: React.FC = () => {
     });
   };
 
-  if (loading) {
-    return (
-      <div className={`event-details-container ${currentTheme.components.card}`}>
-        <div className="event-details-loading">
-          <p>Loading event details...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error || !event) {
-    return (
-      <div className={`event-details-container ${currentTheme.components.card}`}>
-        <div className="event-details-error">
-          <h2>Event Not Found</h2>
-          <p>{error || 'The requested event could not be found.'}</p>
-          <button 
-            className={`back-button ${currentTheme.components.button}`}
-            onClick={handleBackClick}
-          >
-            ← Back to Calendar
-          </button>
-        </div>
-      </div>
-    );
-  }
+  // Track event view
+  React.useEffect(() => {
+    if (event?.id) {
+      analyticsService.trackContentInteraction('event', event.id);
+    }
+  }, [event?.id]);
 
   return (
     <div className={`event-details-container ${currentTheme.components.card}`}>
