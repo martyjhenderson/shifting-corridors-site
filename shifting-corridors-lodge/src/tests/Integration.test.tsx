@@ -65,14 +65,14 @@ const mockGameMasters = [
     id: 'josh-g',
     name: 'Josh G.',
     organizedPlayId: '12345',
-    games: ['Pathfinder', 'Starfinder'] as const,
+    games: ['Pathfinder', 'Starfinder'] as ('Pathfinder' | 'Starfinder' | 'Legacy')[],
     bio: 'Experienced GM with years of tabletop gaming'
   },
   {
     id: 'marty-h',
     name: 'Marty H.',
     organizedPlayId: '67890',
-    games: ['Pathfinder', 'Legacy'] as const,
+    games: ['Pathfinder', 'Legacy'] as ('Pathfinder' | 'Starfinder' | 'Legacy')[],
     bio: 'Passionate about storytelling and player engagement'
   }
 ];

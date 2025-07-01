@@ -57,7 +57,7 @@ const mockGameMasters = [
     id: 'gm-1',
     name: 'Test GM',
     organizedPlayId: '12345',
-    games: ['Pathfinder'] as const,
+    games: ['Pathfinder'] as ('Pathfinder' | 'Starfinder' | 'Legacy')[],
     bio: 'Test bio'
   }
 ];
@@ -339,9 +339,9 @@ describe('Comprehensive Test Coverage Validation', () => {
       expect(validateNewsArticle({})).toBe(false);
 
       // Test null/undefined
-      expect(validateCalendarEvent(null)).toBe(false);
-      expect(validateGameMaster(undefined)).toBe(false);
-      expect(validateNewsArticle(null)).toBe(false);
+      expect(validateCalendarEvent(null as any)).toBe(false);
+      expect(validateGameMaster(undefined as any)).toBe(false);
+      expect(validateNewsArticle(null as any)).toBe(false);
     });
 
     test('fallback content functions provide defaults', () => {

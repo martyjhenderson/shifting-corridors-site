@@ -639,7 +639,7 @@ describe('Comprehensive Mobile Responsiveness Tests', () => {
         id: `gm-${i}`,
         name: `GM ${i}`,
         organizedPlayId: `${i}`,
-        games: ['Pathfinder'] as const,
+        games: ['Pathfinder'] as ('Pathfinder' | 'Starfinder' | 'Legacy')[],
         bio: `Bio ${i}`
       }));
 

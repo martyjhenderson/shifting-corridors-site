@@ -252,7 +252,7 @@ describe('Fallback Content', () => {
       
       // Should not have duplicates
       const ids = merged.map(event => event.id);
-      const uniqueIds = [...new Set(ids)];
+      const uniqueIds = Array.from(new Set(ids));
       expect(ids.length).toBe(uniqueIds.length);
       
       // Real content should take precedence

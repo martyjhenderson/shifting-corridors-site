@@ -53,7 +53,7 @@ A toggle button in the top right corner allows users to switch between themes.
 - React Router
 - React Markdown
 - React Calendar
-- Cloudflare Workers (for deployment)
+- AWS S3 + CloudFront (for deployment)
 
 ### Project Structure
 ```
@@ -77,10 +77,9 @@ shifting-corridors-lodge/
 │   │   └── ThemeContext.tsx # Theme context provider
 │   ├── App.tsx              # Main application component
 │   └── index.tsx            # Entry point
-├── workers-site/            # Cloudflare Workers configuration
-│   ├── index.js             # Worker script
-│   └── package.json         # Worker dependencies
-├── wrangler.toml            # Cloudflare Wrangler configuration
+├── aws/                     # AWS deployment configuration
+│   ├── cloudformation-template.yml  # Infrastructure as Code
+│   └── deploy-infrastructure.sh     # Deployment script
 └── package.json             # Dependencies and scripts
 ```
 
@@ -102,32 +101,54 @@ Tests verify that:
 
 ## Deployment
 
-### Deploying to Cloudflare Workers
+### Deploying to AWS S3 + CloudFront
 
-This project is configured to deploy to Cloudflare Workers using Wrangler:
+This project is configured to deploy to AWS S3 with CloudFront distribution for global content delivery.
 
-1. Install Wrangler globally (if not already installed):
+#### Prerequisites
+
+1. Install and configure AWS CLI:
+
 ```bash
-npm install -g wrangler
+# Install AWS CLI
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Configure AWS CLI
+aws configure
 ```
 
-2. Authenticate with Cloudflare:
+#### Infrastructure Setup
+
+1. Deploy the AWS infrastructure using CloudFormation:
+
 ```bash
-wrangler login
+cd aws
+./deploy-infrastructure.sh
 ```
 
-3. Build and deploy the site:
+2. Configure GitHub Actions secrets with the values from the CloudFormation outputs:
+   - `AWS_ACCESS_KEY_ID`
+   - `AWS_SECRET_ACCESS_KEY`
+   - `AWS_REGION`
+   - `S3_BUCKET_NAME`
+   - `CLOUDFRONT_DISTRIBUTION_ID`
+
+#### Manual Deployment
+
+For manual deployment, you can use the deployment script:
+
 ```bash
-npm run build
-npm run deploy
+npm run deploy:aws
 ```
 
-4. To preview the site before deploying:
-```bash
-npm run preview
-```
+Make sure to set the required environment variables:
 
-### Manual Deployment
+```bash
+export S3_BUCKET_NAME=your-bucket-name
+export CLOUDFRONT_DISTRIBUTION_ID=your-distribution-id
+```
 
 Alternatively, you can deploy the static files manually:
 

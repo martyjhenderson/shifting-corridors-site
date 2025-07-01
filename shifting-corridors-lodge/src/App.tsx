@@ -6,6 +6,12 @@ import { analyticsService } from './services/analyticsService';
 import { addResourceHints, preloadResource } from './utils/performance';
 import { initWebVitals, initPerformanceObserver } from './utils/webVitals';
 import ErrorBoundary from './components/ErrorBoundary';
+import ThemeSelector from './components/ThemeSelector';
+import './App.css';
+import './styles/performance.css';
+import './styles/medieval.css';
+import './styles/sci-fi.css';
+import './styles/mobile.css';
 
 // Lazy load non-critical components
 const CalendarComponent = lazy(() => import('./components/Calendar'));
@@ -14,14 +20,6 @@ const Contact = lazy(() => import('./components/Contact'));
 const News = lazy(() => import('./components/News'));
 const EventDetails = lazy(() => import('./components/EventDetails'));
 const UpcomingEvents = lazy(() => import('./components/UpcomingEvents'));
-
-// Keep critical components as regular imports for immediate loading
-import ThemeSelector from './components/ThemeSelector';
-import './App.css';
-import './styles/performance.css';
-import './styles/medieval.css';
-import './styles/sci-fi.css';
-import './styles/mobile.css';
 
 // Performance optimizations
 addResourceHints();

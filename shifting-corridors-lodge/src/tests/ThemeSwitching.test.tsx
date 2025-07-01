@@ -34,7 +34,7 @@ const ThemeTestComponent: React.FC = () => {
   
   return (
     <div>
-      <div data-testid="current-theme">{currentTheme}</div>
+      <div data-testid="current-theme">{currentTheme.name}</div>
       <div data-testid="available-themes">{availableThemes.join(',')}</div>
       <button onClick={() => setTheme('medieval')} data-testid="set-medieval">
         Set Medieval
