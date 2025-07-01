@@ -126,10 +126,18 @@
   - Test deployment process and validate static site functionality
   - _Requirements: 7.1, 7.2, 7.3_
 
-- [ ] 17. Documentation and README update
+- [x] 17. Documentation and README update
   - Update README.md with current specifications and features
   - Document local development setup process
   - Add AWS deployment instructions and configuration details
   - Include information about markdown content structure and theme system
   - Document removal of Cloudflare dependencies and new AWS-based architecture
   - _Requirements: 10.1, 10.2, 10.3, 10.4_
+
+- [ ] 18. Update existing content to match new format requirements
+  - Review and update all existing markdown files in content/calendar to ensure proper frontmatter structure
+  - Update content/gamemasters markdown files to include required metadata (name, organizedPlayId, games array)
+  - Update content/news markdown files to include proper frontmatter with title, date, author, and excerpt
+  - Validate that all content files follow the standardized markdown structure defined in the design document
+  - Test content loading with updated files to ensure compatibility with the ContentLoader service
+  - _Requirements: 1.4, 3.4, 4.3_
