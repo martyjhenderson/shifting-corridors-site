@@ -431,28 +431,45 @@ Details component styles */
 
 .event-content a:hover {
   text-decoration: underline;
-}/* 
-GameMasters component styles */
+}/* GameMasters component styles */
 .gamemasters-container {
   margin-bottom: 20px;
 }
 
-.gm-list {
-  display: flex;
-  flex-direction: column;
+.gm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  margin-top: 20px;
 }
 
-.gm-item {
-  padding: 15px;
+.gm-card {
+  padding: 20px;
   border: 1px solid var(--color-accent);
   border-radius: 8px;
   background-color: var(--color-background);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.gm-card:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gm-card:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .gm-name {
   margin: 0 0 10px 0;
   color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .gm-number {
@@ -464,12 +481,132 @@ GameMasters component styles */
 .gm-games {
   margin: 10px 0;
   font-weight: 500;
+  color: var(--color-text);
 }
 
-.gm-bio {
-  margin-top: 10px;
+.gm-preview {
+  margin-top: 15px;
   line-height: 1.5;
   font-style: italic;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.gm-click-hint {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+/* Game Master detail view styles */
+.gm-detail-header {
+  margin-bottom: 20px;
+}
+
+.back-button {
+  padding: 10px 20px;
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.back-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border-color: var(--color-primary);
+}
+
+.gm-detail {
+  padding: 30px;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  background-color: var(--color-background);
+}
+
+.gm-detail-name {
+  margin: 0 0 20px 0;
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.gm-detail-info {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-accent);
+}
+
+.gm-detail-number {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+}
+
+.gm-detail-games {
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.gm-detail-bio {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.loading-message, .error-message {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1rem;
+}
+
+.no-gamemasters {
+  text-align: center;
+  opacity: 0.7;
+  font-style: italic;
+  padding: 40px 20px;
+  font-size: 1rem;
+}
+
+/* Tablet responsive adjustments */
+@media (max-width: 1024px) {
+  .gm-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .gm-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .gm-card {
+    padding: 15px;
+  }
+  
+  .gm-name {
+    font-size: 1.1rem;
+  }
+  
+  .gm-detail {
+    padding: 20px;
+  }
+  
+  .gm-detail-name {
+    font-size: 1.5rem;
+  }
+  
+  .back-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }/* News 
 component styles */
 .news-container {
