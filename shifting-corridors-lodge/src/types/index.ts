@@ -100,7 +100,7 @@ export interface AnalyticsService {
 // Component prop interfaces
 export interface CalendarProps {
   events: CalendarEvent[];
-  onEventSelect: (event: CalendarEvent) => void;
+  onEventSelect?: (event: CalendarEvent) => void;
 }
 
 export interface GameMastersProps {
@@ -109,7 +109,7 @@ export interface GameMastersProps {
 }
 
 export interface NewsProps {
-  articles: NewsArticle[];
+  articles?: NewsArticle[];
   maxItems?: number;
 }
 

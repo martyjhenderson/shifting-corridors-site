@@ -54,7 +54,7 @@
   - Write unit tests for game master display and interaction
   - _Requirements: 3.1, 3.2, 3.3, 6.1, 6.2, 8.1_
 
-- [ ] 8. News component implementation
+- [x] 8. News component implementation
   - Build News component that loads and displays articles from markdown files
   - Implement newest-first sorting for news articles
   - Add full article view functionality when news items are clicked
@@ -62,7 +62,7 @@
   - Write tests for news loading, sorting, and display
   - _Requirements: 4.1, 4.2, 4.4, 6.1, 6.2, 8.1_
 
-- [ ] 9. EventDetails component for detailed views
+- [x] 9. EventDetails component for detailed views
   - Create EventDetails component for displaying full event information
   - Implement markdown content rendering for event descriptions
   - Add navigation back to calendar view
@@ -70,7 +70,7 @@
   - Write tests for event detail display and navigation
   - _Requirements: 1.3, 6.1, 6.3, 8.1_
 
-- [ ] 10. Fathom Analytics integration
+- [x] 10. Fathom Analytics integration
   - Add Fathom Analytics script to index.html with site configuration
   - Create AnalyticsService for tracking page views and custom events
   - Implement event tracking for theme switches, content interactions, and navigation

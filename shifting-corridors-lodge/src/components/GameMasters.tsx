@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../utils/ThemeContext';
 import { GameMaster, GameMastersProps } from '../types';
 import { contentLoader } from '../services/contentLoader';
+import { analyticsService } from '../services/analyticsService';
 
 const GameMasters: React.FC<GameMastersProps> = ({ 
   gamemasters, 
@@ -38,6 +39,9 @@ const GameMasters: React.FC<GameMastersProps> = ({
   }, [gamemasters]);
 
   const handleGameMasterClick = (gm: GameMaster) => {
+    // Track GM profile view
+    analyticsService.trackContentInteraction('gm', gm.id);
+    
     setSelectedGM(gm);
     if (onGameMasterSelect) {
       onGameMasterSelect(gm);

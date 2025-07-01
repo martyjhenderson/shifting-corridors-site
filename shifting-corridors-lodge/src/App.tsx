@@ -1,6 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider, useTheme } from './utils/ThemeContext';
+import { analyticsService } from './services/analyticsService';
 import CalendarComponent from './components/Calendar';
 import GameMasters from './components/GameMasters';
 import Contact from './components/Contact';
@@ -19,6 +20,12 @@ document.head.appendChild(fontLink);
 
 const AppContent: React.FC = () => {
   const { currentTheme } = useTheme();
+  const location = useLocation();
+
+  // Track page views when location changes
+  useEffect(() => {
+    analyticsService.trackPageView(location.pathname);
+  }, [location.pathname]);
 
   return (
     <div className={`app-container ${currentTheme.components.container}`}>
@@ -34,7 +41,7 @@ const AppContent: React.FC = () => {
         <Route path="/" element={
           <div className="main-grid">
             <main className="main-content">
-              <CalendarComponent />
+              <CalendarComponent events={[]} />
               <News />
             </main>
             <aside className="sidebar">

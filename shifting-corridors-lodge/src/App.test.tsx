@@ -41,7 +41,8 @@ jest.mock('react-router-dom', () => ({
   Routes: ({ children }) => <div>{children}</div>,
   Route: ({ path, element }) => <div data-path={path}>{element}</div>,
   Link: ({ children }) => <a>{children}</a>,
-  useParams: () => ({ eventId: 'test-event' })
+  useParams: () => ({ eventId: 'test-event' }),
+  useLocation: () => ({ pathname: '/' })
 }));
 
 describe('App Component', () => {
@@ -61,8 +62,8 @@ describe('App Component', () => {
         <App />
       </ThemeProvider>
     );
-    const buttonElement = screen.getByText(/Switch to Sci-Fi Theme/i);
-    expect(buttonElement).toBeInTheDocument();
+    const selectorElement = screen.getByText(/Choose Theme:/i);
+    expect(selectorElement).toBeInTheDocument();
   });
 
   test('renders calendar component', () => {

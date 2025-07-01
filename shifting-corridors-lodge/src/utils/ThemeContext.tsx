@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Theme, ThemeContext as ThemeContextType } from '../types';
+import { analyticsService } from '../services/analyticsService';
 
 // Theme configurations
 const medievalTheme: Theme = {
@@ -88,6 +89,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     if (theme) {
       setCurrentTheme(theme);
       localStorage.setItem('lodge-theme', themeName);
+      // Track theme switch event
+      analyticsService.trackThemeSwitch(themeName);
     }
   };
 

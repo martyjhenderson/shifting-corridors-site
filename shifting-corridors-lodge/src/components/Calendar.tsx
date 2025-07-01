@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../utils/ThemeContext';
 import { contentLoader } from '../services/contentLoader';
+import { analyticsService } from '../services/analyticsService';
 import { CalendarEvent, CalendarProps } from '../types';
 
 const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
+  const navigate = useNavigate();
   const { currentTheme } = useTheme();
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -71,7 +74,15 @@ const Calendar: React.FC<CalendarProps> = ({ events, onEventSelect }) => {
   };
 
   const handleEventClick = (event: CalendarEvent) => {
-    onEventSelect(event);
+    // Track event interaction
+    analyticsService.trackContentInteraction('event', event.id);
+    
+    // Call the onEventSelect prop if provided for backward compatibility
+    if (onEventSelect) {
+      onEventSelect(event);
+    }
+    // Navigate to the event details page
+    navigate(`/events/${event.id}`);
   };
 
   const handleDateClick = (date: Date) => {
