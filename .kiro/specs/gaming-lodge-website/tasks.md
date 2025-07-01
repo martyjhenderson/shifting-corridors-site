@@ -22,7 +22,7 @@
   - Write unit tests for theme context and persistence
   - _Requirements: 5.1, 5.2, 5.3, 5.4, 8.3_
 
-- [ ] 4. Markdown content loading service
+- [x] 4. Markdown content loading service
   - Implement ContentLoader service to parse markdown files from content directories
   - Create markdown parser utility using gray-matter for frontmatter extraction
   - Build content caching mechanism for performance optimization
