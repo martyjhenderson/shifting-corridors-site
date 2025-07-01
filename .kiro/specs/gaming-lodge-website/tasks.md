@@ -7,14 +7,14 @@
   - Update build configuration to generate static files compatible with AWS S3 hosting
   - _Requirements: 7.3, 7.4, 9.3, 9.4_
 
-- [ ] 2. Core TypeScript interfaces and types
+- [x] 2. Core TypeScript interfaces and types
   - Create interfaces for CalendarEvent, GameMaster, NewsArticle, and Theme data structures
   - Define MarkdownContent interface for frontmatter and content parsing
   - Create ContentState and ContentActions interfaces for state management
   - Implement AnalyticsConfig and AnalyticsService interfaces for Fathom integration
   - _Requirements: 9.1, 9.2_
 
-- [ ] 3. Theme system implementation
+- [x] 3. Theme system implementation
   - Create ThemeContext with medieval and sci-fi theme configurations
   - Implement theme persistence using localStorage
   - Create CSS modules for both themes with proper variable definitions

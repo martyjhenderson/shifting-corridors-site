@@ -1,0 +1,86 @@
+/* Sci-Fi Theme Styles */
+
+.theme-sci-fi {
+  --color-primary: #00CED1;
+  --color-secondary: #4169E1;
+  --color-background: #0F0F23;
+  --color-text: #E0E0E0;
+  --color-accent: #FF6347;
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Exo 2', sans-serif;
+  
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+.sci-fi-button {
+  background: var(--color-primary);
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  color: var(--color-background);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sci-fi-button:hover {
+  background: var(--color-secondary);
+  transform: translateY(-1px);
+}
+
+.sci-fi-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.sci-fi-panel {
+  background: var(--color-background);
+  border: 1px solid var(--color-secondary);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.sci-fi-container {
+  background: var(--color-background);
+  min-height: 100vh;
+}
+
+.theme-sci-fi h1,
+.theme-sci-fi h2,
+.theme-sci-fi h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.theme-sci-fi .theme-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.theme-sci-fi .theme-selector-label {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.theme-sci-fi .theme-selector-dropdown {
+  background: var(--color-background);
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  padding: 8px 12px;
+  cursor: pointer;
+}

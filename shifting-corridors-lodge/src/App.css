@@ -5,9 +5,55 @@
   padding: 0;
 }
 
-/* Add some basic styles for the app */
+/* Base app styles */
 body {
   line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.app-title {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .main-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Custom calendar styles */
@@ -18,11 +64,222 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  h1 {
+  .app-title {
     font-size: 1.8rem !important;
+  }
+  
+  .app-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
   }
   
   h2 {
     font-size: 1.5rem !important;
   }
+}/* Calend
+ar component styles */
+.calendar-container {
+  margin-bottom: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-nav-button {
+  margin: 0 8px;
+}
+
+.calendar-month {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.calendar-simple {
+  margin: 20px 0;
+  padding: 20px;
+  text-align: center;
+  border: 1px dashed var(--color-accent);
+  border-radius: 8px;
+}
+
+.event-list {
+  margin-top: 20px;
+}
+
+.event-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.event-item:hover {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+}
+
+.event-date {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.event-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}/* Con
+tact component styles */
+.contact-container {
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  line-height: 1.6;
+}
+
+.contact-email {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.contact-email:hover {
+  text-decoration: underline;
+}/* Event
+Details component styles */
+.event-details {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-button {
+  margin-bottom: 20px;
+}
+
+.event-content {
+  line-height: 1.6;
+}
+
+.event-content h1 {
+  margin-bottom: 20px;
+}
+
+.event-content h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.event-content p {
+  margin-bottom: 15px;
+}
+
+.event-content ul, .event-content ol {
+  margin-bottom: 15px;
+  padding-left: 30px;
+}
+
+.event-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.event-content a:hover {
+  text-decoration: underline;
+}/* 
+GameMasters component styles */
+.gamemasters-container {
+  margin-bottom: 20px;
+}
+
+.gm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gm-item {
+  padding: 15px;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  background-color: var(--color-background);
+}
+
+.gm-name {
+  margin: 0 0 10px 0;
+  color: var(--color-primary);
+}
+
+.gm-number {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.gm-games {
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.gm-bio {
+  margin-top: 10px;
+  line-height: 1.5;
+  font-style: italic;
+}/* News 
+component styles */
+.news-container {
+  margin-bottom: 20px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.news-item {
+  padding: 15px;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  background-color: var(--color-background);
+}
+
+.news-title {
+  margin: 0 0 10px 0;
+  color: var(--color-primary);
+}
+
+.news-date {
+  margin: 0 0 15px 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.news-content {
+  line-height: 1.6;
+}
+
+.news-content h1,
+.news-content h2,
+.news-content h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.news-content p {
+  margin-bottom: 10px;
+}
+
+.news-content ul,
+.news-content ol {
+  margin-bottom: 10px;
+  padding-left: 20px;
 }

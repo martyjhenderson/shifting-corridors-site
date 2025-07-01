@@ -1,0 +1,84 @@
+/* Medieval Theme Styles */
+
+.theme-medieval {
+  --color-primary: #8B4513;
+  --color-secondary: #D2691E;
+  --color-background: #F5E6D3;
+  --color-text: #2F1B14;
+  --color-accent: #CD853F;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Crimson Text', serif;
+  
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+.medieval-button {
+  background: var(--color-primary);
+  border: 2px solid var(--color-accent);
+  border-radius: 8px;
+  color: var(--color-background);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.medieval-button:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+.medieval-card {
+  background: var(--color-background);
+  border: 3px solid var(--color-accent);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.medieval-panel {
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.medieval-container {
+  background: var(--color-background);
+  min-height: 100vh;
+}
+
+.theme-medieval h1,
+.theme-medieval h2,
+.theme-medieval h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.theme-medieval .theme-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.theme-medieval .theme-selector-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.theme-medieval .theme-selector-dropdown {
+  background: var(--color-background);
+  border: 2px solid var(--color-accent);
+  border-radius: 6px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  padding: 8px 12px;
+  cursor: pointer;
+}

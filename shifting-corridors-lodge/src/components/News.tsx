@@ -1,123 +1,71 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useTheme } from '../utils/ThemeContext';
-import styled from 'styled-components';
 import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
 
 interface NewsArticle {
-  id: string;
   title: string;
   date: string;
   content: string;
 }
 
-const StyledNewsContainer = styled.div<{ theme: any }>`
-  padding: 20px;
-  background-color: ${props => props.theme.colors.background};
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-
-  h2 {
-    font-family: ${props => props.theme.fonts.heading};
-    color: ${props => props.theme.colors.primary};
-    margin-bottom: 20px;
-  }
-
-  .news-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .news-article {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-  }
-
-  .news-article:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .news-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid ${props => props.theme.colors.accent};
-  }
-
-  .news-title {
-    font-family: ${props => props.theme.fonts.heading};
-    color: ${props => props.theme.colors.secondary};
-    font-size: 1.3rem;
-    margin: 0;
-  }
-
-  .news-date {
-    font-family: ${props => props.theme.fonts.main};
-    color: ${props => props.theme.colors.text};
-    font-size: 0.9rem;
-    opacity: 0.7;
-  }
-
-  .news-content {
-    font-family: ${props => props.theme.fonts.main};
-    color: ${props => props.theme.colors.text};
-    line-height: 1.6;
-  }
-`;
-
 const News: React.FC = () => {
-  const { theme } = useTheme();
+  const { currentTheme } = useTheme();
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
 
   useEffect(() => {
-    // Fetch news articles from markdown files
-    const fetchNewsArticles = async () => {
+    const loadNews = async () => {
       try {
-        // Get news articles from markdown files
-        const markdownNews = await getMarkdownFiles('news');
-        
-        // Convert markdown news to news articles
-        const newsArticles: NewsArticle[] = markdownNews.map(news => ({
-          id: news.slug,
-          title: news.meta.title,
-          date: news.meta.date,
-          content: news.content,
+        const files = await getMarkdownFiles('news');
+        const articles: NewsArticle[] = files.map(file => ({
+          title: file.meta.title || 'Untitled',
+          date: file.meta.date || '',
+          content: file.content
         }));
         
-        setNewsArticles(newsArticles);
+        // Sort by date (newest first)
+        articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        
+        setNewsArticles(articles);
       } catch (error) {
-        console.error('Error fetching news articles:', error);
+        console.error('Error loading news:', error);
       }
     };
 
-    fetchNewsArticles();
+    loadNews();
   }, []);
 
+  const formatDate = (dateString: string) => {
+    try {
+      return new Date(dateString).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch {
+      return dateString;
+    }
+  };
+
   return (
-    <StyledNewsContainer theme={theme}>
+    <div className={`news-container ${currentTheme.components.card}`}>
       <h2>Latest News</h2>
       <div className="news-list">
-        {newsArticles.map((article) => (
-          <div key={article.id} className="news-article">
-            <div className="news-header">
+        {newsArticles.length > 0 ? (
+          newsArticles.map((article, index) => (
+            <article key={index} className="news-item">
               <h3 className="news-title">{article.title}</h3>
-              <span className="news-date">{article.date}</span>
-            </div>
-            <div className="news-content">
-              <ReactMarkdown>{article.content}</ReactMarkdown>
-            </div>
-          </div>
-        ))}
+              <p className="news-date">{formatDate(article.date)}</p>
+              <div className="news-content">
+                <ReactMarkdown>{article.content}</ReactMarkdown>
+              </div>
+            </article>
+          ))
+        ) : (
+          <p>No news articles available at this time.</p>
+        )}
       </div>
-    </StyledNewsContainer>
+    </div>
   );
 };
 

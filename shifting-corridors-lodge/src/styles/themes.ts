@@ -1,47 +1,39 @@
-export interface Theme {
-  name: string;
-  colors: {
-    primary: string;
-    secondary: string;
-    background: string;
-    text: string;
-    accent: string;
-    highlight: string;
-  };
-  fonts: {
-    main: string;
-    heading: string;
-  };
-}
+// Theme CSS variable definitions and utility functions
 
-export const medievalTheme: Theme = {
-  name: 'medieval',
-  colors: {
-    primary: '#8B4513', // Brown
-    secondary: '#A52A2A', // Deep Red
-    background: '#FFF8E1', // Light Cream
-    text: '#3E2723', // Dark Brown
-    accent: '#DAA520', // Golden Yellow
-    highlight: '#F9A825', // Amber
-  },
-  fonts: {
-    main: "'Lora', serif",
-    heading: "'Cinzel', serif",
-  },
+export const applyThemeVariables = (theme: 'medieval' | 'sci-fi') => {
+  const root = document.documentElement;
+  
+  if (theme === 'medieval') {
+    root.style.setProperty('--color-primary', '#8B4513');
+    root.style.setProperty('--color-secondary', '#D2691E');
+    root.style.setProperty('--color-background', '#F5E6D3');
+    root.style.setProperty('--color-text', '#2F1B14');
+    root.style.setProperty('--color-accent', '#CD853F');
+    root.style.setProperty('--font-heading', '"Cinzel", serif');
+    root.style.setProperty('--font-body', '"Crimson Text", serif');
+  } else if (theme === 'sci-fi') {
+    root.style.setProperty('--color-primary', '#00CED1');
+    root.style.setProperty('--color-secondary', '#4169E1');
+    root.style.setProperty('--color-background', '#0F0F23');
+    root.style.setProperty('--color-text', '#E0E0E0');
+    root.style.setProperty('--color-accent', '#FF6347');
+    root.style.setProperty('--font-heading', '"Orbitron", sans-serif');
+    root.style.setProperty('--font-body', '"Exo 2", sans-serif');
+  }
 };
 
-export const scifiTheme: Theme = {
-  name: 'scifi',
-  colors: {
-    primary: '#1A237E', // Deep Blue
-    secondary: '#FF5722', // Orange
-    background: '#E8EAF6', // Light Blue Grey
-    text: '#263238', // Dark Blue Grey
-    accent: '#00BCD4', // Cyan
-    highlight: '#4FC3F7', // Light Blue
+// CSS class names for theme-specific components
+export const themeClasses = {
+  medieval: {
+    button: 'medieval-button',
+    card: 'medieval-card',
+    panel: 'medieval-panel',
+    container: 'medieval-container'
   },
-  fonts: {
-    main: "'Roboto', sans-serif",
-    heading: "'Orbitron', sans-serif",
-  },
+  'sci-fi': {
+    button: 'sci-fi-button',
+    card: 'sci-fi-card',
+    panel: 'sci-fi-panel',
+    container: 'sci-fi-container'
+  }
 };
