@@ -1,7 +1,7 @@
 ---
 title: "Pathfinder Society at Geek City Games"
 date: "2025-06-29"
-gamemaster: "josh-g"
+gamemaster: "marty-h"
 gameType: "Pathfinder"
 maxPlayers: 6
 location: "Geek City Games"

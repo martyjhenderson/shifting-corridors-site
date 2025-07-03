@@ -12,6 +12,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@types/styled-components": "^5.1.34",
+    "buffer": "^6.0.3",
     "fathom-client": "^3.7.2",
     "gray-matter": "^4.0.3",
     "react": "^19.1.0",
@@ -26,6 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:analyze": "npm run build && npx webpack-bundle-analyzer build/static/js/*.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
@@ -52,6 +54,7 @@
   },
   "devDependencies": {
     "jest-mock": "^30.0.2",
-    "raw-loader": "^4.0.2"
+    "raw-loader": "^4.0.2",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

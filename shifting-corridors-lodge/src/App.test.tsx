@@ -1,7 +1,30 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from './utils/ThemeContext';
+import { ContentProvider } from './utils/ContentContext';
 import App from './App';
+
+// Mock react-router-dom
+const mockNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+  BrowserRouter: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Routes: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Route: ({ element }: { element: React.ReactNode }) => <div>{element}</div>,
+  Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
+  useParams: () => ({ eventId: 'test-event' }),
+  useLocation: () => ({ pathname: '/' }),
+  useNavigate: () => mockNavigate,
+  Navigate: ({ to }: { to: string }) => <div>Navigate to {to}</div>
+}));
+
+// Mock content loader
+jest.mock('./services/contentLoader', () => ({
+  contentLoader: {
+    loadCalendarEvents: jest.fn().mockResolvedValue([]),
+    loadGameMasters: jest.fn().mockResolvedValue([]),
+    loadNewsArticles: jest.fn().mockResolvedValue([]),
+  }
+}));
 
 // Mock the components
 jest.mock('./components/Calendar', () => {
@@ -22,87 +45,67 @@ jest.mock('./components/GameMasters', () => {
 jest.mock('./components/Contact', () => {
   const MockContact = () => (
     <div>
-      <div>Contact Us</div>
+      <div>Contact Information</div>
       <a href="mailto:lodge@shiftingcorridor.com">lodge@shiftingcorridor.com</a>
     </div>
   );
   return MockContact;
 });
 
-// Mock EventDetails component
 jest.mock('./components/EventDetails', () => {
   const MockEventDetails = () => <div>Event Details</div>;
   return MockEventDetails;
 });
 
-// Mock react-router-dom
-jest.mock('react-router-dom', () => ({
-  BrowserRouter: ({ children }) => <div>{children}</div>,
-  Routes: ({ children }) => <div>{children}</div>,
-  Route: ({ path, element }) => <div data-path={path}>{element}</div>,
-  Link: ({ children }) => <a>{children}</a>,
-  useParams: () => ({ eventId: 'test-event' }),
-  useLocation: () => ({ pathname: '/' })
-}));
+const renderApp = () => {
+  return render(
+    <ThemeProvider>
+      <ContentProvider>
+        <App />
+      </ContentProvider>
+    </ThemeProvider>
+  );
+};
 
 describe('App Component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockNavigate.mockClear();
+  });
+
   test('renders Shifting Corridors Lodge title', () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    );
+    renderApp();
     const titleElement = screen.getByText(/Shifting Corridors Lodge/i);
     expect(titleElement).toBeInTheDocument();
   });
 
   test('renders theme toggle button', () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    );
+    renderApp();
     const selectorElement = screen.getByText(/Choose Theme:/i);
     expect(selectorElement).toBeInTheDocument();
   });
 
   test('renders calendar component', () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    );
+    renderApp();
     const calendarElement = screen.getByText(/Event Calendar/i);
     expect(calendarElement).toBeInTheDocument();
   });
 
   test('renders news component', () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    );
+    renderApp();
     const newsElement = screen.getByText(/Latest News/i);
     expect(newsElement).toBeInTheDocument();
   });
 
   test('renders game masters component', () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    );
+    renderApp();
     const gmElement = screen.getByText(/Game Masters/i);
     expect(gmElement).toBeInTheDocument();
   });
 
   test('renders contact component', () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    );
-    const contactElement = screen.getByText(/Contact Us/i);
+    renderApp();
+    const contactElement = screen.getByText(/Contact Information/i);
     expect(contactElement).toBeInTheDocument();
     const emailElement = screen.getByText(/lodge@shiftingcorridor.com/i);
     expect(emailElement).toBeInTheDocument();

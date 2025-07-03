@@ -3,7 +3,7 @@ title: "Starfinder Society at Diversions - Battle for Nova Rush"
 date: "2025-07-23"
 gamemaster: "marty-h"
 gameType: "Starfinder"
-maxPlayers: 6
+maxPlayers: 4
 location: "Diversions"
 address: "119 2nd St #300, Coralville, IA 52241"
 ---

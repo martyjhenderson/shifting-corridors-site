@@ -1,7 +1,7 @@
 ---
 title: "Pathfinder Society at Diversions - Symposium on a Fallen God"
 date: "2025-07-09"
-gamemaster: "josh-g"
+gamemaster: "marty-h"
 gameType: "Pathfinder"
 maxPlayers: 6
 location: "Diversions"
