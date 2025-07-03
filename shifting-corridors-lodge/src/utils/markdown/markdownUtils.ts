@@ -210,14 +210,14 @@ Please register in advance using the links above. Space is limited, so sign up e
       },
       {
         meta: {
-          title: 'Pathfinder Society at Diversions - Symposium on a Fallen God',
+          title: 'Pathfinder Society at Diversions - Year of Immortal Influence Intro',
           date: '2025-07-09',
           url: '/events/diversions-symposium-fallen-god',
           location: 'Diversions',
           address: '119 2nd St #300, Coralville, IA 52241'
         },
         content: `
-# Pathfinder Society at Diversions - Symposium on a Fallen God
+# Pathfinder Society at Diversions 
 
 Join us for Pathfinder Society games at Diversions in Coralville!
 
@@ -230,13 +230,45 @@ Join us for Pathfinder Society games at Diversions in Coralville!
 
 ## Available Scenarios
 
-1. **Symposium on a Fallen God** - [Sign up here](https://www.rpgchronicles.net/session/cabe4362-50e0-4447-b5fc-b7361b3d586c/pregame)
+1. **Year of Immortal Influence: Intro** - [Sign up here](https://www.rpgchronicles.net/session/cabe4362-50e0-4447-b5fc-b7361b3d586c/pregame)
 
 ## Registration
 
 Please register in advance using the link above. Space is limited, so sign up early!
         `,
         slug: 'diversions-symposium-fallen-god'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Diversions - Second Confirmation',
+          date: '2025-07-09',
+          url: '/events/diversions-second-confirmation',
+          location: 'Diversions',
+          address: '119 2nd St #300, Coralville, IA 52241',
+          gamemaster: 'Josh E'
+        },
+        content: `
+# Pathfinder Society at Diversions - Second Confirmation
+
+Join us for Pathfinder Society games at Diversions in Coralville!
+
+## Details
+
+- **Date:** July 9, 2025
+- **Time:** 5:30 PM - 9:30 PM Central Time
+- **Location:** Diversions
+- **Address:** 119 2nd St #300, Coralville, IA 52241
+- **Game Master:** Josh E
+
+## Available Scenarios
+
+1. **Second Confirmation** - [Sign up here](https://www.rpgchronicles.net/session/64258560-7190-4e5e-a167-1e6478b88482/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited, so sign up early!
+        `,
+        slug: 'diversions-second-confirmation'
       },
       {
         meta: {
@@ -329,6 +361,20 @@ Marty is the Corridor Venture-Lieutenant and a Game Master who runs scenarios fo
 Josh is an experienced Game Master with a legacy of running games stretching back before Pathfinder existed. His sense of humor and desire to see the players laugh makes for a great experience.
         `,
         slug: 'josh-g'
+      },
+      {
+        meta: {
+          title: 'Game Master: Josh E.',
+          date: '2025-07-03',
+          firstName: 'Josh',
+          lastInitial: 'E',
+          organizedPlayNumber: '8591',
+          games: ['Pathfinder', 'Starfinder']
+        },
+        content: `
+Josh E is an experienced game master who runs both Pathfinder Society and Starfinder Society games. With organized play number 8591, Josh brings expertise in both fantasy and science fiction RPG systems to create engaging adventures for players of all experience levels.
+        `,
+        slug: 'josh-e'
       }
     ];
   }
