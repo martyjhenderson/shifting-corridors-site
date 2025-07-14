@@ -303,6 +303,37 @@ Join us for Starfinder Society games at Diversions in Coralville!
 Please register in advance using the link above. Space is limited, so sign up early!
         `,
         slug: 'diversions-battle-nova-rush'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Diversions - Mischief in the Maze',
+          date: '2025-07-23',
+          url: '/events/diversions-mischief-maze',
+          location: 'Diversions',
+          address: '119 2nd St #300, Coralville, IA 52241'
+        },
+        content: `
+# Pathfinder Society at Diversions - Mischief in the Maze
+
+Join us for Pathfinder Society games at Diversions in Coralville!
+
+## Details
+
+- **Date:** July 23, 2025
+- **Time:** 5:30 PM - 9:30 PM Central Time
+- **Location:** Diversions
+- **Address:** 119 2nd St #300, Coralville, IA 52241
+- **Seats Available:** 6 players
+
+## Available Scenarios
+
+1. **Mischief in the Maze** - [Sign up here](https://www.rpgchronicles.net/session/049f7cb9-9dcf-498b-9cff-40813af5ec5d/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'diversions-mischief-maze'
       }
     ];
   } else if (directory === 'news') {
@@ -375,6 +406,20 @@ Josh is an experienced Game Master with a legacy of running games stretching bac
 Josh E is an experienced game master who runs both Pathfinder Society and Starfinder Society games. With organized play number 8591, Josh brings expertise in both fantasy and science fiction RPG systems to create engaging adventures for players of all experience levels.
         `,
         slug: 'josh-e'
+      },
+      {
+        meta: {
+          title: 'Game Master: Scott L.',
+          date: '2025-07-14',
+          firstName: 'Scott',
+          lastInitial: 'L',
+          organizedPlayNumber: '339339',
+          games: ['Starfinder']
+        },
+        content: `
+Scott is a dedicated Game Master who specializes in running Starfinder scenarios. With his organized play number 339339, Scott brings enthusiasm for science fiction adventures and helps players explore the vast universe of Starfinder Society games.
+        `,
+        slug: 'scott-l'
       }
     ];
   }
