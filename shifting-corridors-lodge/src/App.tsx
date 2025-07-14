@@ -37,12 +37,6 @@ const Header = styled.header<{ theme: any }>`
   border-bottom: 2px solid ${props => props.theme.colors.accent};
 `;
 
-const HeaderLeft = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 15px;
-`;
-
 const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
@@ -57,13 +51,6 @@ const LogoLink = styled(Link)`
 const Logo = styled.img`
   height: 100px;
   width: auto;
-`;
-
-const Title = styled.h1<{ theme: any }>`
-  font-family: ${props => props.theme.fonts.heading};
-  color: ${props => props.theme.colors.primary};
-  margin: 0;
-  font-size: 2.5rem;
 `;
 
 const ThemeToggleButton = styled.button<{ theme: any }>`
