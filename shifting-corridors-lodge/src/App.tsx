@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { ThemeProvider, useTheme } from './utils/ThemeContext';
 import CalendarComponent from './components/Calendar';
@@ -37,11 +37,20 @@ const Header = styled.header<{ theme: any }>`
   border-bottom: 2px solid ${props => props.theme.colors.accent};
 `;
 
-const Title = styled.h1<{ theme: any }>`
-  font-family: ${props => props.theme.fonts.heading};
-  color: ${props => props.theme.colors.primary};
-  margin: 0;
-  font-size: 2.5rem;
+const LogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const Logo = styled.img`
+  height: 100px;
+  width: auto;
 `;
 
 const ThemeToggleButton = styled.button<{ theme: any }>`
@@ -91,7 +100,9 @@ const AppContent: React.FC = () => {
       <GlobalStyle theme={theme} />
       <AppContainer theme={theme}>
         <Header theme={theme}>
-          <Title theme={theme}>Shifting Corridors Lodge</Title>
+          <LogoLink to="/">
+            <Logo src="/logo.png" alt="Shifting Corridors Lodge Logo" />
+          </LogoLink>
           <ThemeToggleButton 
             theme={theme} 
             onClick={toggleTheme}
