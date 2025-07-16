@@ -334,6 +334,66 @@ Join us for Pathfinder Society games at Diversions in Coralville!
 Please register in advance using the link above. Space is limited to 6 players, so sign up early!
         `,
         slug: 'diversions-mischief-maze'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - In the Footsteps of Horror',
+          date: '2025-08-07',
+          url: '/events/tempest-footsteps-horror',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** August 7, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+
+## Available Scenarios
+
+1. **In the Footsteps of Horror** - [Sign up here](https://www.rpgchronicles.net/session/d219533f-7c5f-4c3b-a1e2-d0cc5a4ba738/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited, so sign up early!
+        `,
+        slug: 'tempest-footsteps-horror'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - Friends in Need',
+          date: '2025-08-21',
+          url: '/events/tempest-friends-need',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** August 21, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+
+## Available Scenarios
+
+1. **Friends in Need** - [Sign up here](https://www.rpgchronicles.net/session/ad20d81b-0f4d-489f-b32b-0fe903c61ce7/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited, so sign up early!
+        `,
+        slug: 'tempest-friends-need'
       }
     ];
   } else if (directory === 'news') {
