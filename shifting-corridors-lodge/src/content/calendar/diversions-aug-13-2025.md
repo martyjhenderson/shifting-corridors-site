@@ -19,7 +19,7 @@ Join us for Pathfinder Society games at Diversions in Coralville!
 
 ## Available Scenarios
 
-1. **The Burning of Greensteeples** (Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/07a089df-0586-45f3-b32d-58424e83932b/pregame)
+1. **Equal Exchanges - Necessary Introductions** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/07a089df-0586-45f3-b32d-58424e83932b/pregame)
 2. **Escaping the Grave** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/c8527f0c-c2dd-415f-adb4-7859171f2930/pregame)
 
 ## Registration
