@@ -31,25 +31,25 @@ export const getMarkdownFiles = async (directory: string): Promise<MarkdownConte
     if (process.env.NODE_ENV === 'production') {
       return getFallbackData(directory);
     }
-    
+
     // Get a list of files in the directory
     const response = await fetch(`/api/files?directory=src/content/${directory}`);
-    
+
     if (!response.ok) {
       return getFallbackData(directory);
     }
-    
+
     const files = await response.json();
-    
+
     if (!files || files.length === 0) {
       return getFallbackData(directory);
     }
-    
+
     // Parse each file
     const markdownContents = await Promise.all(
       files.map((file: string) => parseMarkdownFile(`src/content/${directory}/${file}`))
     );
-    
+
     return markdownContents;
   } catch (error) {
     // Fallback to hardcoded data for demo purposes
@@ -66,35 +66,35 @@ export const parseMarkdownFile = async (filePath: string): Promise<MarkdownConte
   try {
     // Fetch the file content
     const response = await fetch(`/api/file?path=${encodeURIComponent(filePath)}`);
-    
+
     if (!response.ok) {
       // For development/testing, try to extract the filename and check if we have fallback data
       const fileName = filePath.split('/').pop()?.replace(/\.md$/, '') || '';
-      
+
       // Extract directory from filePath
       const directory = filePath.split('/').slice(-2, -1)[0];
       const fallbackData = getFallbackData(directory);
       const matchingFallback = fallbackData.find(item => item.slug === fileName);
-      
+
       if (matchingFallback) {
         return matchingFallback;
       }
-      
+
       return {
         meta: { title: '', date: '' },
         content: '',
         slug: ''
       };
     }
-    
+
     const fileContent = await response.text();
-    
+
     // Parse the frontmatter and content
     const { data, content } = matter(fileContent);
-    
+
     // Extract the slug from the file path
     const slug = filePath.split('/').pop()?.replace(/\.md$/, '') || '';
-    
+
     return {
       meta: data as MarkdownMeta,
       content,
@@ -417,7 +417,7 @@ Join us for Pathfinder Society games at Diversions in Coralville!
 
 ## Available Scenarios
 
-1. **The Burning of Greensteeples** (Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/07a089df-0586-45f3-b32d-58424e83932b/pregame)
+1. **Equal Exchanges - Necessary Introductions** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/07a089df-0586-45f3-b32d-58424e83932b/pregame)
 2. **Escaping the Grave** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/c8527f0c-c2dd-415f-adb4-7859171f2930/pregame)
 
 ## Registration
@@ -548,6 +548,6 @@ Scott is a dedicated Game Master who specializes in running Starfinder scenarios
       }
     ];
   }
-  
+
   return [];
 };
