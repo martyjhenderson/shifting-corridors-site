@@ -449,7 +449,8 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 ## Available Scenarios
 
 ### Pathfinder Society
-1. **United in Purpose** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/ad88f0d0-065c-4edc-a79b-92d9377ac1d3/pregame)
+1. **The Arclord Who Never Was** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/23a3535e-127b-4eef-8b3e-b6b1ceb3ea77/pregame)
+2. **Enough is Enough** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/0f44070c-3ae2-44d0-b666-8a6ffc52e38c/pregame)
 
 ### Starfinder Society
 1. **Mystery of the Frozen Moon** (Levels 1-2, 5:30 PM - 8:30 PM) - [Sign up here](https://www.rpgchronicles.net/session/eb62c1ba-2514-4981-9c95-b3250b4ac763/pregame)
@@ -545,6 +546,20 @@ Josh E is an experienced game master who runs both Pathfinder Society and Starfi
 Scott is a dedicated Game Master who specializes in running Starfinder scenarios. With his organized play number 339339, Scott brings enthusiasm for science fiction adventures and helps players explore the vast universe of Starfinder Society games.
         `,
         slug: 'scott-l'
+      },
+      {
+        meta: {
+          title: 'Game Master: Sam H.',
+          date: '2025-08-15',
+          firstName: 'Sam',
+          lastInitial: 'H',
+          organizedPlayNumber: '5689143',
+          games: ['Pathfinder']
+        },
+        content: `
+Sam is a dedicated Game Master who runs Pathfinder Society scenarios. With organized play number 5689143, Sam brings enthusiasm and expertise to create engaging adventures for players of all experience levels.
+        `,
+        slug: 'sam-h'
       }
     ];
   }
