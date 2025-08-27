@@ -335,6 +335,7 @@ Please register in advance using the link above. Space is limited to 6 players, 
         `,
         slug: 'diversions-mischief-maze'
       },
+
       {
         meta: {
           title: 'Pathfinder Society at Tempest Games - In the Footsteps of Horror',
@@ -460,6 +461,133 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 Please register in advance using the links above. Space is limited, so sign up early!
         `,
         slug: 'diversions-aug-27-2025'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - The Dacilane Academy\'s Show Must Go On',
+          date: '2025-09-04',
+          url: '/events/tempest-dacilane-academy',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** September 4, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Players:** 6 players
+- **Level Range:** 1-2
+
+## Available Scenarios
+
+1. **The Dacilane Academy's Show Must Go On** - [Sign up here](https://www.rpgchronicles.net/session/3028ffc6-0f67-45e7-ba77-a70e3c741a29/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'tempest-dacilane-academy'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Geek City Games - Sewer Dragon Crisis',
+          date: '2025-09-07',
+          url: '/events/gcg-sewer-dragon-crisis',
+          location: 'Geek City Games',
+          address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317'
+        },
+        content: `
+# Pathfinder Society at Geek City Games
+
+Join us for Pathfinder Society games at Geek City Games in North Liberty!
+
+## Details
+
+- **Date:** September 7, 2025
+- **Time:** 12:00 noon - 4:00 PM Central Time
+- **Location:** Geek City Games
+- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+- **Players:** 6 players
+- **Level Range:** 1-4
+
+## Available Scenarios
+
+1. **Sewer Dragon Crisis** - [Sign up here](https://www.rpgchronicles.net/session/010e5942-8722-48f0-b380-e839fecdce13/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'gcg-sewer-dragon-crisis'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - Infernal Infiltration',
+          date: '2025-09-18',
+          url: '/events/tempest-infernal-infiltration',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** September 18, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Players:** 6 players
+- **Level Range:** 1-4
+
+## Available Scenarios
+
+1. **Infernal Infiltration** - [Sign up here](https://www.rpgchronicles.net/session/c93bb5bf-97cb-4072-a922-80c018db3cf9/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'tempest-infernal-infiltration'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Geek City Games - Fury\'s Toll',
+          date: '2025-09-21',
+          url: '/events/gcg-furys-toll',
+          location: 'Geek City Games',
+          address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317'
+        },
+        content: `
+# Pathfinder Society at Geek City Games
+
+Join us for Pathfinder Society games at Geek City Games in North Liberty!
+
+## Details
+
+- **Date:** September 21, 2025
+- **Time:** 12:00 noon - 4:00 PM Central Time
+- **Location:** Geek City Games
+- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+- **Players:** 6 players
+
+## Available Scenarios
+
+1. **Fury's Toll** - [Sign up here](https://www.rpgchronicles.net/session/7244b682-41d9-4e50-8dcc-cc8e9744e3e1/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'gcg-furys-toll'
       }
     ];
   } else if (directory === 'news') {
