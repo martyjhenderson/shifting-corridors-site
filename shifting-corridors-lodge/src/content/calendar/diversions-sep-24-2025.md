@@ -24,7 +24,7 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 
 ### Pathfinder Society
 1. **Arclord's Abode** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/bd1565cf-86cf-446f-ba4a-8d5a6da32c2e/pregame)
-2. **United in Purpose** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/3b79f283-8380-4709-b0c6-fa74506ea0ef/pregame)
+2. **United in Purpose** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/3b79f283-8380-4709-b0c6-fa74506ea0ef/pregame)
 
 ## Registration
 
