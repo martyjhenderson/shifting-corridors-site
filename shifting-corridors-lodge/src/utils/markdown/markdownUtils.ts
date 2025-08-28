@@ -528,6 +528,37 @@ Please register in advance using the link above. Space is limited to 6 players, 
       },
       {
         meta: {
+          title: 'Pathfinder Society at Diversions - September 10',
+          date: '2025-09-10',
+          url: '/events/diversions-sep-10-2025',
+          location: 'Diversions',
+          address: '119 2nd St #300, Coralville, IA 52241'
+        },
+        content: `
+# Pathfinder Society at Diversions
+
+Join us for Pathfinder Society games at Diversions in Coralville!
+
+## Details
+
+- **Date:** September 10, 2025
+- **Time:** 5:30 PM - 9:30 PM Central Time
+- **Location:** Diversions
+- **Address:** 119 2nd St #300, Coralville, IA 52241
+
+## Available Scenarios
+
+1. **Shipyard Sabotage** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/59aa83e4-ae3a-4177-b1f5-d208c3ce05ce/pregame)
+2. **Return to the Grave** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/64171021-1b29-4b7d-afc1-9292d2fe14c0/pregame)
+
+## Registration
+
+Please register in advance using the links above. Space is limited, so sign up early!
+        `,
+        slug: 'diversions-sep-10-2025'
+      },
+      {
+        meta: {
           title: 'Pathfinder Society at Tempest Games - Infernal Infiltration',
           date: '2025-09-18',
           url: '/events/tempest-infernal-infiltration',
@@ -588,6 +619,41 @@ Join us for Pathfinder Society games at Geek City Games in North Liberty!
 Please register in advance using the link above. Space is limited to 6 players, so sign up early!
         `,
         slug: 'gcg-furys-toll'
+      },
+      {
+        meta: {
+          title: 'Pathfinder & Starfinder Society at Diversions - September 24',
+          date: '2025-09-24',
+          url: '/events/diversions-sep-24-2025',
+          location: 'Diversions',
+          address: '119 2nd St #300, Coralville, IA 52241'
+        },
+        content: `
+# Pathfinder & Starfinder Society at Diversions
+
+Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
+
+## Details
+
+- **Date:** September 24, 2025
+- **Time:** 5:30 PM - 9:30 PM Central Time
+- **Location:** Diversions
+- **Address:** 119 2nd St #300, Coralville, IA 52241
+
+## Available Scenarios
+
+### Starfinder Society
+1. **Dreamlink Labs** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/95a103df-13cc-4cee-8a07-8d7dea9130c7/pregame)
+
+### Pathfinder Society
+1. **Arclord's Abode** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/bd1565cf-86cf-446f-ba4a-8d5a6da32c2e/pregame)
+2. **United in Purpose** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/3b79f283-8380-4709-b0c6-fa74506ea0ef/pregame)
+
+## Registration
+
+Please register in advance using the links above. Space is limited, so sign up early!
+        `,
+        slug: 'diversions-sep-24-2025'
       }
     ];
   } else if (directory === 'news') {
