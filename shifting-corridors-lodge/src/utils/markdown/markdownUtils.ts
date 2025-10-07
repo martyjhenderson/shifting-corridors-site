@@ -688,6 +688,70 @@ Please register in advance using the link above. Space is limited to 6 players, 
       },
       {
         meta: {
+          title: 'Pathfinder Society at Tempest Games - The Swordlord\'s Challenge',
+          date: '2025-10-16',
+          url: '/events/tempest-swordlords-challenge',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** October 16, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Players:** 6 players
+- **Level Range:** 1-4
+
+## Available Scenarios
+
+1. **The Swordlord's Challenge** - [Sign up here](https://www.rpgchronicles.net/session/00cd2e81-8e12-4b5f-a54c-f35ace35cfc5/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'tempest-swordlords-challenge'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Geek City Games - Fury\'s Toll',
+          date: '2025-10-19',
+          url: '/events/gcg-furys-toll-oct',
+          location: 'Geek City Games',
+          address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317'
+        },
+        content: `
+# Pathfinder Society at Geek City Games
+
+Join us for Pathfinder Society games at Geek City Games in North Liberty!
+
+## Details
+
+- **Date:** October 19, 2025
+- **Time:** 12:00 noon - 4:00 PM Central Time
+- **Location:** Geek City Games
+- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+- **Players:** 6 players
+- **Level Range:** 1-4
+
+## Available Scenarios
+
+1. **Fury's Toll** - [Sign up here](https://www.rpgchronicles.net/session/c0653e80-7642-4bcb-ab93-b6b8e6563d72/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'gcg-furys-toll-oct'
+      },
+      {
+        meta: {
           title: 'Pathfinder & Starfinder Society at Diversions - October 22',
           date: '2025-10-22',
           url: '/events/diversions-oct-22-2025',
@@ -820,6 +884,20 @@ Scott is a dedicated Game Master who specializes in running Starfinder scenarios
 Sam is a dedicated Game Master who runs Pathfinder Society scenarios. With organized play number 5689143, Sam brings enthusiasm and expertise to create engaging adventures for players of all experience levels.
         `,
         slug: 'sam-h'
+      },
+      {
+        meta: {
+          title: 'Game Master: Steve S.',
+          date: '2025-10-07',
+          firstName: 'Steve',
+          lastInitial: 'S',
+          organizedPlayNumber: '21564',
+          games: ['Pathfinder']
+        },
+        content: `
+Steve is a dedicated Game Master who runs Pathfinder Society scenarios. With organized play number 21564, Steve brings enthusiasm and expertise to create engaging adventures for players of all experience levels.
+        `,
+        slug: 'steve-s'
       }
     ];
   }
