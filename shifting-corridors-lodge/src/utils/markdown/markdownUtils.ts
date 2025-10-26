@@ -784,6 +784,166 @@ Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
 Please register in advance using the link above. Space is limited to 6 players, so sign up early!
         `,
         slug: 'tempest-swordlords-challenge'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Geek City Games - Mark of the Mantis',
+          date: '2025-11-02',
+          url: '/events/gcg-mark-of-mantis',
+          location: 'Geek City Games',
+          address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317'
+        },
+        content: `
+# Pathfinder Society at Geek City Games
+
+Join us for Pathfinder Society games at Geek City Games in North Liberty!
+
+## Details
+
+- **Date:** November 2, 2025
+- **Time:** 12:00 noon - 4:00 PM Central Time
+- **Location:** Geek City Games
+- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+- **Players:** 4 players
+- **Special Note:** This module uses pregenerated characters
+
+## Available Scenarios
+
+1. **Mark of the Mantis** (Module) - [Sign up here](https://www.rpgchronicles.net/session/2f44004f-f629-427e-a8c4-c58f4ed009d0/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 4 players, so sign up early!
+        `,
+        slug: 'gcg-mark-of-mantis'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - Student Exchange',
+          date: '2025-11-06',
+          url: '/events/tempest-student-exchange',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** November 6, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Players:** 6 players
+- **Level Range:** 1-4
+
+## Available Scenarios
+
+1. **Student Exchange** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/ecb255d5-a0f5-4584-ac8d-e73d374b69cb/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'tempest-student-exchange'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - The Sandstone Secret',
+          date: '2025-11-20',
+          url: '/events/tempest-sandstone-secret',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** November 20, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Players:** 6 players
+- **Level Range:** 1-4
+
+## Available Scenarios
+
+1. **The Sandstone Secret** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/9f171bb2-db9d-46f8-9c10-043157a3f517/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'tempest-sandstone-secret'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - The Greengold Dilemma',
+          date: '2025-12-04',
+          url: '/events/tempest-greengold-dilemma',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** December 4, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Players:** 6 players
+- **Level Range:** 1-4
+
+## Available Scenarios
+
+1. **The Greengold Dilemma** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/5736cf43-1cd9-4a6e-b5bf-20c9f61beaf4/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'tempest-greengold-dilemma'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Tempest Games - The Dragon Who Stole Evoking Day',
+          date: '2025-12-18',
+          url: '/events/tempest-dragon-evoking-day',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** December 18, 2025
+- **Time:** 5:30 PM - 7:30 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Players:** 6 players
+- **Level Range:** 3-6
+
+## Available Scenarios
+
+1. **The Dragon Who Stole Evoking Day** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/d77f1a6b-8b97-4961-bc8e-71223313b6f1/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited to 6 players, so sign up early!
+        `,
+        slug: 'tempest-dragon-evoking-day'
       }
     ];
   } else if (directory === 'news') {
