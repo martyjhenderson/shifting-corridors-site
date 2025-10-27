@@ -935,7 +935,7 @@ Join us for Pathfinder Society games at Diversions in Coralville!
 ## Available Scenarios
 
 1. **Necessary Introductions** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/b56f8691-8983-4b55-8065-cb1bf6f7a593/pregame)
-2. **Sulfuric Negotiations** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/d0c86bf3-d8b8-47ee-bdf4-03a33e241606/pregame)
+2. **Sulfuric Negotiations** (Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/d0c86bf3-d8b8-47ee-bdf4-03a33e241606/pregame)
 
 ## Registration
 
