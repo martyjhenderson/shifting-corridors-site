@@ -977,7 +977,7 @@ Please register in advance using the link above. Space is limited to 6 players, 
       },
       {
         meta: {
-          title: 'Pathfinder Society at Tempest Games - The Dragon Who Stole Evoking Day',
+          title: 'Pathfinder Society at Tempest Games - The Elsewhere Feast',
           date: '2025-12-18',
           url: '/events/tempest-dragon-evoking-day',
           location: 'Tempest Games',
@@ -995,11 +995,11 @@ Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
 - **Location:** Tempest Games
 - **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
 - **Players:** 6 players
-- **Level Range:** 3-6
+- **Level Range:** 1-4
 
 ## Available Scenarios
 
-1. **The Dragon Who Stole Evoking Day** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/d77f1a6b-8b97-4961-bc8e-71223313b6f1/pregame)
+1. **The Elsewhere Feast** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/cee04d36-433b-4d5e-8693-8c35df46d96b/pregame)
 
 ## Registration
 
