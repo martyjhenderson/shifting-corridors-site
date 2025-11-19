@@ -34,10 +34,7 @@
     "eject": "react-scripts eject",
     "server": "node server.js",
     "dev": "concurrently \"npm run start\" \"npm run server\"",
-    "vercel-build": "react-scripts build",
-    "verify-build": "node test-build.js",
-    "deploy": "node deploy.js",
-    "preview": "wrangler dev --remote"
+    "verify-build": "node test-build.js"
   },
   "eslintConfig": {
     "extends": [
@@ -63,7 +60,6 @@
     "jest-mock": "^30.0.2",
     "path-browserify": "^1.0.1",
     "stream-browserify": "^3.0.0",
-    "util": "^0.12.5",
-    "wrangler": "^3.32.0"
+    "util": "^0.12.5"
   }
 }
