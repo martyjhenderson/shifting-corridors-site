@@ -43,7 +43,7 @@ The application will open at http://localhost:3000.
 
 ### Contact
 - Provides contact information for the lodge
-- Features the lodge email: lodge@shiftingcorridor.com
+- Features a Discord server link for community engagement
 
 ### News
 - Displays news articles created in markdown
@@ -261,6 +261,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For questions or more information about the Shifting Corridors Lodge, please contact:
-- Email: lodge@shiftingcorridor.com
+For questions or more information about the Shifting Corridors Lodge, please join us:
+- Discord: [Join Our Discord Server](https://discord.gg/X6gmXYVDJA)
 - Website: [shiftingcorridor.com](https://shiftingcorridor.com)
