@@ -23,7 +23,7 @@ const StyledContactContainer = styled.div<{ theme: any }>`
     line-height: 1.6;
   }
 
-  .contact-email {
+  .contact-link {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 16px;
@@ -35,7 +35,7 @@ const StyledContactContainer = styled.div<{ theme: any }>`
     transition: all 0.3s ease;
   }
 
-  .contact-email:hover {
+  .contact-link:hover {
     background-color: ${props => props.theme.colors.secondary};
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -50,9 +50,9 @@ const Contact: React.FC = () => {
       <h2>Contact Us</h2>
       <div className="contact-info">
         <p>Have questions about our events or want to join our community?</p>
-        <p>Reach out to us at:</p>
-        <a href="mailto:lodge@shiftingcorridor.com" className="contact-email">
-          lodge@shiftingcorridor.com
+        <p>Join us on Discord:</p>
+        <a href="https://discord.gg/X6gmXYVDJA" className="contact-link" target="_blank" rel="noopener noreferrer">
+          Join Our Discord Server
         </a>
       </div>
     </StyledContactContainer>
