@@ -822,6 +822,37 @@ Please register in advance using the link above. Space is limited to 4 players, 
       },
       {
         meta: {
+          title: 'Pathfinder Society at Diversions - December 10',
+          date: '2025-12-10',
+          url: '/events/diversions-dec-10-2025',
+          location: 'Diversions',
+          address: '119 2nd St #300, Coralville, IA 52241'
+        },
+        content: `
+# Pathfinder Society at Diversions
+
+Join us for Pathfinder Society games at Diversions in Coralville!
+
+## Details
+
+- **Date:** December 10, 2025
+- **Time:** 5:30 PM - 9:30 PM Central Time
+- **Location:** Diversions
+- **Address:** 119 2nd St #300, Coralville, IA 52241
+
+## Available Scenarios
+
+1. **Catastrophe's Spark** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/e17e8663-91be-4f93-9275-a8240797476c/pregame)
+2. **Brastlewark at War Part 1: The Gnome Defection** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/70617ede-7a42-4982-b0cc-b03e8b02500a/pregame)
+
+## Registration
+
+Please register in advance using the links above. Space is limited to 6 players per game, so sign up early!
+        `,
+        slug: 'diversions-dec-10-2025'
+      },
+      {
+        meta: {
           title: 'Pathfinder Society at Tempest Games - The Elsewhere Feast',
           date: '2025-12-18',
           url: '/events/tempest-dragon-evoking-day',
@@ -851,10 +882,83 @@ Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
 Please register in advance using the link above. Space is limited to 6 players, so sign up early!
         `,
         slug: 'tempest-dragon-evoking-day'
+      },
+      {
+        meta: {
+          title: 'Pathfinder & Starfinder Society at Diversions - December 24',
+          date: '2025-12-24',
+          url: '/events/diversions-dec-24-2025',
+          location: 'Diversions',
+          address: '119 2nd St #300, Coralville, IA 52241'
+        },
+        content: `
+# Pathfinder & Starfinder Society at Diversions
+
+Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
+
+## Details
+
+- **Date:** December 24, 2025
+- **Time:** 4:30 PM - 7:30 PM Central Time
+- **Location:** Diversions
+- **Address:** 119 2nd St #300, Coralville, IA 52241
+- **Special Note:** Games start at an earlier time than normal (4:30 PM) and will last only 2-3 hours.
+
+## Available Scenarios
+
+### Starfinder Society
+1. **Seize and Destroy** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/0e6916da-cde8-4760-b382-4ff36cf21e68/pregame)
+
+### Pathfinder Society
+1. **Dragon's Plea** (Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/5e3150d6-3117-432b-9d3b-ddf496be5554/pregame)
+
+## Registration
+
+Please register in advance using the links above. Space is limited, so sign up early!
+        `,
+        slug: 'diversions-dec-24-2025'
       }
     ];
   } else if (directory === 'news') {
     return [
+      {
+        meta: {
+          title: 'No Show and Timeliness Policy',
+          date: '2025-12-05',
+          id: 'no-show-timeliness-policy'
+        },
+        content: `
+# No Show and Timeliness Policy
+
+We're implementing a new policy across all our gaming locations to ensure fair access to tables for all players.
+
+## Policy Details
+
+Effective immediately, Diversions, Tempest Games, and Geek City Games are implementing a timeliness policy for organized play sessions:
+
+**If a player is more than 10 minutes late and there is a waitlist, their spot at the table will be given to the next person on the waitlist.**
+
+## Why This Policy?
+
+This policy helps ensure that:
+- Players on waitlists have a fair opportunity to play
+- Game Masters can start sessions on time
+- All players who commit to attending are respectful of everyone's time
+
+## What This Means for You
+
+- **Arrive on time** - We recommend arriving 10-15 minutes early to get settled
+- **Communicate** - If you're running late, contact the Game Master or venue as soon as possible
+- **Sign up responsibly** - Only register for games you can commit to attending
+
+## Questions?
+
+If you have questions about this policy, please reach out to your Game Master or join us on Discord at [https://discord.gg/X6gmXYVDJA](https://discord.gg/X6gmXYVDJA) in the #iowa-corridor channel. We appreciate your understanding and cooperation in making our organized play sessions enjoyable for everyone.
+
+Thank you for being part of our gaming community!
+        `,
+        slug: 'no-show-timeliness-policy'
+      },
       {
         meta: {
           title: 'Shifting Corridors Lodge at Gamicon Bromine 2026',
