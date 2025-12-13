@@ -917,6 +917,66 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 Please register in advance using the links above. Space is limited, so sign up early!
         `,
         slug: 'diversions-dec-24-2025'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Geek City Games - Intro: Year of Shattered Sanctuaries',
+          date: '2026-01-04',
+          url: '/events/gcg-jan-04-2026',
+          location: 'Geek City Games',
+          address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317'
+        },
+        content: `
+# Pathfinder Society at Geek City Games
+
+Join us for Pathfinder Society games at Geek City Games in North Liberty!
+
+## Details
+
+- **Date:** January 4, 2026
+- **Time:** 12:00 noon - 4:00 PM Central Time
+- **Location:** Geek City Games
+- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+
+## Available Scenarios
+
+1. **Intro: Year of Shattered Sanctuaries** - [Sign up here](https://www.rpgchronicles.net/session/b36977ba-f2ec-477b-9559-984874a9cf07/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited, so sign up early!
+        `,
+        slug: 'gcg-jan-04-2026'
+      },
+      {
+        meta: {
+          title: 'Pathfinder Society at Geek City Games - The East Hill Haunting',
+          date: '2026-01-18',
+          url: '/events/gcg-jan-18-2026',
+          location: 'Geek City Games',
+          address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317'
+        },
+        content: `
+# Pathfinder Society at Geek City Games
+
+Join us for Pathfinder Society games at Geek City Games in North Liberty!
+
+## Details
+
+- **Date:** January 18, 2026
+- **Time:** 12:00 noon - 4:00 PM Central Time
+- **Location:** Geek City Games
+- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+
+## Available Scenarios
+
+1. **The East Hill Haunting** - [Sign up here](https://www.rpgchronicles.net/session/35595f4c-00bb-40c7-8e2d-fffe7140acf7/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited, so sign up early!
+        `,
+        slug: 'gcg-jan-18-2026'
       }
     ];
   } else if (directory === 'news') {
