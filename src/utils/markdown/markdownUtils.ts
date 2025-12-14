@@ -920,6 +920,37 @@ Please register in advance using the links above. Space is limited, so sign up e
       },
       {
         meta: {
+          title: 'Pathfinder Society at Tempest Games - Silver Bark, Golden Blades',
+          date: '2026-01-01',
+          url: '/events/tempest-jan-01-2026',
+          location: 'Tempest Games',
+          address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+        },
+        content: `
+# Pathfinder Society at Tempest Games
+
+Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+
+## Details
+
+- **Date:** January 1, 2026
+- **Time:** 12:00 noon - 4:00 PM Central Time
+- **Location:** Tempest Games
+- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+- **Game Master:** Eli Farmer
+
+## Available Scenarios
+
+1. **Silver Bark, Golden Blades** - [Sign up here](https://www.rpgchronicles.net/session/6ab4e6f4-555b-415f-b537-dd531aac65e0/pregame)
+
+## Registration
+
+Please register in advance using the link above. Space is limited, so sign up early!
+        `,
+        slug: 'tempest-jan-01-2026'
+      },
+      {
+        meta: {
           title: 'Pathfinder Society at Geek City Games - Intro: Year of Shattered Sanctuaries',
           date: '2026-01-04',
           url: '/events/gcg-jan-04-2026',
@@ -1162,6 +1193,20 @@ Sam is a dedicated Game Master who runs Pathfinder Society scenarios. With organ
 Steve is a dedicated Game Master who runs Pathfinder Society scenarios. With organized play number 21564, Steve brings enthusiasm and expertise to create engaging adventures for players of all experience levels.
         `,
         slug: 'steve-s'
+      },
+      {
+        meta: {
+          title: 'Game Master: Eli F.',
+          date: '2025-12-14',
+          firstName: 'Eli',
+          lastInitial: 'F',
+          organizedPlayNumber: '6385146',
+          games: ['Pathfinder']
+        },
+        content: `
+Eli is a dedicated Game Master who runs Pathfinder Society scenarios. With organized play number 6385146, Eli brings enthusiasm and expertise to create engaging adventures for players of all experience levels.
+        `,
+        slug: 'eli-f'
       }
     ];
   }
