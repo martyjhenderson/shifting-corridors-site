@@ -31,7 +31,7 @@
     "start": "concurrently \"npm run dev\" \"npm run server\"",
     "verify-build": "node test-build.js",
     "test": "vitest",
-    "test:ci": "vitest run --reporter=verbose",
+    "test:ci": "bash scripts/test-ci.sh",
     "type-check": "tsc --noEmit",
     "aws:deploy": "aws/scripts/deploy.sh",
     "aws:deploy:dev": "aws/scripts/deploy.sh dev",

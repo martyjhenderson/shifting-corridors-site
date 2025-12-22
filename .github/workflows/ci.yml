@@ -28,7 +28,8 @@ jobs:
       run: npm run type-check
       
     - name: Run tests
-      run: npm run test:ci
+      run: |
+        timeout 240 npm run test:ci || exit 1
       timeout-minutes: 5
       
     - name: Build application
