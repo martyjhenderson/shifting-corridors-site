@@ -294,7 +294,21 @@ npm run build
 
 ## 🔄 CI/CD Integration
 
-### GitHub Actions Example
+### GitHub Actions Setup
+
+This repository includes automated CI/CD workflows:
+
+- **CI Workflow:** Runs tests, type checking, and security scans on PRs
+- **Deploy Workflow:** Automatically deploys to AWS on merge to main
+
+**Setup Instructions:** See [.github/SETUP.md](.github/SETUP.md) for complete setup guide.
+
+**Quick Setup:**
+1. Add AWS credentials to GitHub secrets (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
+2. Enable branch protection rules requiring status checks
+3. Merge PRs trigger automatic production deployment
+
+### Manual GitHub Actions Example
 
 ```yaml
 name: Deploy to AWS
@@ -306,15 +320,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
       - run: npm ci
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
       - run: npm run aws:deploy:prod
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 ```
 
 ## 💰 Cost Optimization
