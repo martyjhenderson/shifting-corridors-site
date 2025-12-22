@@ -6,7 +6,7 @@ import { vi } from 'vitest';
 // Mock the Calendar component
 vi.mock('../components/Calendar', () => ({
   default: () => (
-    <div>
+    <div data-testid="calendar-component">
       <h2>Event Calendar</h2>
       <div>Events on June 23, 2025</div>
       <button>Previous</button>
@@ -62,6 +62,8 @@ describe('Calendar Component', () => {
       </ThemeProvider>
     );
     
+    // Use the test id to scope the search
+    const calendarComponent = screen.getByTestId('calendar-component');
     const prevButton = screen.getByText(/Previous/i);
     expect(prevButton).toBeInTheDocument();
     

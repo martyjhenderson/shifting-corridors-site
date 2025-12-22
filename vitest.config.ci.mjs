@@ -8,36 +8,28 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
-    // Aggressive CI settings to prevent hanging
+    // Extremely aggressive CI settings
     watch: false,
     run: true,
     passWithNoTests: true,
-    testTimeout: 5000,
-    hookTimeout: 5000,
-    teardownTimeout: 1000,
-    // Force single thread and minimal concurrency
-    pool: 'threads',
-    maxConcurrency: 1,
-    minThreads: 1,
-    maxThreads: 1,
-    // Disable file watching and other features that might cause hanging
+    testTimeout: 2000,
+    hookTimeout: 2000,
+    teardownTimeout: 500,
+    // Single thread execution for Vitest 4+
+    pool: 'forks',
+    singleFork: true,
+    isolate: false,
+    // Disable everything that might cause hanging
     fileParallelism: false,
-    isolate: true,
-    // Force exit after tests complete
-    forceRerunTriggers: [],
-    // Minimal reporter to reduce output processing time
     reporter: 'default',
-    // Force exit on completion
     dangerouslyIgnoreUnhandledErrors: true,
-    // Set environment variables for tests
+    coverage: {
+      enabled: false
+    },
     env: {
       CI: 'true',
       NODE_ENV: 'test',
       REACT_APP_USE_FALLBACK: 'true'
-    },
-    // Disable coverage and other features that might cause hanging
-    coverage: {
-      enabled: false
     }
   },
   resolve: {
