@@ -16,14 +16,13 @@ export default defineConfig({
     passWithNoTests: true,
     testTimeout: isCI ? 10000 : 5000,
     hookTimeout: isCI ? 10000 : 5000,
-    // Ensure tests exit in CI
+    // Use single thread in CI for stability (Vitest 4+ syntax)
     ...(isCI && {
       pool: 'threads',
-      poolOptions: {
-        threads: {
-          singleThread: true,
-        },
-      },
+      poolMatchGlobs: [
+        ['**/*.test.{js,ts,jsx,tsx}', 'threads'],
+      ],
+      maxConcurrency: 1,
     }),
   },
   resolve: {
