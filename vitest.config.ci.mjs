@@ -12,9 +12,9 @@ export default defineConfig({
     watch: false,
     run: true,
     passWithNoTests: true,
-    testTimeout: 5000,
-    hookTimeout: 5000,
-    teardownTimeout: 1000,
+    testTimeout: 3000,
+    hookTimeout: 3000,
+    teardownTimeout: 500,
     // Force single thread and minimal concurrency
     pool: 'threads',
     maxConcurrency: 1,
@@ -26,7 +26,7 @@ export default defineConfig({
     // Force exit after tests complete
     forceRerunTriggers: [],
     // Minimal reporter to reduce output processing time
-    reporter: 'default',
+    reporter: 'basic',
     // Force exit on completion
     dangerouslyIgnoreUnhandledErrors: true,
     // Set environment variables for tests
@@ -34,6 +34,10 @@ export default defineConfig({
       CI: 'true',
       NODE_ENV: 'test',
       REACT_APP_USE_FALLBACK: 'true'
+    },
+    // Disable coverage and other features that might cause hanging
+    coverage: {
+      enabled: false
     }
   },
   resolve: {

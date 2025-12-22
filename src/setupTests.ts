@@ -9,3 +9,13 @@ import { vi } from 'vitest';
 global.fetch = vi.fn(() =>
   Promise.reject(new Error('Fetch should be mocked in tests'))
 );
+
+// Global mock for markdown utils to prevent any unmocked API calls
+vi.mock('./utils/markdown/markdownUtils', () => ({
+  getMarkdownFiles: vi.fn().mockResolvedValue([]),
+  parseMarkdownFile: vi.fn().mockResolvedValue({
+    meta: { title: '', date: '' },
+    content: '',
+    slug: ''
+  })
+}));

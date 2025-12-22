@@ -29,8 +29,8 @@ jobs:
       
     - name: Run tests
       run: |
-        timeout 120 npm run test:ci || exit 1
-      timeout-minutes: 3
+        timeout 90 npm run test:ci || exit 1
+      timeout-minutes: 2
       
     - name: Build application
       run: npm run build
