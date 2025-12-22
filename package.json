@@ -43,11 +43,7 @@
     "aws:upload-content": "aws/scripts/upload-content.sh",
     "aws:upload-content:dev": "aws/scripts/upload-content.sh dev",
     "aws:upload-content:staging": "aws/scripts/upload-content.sh staging",
-    "aws:upload-content:prod": "aws/scripts/upload-content.sh prod",
-    "aws:check-ssl": "aws/scripts/check-ssl.sh",
-    "aws:check-ssl:dev": "aws/scripts/check-ssl.sh dev",
-    "aws:check-ssl:staging": "aws/scripts/check-ssl.sh staging",
-    "aws:check-ssl:prod": "aws/scripts/check-ssl.sh prod"
+    "aws:upload-content:prod": "aws/scripts/upload-content.sh prod"
   },
   "browserslist": {
     "production": [
