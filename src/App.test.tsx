@@ -2,45 +2,41 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from './utils/ThemeContext';
 import App from './App';
+import { vi } from 'vitest';
 
 // Mock the components
-jest.mock('./components/Calendar', () => {
-  const MockCalendar = () => <div>Event Calendar</div>;
-  return MockCalendar;
-});
+vi.mock('./components/Calendar', () => ({
+  default: () => <div>Event Calendar</div>
+}));
 
-jest.mock('./components/News', () => {
-  const MockNews = () => <div>Latest News</div>;
-  return MockNews;
-});
+vi.mock('./components/News', () => ({
+  default: () => <div>Latest News</div>
+}));
 
-jest.mock('./components/GameMasters', () => {
-  const MockGameMasters = () => <div>Game Masters</div>;
-  return MockGameMasters;
-});
+vi.mock('./components/GameMasters', () => ({
+  default: () => <div>Game Masters</div>
+}));
 
-jest.mock('./components/Contact', () => {
-  const MockContact = () => (
+vi.mock('./components/Contact', () => ({
+  default: () => (
     <div>
       <div>Contact Us</div>
       <a href="mailto:lodge@shiftingcorridor.com">lodge@shiftingcorridor.com</a>
     </div>
-  );
-  return MockContact;
-});
+  )
+}));
 
 // Mock EventDetails component
-jest.mock('./components/EventDetails', () => {
-  const MockEventDetails = () => <div>Event Details</div>;
-  return MockEventDetails;
-});
+vi.mock('./components/EventDetails', () => ({
+  default: () => <div>Event Details</div>
+}));
 
 // Mock react-router-dom
-jest.mock('react-router-dom', () => ({
-  BrowserRouter: ({ children }) => <div>{children}</div>,
-  Routes: ({ children }) => <div>{children}</div>,
-  Route: ({ path, element }) => <div data-path={path}>{element}</div>,
-  Link: ({ children }) => <a>{children}</a>,
+vi.mock('react-router-dom', () => ({
+  BrowserRouter: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Routes: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  Route: ({ path, element }: { path: string; element: React.ReactNode }) => <div data-path={path}>{element}</div>,
+  Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
   useParams: () => ({ eventId: 'test-event' })
 }));
 
@@ -51,8 +47,9 @@ describe('App Component', () => {
         <App />
       </ThemeProvider>
     );
-    const titleElement = screen.getByText(/Shifting Corridors Lodge/i);
-    expect(titleElement).toBeInTheDocument();
+    // Check for the logo alt text instead since the title text isn't directly visible
+    const logoElement = screen.getByAltText(/Shifting Corridors Lodge Logo/i);
+    expect(logoElement).toBeInTheDocument();
   });
 
   test('renders theme toggle button', () => {

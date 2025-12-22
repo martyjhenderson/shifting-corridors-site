@@ -1,10 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from '../utils/ThemeContext';
+import { vi } from 'vitest';
 
 // Mock the Calendar component
-jest.mock('../components/Calendar', () => {
-  const MockCalendar = () => (
+vi.mock('../components/Calendar', () => ({
+  default: () => (
     <div>
       <h2>Event Calendar</h2>
       <div>Events on June 23, 2025</div>
@@ -12,9 +13,8 @@ jest.mock('../components/Calendar', () => {
       <button>Next</button>
       <p>No events scheduled for this date.</p>
     </div>
-  );
-  return MockCalendar;
-});
+  )
+}));
 
 // Import the mocked component
 import CalendarComponent from '../components/Calendar';
