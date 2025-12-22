@@ -27,21 +27,24 @@ export interface MarkdownContent {
  */
 export const getMarkdownFiles = async (directory: string): Promise<MarkdownContent[]> => {
   try {
-    // Always use fallback data in production to avoid API issues
-    if (process.env.NODE_ENV === 'production') {
+    // Check if we should use fallback data
+    if (process.env.REACT_APP_USE_FALLBACK === 'true') {
       return getFallbackData(directory);
     }
 
-    // Get a list of files in the directory
-    const response = await fetch(`/api/files?directory=src/content/${directory}`);
+    // Use API in development and production, fallback only on error
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || '';
+    const response = await fetch(`${apiBaseUrl}/api/files?directory=src/content/${directory}`);
 
     if (!response.ok) {
+      console.warn(`API call failed for directory ${directory}, using fallback data`);
       return getFallbackData(directory);
     }
 
     const files = await response.json();
 
     if (!files || files.length === 0) {
+      console.warn(`No files found for directory ${directory}, using fallback data`);
       return getFallbackData(directory);
     }
 
@@ -52,7 +55,8 @@ export const getMarkdownFiles = async (directory: string): Promise<MarkdownConte
 
     return markdownContents;
   } catch (error) {
-    // Fallback to hardcoded data for demo purposes
+    console.error(`Error fetching markdown files for ${directory}:`, error);
+    // Fallback to hardcoded data on error
     return getFallbackData(directory);
   }
 };
@@ -64,8 +68,21 @@ export const getMarkdownFiles = async (directory: string): Promise<MarkdownConte
  */
 export const parseMarkdownFile = async (filePath: string): Promise<MarkdownContent> => {
   try {
+    // Check if we should use fallback data
+    if (process.env.REACT_APP_USE_FALLBACK === 'true') {
+      const fileName = filePath.split('/').pop()?.replace(/\.md$/, '') || '';
+      const directory = filePath.split('/').slice(-2, -1)[0];
+      const fallbackData = getFallbackData(directory);
+      const matchingFallback = fallbackData.find(item => item.slug === fileName);
+      
+      if (matchingFallback) {
+        return matchingFallback;
+      }
+    }
+
     // Fetch the file content
-    const response = await fetch(`/api/file?path=${encodeURIComponent(filePath)}`);
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || '';
+    const response = await fetch(`${apiBaseUrl}/api/file?path=${encodeURIComponent(filePath)}`);
 
     if (!response.ok) {
       // For development/testing, try to extract the filename and check if we have fallback data

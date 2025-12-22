@@ -1,0 +1,593 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Shifting Corridors Lodge - Serverless Infrastructure'
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: 'shifting-corridors-lodge'
+    Description: 'Name of the project'
+  
+  Environment:
+    Type: String
+    Default: 'prod'
+    AllowedValues: [dev, staging, prod]
+    Description: 'Environment name'
+  
+  PrimaryDomainName:
+    Type: String
+    Default: 'shiftingcorridors.com'
+    Description: 'Primary domain name (must have existing hosted zone)'
+  
+  SecondaryDomainName:
+    Type: String
+    Default: 'shiftingcorridor.com'
+    Description: 'Secondary domain name for production (must have existing hosted zone)'
+  
+  PrimaryHostedZoneId:
+    Type: String
+    Description: 'Route 53 Hosted Zone ID for primary domain (leave empty to auto-detect)'
+    Default: ''
+  
+  SecondaryHostedZoneId:
+    Type: String
+    Description: 'Route 53 Hosted Zone ID for secondary domain (leave empty to auto-detect)'
+    Default: ''
+
+Conditions:
+  IsProd: !Equals [!Ref Environment, 'prod']
+  HasSecondaryDomain: !And 
+    - !Condition IsProd
+    - !Not [!Equals [!Ref SecondaryDomainName, '']]
+  AutoDetectPrimaryHostedZone: !Equals [!Ref PrimaryHostedZoneId, '']
+  AutoDetectSecondaryHostedZone: !And
+    - !Condition HasSecondaryDomain
+    - !Equals [!Ref SecondaryHostedZoneId, '']
+
+Resources:
+  # S3 Bucket for Content Storage
+  ContentBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub '${ProjectName}-content-${Environment}'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  # S3 Bucket for Website Hosting
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub '${ProjectName}-website-${Environment}'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+
+  # Website Bucket Policy
+  WebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub 'arn:aws:s3:::${WebsiteBucket}/*'
+
+  # IAM Role for Lambda Functions
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${ProjectName}-lambda-role-${Environment}'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: S3ContentAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                Resource:
+                  - !Sub 'arn:aws:s3:::${ContentBucket}/*'
+              - Effect: Allow
+                Action:
+                  - s3:ListBucket
+                Resource:
+                  - !GetAtt ContentBucket.Arn
+
+  # Lambda Function: List Files
+  ListFilesFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub '${ProjectName}-list-files-${Environment}'
+      Runtime: nodejs18.x
+      Handler: index.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Environment:
+        Variables:
+          CONTENT_BUCKET_NAME: !Ref ContentBucket
+      Code:
+        ZipFile: |
+          const AWS = require('aws-sdk');
+          const s3 = new AWS.S3();
+          const BUCKET_NAME = process.env.CONTENT_BUCKET_NAME;
+          exports.handler = async (event) => {
+              const headers = {
+                  'Access-Control-Allow-Origin': '*',
+                  'Access-Control-Allow-Headers': 'Content-Type',
+                  'Access-Control-Allow-Methods': 'GET, OPTIONS'
+              };
+              if (event.httpMethod === 'OPTIONS') {
+                  return { statusCode: 200, headers, body: '' };
+              }
+              try {
+                  const directory = event.queryStringParameters?.directory;
+                  if (!directory) {
+                      return {
+                          statusCode: 400,
+                          headers,
+                          body: JSON.stringify({ error: 'Directory parameter is required' })
+                      };
+                  }
+                  const normalizedDir = directory.replace(/\.\./g, '').replace(/^\/+/, '');
+                  const params = {
+                      Bucket: BUCKET_NAME,
+                      Prefix: `${normalizedDir}/`,
+                      Delimiter: '/'
+                  };
+                  const result = await s3.listObjectsV2(params).promise();
+                  const markdownFiles = result.Contents
+                      .filter(obj => obj.Key.endsWith('.md'))
+                      .map(obj => obj.Key.split('/').pop())
+                      .filter(filename => filename);
+                  return {
+                      statusCode: 200,
+                      headers,
+                      body: JSON.stringify(markdownFiles)
+                  };
+              } catch (error) {
+                  console.error('Error listing files:', error);
+                  return {
+                      statusCode: 500,
+                      headers,
+                      body: JSON.stringify({ error: 'Failed to list files' })
+                  };
+              }
+          };
+
+  # Lambda Function: Get File
+  GetFileFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub '${ProjectName}-get-file-${Environment}'
+      Runtime: nodejs18.x
+      Handler: index.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Environment:
+        Variables:
+          CONTENT_BUCKET_NAME: !Ref ContentBucket
+      Code:
+        ZipFile: |
+          const AWS = require('aws-sdk');
+          const s3 = new AWS.S3();
+          const BUCKET_NAME = process.env.CONTENT_BUCKET_NAME;
+          exports.handler = async (event) => {
+              const headers = {
+                  'Access-Control-Allow-Origin': '*',
+                  'Access-Control-Allow-Headers': 'Content-Type',
+                  'Access-Control-Allow-Methods': 'GET, OPTIONS'
+              };
+              if (event.httpMethod === 'OPTIONS') {
+                  return { statusCode: 200, headers, body: '' };
+              }
+              try {
+                  const filePath = event.queryStringParameters?.path;
+                  if (!filePath) {
+                      return {
+                          statusCode: 400,
+                          headers,
+                          body: JSON.stringify({ error: 'Path parameter is required' })
+                      };
+                  }
+                  const normalizedPath = filePath.replace(/\.\./g, '').replace(/^\/+/, '');
+                  const params = {
+                      Bucket: BUCKET_NAME,
+                      Key: normalizedPath
+                  };
+                  const result = await s3.getObject(params).promise();
+                  const content = result.Body.toString('utf-8');
+                  return {
+                      statusCode: 200,
+                      headers: { ...headers, 'Content-Type': 'text/plain; charset=utf-8' },
+                      body: content
+                  };
+              } catch (error) {
+                  console.error('Error getting file:', error);
+                  if (error.code === 'NoSuchKey') {
+                      return {
+                          statusCode: 404,
+                          headers,
+                          body: JSON.stringify({ error: 'File not found' })
+                      };
+                  }
+                  return {
+                      statusCode: 500,
+                      headers,
+                      body: JSON.stringify({ error: 'Failed to get file' })
+                  };
+              }
+          };
+
+  # API Gateway
+  ApiGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: !Sub '${ProjectName}-api-${Environment}'
+      Description: 'API for Shifting Corridors Lodge content'
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+
+  # API Gateway Resources
+  ApiResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ParentId: !GetAtt ApiGateway.RootResourceId
+      PathPart: api
+
+  FilesResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ParentId: !Ref ApiResource
+      PathPart: files
+
+  FileResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ParentId: !Ref ApiResource
+      PathPart: file
+
+  # API Gateway Methods
+  FilesMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref FilesResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ListFilesFunction.Arn}/invocations'
+
+  FilesOptionsMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref FilesResource
+      HttpMethod: OPTIONS
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ListFilesFunction.Arn}/invocations'
+
+  FileMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref FileResource
+      HttpMethod: GET
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetFileFunction.Arn}/invocations'
+
+  FileOptionsMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref ApiGateway
+      ResourceId: !Ref FileResource
+      HttpMethod: OPTIONS
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetFileFunction.Arn}/invocations'
+
+  # Lambda Permissions
+  ListFilesPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ListFilesFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGateway}/*/*'
+
+  GetFilePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref GetFileFunction
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGateway}/*/*'
+
+  # API Gateway Deployment
+  ApiDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn:
+      - FilesMethod
+      - FileMethod
+      - FilesOptionsMethod
+      - FileOptionsMethod
+    Properties:
+      RestApiId: !Ref ApiGateway
+      StageName: !Ref Environment
+
+  # SSL Certificate (must be in us-east-1 for CloudFront)
+  SSLCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !If 
+        - IsProd
+        - !Ref PrimaryDomainName
+        - !Sub '${Environment}.${PrimaryDomainName}'
+      SubjectAlternativeNames: !If
+        - IsProd
+        - - !Sub 'www.${PrimaryDomainName}'
+          - !Ref SecondaryDomainName
+          - !Sub 'www.${SecondaryDomainName}'
+        - - !Sub 'www.${Environment}.${PrimaryDomainName}'
+      ValidationMethod: DNS
+      DomainValidationOptions: !If
+        - IsProd
+        - - DomainName: !Ref PrimaryDomainName
+            HostedZoneId: !If
+              - AutoDetectPrimaryHostedZone
+              - !Ref PrimaryHostedZone
+              - !Ref PrimaryHostedZoneId
+          - DomainName: !Sub 'www.${PrimaryDomainName}'
+            HostedZoneId: !If
+              - AutoDetectPrimaryHostedZone
+              - !Ref PrimaryHostedZone
+              - !Ref PrimaryHostedZoneId
+          - DomainName: !Ref SecondaryDomainName
+            HostedZoneId: !If
+              - AutoDetectSecondaryHostedZone
+              - !Ref SecondaryHostedZone
+              - !Ref SecondaryHostedZoneId
+          - DomainName: !Sub 'www.${SecondaryDomainName}'
+            HostedZoneId: !If
+              - AutoDetectSecondaryHostedZone
+              - !Ref SecondaryHostedZone
+              - !Ref SecondaryHostedZoneId
+        - - DomainName: !Sub '${Environment}.${PrimaryDomainName}'
+            HostedZoneId: !If
+              - AutoDetectPrimaryHostedZone
+              - !Ref PrimaryHostedZone
+              - !Ref PrimaryHostedZoneId
+          - DomainName: !Sub 'www.${Environment}.${PrimaryDomainName}'
+            HostedZoneId: !If
+              - AutoDetectPrimaryHostedZone
+              - !Ref PrimaryHostedZone
+              - !Ref PrimaryHostedZoneId
+
+  # Auto-detect Primary Hosted Zone (if not provided)
+  PrimaryHostedZone:
+    Type: AWS::Route53::HostedZone
+    Condition: AutoDetectPrimaryHostedZone
+    Properties:
+      Name: !Ref PrimaryDomainName
+
+  # Auto-detect Secondary Hosted Zone (if not provided)
+  SecondaryHostedZone:
+    Type: AWS::Route53::HostedZone
+    Condition: AutoDetectSecondaryHostedZone
+    Properties:
+      Name: !Ref SecondaryDomainName
+
+  # CloudFront Distribution
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases: !If
+          - IsProd
+          - - !Ref PrimaryDomainName
+            - !Sub 'www.${PrimaryDomainName}'
+            - !Ref SecondaryDomainName
+            - !Sub 'www.${SecondaryDomainName}'
+          - - !Sub '${Environment}.${PrimaryDomainName}'
+            - !Sub 'www.${Environment}.${PrimaryDomainName}'
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        Enabled: true
+        DefaultRootObject: index.html
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          Compress: true
+        PriceClass: PriceClass_100
+        ViewerCertificate:
+          AcmCertificateArn: !Ref SSLCertificate
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+
+  # Route 53 Records - Primary Domain
+  PrimaryDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !If
+        - AutoDetectPrimaryHostedZone
+        - !Ref PrimaryHostedZone
+        - !Ref PrimaryHostedZoneId
+      Name: !If 
+        - IsProd
+        - !Ref PrimaryDomainName
+        - !Sub '${Environment}.${PrimaryDomainName}'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2  # CloudFront hosted zone ID (global)
+
+  PrimaryWWWDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !If
+        - AutoDetectPrimaryHostedZone
+        - !Ref PrimaryHostedZone
+        - !Ref PrimaryHostedZoneId
+      Name: !If 
+        - IsProd
+        - !Sub 'www.${PrimaryDomainName}'
+        - !Sub 'www.${Environment}.${PrimaryDomainName}'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2  # CloudFront hosted zone ID (global)
+
+  # Route 53 Records - Secondary Domain (Production only)
+  SecondaryDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: HasSecondaryDomain
+    Properties:
+      HostedZoneId: !If
+        - AutoDetectSecondaryHostedZone
+        - !Ref SecondaryHostedZone
+        - !Ref SecondaryHostedZoneId
+      Name: !Ref SecondaryDomainName
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2  # CloudFront hosted zone ID (global)
+
+  SecondaryWWWDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: HasSecondaryDomain
+    Properties:
+      HostedZoneId: !If
+        - AutoDetectSecondaryHostedZone
+        - !Ref SecondaryHostedZone
+        - !Ref SecondaryHostedZoneId
+      Name: !Sub 'www.${SecondaryDomainName}'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2  # CloudFront hosted zone ID (global)
+
+Outputs:
+  ContentBucketName:
+    Description: 'Name of the S3 bucket for content storage'
+    Value: !Ref ContentBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-ContentBucket'
+
+  WebsiteBucketName:
+    Description: 'Name of the S3 bucket for website hosting'
+    Value: !Ref WebsiteBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-WebsiteBucket'
+
+  ApiGatewayUrl:
+    Description: 'API Gateway endpoint URL'
+    Value: !Sub 'https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${Environment}'
+    Export:
+      Name: !Sub '${AWS::StackName}-ApiUrl'
+
+  CloudFrontUrl:
+    Description: 'CloudFront distribution URL'
+    Value: !Sub 'https://${CloudFrontDistribution.DomainName}'
+    Export:
+      Name: !Sub '${AWS::StackName}-CloudFrontUrl'
+
+  PrimaryDomainUrl:
+    Description: 'Primary custom domain URL'
+    Value: !Sub 
+      - 'https://${Domain}'
+      - Domain: !If 
+          - IsProd
+          - !Ref PrimaryDomainName
+          - !Sub '${Environment}.${PrimaryDomainName}'
+    Export:
+      Name: !Sub '${AWS::StackName}-PrimaryDomainUrl'
+
+  SecondaryDomainUrl:
+    Description: 'Secondary custom domain URL (production only)'
+    Condition: HasSecondaryDomain
+    Value: !Sub 'https://${SecondaryDomainName}'
+    Export:
+      Name: !Sub '${AWS::StackName}-SecondaryDomainUrl'
+
+  AllDomainUrls:
+    Description: 'All custom domain URLs'
+    Value: !If
+      - IsProd
+      - !Sub 
+        - 'Primary: https://${Primary}, Secondary: https://${Secondary}'
+        - Primary: !Ref PrimaryDomainName
+          Secondary: !Ref SecondaryDomainName
+      - !Sub 
+        - 'Development: https://${Dev}'
+        - Dev: !Sub '${Environment}.${PrimaryDomainName}'
+    Export:
+      Name: !Sub '${AWS::StackName}-AllDomainUrls'
+
+  WebsiteUrl:
+    Description: 'S3 website endpoint URL'
+    Value: !GetAtt WebsiteBucket.WebsiteURL
+    Export:
+      Name: !Sub '${AWS::StackName}-WebsiteUrl'
+
+  SSLCertificateArn:
+    Description: 'SSL Certificate ARN'
+    Value: !Ref SSLCertificate
+    Export:
+      Name: !Sub '${AWS::StackName}-SSLCertificate'
