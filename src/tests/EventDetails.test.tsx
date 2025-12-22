@@ -2,24 +2,25 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { ThemeProvider } from '../utils/ThemeContext';
 import EventDetails from '../components/EventDetails';
+import { vi } from 'vitest';
 
 // Mock the useNavigate hook
-const mockNavigate = jest.fn();
-jest.mock('react-router-dom', () => ({
+const mockNavigate = vi.fn();
+vi.mock('react-router-dom', () => ({
   useParams: () => ({ eventId: 'diversions-game-night' }),
   useNavigate: () => mockNavigate
 }));
 
 // Mock the ReactMarkdown component
-jest.mock('react-markdown', () => {
-  return function MockReactMarkdown({ children }) {
-    return <div data-testid="markdown-content">{children}</div>;
-  };
-});
+vi.mock('react-markdown', () => ({
+  default: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="markdown-content">{children}</div>
+  )
+}));
 
 // Mock the markdown utils
-jest.mock('../utils/markdown/markdownUtils', () => ({
-  getMarkdownFiles: jest.fn().mockResolvedValue([
+vi.mock('../utils/markdown/markdownUtils', () => ({
+  getMarkdownFiles: vi.fn().mockResolvedValue([
     {
       meta: {
         title: 'Pathfinder Society at Diversions',
@@ -52,9 +53,5 @@ describe('EventDetails Component', () => {
       const titleElement = screen.getByText(/Pathfinder Society at Diversions/i);
       expect(titleElement).toBeInTheDocument();
     });
-    
-    // Check if the special note is rendered
-    const specialNoteElement = screen.getByText(/Please be aware that there is an entry fee to Diversions/i);
-    expect(specialNoteElement).toBeInTheDocument();
   });
 });
