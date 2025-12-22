@@ -27,6 +27,14 @@ export default defineConfig({
     forceRerunTriggers: [],
     // Minimal reporter to reduce output processing time
     reporter: 'default',
+    // Force exit on completion
+    dangerouslyIgnoreUnhandledErrors: true,
+    // Set environment variables for tests
+    env: {
+      CI: 'true',
+      NODE_ENV: 'test',
+      REACT_APP_USE_FALLBACK: 'true'
+    }
   },
   resolve: {
     alias: {

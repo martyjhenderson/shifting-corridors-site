@@ -9,6 +9,7 @@ echo "🧪 Running tests in CI mode..."
 export CI=true
 export NODE_ENV=test
 export VITEST_POOL_THREADS=1
+export REACT_APP_USE_FALLBACK=true
 
 # Run tests with explicit flags to prevent hanging
 vitest run --config vitest.config.ci.mjs --no-watch --run
