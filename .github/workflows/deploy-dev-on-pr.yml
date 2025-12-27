@@ -14,6 +14,11 @@ jobs:
     # Add environment for better visibility and protection
     environment: development
     
+    permissions:
+      contents: read
+      id-token: write  # Required for AWS OIDC authentication
+      pull-requests: write  # Required to comment on PRs
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
