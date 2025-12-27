@@ -1,6 +1,6 @@
-const AWS = require('aws-sdk');
-const s3 = new AWS.S3();
+const { S3Client, ListObjectsV2Command } = require('@aws-sdk/client-s3');
 
+const s3Client = new S3Client({ region: process.env.AWS_REGION || 'us-east-1' });
 const BUCKET_NAME = process.env.CONTENT_BUCKET_NAME;
 
 exports.handler = async (event) => {
@@ -39,11 +39,12 @@ exports.handler = async (event) => {
             Delimiter: '/'
         };
 
-        const result = await s3.listObjectsV2(params).promise();
+        const command = new ListObjectsV2Command(params);
+        const result = await s3Client.send(command);
         
         // Filter for markdown files and extract just the filename
-        const markdownFiles = result.Contents
-            .filter(obj => obj.Key.endsWith('.md'))
+        const markdownFiles = (result.Contents || [])
+            .filter(obj => obj.Key && obj.Key.endsWith('.md'))
             .map(obj => obj.Key.split('/').pop())
             .filter(filename => filename); // Remove any undefined values
 

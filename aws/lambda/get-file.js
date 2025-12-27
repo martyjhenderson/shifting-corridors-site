@@ -1,6 +1,6 @@
-const AWS = require('aws-sdk');
-const s3 = new AWS.S3();
+const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
+const s3Client = new S3Client({ region: process.env.AWS_REGION || 'us-east-1' });
 const BUCKET_NAME = process.env.CONTENT_BUCKET_NAME;
 
 exports.handler = async (event) => {
@@ -38,8 +38,11 @@ exports.handler = async (event) => {
             Key: normalizedPath
         };
 
-        const result = await s3.getObject(params).promise();
-        const content = result.Body.toString('utf-8');
+        const command = new GetObjectCommand(params);
+        const result = await s3Client.send(command);
+        
+        // Convert stream to string
+        const content = await result.Body.transformToString();
 
         return {
             statusCode: 200,
@@ -52,7 +55,7 @@ exports.handler = async (event) => {
     } catch (error) {
         console.error('Error getting file:', error);
         
-        if (error.code === 'NoSuchKey') {
+        if (error.name === 'NoSuchKey') {
             return {
                 statusCode: 404,
                 headers,
