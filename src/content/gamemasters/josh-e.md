@@ -1,7 +1,10 @@
 ---
-name: Josh E
+firstName: Josh
+lastInitial: E
 organizedPlayNumber: 8591
-systems: ["Pathfinder", "Starfinder"]
+games:
+  - Pathfinder
+  - Starfinder
 ---
 
 # Josh E
