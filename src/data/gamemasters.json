@@ -49,7 +49,8 @@
       "games": [
         "Pathfinder",
         "Starfinder"
-      ]
+      ],
+      "ventureOfficer": "Venture Captain"
     },
     "content": "\nMarty is the Corridor Venture-Lieutenant and a Game Master who runs scenarios for Pathfinder 2E and Starfinder 2E. He specializes in creating immersive roleplaying experiences and his collection of maps and lending of dice.",
     "slug": "marty-h",
@@ -77,7 +78,8 @@
       "organizedPlayNumber": 339339,
       "games": [
         "Starfinder"
-      ]
+      ],
+      "ventureOfficer": "Venture Agent"
     },
     "content": "\nScott is a dedicated Game Master who specializes in running Starfinder scenarios. With his organized play number 339339, Scott brings enthusiasm for science fiction adventures and helps players explore the vast universe of Starfinder Society games.",
     "slug": "scott-l",
@@ -92,7 +94,8 @@
       "organizedPlayNumber": 21564,
       "games": [
         "Pathfinder"
-      ]
+      ],
+      "ventureOfficer": "Venture Agent"
     },
     "content": "\nSteve is a dedicated Game Master who runs Pathfinder Society scenarios. With organized play number 21564, Steve brings enthusiasm and expertise to create engaging adventures for players of all experience levels.",
     "slug": "steve-s",

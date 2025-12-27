@@ -6,8 +6,9 @@ import { getGameMasters } from '../utils/staticData';
 interface GameMaster {
   firstName: string;
   lastInitial: string;
-  organizedPlayNumber: string;
+  organizedPlayNumber: string | number;
   games: string[];
+  ventureOfficer?: string;
 }
 
 const StyledGameMastersContainer = styled.div<{ theme: any }>`
@@ -54,6 +55,16 @@ const StyledGameMastersContainer = styled.div<{ theme: any }>`
     margin-bottom: 10px;
   }
 
+  .gm-venture-officer {
+    font-family: ${props => props.theme.fonts.heading};
+    color: ${props => props.theme.colors.primary};
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
   .gm-games {
     margin-top: 10px;
   }
@@ -96,6 +107,7 @@ const GameMasters: React.FC = () => {
             lastInitial: gm.meta.lastInitial || '',
             organizedPlayNumber: gm.meta.organizedPlayNumber || '',
             games: gm.meta.games || [],
+            ventureOfficer: gm.meta.ventureOfficer,
           };
         });
 
@@ -118,6 +130,11 @@ const GameMasters: React.FC = () => {
             <div className="gm-name">
               {gm.firstName} {gm.lastInitial}.
             </div>
+            {gm.ventureOfficer && (
+              <div className="gm-venture-officer">
+                {gm.ventureOfficer}
+              </div>
+            )}
             <div className="gm-id">
               Organized Play #: {gm.organizedPlayNumber}
             </div>
