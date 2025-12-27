@@ -40,6 +40,13 @@ if [ -z "$WEBSITE_BUCKET" ] || [ "$WEBSITE_BUCKET" = "None" ]; then
     exit 1
 fi
 
+# Verify the bucket exists
+if ! aws s3 ls "s3://$WEBSITE_BUCKET" > /dev/null 2>&1; then
+    echo "❌ Error: S3 bucket $WEBSITE_BUCKET does not exist or is not accessible"
+    echo "Please check your AWS permissions and bucket configuration"
+    exit 1
+fi
+
 echo "📋 Configuration:"
 echo "   Environment: $ENVIRONMENT"
 echo "   Website Bucket: $WEBSITE_BUCKET"
