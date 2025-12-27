@@ -1,0 +1,57 @@
+name: Deploy to Production (Simple)
+
+# This is an alternative workflow using AWS access keys instead of OIDC
+# Use this if OIDC setup is complex. Remember to add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY secrets.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    
+    # Only run if the push is to main branch (not on PRs)
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Configure AWS credentials (Access Keys)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          
+      - name: Deploy to Production
+        run: npm run aws:upload:prod
+        
+      - name: Notify deployment success
+        if: success()
+        run: |
+          echo "🎉 Production deployment completed successfully!"
+          echo "🔗 Site updated at:"
+          echo "   - https://shiftingcorridors.com"
+          echo "   - https://shiftingcorridor.com"
+          echo "   - https://www.shiftingcorridors.com"
+          echo "   - https://www.shiftingcorridor.com"
+          
+      - name: Notify deployment failure
+        if: failure()
+        run: |
+          echo "❌ Production deployment failed!"
+          echo "Please check the logs above for details."
+          exit 1
