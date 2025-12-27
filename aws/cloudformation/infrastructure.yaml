@@ -124,7 +124,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: !Sub '${ProjectName}-list-files-${Environment}'
-      Runtime: nodejs18.x
+      Runtime: nodejs16.x
       Handler: index.handler
       Role: !GetAtt LambdaExecutionRole.Arn
       Environment:
@@ -184,7 +184,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: !Sub '${ProjectName}-get-file-${Environment}'
-      Runtime: nodejs18.x
+      Runtime: nodejs16.x
       Handler: index.handler
       Role: !GetAtt LambdaExecutionRole.Arn
       Environment:
