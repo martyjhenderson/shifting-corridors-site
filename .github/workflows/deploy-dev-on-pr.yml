@@ -1,0 +1,92 @@
+name: Deploy to Dev on PR
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    name: Deploy to Dev Environment
+    runs-on: ubuntu-latest
+    
+    # Add environment for better visibility and protection
+    environment: development
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN_DEV }}
+          role-session-name: GitHubActions-DevDeploy
+          aws-region: us-east-1
+          
+      - name: Deploy to Dev
+        run: npm run aws:upload:dev
+        
+      - name: Comment PR with deployment info
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🎉 **Dev deployment completed successfully!**
+              
+              🔗 **Preview your changes at:**
+              - https://dev.shiftingcorridors.com
+              
+              📝 **Deployment Details:**
+              - **Commit:** ${context.sha.substring(0, 7)}
+              - **Branch:** ${context.ref.replace('refs/heads/', '')}
+              - **Workflow:** [View logs](${context.payload.repository.html_url}/actions/runs/${context.runId})
+              
+              This preview will be updated automatically when you push new commits to this PR.`
+            })
+            
+      - name: Comment PR on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `❌ **Dev deployment failed!**
+              
+              Please check the [workflow logs](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.
+              
+              Common issues:
+              - Build errors in the code
+              - AWS permissions issues
+              - Missing environment variables`
+            })
+            
+      - name: Notify deployment success
+        if: success()
+        run: |
+          echo "🎉 Dev deployment completed successfully!"
+          echo "🔗 Preview available at: https://dev.shiftingcorridors.com"
+          
+      - name: Notify deployment failure
+        if: failure()
+        run: |
+          echo "❌ Dev deployment failed!"
+          echo "Please check the logs above for details."
+          exit 1
