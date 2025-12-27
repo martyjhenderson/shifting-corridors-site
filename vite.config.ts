@@ -15,18 +15,11 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
-      'buffer': 'buffer',
-      'process': 'process/browser',
-      'stream': 'stream-browserify',
-      'util': 'util'
+      '@': resolve(__dirname, 'src')
     }
   },
   define: {
     global: 'globalThis',
     'process.env': {}
-  },
-  optimizeDeps: {
-    include: ['buffer', 'process']
   }
 })
