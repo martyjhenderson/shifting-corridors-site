@@ -7,7 +7,6 @@ import GameMasters from './components/GameMasters';
 import Contact from './components/Contact';
 import News from './components/News';
 import EventDetails from './components/EventDetails';
-import './App.css';
 
 const GlobalStyle = createGlobalStyle<{ theme: any }>`
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
