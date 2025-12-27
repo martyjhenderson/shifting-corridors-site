@@ -1,0 +1,25 @@
+# Global ownership - Marty Henderson owns all files by default
+* @martyjhenderson
+
+# Specific ownership for critical infrastructure and deployment files
+/.github/ @martyjhenderson
+/aws/ @martyjhenderson
+/scripts/ @martyjhenderson
+package.json @martyjhenderson
+package-lock.json @martyjhenderson
+
+# CloudFormation templates require review
+/aws/cloudformation/ @martyjhenderson
+
+# Deployment scripts require review
+/aws/scripts/ @martyjhenderson
+
+# GitHub Actions workflows require review
+/.github/workflows/ @martyjhenderson
+
+# Configuration files require review
+*.config.js @martyjhenderson
+*.config.ts @martyjhenderson
+tsconfig*.json @martyjhenderson
+vite*.config.* @martyjhenderson
+vitest*.config.* @martyjhenderson
