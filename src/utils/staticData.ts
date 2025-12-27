@@ -16,8 +16,9 @@ export interface MarkdownMeta {
   address?: string;
   firstName?: string;
   lastInitial?: string;
-  organizedPlayNumber?: string;
+  organizedPlayNumber?: string | number;
   games?: string[];
+  ventureOfficer?: string;
   id?: string;
   [key: string]: any;
 }
