@@ -38,7 +38,9 @@
     "aws:invalidate-cache": "aws/scripts/invalidate-cache.sh",
     "aws:invalidate-cache:dev": "aws/scripts/invalidate-cache.sh dev",
     "aws:invalidate-cache:staging": "aws/scripts/invalidate-cache.sh staging",
-    "aws:invalidate-cache:prod": "aws/scripts/invalidate-cache.sh prod"
+    "aws:invalidate-cache:prod": "aws/scripts/invalidate-cache.sh prod",
+    "aws:upload:dev": "aws/scripts/upload-dev.sh",
+    "aws:upload:prod": "aws/scripts/upload-prod.sh"
   },
   "browserslist": {
     "production": [
