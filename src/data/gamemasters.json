@@ -16,9 +16,10 @@
   },
   {
     "meta": {
-      "name": "Josh E",
+      "firstName": "Josh",
+      "lastInitial": "E",
       "organizedPlayNumber": 8591,
-      "systems": [
+      "games": [
         "Pathfinder",
         "Starfinder"
       ]
