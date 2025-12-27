@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
+import { getGameMasters } from '../utils/staticData';
 
 interface GameMaster {
   firstName: string;
@@ -80,12 +80,12 @@ const GameMasters: React.FC = () => {
   const [gameMasters, setGameMasters] = useState<GameMaster[]>([]);
 
   useEffect(() => {
-    // Fetch game masters from markdown files
+    // Fetch game masters from static data
     const fetchGameMasters = async () => {
       try {
         console.log('GameMasters component: Fetching game masters...');
-        // Get game masters from markdown files
-        const markdownGMs = await getMarkdownFiles('gamemasters');
+        // Get game masters from static data
+        const markdownGMs = await getGameMasters();
         console.log('GameMasters component: Received markdown GMs:', markdownGMs);
 
         // Convert markdown GMs to game masters

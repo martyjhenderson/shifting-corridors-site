@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
+import { getCalendarEvents } from '../utils/staticData';
 
 // Simplified calendar component that avoids using moment.js for better performance
 
@@ -182,7 +182,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
     const fetchEvents = async () => {
       try {
         if (events.length === 0) {
-          const markdownEvents = await getMarkdownFiles('calendar');
+          const markdownEvents = await getCalendarEvents();
           
           const calendarEvents = markdownEvents.map(event => {
             // Parse date from YYYY-MM-DD format

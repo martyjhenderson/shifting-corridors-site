@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
+import { getCalendarEvents } from '../utils/staticData';
 
 interface EventDetailsProps {
   eventId?: string;
@@ -88,8 +88,8 @@ const EventDetails: React.FC<EventDetailsProps> = ({ eventId }) => {
       try {
         console.log('EventDetails: Fetching content for event ID:', id);
         
-        // Get all calendar events
-        const calendarEvents = await getMarkdownFiles('calendar');
+        // Get all calendar events from static data
+        const calendarEvents = await getCalendarEvents();
         
         // Find the event with the matching slug
         const event = calendarEvents.find(event => {

@@ -1,0 +1,254 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Shifting Corridors Lodge - Static Site Infrastructure (S3 + CloudFront + Route 53)'
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: 'shifting-corridors-lodge'
+    Description: 'Name of the project'
+  
+  Environment:
+    Type: String
+    Default: 'prod'
+    AllowedValues: [dev, staging, prod]
+    Description: 'Environment name'
+  
+  PrimaryDomainName:
+    Type: String
+    Default: 'shiftingcorridors.com'
+    Description: 'Primary domain name (must have existing hosted zone)'
+  
+  SecondaryDomainName:
+    Type: String
+    Default: 'shiftingcorridor.com'
+    Description: 'Secondary domain name for production (must have existing hosted zone)'
+  
+  PrimaryHostedZoneId:
+    Type: String
+    Description: 'Route 53 Hosted Zone ID for primary domain'
+    Default: 'Z03318772B503VRJ8T1YH'
+  
+  SecondaryHostedZoneId:
+    Type: String
+    Description: 'Route 53 Hosted Zone ID for secondary domain (for production only)'
+    Default: 'Z04363683RARVTPC87S05'
+
+Conditions:
+  IsProd: !Equals [!Ref Environment, 'prod']
+  IsDev: !Equals [!Ref Environment, 'dev']
+  HasSecondaryDomain: !And 
+    - !Condition IsProd
+    - !Not [!Equals [!Ref SecondaryDomainName, '']]
+
+Resources:
+  # S3 Bucket for Website Hosting
+  WebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub '${ProjectName}-website-${Environment}'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  # Website Bucket Policy
+  WebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebsiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub 'arn:aws:s3:::${WebsiteBucket}/*'
+
+  # SSL Certificate for HTTPS
+  SSLCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !If
+        - IsDev
+        - !Sub 'dev.${PrimaryDomainName}'
+        - !Ref PrimaryDomainName
+      SubjectAlternativeNames: !If
+        - IsDev
+        - !Ref 'AWS::NoValue'
+        - !If
+          - HasSecondaryDomain
+          - - !Sub 'www.${PrimaryDomainName}'
+            - !Ref SecondaryDomainName
+            - !Sub 'www.${SecondaryDomainName}'
+          - - !Sub 'www.${PrimaryDomainName}'
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !If
+            - IsDev
+            - !Sub 'dev.${PrimaryDomainName}'
+            - !Ref PrimaryDomainName
+          HostedZoneId: !Ref PrimaryHostedZoneId
+        - !If
+          - IsProd
+          - DomainName: !Sub 'www.${PrimaryDomainName}'
+            HostedZoneId: !Ref PrimaryHostedZoneId
+          - !Ref 'AWS::NoValue'
+        - !If
+          - HasSecondaryDomain
+          - DomainName: !Ref SecondaryDomainName
+            HostedZoneId: !Ref SecondaryHostedZoneId
+          - !Ref 'AWS::NoValue'
+        - !If
+          - HasSecondaryDomain
+          - DomainName: !Sub 'www.${SecondaryDomainName}'
+            HostedZoneId: !Ref SecondaryHostedZoneId
+          - !Ref 'AWS::NoValue'
+
+  # CloudFront Distribution
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Aliases: !If
+          - IsDev
+          - - !Sub 'dev.${PrimaryDomainName}'
+          - !If
+            - HasSecondaryDomain
+            - - !Ref PrimaryDomainName
+              - !Sub 'www.${PrimaryDomainName}'
+              - !Ref SecondaryDomainName
+              - !Sub 'www.${SecondaryDomainName}'
+            - - !Ref PrimaryDomainName
+              - !Sub 'www.${PrimaryDomainName}'
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          Compress: true
+          DefaultTTL: 86400
+          MaxTTL: 31536000
+        DefaultRootObject: index.html
+        Enabled: true
+        HttpVersion: http2
+        IPV6Enabled: true
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt WebsiteBucket.RegionalDomainName
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
+        PriceClass: PriceClass_100
+        ViewerCertificate:
+          AcmCertificateArn: !Ref SSLCertificate
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+
+  # Route 53 DNS Records
+  PrimaryDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref PrimaryHostedZoneId
+      Name: !If
+        - IsDev
+        - !Sub 'dev.${PrimaryDomainName}'
+        - !Ref PrimaryDomainName
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2 # CloudFront hosted zone ID
+
+  WWWDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: IsProd
+    Properties:
+      HostedZoneId: !Ref PrimaryHostedZoneId
+      Name: !Sub 'www.${PrimaryDomainName}'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+
+  SecondaryDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: HasSecondaryDomain
+    Properties:
+      HostedZoneId: !Ref SecondaryHostedZoneId
+      Name: !Ref SecondaryDomainName
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+
+  SecondaryWWWDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: HasSecondaryDomain
+    Properties:
+      HostedZoneId: !Ref SecondaryHostedZoneId
+      Name: !Sub 'www.${SecondaryDomainName}'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+
+Outputs:
+  WebsiteBucketName:
+    Description: 'Name of the S3 bucket for website hosting'
+    Value: !Ref WebsiteBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-WebsiteBucket'
+
+  CloudFrontDistributionId:
+    Description: 'CloudFront Distribution ID'
+    Value: !Ref CloudFrontDistribution
+    Export:
+      Name: !Sub '${AWS::StackName}-CloudFrontDistributionId'
+
+  CloudFrontDomainName:
+    Description: 'CloudFront Distribution Domain Name'
+    Value: !GetAtt CloudFrontDistribution.DomainName
+    Export:
+      Name: !Sub '${AWS::StackName}-CloudFrontDomainName'
+
+  WebsiteURL:
+    Description: 'Website URL'
+    Value: !If
+      - IsDev
+      - !Sub 'https://dev.${PrimaryDomainName}'
+      - !Sub 'https://${PrimaryDomainName}'
+    Export:
+      Name: !Sub '${AWS::StackName}-WebsiteURL'
+
+  SSLCertificateArn:
+    Description: 'SSL Certificate ARN'
+    Value: !Ref SSLCertificate
+    Export:
+      Name: !Sub '${AWS::StackName}-SSLCertificateArn'

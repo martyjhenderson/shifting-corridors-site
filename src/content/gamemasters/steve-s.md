@@ -1,5 +1,5 @@
 ---
-title: Game Master: Steve S.
+title: "Game Master: Steve S."
 date: 2025-10-07
 firstName: Steve
 lastInitial: S

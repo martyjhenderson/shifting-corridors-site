@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getMarkdownFiles } from '../utils/markdown/markdownUtils';
+import { getNewsArticles } from '../utils/staticData';
 
 interface NewsArticle {
   id: string;
@@ -78,11 +78,11 @@ const News: React.FC = () => {
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
 
   useEffect(() => {
-    // Fetch news articles from markdown files
+    // Fetch news articles from static data
     const fetchNewsArticles = async () => {
       try {
-        // Get news articles from markdown files
-        const markdownNews = await getMarkdownFiles('news');
+        // Get news articles from static data
+        const markdownNews = await getNewsArticles();
         
         // Convert markdown news to news articles
         const newsArticles: NewsArticle[] = markdownNews.map(news => ({

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { ThemeProvider, useTheme } from './utils/ThemeContext';
@@ -94,6 +94,22 @@ const Sidebar = styled.aside`
 
 const AppContent: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+
+  // Initialize Fathom Analytics
+  useEffect(() => {
+    // Load Fathom Analytics script
+    const script = document.createElement('script');
+    script.src = 'https://cdn.usefathom.com/script.js';
+    script.setAttribute('data-site', 'ELTMMRHY');
+    script.setAttribute('data-spa', 'auto');
+    script.defer = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <>
