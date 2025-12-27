@@ -8,8 +8,9 @@ set -e
 # Configuration
 PROJECT_NAME="shifting-corridors-lodge"
 ENVIRONMENT="dev"
-STACK_NAME="$PROJECT_NAME-static-dev"
+STACK_NAME="$PROJECT_NAME-dev"
 REGION="us-east-1"
+FALLBACK_BUCKET="shifting-corridors-lodge-website-dev"
 
 echo "🚀 Building and uploading to development environment..."
 
@@ -34,9 +35,16 @@ CLOUDFRONT_DISTRIBUTION_ID=$(aws cloudformation describe-stacks \
     --query 'Stacks[0].Outputs[?OutputKey==`CloudFrontDistributionId`].OutputValue' \
     --output text 2>/dev/null || echo "")
 
+# If no bucket found in stack outputs, use fallback bucket name
 if [ -z "$WEBSITE_BUCKET" ] || [ "$WEBSITE_BUCKET" = "None" ]; then
-    echo "❌ Error: Could not find S3 bucket from CloudFormation stack $STACK_NAME"
-    echo "Make sure the stack exists and has been deployed"
+    echo "⚠️  No WebsiteBucketName output found in stack, using fallback bucket name"
+    WEBSITE_BUCKET="$FALLBACK_BUCKET"
+fi
+
+# Verify the bucket exists
+if ! aws s3 ls "s3://$WEBSITE_BUCKET" > /dev/null 2>&1; then
+    echo "❌ Error: S3 bucket $WEBSITE_BUCKET does not exist or is not accessible"
+    echo "Please check your AWS permissions and bucket configuration"
     exit 1
 fi
 
@@ -101,7 +109,7 @@ if [ -n "$CLOUDFRONT_DISTRIBUTION_ID" ] && [ "$CLOUDFRONT_DISTRIBUTION_ID" != "N
 fi
 echo ""
 echo "🔗 Your development site should be updated at:"
-echo "   https://shiftingcorridors.com (if using dev environment)"
+echo "   https://dev.shiftingcorridors.com"
 echo ""
 
 echo "🚀 Development upload script finished!"
