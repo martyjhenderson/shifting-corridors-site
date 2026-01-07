@@ -21,6 +21,7 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 
 1. **Upon Wheels and Rime** (Pathfinder) - [Sign up here](https://www.rpgchronicles.net/session/34656298-7f8a-470b-86e5-b6a846c0a16e/pregame)
 2. **Seize and Destory** (Starfinder) - [Sign up here](https://www.rpgchronicles.net/session/7d255ee4-3085-4800-9558-78715f61181e/pregame)
+3. **The Blackwood Lost** (Pathfinder, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/39ea1063-0d65-4453-b067-2fd47ac7ffba/pregame)
 
 ## Registration
 
