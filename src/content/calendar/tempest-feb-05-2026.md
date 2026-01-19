@@ -1,5 +1,5 @@
 ---
-title: Pathfinder Society at Tempest Games - The Dragon Who Stole Evoking Day
+title: Pathfinder Society at Tempest Games - Lacking Respect
 date: 2026-02-05
 url: /events/tempest-feb-05-2026
 location: Tempest Games
@@ -17,11 +17,11 @@ Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
 - **Location:** Tempest Games
 - **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
 - **Players:** 6 players
-- **Level Range:** 3-6
+- **Level Range:** 1-4
 
 ## Available Scenarios
 
-1. **The Dragon Who Stole Evoking Day** (Quest, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/b0c0aab7-8105-41bf-b148-67c508a02098/pregame)
+1. **Lacking Respect** (Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/b0c0aab7-8105-41bf-b148-67c508a02098/pregame)
 
 ## Registration
 
