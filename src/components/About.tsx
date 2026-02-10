@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTheme } from '../utils/ThemeContext';
 
 const AboutContainer = styled.section<{ theme: any }>`
-  background-color: ${props => props.theme.colors.cardBackground};
+  background-color: ${props => props.theme.colors.background};
   border: 2px solid ${props => props.theme.colors.accent};
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 `;
 
 const Title = styled.h2<{ theme: any }>`
   font-family: ${props => props.theme.fonts.heading};
-  color: ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.primary};
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 1.8em;
@@ -27,23 +29,25 @@ const Content = styled.div<{ theme: any }>`
   }
   
   a {
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.secondary};
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
     
     &:hover {
-      color: ${props => props.theme.colors.secondary};
+      color: ${props => props.theme.colors.accent};
       text-decoration: underline;
     }
   }
 `;
 
 const About: React.FC = () => {
+  const { theme } = useTheme();
+  
   return (
-    <AboutContainer>
-      <Title>What is Shifting Corridors?</Title>
-      <Content>
+    <AboutContainer theme={theme}>
+      <Title theme={theme}>What is Shifting Corridors?</Title>
+      <Content theme={theme}>
         <p>
           Shifting Corridors is a Lodge of Paizo Organized Play for Pathfinder and Starfinder games 
           in the Eastern Iowa area. Games are played at multiple stores across the area as well as 
