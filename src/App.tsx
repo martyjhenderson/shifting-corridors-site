@@ -7,6 +7,7 @@ import GameMasters from './components/GameMasters';
 import Contact from './components/Contact';
 import News from './components/News';
 import EventDetails from './components/EventDetails';
+import About from './components/About';
 
 const GlobalStyle = createGlobalStyle<{ theme: any }>`
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
@@ -134,6 +135,7 @@ const AppContent: React.FC = () => {
             <MainGrid>
               <MainContent>
                 <CalendarComponent />
+                <About />
                 <News />
               </MainContent>
               <Sidebar>
