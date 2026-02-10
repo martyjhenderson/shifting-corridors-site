@@ -40,6 +40,18 @@ const StyledContactContainer = styled.div<{ theme: any }>`
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
+
+  .email-link {
+    color: ${props => props.theme.colors.accent};
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .email-link:hover {
+    color: ${props => props.theme.colors.secondary};
+    text-decoration: underline;
+  }
 `;
 
 const Contact: React.FC = () => {
@@ -54,6 +66,7 @@ const Contact: React.FC = () => {
         <a href="https://discord.gg/X6gmXYVDJA" className="contact-link" target="_blank" rel="noopener noreferrer">
           Join Our Discord Server
         </a>
+        <p style={{ marginTop: '20px' }}>Or reach us via email at <a href="mailto:lodge@shiftingcorridors.com" className="email-link">lodge@shiftingcorridors.com</a></p>
       </div>
     </StyledContactContainer>
   );
