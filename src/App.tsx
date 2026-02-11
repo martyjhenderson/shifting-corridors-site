@@ -71,35 +71,12 @@ const ThemeToggleButton = styled.button<{ theme: any }>`
 `;
 
 const MainGrid = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
 
   @media (min-width: 768px) {
-    display: grid;
     grid-template-columns: 2fr 1fr;
-  }
-  
-  @media (max-width: 767px) {
-    .calendar-section {
-      order: 1;
-    }
-    
-    .about-section {
-      order: 2;
-    }
-    
-    .contact-section {
-      order: 3;
-    }
-    
-    .news-section {
-      order: 4;
-    }
-    
-    .gamemasters-section {
-      order: 5;
-    }
   }
 `;
 
@@ -157,23 +134,13 @@ const AppContent: React.FC = () => {
           <Route path="/" element={
             <MainGrid>
               <MainContent>
-                <div className="calendar-section">
-                  <CalendarComponent />
-                </div>
-                <div className="about-section">
-                  <About />
-                </div>
-                <div className="news-section">
-                  <News />
-                </div>
+                <CalendarComponent />
+                <About />
+                <News />
               </MainContent>
               <Sidebar>
-                <div className="contact-section">
-                  <Contact />
-                </div>
-                <div className="gamemasters-section">
-                  <GameMasters />
-                </div>
+                <Contact />
+                <GameMasters />
               </Sidebar>
             </MainGrid>
           } />
