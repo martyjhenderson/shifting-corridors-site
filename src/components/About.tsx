@@ -41,6 +41,43 @@ const Content = styled.div<{ theme: any }>`
   }
 `;
 
+const StoreList = styled.ul<{ theme: any }>`
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  
+  li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    
+    &:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: ${props => props.theme.colors.accent};
+      font-weight: bold;
+    }
+  }
+  
+  .store-name {
+    font-weight: bold;
+    color: ${props => props.theme.colors.secondary};
+  }
+  
+  .store-details {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.95em;
+    opacity: 0.9;
+  }
+  
+  .coming-soon {
+    color: ${props => props.theme.colors.accent};
+    font-style: italic;
+  }
+`;
+
 const About: React.FC = () => {
   const { theme } = useTheme();
   
@@ -78,6 +115,36 @@ const About: React.FC = () => {
         <p>
           Our Venture Officers are glad to help at each store or throughout the area.
         </p>
+        
+        <p>
+          <strong>Where We Play:</strong>
+        </p>
+        <StoreList theme={theme}>
+          <li>
+            <a href="https://tempestgames.net" target="_blank" rel="noopener noreferrer" className="store-name">
+              Tempest Games
+            </a>
+            <span className="store-details">Cedar Rapids, IA - 1st and 3rd Thursdays</span>
+          </li>
+          <li>
+            <a href="https://diversionsic.com/" target="_blank" rel="noopener noreferrer" className="store-name">
+              Diversions Game Lounge
+            </a>
+            <span className="store-details">Coralville, IA - 2nd and 4th Wednesdays</span>
+          </li>
+          <li>
+            <a href="https://www.geek-city.com/" target="_blank" rel="noopener noreferrer" className="store-name">
+              Geek City Games
+            </a>
+            <span className="store-details">North Liberty, IA - 1st and 3rd Sundays</span>
+          </li>
+          <li>
+            <a href="https://www.replaycr.com/" target="_blank" rel="noopener noreferrer" className="store-name">
+              Replay Games
+            </a>
+            <span className="store-details">Cedar Rapids, IA - <span className="coming-soon">Coming Soon!</span></span>
+          </li>
+        </StoreList>
       </Content>
     </AboutContainer>
   );
