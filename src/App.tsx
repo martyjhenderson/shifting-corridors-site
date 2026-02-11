@@ -139,8 +139,8 @@ const AppContent: React.FC = () => {
                 <News />
               </MainContent>
               <Sidebar>
-                <GameMasters />
                 <Contact />
+                <GameMasters />
               </Sidebar>
             </MainGrid>
           } />
