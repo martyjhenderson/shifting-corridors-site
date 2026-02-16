@@ -31,6 +31,7 @@ Join us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!
 
 4. **Nova Rush** (Starfinder) - GM: Scott L - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/91)
 5. **Tanuki Trouble** (Pathfinder) - GM: Josh G - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/86)
+6. **Mischief in the Maze** (Pathfinder) - GM: Lindsay E - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/344)
 
 ### 9:00 PM Session
 
