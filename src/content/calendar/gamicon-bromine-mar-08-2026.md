@@ -24,6 +24,7 @@ Join us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!
 ### 9:00 AM Session
 
 1. **Upon Wheels and Rime** (Pathfinder) - GM: Bret I - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/79)
+2. **Godsrain in a Godless Land** (Pathfinder, Levels 5-8) - GM: Sam H - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/356)
 
 ### 10:00 AM Session
 
