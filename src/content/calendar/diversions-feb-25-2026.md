@@ -19,7 +19,7 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 
 ## Available Scenarios
 
-1. **All that Glitters** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/d3231829-7d14-4985-aa88-67453b0c7662/pregame)
+1. All that Glitters (Pathfinder Scenario, Levels 1-4) - CANCELLED
 2. **Island of the Vibrant Dead** (Pathfinder Scenario, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/3e639b62-632b-4cf2-a490-d25bf1803c95/pregame)
 3. **Abduction** (Starfinder Scenario, Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/402f55cd-3aa3-4495-959a-08dd58903238/pregame)
 
