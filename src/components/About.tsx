@@ -142,7 +142,7 @@ const About: React.FC = () => {
             <a href="https://www.replaycr.com/" target="_blank" rel="noopener noreferrer" className="store-name">
               Replay Games
             </a>
-            <span className="store-details">Cedar Rapids, IA - <span className="coming-soon">Coming Soon!</span></span>
+            <span className="store-details">Cedar Rapids, IA - every other Tuesday</span>
           </li>
         </StoreList>
       </Content>
