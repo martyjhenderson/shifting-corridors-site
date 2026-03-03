@@ -19,7 +19,7 @@ Join us for Pathfinder Society games at Replay Games in Cedar Rapids!
 
 ## Available Scenarios
 
-1. **The Mosquito Witch** (Pathfinder Scenario) - [Sign up here](https://www.rpgchronicles.net/session/b5083e6e-4dfc-4899-9123-57bbb6ca02c6/pregame)
+1. **The Mosquito Witch** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/b5083e6e-4dfc-4899-9123-57bbb6ca02c6/pregame)
 
 ## Registration
 
