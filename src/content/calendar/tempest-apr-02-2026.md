@@ -19,7 +19,7 @@ Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
 
 ## Available Scenarios
 
-1. **Wayfinder Origins** (Pathfinder Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/495f7c2d-3871-47db-9262-1e2ff5c76551/pregame)
+1. **Wayfinder Origins** (Pathfinder Quest, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/495f7c2d-3871-47db-9262-1e2ff5c76551/pregame)
 
 ## Registration
 
