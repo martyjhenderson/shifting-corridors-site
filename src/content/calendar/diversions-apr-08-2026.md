@@ -19,7 +19,7 @@ Join us for Pathfinder Society games at Diversions in Coralville!
 ## Available Scenarios
 
 1. **Sewer Dragon Crisis** (Pathfinder Scenario, Levels 1-4) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/074df87e-737d-4d38-9c25-1e4b6a92b71d/pregame)
-2. **Mountain of Sea and Sky** (Pathfinder Scenario, Levels 1-4) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/db55995b-780e-4cc4-9a42-c24936fe9134/pregame)
+2. **Mountain of Sea and Sky** (Pathfinder Scenario, Levels 3-6) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/db55995b-780e-4cc4-9a42-c24936fe9134/pregame)
 
 ## Registration
 
