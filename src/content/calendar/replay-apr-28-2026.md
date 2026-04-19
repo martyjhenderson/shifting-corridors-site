@@ -1,5 +1,5 @@
 ---
-title: Pathfinder Society at Replay Games - The Chitterwood Walks, Part 1
+title: Pathfinder Society at Replay Games - Decilane Academy's Delightful Disaster
 date: 2026-04-28
 url: /events/replay-apr-28-2026
 location: Replay Games
@@ -19,7 +19,7 @@ Join us for Pathfinder Society games at Replay Games in Cedar Rapids!
 
 ## Available Scenarios
 
-1. **The Chitterwood Walks, Part 1** (Pathfinder Scenario, Levels 3-4) - [Sign up here](https://www.rpgchronicles.net/session/4c819215-2c3c-43f7-8aed-d06287ce9244/pregame)
+1. **Decilane Academy's Delightful Disaster** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/bc9d4fd3-7099-4001-a53d-08d0e7e6d9e4/pregame)
 
 ## Registration
 
