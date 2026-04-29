@@ -23,6 +23,6 @@ Join us for Pathfinder Society games at Replay Games in Cedar Rapids!
 
 ## Registration
 
-Please register in advance using the link above. Space is limited to 5 players per game, so sign up early!
+Please register in advance using the link above. Space is limited to 4 players per game, so sign up early!
 
 > **Note:** This scenario uses pregenerated characters — no personal character needed!
