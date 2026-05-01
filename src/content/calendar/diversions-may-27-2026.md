@@ -20,7 +20,7 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 ## Available Scenarios
 
 ### Pathfinder Society
-1. **Path of Kings** (Levels 3-5, starts 5:30 PM) - [Sign up here](https://www.rpgchronicles.net/session/430856d0-e7d0-4768-9535-75bab1319ac0/pregame)
+1. **Path of Kings** (Levels 3-6, starts 5:30 PM) - [Sign up here](https://www.rpgchronicles.net/session/430856d0-e7d0-4768-9535-75bab1319ac0/pregame)
 
 ### Starfinder Society
 1. **Friends of the Forest** (Levels 1-2, starts 6:00 PM, 5 players) - [Sign up here](https://www.rpgchronicles.net/session/6eca1c83-851f-4ff0-8538-5763a77cc3db/pregame)
