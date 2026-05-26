@@ -186,15 +186,15 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) =>
           
           const calendarEvents = markdownEvents.map(event => {
             // Parse date from YYYY-MM-DD format
-            const dateParts = event.meta.date.split('-');
+            const dateParts = (event.meta.date ?? '').split('-');
             const year = parseInt(dateParts[0]);
             const month = parseInt(dateParts[1]) - 1; // JS months are 0-indexed
             const day = parseInt(dateParts[2]);
             const eventDate = new Date(year, month, day);
-            
+
             return {
               date: eventDate,
-              title: event.meta.title,
+              title: event.meta.title ?? '',
               url: event.meta.url || `/events/${event.slug}`,
             };
           });
