@@ -87,8 +87,8 @@ const News: React.FC = () => {
         // Convert markdown news to news articles
         const newsArticles: NewsArticle[] = markdownNews.map(news => ({
           id: news.slug,
-          title: news.meta.title,
-          date: news.meta.date,
+          title: news.meta.title ?? '',
+          date: news.meta.date ?? '',
           content: news.content,
         }));
         
