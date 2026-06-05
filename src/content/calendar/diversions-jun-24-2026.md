@@ -1,7 +1,7 @@
 ---
-title: Pathfinder & Starfinder Society at Diversions - Jun 10
-date: 2026-06-10
-url: /events/diversions-jun-10-2026
+title: Pathfinder & Starfinder Society at Diversions - Jun 24
+date: 2026-06-24
+url: /events/diversions-jun-24-2026
 location: Diversions
 address: 119 2nd St #300, Coralville, IA 52241
 ---
@@ -12,7 +12,7 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 
 ## Details
 
-- **Date:** June 10, 2026
+- **Date:** June 24, 2026
 - **Time:** 5:30 PM - 9:30 PM Central Time
 - **Location:** Diversions
 - **Address:** 119 2nd St #300, Coralville, IA 52241
@@ -20,10 +20,10 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 ## Available Scenarios
 
 ### Pathfinder Society
-1. **Strings of Hell** (Levels 1-2, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/83b43a5c-1257-4316-b94f-04a50ee8dcc6/pregame)
+1. **Guardian's Covenant** (Levels 3-6, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/9d40025a-0eb4-4738-a499-929137cdfc6b/pregame)
 
 ### Starfinder Society
-1. **Compliance Protocol** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/1f67ef56-6b1c-49d0-8436-4806050a87db/pregame)
+1. **Psychic Echoes** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/f3b2abc9-653b-439a-8a1c-7dc6d490c11e/pregame)
 
 ## Registration
 
