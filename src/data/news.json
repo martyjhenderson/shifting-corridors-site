@@ -7,7 +7,8 @@
     },
     "content": "\n# Lodge Party - June 8th!\n\nYou've rolled a natural 20 on your social check — you're invited to the Shifting Corridors Lodge Party!\n\n## You're Invited\n\nOn **June 8th from 5:30 PM to 9:30 PM**, we're throwing a party for the people who make this lodge great: our players, GMs, Venture Officers, and Store Hosts. Families are welcome too — the more the merrier!\n\nDrop in when you can, leave when you need to. No pressure, no agenda, just good company.\n\n## What to Expect\n\n- Party games — both indoor and outdoor\n- Food served throughout the evening\n- Great company from across the lodge\n\n## Getting an Invite\n\nThe location is shared with the invite (we're keeping the address off the public internet). To get yours, reach out through any of these:\n\n- **Email:** [lodge@shiftingcorridors.com](mailto:lodge@shiftingcorridors.com)\n- **Discord:** Ask in the server\n- **In person:** Find Marty H or Sam H\n\nWe hope to see you there!\n",
     "slug": "lodge-party-jun-2026",
-    "directory": "news"
+    "directory": "news",
+    "gitDate": "2026-05-31T13:12:08.000Z"
   },
   {
     "meta": {
@@ -17,7 +18,8 @@
     },
     "content": "\n# No Show and Timeliness Policy\n\nWe're implementing a new policy across all our gaming locations to ensure fair access to tables for all players.\n\n## Policy Details\n\nEffective immediately, Diversions, Tempest Games, and Geek City Games are implementing a timeliness policy for organized play sessions:\n\n**If a player is more than 10 minutes late and there is a waitlist, their spot at the table will be given to the next person on the waitlist.**\n\n## Why This Policy?\n\nThis policy helps ensure that:\n- Players on waitlists have a fair opportunity to play\n- Game Masters can start sessions on time\n- All players who commit to attending are respectful of everyone's time\n\n## What This Means for You\n\n- **Arrive on time** - We recommend arriving 10-15 minutes early to get settled\n- **Communicate** - If you're running late, contact the Game Master or venue as soon as possible\n- **Sign up responsibly** - Only register for games you can commit to attending\n\n## Questions?\n\nIf you have questions about this policy, please reach out to your Game Master or join us on Discord at [https://discord.gg/X6gmXYVDJA](https://discord.gg/X6gmXYVDJA) in the #iowa-corridor channel. We appreciate your understanding and cooperation in making our organized play sessions enjoyable for everyone.\n\nThank you for being part of our gaming community!\n",
     "slug": "no-show-timeliness-policy",
-    "directory": "news"
+    "directory": "news",
+    "gitDate": "2025-12-05T13:19:10.000Z"
   },
   {
     "meta": {
@@ -27,7 +29,8 @@
     },
     "content": "\n# Shifting Corridors Lodge at Gamicon Bromine 2026\n\nWe're thrilled to announce that the Shifting Corridors Lodge will be hosting organized play at Gamicon Bromine, taking place March 6-8, 2026 in Coralville, Iowa!\n\n## Event Highlights\n\nThis is going to be our biggest convention presence yet. We'll be running an impressive 19 tables of organized play throughout the weekend, featuring both Pathfinder Society and Starfinder Society games. Whether you're a seasoned adventurer or new to organized play, there will be something for everyone.\n\n## Special Guest: Hilary Moon Murphy\n\nWe're honored to have special guest Hilary Moon Murphy joining us at the convention! Hilary is a talented author who has written scenarios for Paizo, and she'll be personally running three of her own scenarios during the event. This is a rare opportunity to experience her work firsthand with the author herself at the table.\n\n## Both Systems Represented\n\nPlayers will have the chance to dive into adventures across both game systems:\n- **Pathfinder Society** - Fantasy adventures in the world of Golarion\n- **Starfinder Society** - Science fiction exploration across the galaxy\n\n## Convention Information\n\nGamicon Bromine will be held in Coralville, Iowa. For complete convention details, schedules, and registration information, visit [Gamicon.org](https://gamicon.org).\n\nWe can't wait to see you there! Mark your calendars for March 6-8, 2026, and get ready for an unforgettable weekend of gaming.\n",
     "slug": "gamicon-bromine-2026",
-    "directory": "news"
+    "directory": "news",
+    "gitDate": "2025-11-25T14:48:11.000Z"
   },
   {
     "meta": {
@@ -37,6 +40,7 @@
     },
     "content": "\n# New Lodge Website Launched\n\nWe're excited to announce the launch of our new Shifting Corridors Lodge website!\n\nThis new site will help us better coordinate events and share information with our community.\n\n## Features\n\n- Event calendar with upcoming games\n- List of Game Masters\n- News updates\n- Contact information\n\nStay tuned for more updates and events!",
     "slug": "new-lodge-website",
-    "directory": "news"
+    "directory": "news",
+    "gitDate": "2025-11-19T16:48:03.000Z"
   }
 ]
