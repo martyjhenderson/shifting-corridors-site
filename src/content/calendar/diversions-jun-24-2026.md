@@ -21,6 +21,7 @@ Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
 
 ### Pathfinder Society
 1. **Guardian's Covenant** (Levels 3-6, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/9d40025a-0eb4-4738-a499-929137cdfc6b/pregame)
+2. **The Seven Secrets of Dacilane Academy** (Levels 1-4, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/27151df9-a833-407c-aa93-9b409d7afb3c/pregame)
 
 ### Starfinder Society
 1. **Psychic Echoes** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/f3b2abc9-653b-439a-8a1c-7dc6d490c11e/pregame)
