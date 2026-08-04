@@ -107,5 +107,22 @@
     "slug": "steve-s",
     "directory": "gamemasters",
     "gitDate": "2026-05-31T13:07:16.000Z"
+  },
+  {
+    "meta": {
+      "title": "Game Master: Zachary F.",
+      "date": "2026-06-29T00:00:00.000Z",
+      "firstName": "Zachary",
+      "lastInitial": "F",
+      "organizedPlayNumber": 39392,
+      "games": [
+        "Pathfinder",
+        "Starfinder"
+      ]
+    },
+    "content": "\nZachary is a Game Master who runs Pathfinder Society and Starfinder Society scenarios. With organized play number 39392, Zachary brings enthusiasm and expertise to create engaging adventures for players of all experience levels.\n",
+    "slug": "zachary-f",
+    "directory": "gamemasters",
+    "gitDate": "2026-06-29T19:02:24.000Z"
   }
 ]
