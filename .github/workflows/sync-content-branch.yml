@@ -1,8 +1,14 @@
 name: Sync Content Branch
 
-# After a content PR merges — or after any other change lands on main — bring
+# After a content PR lands on main — or after any other change does — bring
 # `content` back level with main. Without this the CMS keeps editing a branch
 # that drifts further behind, and every later PR carries stale diffs.
+#
+# `main` requires linear history, so content PRs land squashed or rebased. That
+# rewrites the commits, meaning `content` is never an ancestor of main after a
+# merge even though main now holds exactly its changes. So this compares trees
+# rather than history: if `content` has nothing main is missing, it's safe to
+# move it across whatever the commits look like.
 
 on:
   push:
@@ -11,7 +17,7 @@ on:
 
 jobs:
   sync:
-    name: Fast-forward content to main
+    name: Reset content to main
     runs-on: ubuntu-latest
 
     permissions:
@@ -23,7 +29,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fast-forward content
+      - name: Move content to main
         run: |
           set -euo pipefail
 
@@ -33,13 +39,24 @@ jobs:
             exit 0
           fi
 
-          if git merge-base --is-ancestor origin/content origin/main; then
-            git push origin "origin/main:refs/heads/content"
-            echo "content fast-forwarded to main."
-          else
-            # Someone saved in the CMS between the merge and this run, so content
-            # holds commits main doesn't. Force-pushing would discard a Game
-            # Master's work; leave it for the next content PR to carry over.
-            echo "::warning::content has commits not in main - left alone." \
+          if ! git diff --quiet origin/main origin/content; then
+            # content holds edits main doesn't have — a Game Master saved
+            # between the merge and this run. Moving the branch would discard
+            # their work, so leave it for the next content PR to carry over.
+            echo "::warning::content has changes not in main - left alone." \
                  "The next content PR will bring them across."
+            git diff --stat origin/main origin/content
+            exit 0
           fi
+
+          if [ "$(git rev-parse origin/content)" = "$(git rev-parse origin/main)" ]; then
+            echo "content is already at main; nothing to do."
+            exit 0
+          fi
+
+          # Identical trees, different commits: the squash rewrote them. Reset
+          # the branch, leasing on the SHA just read so a save landing in the
+          # meantime makes this fail instead of clobbering it.
+          git push --force-with-lease="refs/heads/content:$(git rev-parse origin/content)" \
+            origin "origin/main:refs/heads/content"
+          echo "content reset to main."

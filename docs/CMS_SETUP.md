@@ -16,16 +16,18 @@ GM fills in the form and clicks Save
        └─ content-pr.yml        → opens a PR into main (first push only)
             └─ you review and merge
                  ├─ deploy-production.yml    → live in ~2 minutes
-                 └─ sync-content-branch.yml  → content back level with main
+                 └─ sync-content-branch.yml  → content reset to main
 ```
 
 Sveltia has no editorial workflow of its own yet (it's deferred until 1.0), so a
 Save commits directly to whatever branch it targets. Pointing it at `content`
 rather than `main` is what buys the preview and the review step.
 
-**Merge content PRs with a merge commit, not a squash.** Squashing rewrites the
-commits, so `content` still looks like it has changes to contribute and the next
-PR re-proposes edits that already landed.
+**Squash content PRs**, like any other PR here — a ruleset on `main` requires
+linear history, so merge commits are rejected. Squashing rewrites the commits, so
+`content` is no longer an ancestor of `main` afterwards; `sync-content-branch.yml`
+handles that by comparing trees rather than history, and resets the branch when
+it holds nothing `main` is missing.
 
 ## One-time setup
 

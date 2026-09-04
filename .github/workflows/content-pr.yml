@@ -57,9 +57,8 @@ jobs:
           A preview builds at https://dev.shiftingcorridors.com on every push to
           `content` — check the event there before merging.
 
-          **Merge with a merge commit, not a squash.** Squashing rewrites these
-          commits, which leaves the `content` branch looking like it still has
-          changes to contribute and puts already-merged edits in the next PR.
+          Squash it, like any other PR here. `sync-content-branch.yml` resets
+          `content` afterwards, so the rewritten commits don't strand the branch.
           BODY
           )"
 
