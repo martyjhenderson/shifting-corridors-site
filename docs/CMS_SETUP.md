@@ -123,11 +123,27 @@ backend:
 Each GM needs **write access to this repository** — the CMS acts as them, so a
 read-only collaborator can't save. Invite them under **Settings → Collaborators**.
 
-Then protect `main` (**Settings → Branches → Add rule**) so they can commit to
-`content` but not straight to production:
+That's all that's needed — `main` is **already protected**. The `MainTestandProt`
+ruleset applies to it with an empty bypass list, so it holds for everyone
+including repo admins:
 
-- Branch name pattern: `main`
-- Require a pull request before merging
+| Rule | Effect |
+| --- | --- |
+| `pull_request` | direct pushes rejected; a PR is required |
+| `non_fast_forward` | no force pushes |
+| `deletion` | `main` can't be deleted |
+| `required_linear_history` | merge commits rejected, hence squashing |
+
+So a Game Master with write access can commit to `content` but cannot push to
+`main`. Don't add a classic branch protection rule on top: GitHub evaluates both
+and takes the most restrictive, so it adds confusion rather than safety.
+
+Check it any time with:
+
+```bash
+gh api repos/martyjhenderson/shifting-corridors-site/rules/branches/main \
+  --jq '.[] | .type'
+```
 
 ## Adding a field
 
