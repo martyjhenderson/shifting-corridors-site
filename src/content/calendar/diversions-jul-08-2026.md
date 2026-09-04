@@ -1,30 +1,27 @@
 ---
 title: Pathfinder & Starfinder Society at Diversions - Jul 8
-date: 2026-07-08
-url: /events/diversions-jul-08-2026
+date: '2026-07-08'
 location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+address: '119 2nd St #300, Coralville, IA 52241'
+intro: Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
+scenarios:
+  - name: Stranded on Yesterday's Tide
+    system: Pathfinder
+    levels: 1-4
+    startTime: '17:30'
+    playerCap: 6
+    signupUrl: 'https://www.rpgchronicles.net/session/b5d41717-18ae-406d-9274-ce1418962e3e/pregame'
+  - name: Island of the Vibrant Dead
+    system: Pathfinder
+    levels: 3-6
+    startTime: '17:30'
+    playerCap: 6
+    signupUrl: 'https://www.rpgchronicles.net/session/9f62ea38-8987-4fa0-a15b-4c09361b7870/pregame'
+  - name: Sloughscar Summit
+    system: Starfinder
+    levels: 1-2
+    startTime: '18:00'
+    playerCap: 6
+    signupUrl: 'https://www.rpgchronicles.net/session/070f2a6e-fd8e-4f52-afb7-934f65b1877c/pregame'
 ---
 
-# Pathfinder & Starfinder Society at Diversions
-
-Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
-
-## Details
-
-- **Date:** July 8, 2026
-- **Location:** Diversions
-- **Address:** 119 2nd St #300, Coralville, IA 52241
-
-## Available Scenarios
-
-### Pathfinder Society
-1. **Stranded on Yesterday's Tide** (Levels 1-4, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/b5d41717-18ae-406d-9274-ce1418962e3e/pregame)
-2. **Island of the Vibrant Dead** (Levels 3-6, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/9f62ea38-8987-4fa0-a15b-4c09361b7870/pregame)
-
-### Starfinder Society
-1. **Sloughscar Summit** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/070f2a6e-fd8e-4f52-afb7-934f65b1877c/pregame)
-
-## Registration
-
-Please register in advance using the links above. Space is limited, so sign up early!

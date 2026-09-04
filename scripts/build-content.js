@@ -4,6 +4,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const matter = require('gray-matter');
 const { execSync } = require('child_process');
+const { formatTime } = require('./lib/event-markdown');
 
 /**
  * Build script to convert markdown content to JSON data
@@ -67,9 +68,11 @@ async function buildRssFeed(calendarData) {
   const now = new Date();
 
   const items = calendarData
-    .filter(item => item.meta.date && item.meta.url)
+    .filter(item => item.meta.date)
     .map(item => {
-      const eventUrl = `${SITE_URL}${item.meta.url}`;
+      // Events are addressed by their filename; `url` front-matter used to
+      // duplicate it and had to be kept in sync by hand.
+      const eventUrl = `${SITE_URL}${item.meta.url || `/events/${item.slug}`}`;
       const pubDate = (item.gitDate || now).toUTCString();
 
       const descParts = [item.meta.title];
@@ -77,8 +80,11 @@ async function buildRssFeed(calendarData) {
         const d = new Date(item.meta.date);
         descParts.push(d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }));
       }
+      if (item.meta.allDay) descParts.push('All day');
+      else if (item.meta.startTime) descParts.push(formatTime(item.meta.startTime));
       if (item.meta.location) descParts.push(item.meta.location);
       if (item.meta.address) descParts.push(item.meta.address);
+      if (item.meta.cancelled) descParts.push('CANCELLED');
 
       return `    <item>
       <title>${escapeXml(item.meta.title)}</title>

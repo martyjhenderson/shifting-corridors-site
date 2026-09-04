@@ -8,12 +8,45 @@ import calendarData from '../data/calendar.json';
 import newsData from '../data/news.json';
 import gamemastersData from '../data/gamemasters.json';
 
+/** One game session offered at an event, with its own signup link. */
+export interface Scenario {
+  name: string;
+  system?: 'Pathfinder' | 'Starfinder';
+  edition?: string;
+  type?: string;
+  levels?: string;
+  /** 24-hour "HH:MM"; overrides the event's own start time. */
+  startTime?: string;
+  endTime?: string;
+  playerCap?: number;
+  gamemaster?: string;
+  repeatable?: boolean;
+  pregens?: boolean;
+  cancelled?: boolean;
+  signupUrl?: string;
+}
+
 export interface MarkdownMeta {
   title?: string;
   date?: string;
+  /**
+   * Legacy: events are addressed by their filename slug now. Still read as a
+   * fallback so any file that kept the field keeps working.
+   */
   url?: string;
   location?: string;
   address?: string;
+  /** 24-hour "HH:MM". */
+  startTime?: string;
+  endTime?: string;
+  allDay?: boolean;
+  playerCap?: number;
+  levels?: string;
+  cancelled?: boolean;
+  intro?: string;
+  specialNote?: string;
+  gamemaster?: string;
+  scenarios?: Scenario[];
   firstName?: string;
   lastInitial?: string;
   organizedPlayNumber?: string | number;

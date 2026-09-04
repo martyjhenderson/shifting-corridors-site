@@ -1,14 +1,10 @@
 ---
 title: Free RPG Day 2026
-date: 2026-06-27
-url: /events/free-rpg-day-jun-27-2026
+date: '2026-06-27'
 location: Tempest Games & Diversions
-address: Cedar Rapids & Coralville, IA
+address: 'Cedar Rapids & Coralville, IA'
+intro: 'It''s [Free RPG Day](https://freerpgday.com/)! Come celebrate tabletop RPGs with us at two locations across the Corridor. Walk-on games, free demos, and good company — no sign-up, no experience required, just show up and roll some dice!'
 ---
-
-# Free RPG Day 2026
-
-It's [Free RPG Day](https://freerpgday.com/)! Come celebrate tabletop RPGs with us at two locations across the Corridor. Walk-on games, free demos, and good company — no sign-up, no experience required, just show up and roll some dice!
 
 ## Locations & Hours
 

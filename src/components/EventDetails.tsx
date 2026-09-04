@@ -3,11 +3,33 @@ import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useTheme } from '../utils/ThemeContext';
 import styled from 'styled-components';
-import { getCalendarEvents } from '../utils/staticData';
+import { getCalendarEvents, MarkdownContent } from '../utils/staticData';
+import {
+  formatTimeRange,
+  formatScenarioTags,
+  formatRegistrationNote,
+} from '../utils/eventFormat';
 
 interface EventDetailsProps {
   eventId?: string;
 }
+
+/**
+ * "2025-10-22" -> "October 22, 2025", read as a local date. Splitting the parts
+ * rather than `new Date(str)` avoids the UTC-midnight parse that renders the
+ * previous day in US timezones.
+ */
+const formatEventDate = (value: string): string => {
+  const [year, month, day] = value.split('-').map(Number);
+  if (!year || !month || !day) return value;
+
+  return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
 
 const BackButton = styled.button<{ theme: any }>`
   background-color: ${props => props.theme.colors.primary};
@@ -77,52 +99,74 @@ const StyledEventContainer = styled.div<{ theme: any }>`
     padding-left: 20px;
   }
 
-  /* Event meta banner removed */
+  /* Long addresses and scenario names must wrap rather than push the page
+     wider — see the horizontal-overflow checks in e2e/mobile-layout.spec.ts. */
+  overflow-wrap: anywhere;
+`;
 
-  /* Special note banner removed */
+const CancelledBanner = styled.p<{ theme: any }>`
+  font-family: ${props => props.theme.fonts.main};
+  font-weight: bold;
+  color: white;
+  background-color: ${props => props.theme.colors.secondary};
+  border-radius: 4px;
+  padding: 12px 15px;
+`;
+
+const ScenarioList = styled.ol`
+  li {
+    margin-bottom: 10px;
+  }
+
+  .scenario-tags {
+    opacity: 0.85;
+  }
+
+  .scenario-cancelled {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 `;
 
 const EventDetails: React.FC<EventDetailsProps> = ({ eventId }) => {
   const { theme } = useTheme();
   const navigate = useNavigate();
   const params = useParams<{ eventId: string }>();
-  const [eventContent, setEventContent] = useState<string>('');
+  const [event, setEvent] = useState<MarkdownContent | null>(null);
+  const [status, setStatus] = useState<'loading' | 'found' | 'missing' | 'error'>('loading');
   const id = eventId || params.eventId;
 
   useEffect(() => {
-    const fetchEventContent = async () => {
+    const fetchEvent = async () => {
       try {
-        console.log('EventDetails: Fetching content for event ID:', id);
-        
-        // Get all calendar events from static data
         const calendarEvents = await getCalendarEvents();
-        
-        // Find the event with the matching slug
-        const event = calendarEvents.find(event => {
-          // Check if the event has a URL and if it matches the ID
-          if (event.meta.url) {
-            const eventSlug = event.meta.url.split('/').pop();
-            return eventSlug === id;
+
+        // Events are addressed by their filename slug; `url` front-matter is a
+        // legacy fallback for any file that still carries it.
+        const match = calendarEvents.find(candidate => {
+          if (candidate.meta.url) {
+            return candidate.meta.url.split('/').pop() === id;
           }
-          // If the event doesn't have a URL, check if the slug matches the ID
-          return event.slug === id;
+          return candidate.slug === id;
         });
-        
-        if (event) {
-          setEventContent(event.content);
-        } else {
-          setEventContent('# Event Not Found\n\nThe requested event could not be found.');
-        }
+
+        setEvent(match ?? null);
+        setStatus(match ? 'found' : 'missing');
       } catch (error) {
         console.error('Error fetching event content:', error);
-        setEventContent('# Error\n\nThere was an error loading the event content.');
+        setStatus('error');
       }
     };
 
     if (id) {
-      fetchEventContent();
+      fetchEvent();
     }
   }, [id]);
+
+  const meta = event?.meta;
+  const scenarios = meta?.scenarios ?? [];
+  const timeRange = meta ? formatTimeRange(meta) : null;
+  const registrationNote = meta ? formatRegistrationNote(meta) : null;
 
   return (
     <>
@@ -130,7 +174,118 @@ const EventDetails: React.FC<EventDetailsProps> = ({ eventId }) => {
         Back to Calendar
       </BackButton>
       <StyledEventContainer theme={theme}>
-        <ReactMarkdown>{eventContent}</ReactMarkdown>
+        {status === 'missing' && (
+          <>
+            <h1>Event Not Found</h1>
+            <p>The requested event could not be found.</p>
+          </>
+        )}
+
+        {status === 'error' && (
+          <>
+            <h1>Error</h1>
+            <p>There was an error loading the event content.</p>
+          </>
+        )}
+
+        {status === 'found' && meta && (
+          <>
+            <h1>{meta.title}</h1>
+
+            {meta.cancelled && (
+              <CancelledBanner theme={theme}>This event has been cancelled.</CancelledBanner>
+            )}
+
+            {meta.intro && <p>{meta.intro}</p>}
+
+            <h2>Details</h2>
+            <ul>
+              {meta.date && (
+                <li>
+                  <strong>Date:</strong> {formatEventDate(meta.date)}
+                </li>
+              )}
+              {timeRange && (
+                <li>
+                  <strong>Time:</strong> {timeRange}
+                </li>
+              )}
+              {meta.location && (
+                <li>
+                  <strong>Location:</strong> {meta.location}
+                </li>
+              )}
+              {meta.address && (
+                <li>
+                  <strong>Address:</strong> {meta.address}
+                </li>
+              )}
+              {meta.levels && (
+                <li>
+                  <strong>Level Range:</strong> {meta.levels}
+                </li>
+              )}
+              {meta.playerCap && (
+                <li>
+                  <strong>Players:</strong> {meta.playerCap} players
+                </li>
+              )}
+              {meta.gamemaster && (
+                <li>
+                  <strong>Game Master:</strong> {meta.gamemaster}
+                </li>
+              )}
+              {meta.specialNote && (
+                <li>
+                  <strong>Special Note:</strong> {meta.specialNote}
+                </li>
+              )}
+            </ul>
+
+            {scenarios.length > 0 && (
+              <>
+                <h2>{scenarios.length === 1 ? 'Scenario' : 'Available Scenarios'}</h2>
+                <ScenarioList>
+                  {scenarios.map((scenario, index) => {
+                    const tags = formatScenarioTags(scenario);
+                    return (
+                      <li key={`${scenario.name}-${index}`}>
+                        <strong>{scenario.name}</strong>
+                        {tags && <span className="scenario-tags"> ({tags})</span>}
+                        {scenario.gamemaster && <span> — GM: {scenario.gamemaster}</span>}
+                        {scenario.cancelled ? (
+                          <span className="scenario-cancelled"> — Cancelled</span>
+                        ) : (
+                          scenario.signupUrl && (
+                            <>
+                              {' — '}
+                              <a
+                                href={scenario.signupUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Sign up here
+                              </a>
+                            </>
+                          )
+                        )}
+                      </li>
+                    );
+                  })}
+                </ScenarioList>
+              </>
+            )}
+
+            {registrationNote && (
+              <>
+                <h2>Registration</h2>
+                <p>{registrationNote}</p>
+              </>
+            )}
+
+            {event.content.trim() && <ReactMarkdown>{event.content}</ReactMarkdown>}
+          </>
+        )}
       </StyledEventContainer>
     </>
   );
