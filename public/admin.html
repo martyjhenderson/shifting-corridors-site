@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.png" />
+    <title>Content Manager · Shifting Corridors Lodge</title>
+    <!--
+      Served as /admin.html rather than /admin/, deliberately.
+
+      CloudFront fronts the S3 REST endpoint (see the CustomOriginConfig in
+      aws/cloudformation/static-infrastructure.yaml), which does not serve
+      directory index documents. A request for /admin/ would 404, and the
+      distribution's "404 -> /index.html with a 200" rule would then quietly
+      hand back the React site instead of this page. A single file at the
+      bucket root sidesteps that with no infrastructure change.
+
+      Vite copies public/ verbatim into build/, so this deploys through the
+      existing pipeline untouched.
+    -->
+    <link rel="cms-config-url" href="/admin-config.yml" type="application/yaml" />
+  </head>
+  <body>
+    <!-- Pinned, not @latest: an unattended CDN upgrade would change the editing
+         UI (and its config expectations) for everyone without a deploy. -->
+    <script src="https://unpkg.com/@sveltia/cms@0.205.3/dist/sveltia-cms.js"></script>
+  </body>
+</html>

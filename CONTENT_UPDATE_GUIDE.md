@@ -4,7 +4,14 @@ This guide explains how to update calendar events, news articles, and game maste
 
 ## 📋 Overview
 
-The website uses markdown files for all content, which are converted to JSON data at build time. This makes the site fast and allows for easy content updates through pull requests.
+Most content changes are best made through the **content manager** at
+[shiftingcorridors.com/admin.html](https://shiftingcorridors.com/admin.html) — a
+web form that writes these files for you and opens a pull request. See
+[docs/CMS_SETUP.md](docs/CMS_SETUP.md).
+
+This guide covers the underlying files, for when you'd rather edit them directly.
+The website stores all content as markdown, which is converted to JSON at build
+time.
 
 ## 🗂️ Content Structure
 
@@ -21,62 +28,75 @@ src/content/
 
 ### 1. Create a New Event File
 
-Create a new markdown file in `src/content/calendar/` with a descriptive filename:
-- Format: `venue-event-name-date.md`
-- Examples: `tempest-jan-15-2026.md`, `gcg-furys-toll-oct.md`
+Create a new markdown file in `src/content/calendar/`. **The filename is the
+event's URL** — `tempest-jan-15-2026.md` is served at `/events/tempest-jan-15-2026`
+— so pick it carefully and don't rename it once the event is public.
 
 ### 2. Event File Format
 
+Everything about the event lives in the front-matter; the site renders the date,
+time, scenario list and registration note from these fields. The markdown body is
+only for sections the fields can't express.
+
 ```markdown
 ---
-title: "Event Title Here"
+title: Pathfinder Society at Tempest Games
 date: 2026-01-15
-url: /events/your-event-slug
-location: Venue Name
-address: Full Address Here
+startTime: '17:30'
+endTime: '21:30'
+location: Tempest Games
+address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'
+playerCap: 6
+intro: Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+scenarios:
+  - name: Within the Glacier
+    system: Pathfinder
+    type: Scenario
+    levels: '1-4'
+    signupUrl: 'https://www.rpgchronicles.net/session/1f272ada-.../pregame'
 ---
-
-# Event Title Here
-
-Event description in markdown format.
-
-## Details
-
-- **Date:** January 15, 2026
-- **Time:** 5:30 PM Central Time
-- **Location:** Venue Name
-- **Address:** Full Address Here
-
-## Available Scenarios
-
-1. **Scenario Name** - [Sign up here](https://signup-link.com)
-
-## Registration
-
-Registration instructions here.
 ```
 
-### 3. Required Fields
+Don't write out the date, time, location, scenarios or a "Please register in
+advance…" line in the body — all of that is generated. Repeating it puts it on
+the page twice.
 
-- `title`: Event title (use quotes if it contains colons)
-- `date`: Date in YYYY-MM-DD format
-- `url`: URL path for the event page (should match filename)
-- `location`: Venue name
-- `address`: Full venue address
+### 3. Fields
+
+| Field | Required | Notes |
+| --- | --- | --- |
+| `title` | yes | Quote it if it contains a colon |
+| `date` | yes | `YYYY-MM-DD` |
+| `startTime` / `endTime` | no | 24-hour `'HH:MM'`, quoted |
+| `allDay` | no | `true` for conventions with no single start time |
+| `location` / `address` | no | Quote any address containing `#` |
+| `playerCap` | no | Seats per table; drives the registration note |
+| `levels` | no | e.g. `'1-4'`, when it's the same for every table |
+| `cancelled` | no | `true` shows a banner — don't put `[CANCELLED]` in the title |
+| `intro` | no | A sentence or two above the details |
+| `specialNote` | no | Highlighted note in the details list |
+| `gamemaster` | no | Only when one GM runs the whole event |
+| `scenarios` | no | List — see below |
+
+Each entry under `scenarios` takes `name` (required) plus any of `system`
+(`Pathfinder` / `Starfinder`), `edition` (`1E` / `2E`), `type` (`Scenario`,
+`Quest`, `Adventure`, `Bounty`, `Module`, `One-Shot`), `levels`, `startTime`,
+`endTime`, `playerCap`, `gamemaster`, `repeatable`, `pregens`, `cancelled`, and
+`signupUrl`.
 
 ### 4. Common Venues
 
 **Tempest Games:**
 - Location: `Tempest Games`
-- Address: `212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405`
+- Address: `'212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405'`
 
 **Geek City Games:**
 - Location: `Geek City Games`
-- Address: `365 Beaver Kreek Center suite b, North Liberty, IA 52317`
+- Address: `'365 Beaver Kreek Center suite b, North Liberty, IA 52317'`
 
 **Diversions:**
 - Location: `Diversions`
-- Address: `Address for Diversions`
+- Address: `'119 2nd St #300, Coralville, IA 52241'`
 
 ## 📰 Adding News Articles
 
@@ -146,21 +166,22 @@ Optional biography or description in markdown format.
 
 ## 🔧 Making Updates
 
-### Method 1: Direct File Editing (Recommended)
+### Method 1: The content manager (Recommended)
 
-1. **Navigate to the content file** you want to update
-2. **Edit the markdown file** directly
-3. **Commit your changes** with a descriptive message
-4. **Push to trigger deployment**
+1. Open [shiftingcorridors.com/admin.html](https://shiftingcorridors.com/admin.html)
+2. Sign in with GitHub
+3. Add or edit the entry and click **Save**
+4. A preview builds at [dev.shiftingcorridors.com](https://dev.shiftingcorridors.com),
+   and a pull request opens automatically
+5. A maintainer merges it, and the change is live in about two minutes
 
-### Method 2: Pull Request Workflow
+### Method 2: Editing the files directly
 
-1. **Fork the repository** (if you don't have write access)
-2. **Create a new branch** for your changes
-3. **Add/edit the content files** as needed
-4. **Commit your changes** with descriptive messages
-5. **Create a pull request** with details about your changes
-6. **Wait for review and merge**
+1. **Create a branch** off `main`
+2. **Add or edit the content files** as needed
+3. **Commit** with a descriptive message
+4. **Open a pull request** — it gets the same dev preview
+5. **Wait for review and merge**
 
 ## 📝 Content Guidelines
 
@@ -177,7 +198,11 @@ Optional biography or description in markdown format.
 
 ### YAML Frontmatter Rules
 - Use quotes around titles that contain colons
-- Ensure proper indentation for arrays (games list)
+- **Quote any value containing `#`.** Unquoted, YAML treats ` #` as the start of
+  a comment: `address: 119 2nd St #300, Coralville, IA 52241` silently becomes
+  just `119 2nd St`. This went unnoticed across 30 event files.
+- Quote times and level ranges (`'17:30'`, `'1-4'`) so they stay text
+- Ensure proper indentation for arrays (games list, scenarios)
 - Don't use tabs, only spaces
 - Required fields must be present
 
@@ -243,31 +268,37 @@ npm run aws:deploy:dev
 
 ```markdown
 ---
-title: "Pathfinder Society at Tempest Games - Within the Glacier"
-date: 2026-01-15
-url: /events/tempest-jan-15-2026
-location: Tempest Games
-address: 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
+title: Pathfinder & Starfinder Society at Diversions
+date: 2026-01-14
+startTime: '17:30'
+endTime: '21:30'
+location: Diversions
+address: '119 2nd St #300, Coralville, IA 52241'
+playerCap: 6
+intro: Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
+scenarios:
+  - name: Intro to Unfettered Exploration
+    system: Pathfinder
+    type: Scenario
+    levels: '1-4'
+    signupUrl: 'https://www.rpgchronicles.net/session/28f5a541-.../pregame'
+  - name: Invasion's Edge
+    system: Starfinder
+    type: Scenario
+    levels: '1-2'
+    gamemaster: Bret I
+    signupUrl: 'https://www.rpgchronicles.net/session/83ebcbe8-.../pregame'
 ---
+```
 
-# Pathfinder Society at Tempest Games
+An event only needs a markdown body when it has something the fields can't
+express — character requirements, a venue notice, unusual registration steps:
 
-Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!
+```markdown
+## Character Requirements
 
-## Details
-
-- **Date:** January 15, 2026
-- **Time:** 5:30 PM Central Time
-- **Location:** Tempest Games
-- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
-
-## Available Scenarios
-
-1. **Within the Glacier** - [Sign up here](https://www.rpgchronicles.net/session/1f272ada-19a3-4ac9-9359-b2496bf2c04a/pregame)
-
-## Registration
-
-Please register in advance using the link above. Space is limited, so sign up early!
+- **Level:** 2 only
+- **Starting Gear:** 30 gp worth of equipment
 ```
 
 ### Complete News Example

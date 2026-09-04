@@ -1,0 +1,45 @@
+name: Sync Content Branch
+
+# After a content PR merges — or after any other change lands on main — bring
+# `content` back level with main. Without this the CMS keeps editing a branch
+# that drifts further behind, and every later PR carries stale diffs.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Fast-forward content to main
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Fast-forward content
+        run: |
+          set -euo pipefail
+
+          if ! git ls-remote --exit-code --heads origin content >/dev/null 2>&1; then
+            echo "No content branch yet; creating it from main."
+            git push origin "origin/main:refs/heads/content"
+            exit 0
+          fi
+
+          if git merge-base --is-ancestor origin/content origin/main; then
+            git push origin "origin/main:refs/heads/content"
+            echo "content fast-forwarded to main."
+          else
+            # Someone saved in the CMS between the merge and this run, so content
+            # holds commits main doesn't. Force-pushing would discard a Game
+            # Master's work; leave it for the next content PR to carry over.
+            echo "::warning::content has commits not in main - left alone." \
+                 "The next content PR will bring them across."
+          fi

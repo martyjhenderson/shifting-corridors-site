@@ -1,0 +1,284 @@
+# Sveltia CMS configuration — the form Game Masters use to add events.
+#
+# Fields here mirror the front-matter schema in src/content/calendar/*.md.
+# If you add a field to one, add it to the other, and to the MarkdownMeta /
+# Scenario types in src/utils/staticData.ts.
+#
+# Editing happens on the `content` branch, never directly on `main`:
+# .github/workflows/content-pr.yml opens a pull request from it, which builds a
+# preview at dev.shiftingcorridors.com before anyone merges.
+
+backend:
+  name: github
+  repo: martyjhenderson/shifting-corridors-site
+  branch: content
+  # The Sveltia CMS Authenticator worker. See docs/CMS_SETUP.md — this is the
+  # one value that must be replaced before "Sign in with GitHub" works.
+  # Removing this line falls back to signing in with a personal access token.
+  base_url: https://REPLACE-ME.workers.dev
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: calendar
+    label: Events
+    label_singular: Event
+    folder: src/content/calendar
+    create: true
+    # Date-first so files sort chronologically; the slug is also the event's
+    # public URL (/events/<slug>), so it must stay unique and stable.
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    summary: '{{title}} — {{date}}'
+    sortable_fields: [date, title, location]
+    view_filters:
+      - label: Cancelled
+        field: cancelled
+        pattern: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - {
+          label: Date,
+          name: date,
+          widget: datetime,
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+          picker_utc: true,
+        }
+      - {
+          label: All day,
+          name: allDay,
+          widget: boolean,
+          default: false,
+          required: false,
+          hint: 'Tick for conventions and other events with no single start time.',
+        }
+      - {
+          label: Start time,
+          name: startTime,
+          widget: datetime,
+          format: 'HH:mm',
+          date_format: false,
+          time_format: 'HH:mm',
+          required: false,
+        }
+      - {
+          label: End time,
+          name: endTime,
+          widget: datetime,
+          format: 'HH:mm',
+          date_format: false,
+          time_format: 'HH:mm',
+          required: false,
+        }
+      - { label: Location, name: location, widget: string, required: false }
+      - {
+          label: Address,
+          name: address,
+          widget: string,
+          required: false,
+          hint: 'Full street address, including any suite or unit number.',
+        }
+      - {
+          label: Players,
+          name: playerCap,
+          widget: number,
+          value_type: int,
+          min: 1,
+          required: false,
+          hint: 'Seats per table. Used to generate the registration note.',
+        }
+      - {
+          label: Level range,
+          name: levels,
+          widget: string,
+          required: false,
+          hint: 'e.g. 1-4. Leave blank if it varies per scenario.',
+        }
+      - {
+          label: Cancelled,
+          name: cancelled,
+          widget: boolean,
+          default: false,
+          required: false,
+          hint: 'Shows a cancellation banner. Prefer this over editing the title.',
+        }
+      - {
+          label: Intro,
+          name: intro,
+          widget: text,
+          required: false,
+          hint: 'One or two sentences shown above the event details.',
+        }
+      - { label: Special note, name: specialNote, widget: string, required: false }
+      - {
+          label: Game Master,
+          name: gamemaster,
+          widget: string,
+          required: false,
+          hint: 'Only when one GM runs the whole event; otherwise set it per scenario.',
+        }
+      - label: Scenarios
+        name: scenarios
+        widget: list
+        required: false
+        label_singular: Scenario
+        summary: '{{fields.name}}'
+        fields:
+          - { label: Name, name: name, widget: string }
+          - {
+              label: System,
+              name: system,
+              widget: select,
+              options: [Pathfinder, Starfinder],
+              required: false,
+            }
+          - {
+              label: Edition,
+              name: edition,
+              widget: select,
+              options: ['1E', '2E'],
+              required: false,
+            }
+          - {
+              label: Type,
+              name: type,
+              widget: select,
+              options: [Scenario, Quest, Adventure, Bounty, Module, One-Shot],
+              required: false,
+            }
+          - { label: Levels, name: levels, widget: string, required: false }
+          - {
+              label: Start time,
+              name: startTime,
+              widget: datetime,
+              format: 'HH:mm',
+              date_format: false,
+              time_format: 'HH:mm',
+              required: false,
+              hint: 'Only if this table starts at a different time to the event.',
+            }
+          - {
+              label: End time,
+              name: endTime,
+              widget: datetime,
+              format: 'HH:mm',
+              date_format: false,
+              time_format: 'HH:mm',
+              required: false,
+            }
+          - {
+              label: Players,
+              name: playerCap,
+              widget: number,
+              value_type: int,
+              min: 1,
+              required: false,
+            }
+          - { label: Game Master, name: gamemaster, widget: string, required: false }
+          - { label: Repeatable, name: repeatable, widget: boolean, default: false, required: false }
+          - {
+              label: Pregenerated characters,
+              name: pregens,
+              widget: boolean,
+              default: false,
+              required: false,
+            }
+          - {
+              label: Cancelled,
+              name: cancelled,
+              widget: boolean,
+              default: false,
+              required: false,
+              hint: 'Replaces the signup link with a cancelled marker.',
+            }
+          - {
+              label: Signup URL,
+              name: signupUrl,
+              widget: string,
+              required: false,
+              hint: 'The RPG Chronicles or Tabletop.events link players use to book a seat.',
+            }
+      - {
+          label: Extra sections,
+          name: body,
+          widget: markdown,
+          required: false,
+          hint: 'Only for anything the fields above cannot express. The date, time, scenario list and registration note are generated for you — do not repeat them here.',
+        }
+
+  - name: news
+    label: News
+    label_singular: Article
+    folder: src/content/news
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    summary: '{{title}} — {{date}}'
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - {
+          label: Date,
+          name: date,
+          widget: datetime,
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+          picker_utc: true,
+        }
+      - {
+          label: ID,
+          name: id,
+          widget: string,
+          required: false,
+          hint: 'Optional stable identifier used to link to this article.',
+        }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: gamemasters
+    label: Game Masters
+    label_singular: Game Master
+    folder: src/content/gamemasters
+    create: true
+    slug: '{{fields.firstName}}-{{fields.lastInitial}}'
+    summary: '{{firstName}} {{lastInitial}}.'
+    sortable_fields: [firstName, date]
+    fields:
+      - {
+          label: Title,
+          name: title,
+          widget: string,
+          hint: 'Shown as the heading, e.g. "Game Master: Eli F."',
+        }
+      - {
+          label: Date added,
+          name: date,
+          widget: datetime,
+          format: 'YYYY-MM-DD',
+          date_format: 'YYYY-MM-DD',
+          time_format: false,
+          picker_utc: true,
+        }
+      - { label: First name, name: firstName, widget: string }
+      - { label: Last initial, name: lastInitial, widget: string }
+      - {
+          label: Organized Play number,
+          name: organizedPlayNumber,
+          widget: number,
+          value_type: int,
+          required: false,
+        }
+      - {
+          label: Games,
+          name: games,
+          widget: list,
+          field: { label: Game, name: game, widget: select, options: [Pathfinder, Starfinder] },
+        }
+      - {
+          label: Venture Officer role,
+          name: ventureOfficer,
+          widget: string,
+          required: false,
+        }
+      - { label: Bio, name: body, widget: markdown, required: false }
