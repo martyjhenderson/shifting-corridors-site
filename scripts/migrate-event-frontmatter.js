@@ -16,7 +16,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
+const { parseFrontMatter, stringifyFrontMatter } = require('./lib/frontmatter');
 
 const {
   parseScenarioLine,
@@ -68,7 +68,7 @@ const trimBlankLines = lines => {
 };
 
 function migrateOne(raw, slug) {
-  const { data: meta, content } = matter(raw);
+  const { data: meta, content } = parseFrontMatter(raw);
   const notes = [];   // needs a human to look at the result
   const info = [];    // worth reporting, but handled correctly
 
@@ -264,7 +264,7 @@ function migrateOne(raw, slug) {
     // lineWidth: -1 disables YAML line folding, which otherwise wraps signup
     // URLs and intro text across lines as ">-" blocks — valid, but miserable to
     // read in a diff or edit by hand.
-    output: matter.stringify(body ? `\n${body}\n` : '\n', out, { lineWidth: -1 }),
+    output: stringifyFrontMatter(body ? `\n${body}\n` : '\n', out, { lineWidth: -1 }),
   };
 }
 
