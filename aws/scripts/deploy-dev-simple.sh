@@ -40,20 +40,17 @@ echo "✅ Build completed successfully"
 
 # Upload website files to S3
 echo "📁 Uploading website files to S3..."
-aws s3 sync build/ s3://"$WEBSITE_BUCKET"/ \
-    --delete \
-    --cache-control "public, max-age=31536000" \
-    --exclude "*.html" \
-    --exclude "service-worker.js" \
-    --exclude "manifest.json"
-
-# Upload HTML files with shorter cache
+# Only build/assets/ is content-hashed, so only it can be cached indefinitely;
+# everything else changes in place under a stable name and must revalidate.
 aws s3 sync build/ s3://"$WEBSITE_BUCKET"/ \
     --delete \
     --cache-control "public, max-age=0, must-revalidate" \
-    --include "*.html" \
-    --include "service-worker.js" \
-    --include "manifest.json"
+    --exclude "assets/*"
+
+# Hashed assets: safe to cache indefinitely, since a change means a new name.
+aws s3 sync build/assets/ s3://"$WEBSITE_BUCKET"/assets/ \
+    --delete \
+    --cache-control "public, max-age=31536000, immutable"
 
 echo "✅ Website files uploaded successfully"
 
