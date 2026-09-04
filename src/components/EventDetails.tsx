@@ -60,6 +60,12 @@ const StyledEventContainer = styled.div<{ theme: any }>`
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
+    /* inline-block + real vertical padding (not negative-margin
+       hit-slop) so the tap target reaches ~44px tall on mobile without
+       overlapping the link above/below it — "Sign up here" links often
+       sit stacked one per line for multi-scenario events. */
+    display: inline-block;
+    padding: 10px 4px;
   }
 
   a:hover {

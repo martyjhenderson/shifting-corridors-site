@@ -25,8 +25,10 @@ const StyledCalendarContainer = styled.div<{ theme: any }>`
 
   .calendar-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     margin-bottom: 20px;
   }
 
@@ -50,7 +52,13 @@ const StyledCalendarContainer = styled.div<{ theme: any }>`
 
   .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    /* minmax(0, 1fr), not a bare 1fr: a plain fr track implies
+       minmax(auto, 1fr), whose "auto" minimum can't shrink below a
+       column's content (e.g. the bold "Wed"/"Sat" day headers). On
+       narrow viewports that forced the grid wider than its container,
+       and since nothing up the tree clips overflow, it leaked out as
+       page-wide horizontal scroll. */
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 5px;
   }
 
