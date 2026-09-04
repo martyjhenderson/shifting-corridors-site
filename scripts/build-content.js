@@ -2,9 +2,9 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-const matter = require('gray-matter');
 const { execSync } = require('child_process');
 const { formatTime } = require('./lib/event-markdown');
+const { parseFrontMatter } = require('./lib/frontmatter');
 
 /**
  * Build script to convert markdown content to JSON data
@@ -46,7 +46,7 @@ function escapeXml(str) {
 async function processMarkdownFile(filePath, directory) {
   try {
     const content = await fs.readFile(filePath, 'utf-8');
-    const { data: meta, content: markdownContent } = matter(content);
+    const { data: meta, content: markdownContent } = parseFrontMatter(content);
 
     const fileName = path.basename(filePath, '.md');
 
