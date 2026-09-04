@@ -72,11 +72,15 @@ const ThemeToggleButton = styled.button<{ theme: any }>`
 
 const MainGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  /* minmax(0, 1fr) instead of a bare 1fr: a plain fr track implies
+     minmax(auto, 1fr), and "auto" can't shrink below the content's
+     max-content width (e.g. the calendar's 7-column grid), which was
+     forcing the whole page wider than the viewport on mobile. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
 
   @media (min-width: 768px) {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   }
 `;
 

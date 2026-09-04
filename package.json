@@ -23,6 +23,8 @@
     "start": "npm run dev",
     "verify-build": "node test-build.js",
     "test": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "type-check": "tsc --noEmit",
     "aws:deploy": "aws/scripts/deploy-static.sh",
     "aws:deploy:dev": "aws/scripts/deploy-dev.sh",
@@ -53,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/node": "^25.0.3",
     "@vitejs/plugin-react": "^5.1.2",

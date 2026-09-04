@@ -8,6 +8,10 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
+    // e2e/ holds Playwright specs (real-browser mobile layout checks, run
+    // via `npm run test:e2e`), not Vitest tests — exclude them from the
+    // default jsdom run.
+    exclude: ['e2e/**', 'node_modules/**'],
   },
   resolve: {
     alias: {
