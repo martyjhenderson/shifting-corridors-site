@@ -159,7 +159,11 @@ const isSameDay = (date1: Date, date2: Date): boolean => {
          date1.getDate() === date2.getDate();
 };
 
-const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = [] }) => {
+// Stable reference so the `events` default doesn't create a new array
+// (and re-trigger the fetch effect) on every render.
+const EMPTY_EVENTS: Event[] = [];
+
+const CalendarComponent: React.FC<CalendarComponentProps> = ({ events = EMPTY_EVENTS }) => {
   const { theme } = useTheme();
   const navigate = useNavigate();
   const [currentMonth, setCurrentMonth] = useState(new Date());
