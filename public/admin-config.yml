@@ -12,10 +12,10 @@ backend:
   name: github
   repo: martyjhenderson/shifting-corridors-site
   branch: content
-  # The Sveltia CMS Authenticator worker. See docs/CMS_SETUP.md — this is the
-  # one value that must be replaced before "Sign in with GitHub" works.
-  # Removing this line falls back to signing in with a personal access token.
-  base_url: https://REPLACE-ME.workers.dev
+  # The Sveltia CMS Authenticator worker (docs/CMS_SETUP.md). No trailing path:
+  # Sveltia appends /auth itself, and the OAuth app's callback URL is this plus
+  # /callback. Removing this line falls back to token sign-in.
+  base_url: https://sveltia-cms-auth.ravegrunt.workers.dev
 
 media_folder: public/uploads
 public_folder: /uploads

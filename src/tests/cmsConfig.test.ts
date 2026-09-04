@@ -52,6 +52,19 @@ describe('CMS config', () => {
     expect(config.backend.branch).toBe('content');
   });
 
+  test('points at a real authenticator, not the setup placeholder', () => {
+    const baseUrl = String(config.backend.base_url ?? '');
+
+    // Shipping the placeholder leaves "Sign in with GitHub" broken with no
+    // failure until someone actually clicks it.
+    expect(baseUrl).not.toMatch(/REPLACE-ME/);
+    expect(baseUrl).toMatch(/^https:\/\/[^/]+$/);
+
+    // Sveltia appends its own /auth, and the OAuth app's callback is this plus
+    // /callback — a path here breaks both.
+    expect(baseUrl).not.toMatch(/\/(auth|callback)$/);
+  });
+
   test.each([
     ['calendar', calendarData],
     ['news', newsData],
