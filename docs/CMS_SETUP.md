@@ -29,11 +29,37 @@ PR re-proposes edits that already landed.
 
 ## One-time setup
 
-Steps 1–3 need doing once before the sign-in button works. Until then the login
+Steps 1–4 need doing once before the sign-in button works. Until then the login
 screen offers "Sign In with Token" instead, which works but asks each person for
 a GitHub personal access token.
 
-### 1. Create the `content` branch
+### 1. Let Actions open pull requests
+
+`content-pr.yml` opens the pull request as `GITHUB_TOKEN`, which GitHub forbids
+by default:
+
+```
+pull request create failed: GraphQL: GitHub Actions is not permitted to
+create or approve pull requests (createPullRequest)
+```
+
+Enable it under **Settings → Actions → General → Workflow permissions**:
+*Allow GitHub Actions to create and approve pull requests*. Or:
+
+```bash
+gh api -X PUT repos/martyjhenderson/shifting-corridors-site/actions/permissions/workflow \
+  -f default_workflow_permissions=read \
+  -F can_approve_pull_request_reviews=true
+```
+
+Leave the default token permission at **read** — every workflow here declares
+the scopes it needs.
+
+That one checkbox governs *create and approve* together, so it also lets a
+workflow approve a pull request. If you ever add a "require approvals" rule to
+`main`, know that a workflow could satisfy it.
+
+### 2. Create the `content` branch
 
 ```bash
 git checkout main && git pull
@@ -41,7 +67,10 @@ git checkout -b content
 git push -u origin content
 ```
 
-### 2. Deploy the authenticator
+Branch it from `main`, not from a feature branch — otherwise `content` carries
+commits that aren't on `main` yet and the first content PR duplicates them.
+
+### 3. Deploy the authenticator
 
 Sveltia needs a small OAuth broker to exchange a GitHub login for a token. It
 runs as a free Cloudflare Worker and is independent of where the site is hosted —
@@ -59,7 +88,7 @@ Use the free `*.workers.dev` hostname for now. A custom domain like
 `auth.shiftingcorridors.com` needs the DNS zone on Cloudflare, and this domain
 is on Route 53.
 
-### 3. Register the GitHub OAuth app
+### 4. Register the GitHub OAuth app
 
 At **Settings → Developer settings → OAuth Apps → New OAuth App**:
 
@@ -87,7 +116,7 @@ backend:
   base_url: https://REPLACE-ME.workers.dev    # <- your worker URL
 ```
 
-### 4. Give Game Masters access
+### 5. Give Game Masters access
 
 Each GM needs **write access to this repository** — the CMS acts as them, so a
 read-only collaborator can't save. Invite them under **Settings → Collaborators**.
