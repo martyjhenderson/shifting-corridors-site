@@ -39,13 +39,29 @@ jobs:
             exit 0
           fi
 
-          if ! git diff --quiet origin/main origin/content; then
+          # `content` is safe to move when it contributes nothing of its own,
+          # which happens two different ways:
+          #
+          #   - its tree already matches main, because a squash merge rewrote
+          #     the commits it did contribute; or
+          #   - it adds nothing over its merge-base with main, i.e. it is simply
+          #     behind after some other PR landed.
+          #
+          # Both need checking. Comparing only against main misreads "behind" as
+          # "diverged" and strands content on a stale base — the next CMS save
+          # then builds on that base and its PR proposes reverting whatever
+          # landed in between. Comparing only against the merge-base misses the
+          # squash case and strands it the other way.
+          base=$(git merge-base origin/main origin/content)
+
+          if ! git diff --quiet origin/main origin/content \
+             && ! git diff --quiet "$base" origin/content; then
             # content holds edits main doesn't have — a Game Master saved
             # between the merge and this run. Moving the branch would discard
             # their work, so leave it for the next content PR to carry over.
-            echo "::warning::content has changes not in main - left alone." \
+            echo "::warning::content has unmerged edits - left alone." \
                  "The next content PR will bring them across."
-            git diff --stat origin/main origin/content
+            git diff --stat "$base" origin/content
             exit 0
           fi
 
@@ -54,9 +70,10 @@ jobs:
             exit 0
           fi
 
-          # Identical trees, different commits: the squash rewrote them. Reset
-          # the branch, leasing on the SHA just read so a save landing in the
-          # meantime makes this fail instead of clobbering it.
+          # content contributes nothing of its own: either it's behind main, or
+          # a squash rewrote the commits it did contribute. Either way main is
+          # the branch to be on. Lease on the SHA just read, so a save landing
+          # in the meantime fails the push instead of being clobbered.
           git push --force-with-lease="refs/heads/content:$(git rev-parse origin/content)" \
             origin "origin/main:refs/heads/content"
           echo "content reset to main."
