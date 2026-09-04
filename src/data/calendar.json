@@ -2,1339 +2,2779 @@
   {
     "meta": {
       "title": "Starfinder Society at Replay Games - The First Cut",
-      "date": "2026-09-29T00:00:00.000Z",
-      "url": "/events/replay-sep-29-2026",
+      "date": "2026-09-29",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Starfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The First Cut",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/d1aa8270-08cc-4a8f-a904-a8fd71a01d3a/pregame"
+        }
+      ]
     },
-    "content": "\n# Starfinder Society at Replay Games\n\nJoin us for Starfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** September 29, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **The First Cut** (Starfinder Scenario, Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/d1aa8270-08cc-4a8f-a904-a8fd71a01d3a/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-sep-29-2026",
     "directory": "calendar",
-    "gitDate": "2026-09-04T18:59:38.578Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - September 23",
-      "date": "2026-09-23T00:00:00.000Z",
-      "url": "/events/diversions-sep-23-2026",
+      "date": "2026-09-23",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Enter the Pallid Peak",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/403c41a0-783d-43b4-9218-d304a21cd56a/pregame"
+        },
+        {
+          "name": "Intro to Clockwork Mysteries",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/ba0f3d6b-95a9-4529-ac3b-2bc8a5ae3f00/pregame"
+        },
+        {
+          "name": "The First Cut",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "endTime": "21:00",
+          "signupUrl": "https://www.rpgchronicles.net/session/d772d603-f7db-4df5-9759-5a2109ef3338/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** September 23, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Players:** 6 players per game\n\n## Available Scenarios\n\n1. **Enter the Pallid Peak** (Pathfinder Scenario, Levels 1-4) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/403c41a0-783d-43b4-9218-d304a21cd56a/pregame)\n2. **Intro to Clockwork Mysteries** (Pathfinder Scenario, Levels 1-2) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/ba0f3d6b-95a9-4529-ac3b-2bc8a5ae3f00/pregame)\n3. **The First Cut** (Starfinder Scenario, Levels 1-2) - **6:00 PM - 9:00 PM** - [Sign up here](https://www.rpgchronicles.net/session/d772d603-f7db-4df5-9759-5a2109ef3338/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-sep-23-2026",
     "directory": "calendar",
-    "gitDate": "2026-09-04T13:32:14.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - The Island of the Vibrant Dead",
-      "date": "2026-09-20T00:00:00.000Z",
-      "url": "/events/gcg-sep-20-2026",
+      "date": "2026-09-20",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "The Island of the Vibrant Dead",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/5ede8372-b31d-4149-adf1-b5f40c79ea39/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** September 20, 2026\n- **Time:** 12:00 noon Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **The Island of the Vibrant Dead** (Pathfinder Scenario, Levels 3-6, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/5ede8372-b31d-4149-adf1-b5f40c79ea39/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-sep-20-2026",
     "directory": "calendar",
-    "gitDate": "2026-08-25T22:39:14.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - A Shark's Guide to Piracy",
-      "date": "2026-09-17T00:00:00.000Z",
-      "url": "/events/tempest-sep-17-2026",
+      "date": "2026-09-17",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "A Shark's Guide to Piracy",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/6582ab3c-b742-4967-a0ad-3b851eb84dc2/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** September 17, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **A Shark's Guide to Piracy** (Pathfinder Scenario, Levels 1-2, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/6582ab3c-b742-4967-a0ad-3b851eb84dc2/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-sep-17-2026",
     "directory": "calendar",
-    "gitDate": "2026-08-25T22:30:44.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - Home of the Empty Breath",
-      "date": "2026-09-15T00:00:00.000Z",
-      "url": "/events/replay-sep-15-2026",
+      "date": "2026-09-15",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Home of the Empty Breath",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "5-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/5b48ffcc-ef0e-409c-9287-173874762fb2/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** September 15, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **Home of the Empty Breath** (Pathfinder Scenario, Levels 5-6) - [Sign up here](https://www.rpgchronicles.net/session/5b48ffcc-ef0e-409c-9287-173874762fb2/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-sep-15-2026",
     "directory": "calendar",
-    "gitDate": "2026-09-04T16:42:20.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - September 9",
-      "date": "2026-09-09T00:00:00.000Z",
-      "url": "/events/diversions-sep-09-2026",
+      "date": "2026-09-09",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Demonic Afterparty",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/71be8683-639f-49fb-8e13-5c7a57d9ff34/pregame"
+        },
+        {
+          "name": "Solar Shakeup",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "endTime": "21:00",
+          "signupUrl": "https://www.rpgchronicles.net/session/2d34798c-c5c3-4c08-bc11-243ceef9c3a0/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** September 9, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Players:** 6 players per game\n\n## Available Scenarios\n\n1. **Demonic Afterparty** (Pathfinder Scenario, Levels 3-6) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/71be8683-639f-49fb-8e13-5c7a57d9ff34/pregame)\n2. **Solar Shakeup** (Starfinder Scenario, Levels 1-2) - **6:00 PM - 9:00 PM** - [Sign up here](https://www.rpgchronicles.net/session/2d34798c-c5c3-4c08-bc11-243ceef9c3a0/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-sep-09-2026",
     "directory": "calendar",
-    "gitDate": "2026-09-04T13:32:14.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Sewer Dragon Crisis",
-      "date": "2026-09-06T00:00:00.000Z",
-      "url": "/events/gcg-sep-06-2026",
+      "date": "2026-09-06",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Sewer Dragon Crisis",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/7d34cdf4-6e17-4d9f-a0eb-ee87109a1fd9/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** September 6, 2026\n- **Time:** 12:00 noon Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **Sewer Dragon Crisis** (Pathfinder Scenario, Levels 1-4, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/7d34cdf4-6e17-4d9f-a0eb-ee87109a1fd9/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-sep-06-2026",
     "directory": "calendar",
-    "gitDate": "2026-08-25T22:30:44.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - A Theft in Riddleport",
-      "date": "2026-09-03T00:00:00.000Z",
-      "url": "/events/tempest-sep-03-2026",
+      "date": "2026-09-03",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "A Theft in Riddleport",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/eb17c6d9-cc88-4264-88a2-dcaa0eb2ec18/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** September 3, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **A Theft in Riddleport** (Pathfinder Scenario, Levels 1-2, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/eb17c6d9-cc88-4264-88a2-dcaa0eb2ec18/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-sep-03-2026",
     "directory": "calendar",
-    "gitDate": "2026-08-25T22:30:44.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Escape from Oppara",
-      "date": "2026-08-30T00:00:00.000Z",
-      "url": "/events/gcg-aug-30-2026",
+      "date": "2026-08-30",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Escape from Oppara",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/65952240-c16b-4c36-a5a8-1e2bedbe2563/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** August 30, 2026\n- **Time:** 12:00 noon Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **Escape from Oppara** (Pathfinder Scenario, Levels 3-6, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/65952240-c16b-4c36-a5a8-1e2bedbe2563/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-aug-30-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-23T17:19:52.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - August 26",
-      "date": "2026-08-26T00:00:00.000Z",
-      "url": "/events/diversions-aug-26-2026",
+      "date": "2026-08-26",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Intro to Boundless Wounder",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/2f2fe663-52c9-4ee4-a6b8-35aa1cf01ccc/pregame"
+        },
+        {
+          "name": "Within the Prairies",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/ba32666d-99b9-4ff3-818d-0d4b6cdc74a2/pregame"
+        },
+        {
+          "name": "Bittersweet",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "endTime": "21:00",
+          "signupUrl": "https://www.rpgchronicles.net/session/bf51833e-37ad-477d-a395-232df7b495ba/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** August 26, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Players:** 6 players per game\n\n## Available Scenarios\n\n1. **Intro to Boundless Wounder** (Pathfinder Scenario, Levels 1-4) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/2f2fe663-52c9-4ee4-a6b8-35aa1cf01ccc/pregame)\n2. **Within the Prairies** (Pathfinder Scenario, Levels 1-4) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/ba32666d-99b9-4ff3-818d-0d4b6cdc74a2/pregame)\n3. **Bittersweet** (Starfinder Scenario, Levels 1-2) - **6:00 PM - 9:00 PM** - [Sign up here](https://www.rpgchronicles.net/session/bf51833e-37ad-477d-a395-232df7b495ba/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-aug-26-2026",
     "directory": "calendar",
-    "gitDate": "2026-08-05T20:24:43.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - A Star's Journey",
-      "date": "2026-08-20T00:00:00.000Z",
-      "url": "/events/tempest-aug-20-2026",
+      "date": "2026-08-20",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "A Star's Journey",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/a2ff07ee-5e6a-42a1-95ef-39b84cf07f56/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** August 20, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **A Star's Journey** (Pathfinder Scenario, Levels 1-2, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/a2ff07ee-5e6a-42a1-95ef-39b84cf07f56/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-aug-20-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-23T17:19:52.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Starfinder Society at Replay Games - Ruins of the World Soul",
-      "date": "2026-08-18T00:00:00.000Z",
-      "url": "/events/replay-aug-18-2026",
+      "date": "2026-08-18",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Starfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Ruins of the World Soul",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "3-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/f1c346fb-3706-486e-9bc7-f2af11e46dee/pregame"
+        }
+      ]
     },
-    "content": "\n# Starfinder Society at Replay Games\n\nJoin us for Starfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** August 18, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **Ruins of the World Soul** (Starfinder Scenario, Levels 3-4) - [Sign up here](https://www.rpgchronicles.net/session/f1c346fb-3706-486e-9bc7-f2af11e46dee/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-aug-18-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-26T17:34:07.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - The Fey Reclamation",
-      "date": "2026-08-16T00:00:00.000Z",
-      "url": "/events/gcg-aug-16-2026",
+      "date": "2026-08-16",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "The Fey Reclamation",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-4",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/6288786d-c232-446d-b1cb-067dc4023927/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** August 16, 2026\n- **Time:** 12:00 noon Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **The Fey Reclamation** (Pathfinder Scenario, Levels 3-4, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/6288786d-c232-446d-b1cb-067dc4023927/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-aug-16-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-23T17:19:52.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - August 12",
-      "date": "2026-08-12T00:00:00.000Z",
-      "url": "/events/diversions-aug-12-2026",
+      "date": "2026-08-12",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "A Lie Told to Strangers",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/55ab3a62-eba7-4b67-90c5-d78502613c9e/pregame"
+        },
+        {
+          "name": "The Great Absalom Relay",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "endTime": "21:00",
+          "cancelled": true
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** August 12, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Players:** 6 players per game\n\n## Available Scenarios\n\n1. **A Lie Told to Strangers** (Pathfinder Scenario, Levels 3-6) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/55ab3a62-eba7-4b67-90c5-d78502613c9e/pregame)\n2. **The Great Absalom Relay** (Starfinder Scenario, Levels 1-2) - **6:00 PM - 9:00 PM** - **CANCELLED**\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-aug-12-2026",
     "directory": "calendar",
-    "gitDate": "2026-08-12T16:47:47.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Elsewhere Feast",
-      "date": "2026-08-06T00:00:00.000Z",
-      "url": "/events/tempest-aug-06-2026",
+      "date": "2026-08-06",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Elsewhere Feast",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "levels": "1-4",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/92ea895e-e342-4dc2-a732-e548dc9fe5b9/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** August 6, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **The Elsewhere Feast** (Pathfinder Quest, Levels 1-4, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/92ea895e-e342-4dc2-a732-e548dc9fe5b9/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-aug-06-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-23T17:19:52.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - Intro to Year of Clockwork Mystery",
-      "date": "2026-08-04T00:00:00.000Z",
-      "url": "/events/replay-aug-04-2026",
+      "date": "2026-08-04",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 5,
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Intro to Year of Clockwork Mystery",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/38c314d9-d9e3-4ea6-9947-08bda254f166/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** August 4, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 5 players\n\n## Available Scenarios\n\n1. **Intro to Year of Clockwork Mystery** (Pathfinder Scenario, Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/38c314d9-d9e3-4ea6-9947-08bda254f166/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-aug-04-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-23T17:19:52.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Guardian's Covenant",
-      "date": "2026-08-02T00:00:00.000Z",
-      "url": "/events/gcg-aug-02-2026",
+      "date": "2026-08-02",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Guardian's Covenant",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/af0a0080-860d-45df-981a-e52121fb88e9/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** August 2, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Guardian's Covenant** (Pathfinder Scenario, Levels 3-6, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/af0a0080-860d-45df-981a-e52121fb88e9/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-aug-02-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-30T12:16:48.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Lost on the Spirit Road",
-      "date": "2026-07-30T00:00:00.000Z",
-      "url": "/events/tempest-jul-30-2026",
+      "date": "2026-07-30",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Lost on the Spirit Road",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/0d94e467-0bce-4885-86bf-3054fc7c35c2/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** July 30, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **Lost on the Spirit Road** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/0d94e467-0bce-4885-86bf-3054fc7c35c2/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-jul-30-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-01T18:51:16.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - Jul 22",
-      "date": "2026-07-22T00:00:00.000Z",
-      "url": "/events/diversions-jul-22-2026",
+      "date": "2026-07-22",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Negotiations for the Star Gun",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/df8f63ad-a18c-49da-959f-5b004b503ebe/pregame"
+        },
+        {
+          "name": "Intro: Year of Shattered Sanctuaries",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/ecb5b4e7-7d0e-4b71-b1f9-dcbcaae1f050/pregame"
+        },
+        {
+          "name": "Corpse Fleet Conflict",
+          "system": "Starfinder",
+          "levels": "3-4",
+          "startTime": "18:00",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/30fdccc5-9206-4adc-88e9-51546e61c61a/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** July 22, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Pathfinder Society\n1. **Negotiations for the Star Gun** (Levels 1-4, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/df8f63ad-a18c-49da-959f-5b004b503ebe/pregame)\n2. **Intro: Year of Shattered Sanctuaries** (Levels 1-4, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/ecb5b4e7-7d0e-4b71-b1f9-dcbcaae1f050/pregame)\n\n### Starfinder Society\n1. **Corpse Fleet Conflict** (Levels 3-4, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/30fdccc5-9206-4adc-88e9-51546e61c61a/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-jul-22-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-30T12:16:48.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - Tarnbreaker's Trail",
-      "date": "2026-07-21T00:00:00.000Z",
-      "url": "/events/replay-jul-21-2026",
+      "date": "2026-07-21",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 5,
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Tarnbreaker's Trail",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/e6f1fe6a-3595-4310-bb94-9ef8ca7f57a2/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** July 21, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 5 players\n\n## Available Scenarios\n\n1. **Tarnbreaker's Trail** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/e6f1fe6a-3595-4310-bb94-9ef8ca7f57a2/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-jul-21-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-29T15:23:58.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - No Time for Treason",
-      "date": "2026-07-19T00:00:00.000Z",
-      "url": "/events/gcg-jul-19-2026",
+      "date": "2026-07-19",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "No Time for Treason",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/12dfc66b-f919-4585-8ff4-63a73db426fc/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** July 19, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **No Time for Treason** (Pathfinder Scenario, Levels 3-6, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/12dfc66b-f919-4585-8ff4-63a73db426fc/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-jul-19-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-29T15:12:02.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
-      "title": "[CANCELLED] Pathfinder Society at Tempest Games - The Home of Empty Breath",
-      "date": "2026-07-16T00:00:00.000Z",
-      "url": "/events/tempest-jul-16-2026",
+      "title": "Pathfinder Society at Tempest Games - The Home of Empty Breath",
+      "date": "2026-07-16",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "cancelled": true,
+      "scenarios": [
+        {
+          "name": "The Home of Empty Breath",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "5-6"
+        }
+      ]
     },
-    "content": "\n# [CANCELLED] Pathfinder Society at Tempest Games\n\n> **This event has been cancelled.**\n\n## Details\n\n- **Date:** July 16, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n\n## Scenario\n\n**The Home of Empty Breath** (Pathfinder Scenario, Levels 5-6)\n",
+    "content": "\n",
     "slug": "tempest-jul-16-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-16T14:00:12.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - Jul 8",
-      "date": "2026-07-08T00:00:00.000Z",
-      "url": "/events/diversions-jul-08-2026",
+      "date": "2026-07-08",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Stranded on Yesterday's Tide",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/b5d41717-18ae-406d-9274-ce1418962e3e/pregame"
+        },
+        {
+          "name": "Island of the Vibrant Dead",
+          "system": "Pathfinder",
+          "levels": "3-6",
+          "startTime": "17:30",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/9f62ea38-8987-4fa0-a15b-4c09361b7870/pregame"
+        },
+        {
+          "name": "Sloughscar Summit",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/070f2a6e-fd8e-4f52-afb7-934f65b1877c/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** July 8, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Pathfinder Society\n1. **Stranded on Yesterday's Tide** (Levels 1-4, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/b5d41717-18ae-406d-9274-ce1418962e3e/pregame)\n2. **Island of the Vibrant Dead** (Levels 3-6, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/9f62ea38-8987-4fa0-a15b-4c09361b7870/pregame)\n\n### Starfinder Society\n1. **Sloughscar Summit** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/070f2a6e-fd8e-4f52-afb7-934f65b1877c/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-jul-08-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-30T12:16:48.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Starfinder Society at Replay Games - Invasion's Edge",
-      "date": "2026-07-07T00:00:00.000Z",
-      "url": "/events/replay-jul-07-2026",
+      "date": "2026-07-07",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Starfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Invasion's Edge",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/fa684e3b-75e0-4b26-a91e-4e8d1da020f9/pregame"
+        }
+      ]
     },
-    "content": "\n# Starfinder Society at Replay Games\n\nJoin us for Starfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** July 7, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **Invasion's Edge** (Starfinder Scenario, Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/fa684e3b-75e0-4b26-a91e-4e8d1da020f9/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-jul-07-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-29T14:50:59.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
-      "title": "[CANCELLED] Grayce: Sabotage! Part 1",
-      "date": "2026-07-02T00:00:00.000Z",
-      "url": "/events/tempest-jul-02-2026",
+      "title": "Grayce: Sabotage! Part 1",
+      "date": "2026-07-02",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "cancelled": true,
+      "scenarios": [
+        {
+          "name": "Sabotage!",
+          "system": "Pathfinder",
+          "type": "Adventure"
+        }
+      ]
     },
-    "content": "\n# [CANCELLED] Grayce: Sabotage! Part 1\n\n> **This event has been cancelled.**\n\n## Details\n\n- **Date:** July 2, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n\n## Adventure\n\n**Sabotage!** (Pathfinder Adventure)\n\n## Character Requirements\n\n- **Level:** 2 only\n- **Starting Gear:** 30 gp worth of equipment\n",
+    "content": "\n## Character Requirements\n\n- **Level:** 2 only\n- **Starting Gear:** 30 gp worth of equipment\n",
     "slug": "tempest-jul-02-2026",
     "directory": "calendar",
-    "gitDate": "2026-07-01T18:30:17.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Free RPG Day 2026",
-      "date": "2026-06-27T00:00:00.000Z",
-      "url": "/events/free-rpg-day-jun-27-2026",
+      "date": "2026-06-27",
       "location": "Tempest Games & Diversions",
-      "address": "Cedar Rapids & Coralville, IA"
+      "address": "Cedar Rapids & Coralville, IA",
+      "intro": "It's [Free RPG Day](https://freerpgday.com/)! Come celebrate tabletop RPGs with us at two locations across the Corridor. Walk-on games, free demos, and good company — no sign-up, no experience required, just show up and roll some dice!"
     },
-    "content": "\n# Free RPG Day 2026\n\nIt's [Free RPG Day](https://freerpgday.com/)! Come celebrate tabletop RPGs with us at two locations across the Corridor. Walk-on games, free demos, and good company — no sign-up, no experience required, just show up and roll some dice!\n\n## Locations & Hours\n\n### Tempest Games — Cedar Rapids\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Hours:** 11:00 AM – 5:00 PM\n\n### Diversions — Coralville\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Hours:** 11:00 AM – 11:00 PM\n\n## What's Happening\n\n- **Walk-on games all day** — just show up and join a table\n- **Pathfinder, Starfinder, and more** — including demos of non-Paizo systems\n- **Free demos** — a great chance to try something new\n- **Awesome raffles and discounts** — you might walk away with more than just XP\n\nCheck [freerpgday.com](https://freerpgday.com/) for the full lineup of games and exclusive free giveaways available this year.\n\n## Everyone Is Welcome\n\nNew to RPGs? Perfect — Free RPG Day is one of the best days to try one for the first time. Veteran adventurer? Come introduce someone new to the hobby. There's a table for everyone.\n",
+    "content": "\n## Locations & Hours\n\n### Tempest Games — Cedar Rapids\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Hours:** 11:00 AM – 5:00 PM\n\n### Diversions — Coralville\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Hours:** 11:00 AM – 11:00 PM\n\n## What's Happening\n\n- **Walk-on games all day** — just show up and join a table\n- **Pathfinder, Starfinder, and more** — including demos of non-Paizo systems\n- **Free demos** — a great chance to try something new\n- **Awesome raffles and discounts** — you might walk away with more than just XP\n\nCheck [freerpgday.com](https://freerpgday.com/) for the full lineup of games and exclusive free giveaways available this year.\n\n## Everyone Is Welcome\n\nNew to RPGs? Perfect — Free RPG Day is one of the best days to try one for the first time. Veteran adventurer? Come introduce someone new to the hobby. There's a table for everyone.\n",
     "slug": "free-rpg-day-jun-27-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-12T14:04:34.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - Jun 24",
-      "date": "2026-06-24T00:00:00.000Z",
-      "url": "/events/diversions-jun-24-2026",
+      "date": "2026-06-24",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Guardian's Covenant",
+          "system": "Pathfinder",
+          "levels": "3-6",
+          "startTime": "17:30",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/9d40025a-0eb4-4738-a499-929137cdfc6b/pregame"
+        },
+        {
+          "name": "The Seven Secrets of Dacilane Academy",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/27151df9-a833-407c-aa93-9b409d7afb3c/pregame"
+        },
+        {
+          "name": "Psychic Echoes",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/f3b2abc9-653b-439a-8a1c-7dc6d490c11e/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** June 24, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Pathfinder Society\n1. **Guardian's Covenant** (Levels 3-6, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/9d40025a-0eb4-4738-a499-929137cdfc6b/pregame)\n2. **The Seven Secrets of Dacilane Academy** (Levels 1-4, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/27151df9-a833-407c-aa93-9b409d7afb3c/pregame)\n\n### Starfinder Society\n1. **Psychic Echoes** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/f3b2abc9-653b-439a-8a1c-7dc6d490c11e/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-jun-24-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-15T13:31:04.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - Tarnbreaker's Trail",
-      "date": "2026-06-23T00:00:00.000Z",
-      "url": "/events/replay-jun-23-2026",
+      "date": "2026-06-23",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 5,
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Tarnbreaker's Trail",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/0616e41c-a26a-40c8-932d-eb38e8123a0c/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** June 23, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 5 players\n\n## Available Scenarios\n\n1. **Tarnbreaker's Trail** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/0616e41c-a26a-40c8-932d-eb38e8123a0c/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-jun-23-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-15T15:21:36.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Lions of Katapesh",
-      "date": "2026-06-21T00:00:00.000Z",
-      "url": "/events/gcg-jun-21-2026",
+      "date": "2026-06-21",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Lions of Katapesh",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "playerCap": 6,
+          "repeatable": true,
+          "signupUrl": "https://www.rpgchronicles.net/session/4a18e40b-3fc1-4bc5-a52e-b35aeddaf719/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** June 21, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Lions of Katapesh** (Pathfinder Scenario, Levels 1-4, 6 players, Repeatable) - [Sign up here](https://www.rpgchronicles.net/session/4a18e40b-3fc1-4bc5-a52e-b35aeddaf719/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "gcg-jun-21-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-07T21:13:44.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Lost on the Spirit Road",
-      "date": "2026-06-18T00:00:00.000Z",
-      "url": "/events/tempest-jun-18-2026",
+      "date": "2026-06-18",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 5,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Lost on the Spirit Road",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/83a58b66-f5eb-45f3-ad6c-c825b2113bd3/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** June 18, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 5 players\n\n## Available Scenarios\n\n1. **Lost on the Spirit Road** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/83a58b66-f5eb-45f3-ad6c-c825b2113bd3/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-jun-18-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-31T13:00:26.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - Jun 10",
-      "date": "2026-06-10T00:00:00.000Z",
-      "url": "/events/diversions-jun-10-2026",
+      "date": "2026-06-10",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Strings of Hell",
+          "system": "Pathfinder",
+          "levels": "1-2",
+          "startTime": "17:30",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/83b43a5c-1257-4316-b94f-04a50ee8dcc6/pregame"
+        },
+        {
+          "name": "Compliance Protocol",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "playerCap": 6,
+          "signupUrl": "https://www.rpgchronicles.net/session/1f67ef56-6b1c-49d0-8436-4806050a87db/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** June 10, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Pathfinder Society\n1. **Strings of Hell** (Levels 1-2, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/83b43a5c-1257-4316-b94f-04a50ee8dcc6/pregame)\n\n### Starfinder Society\n1. **Compliance Protocol** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/1f67ef56-6b1c-49d0-8436-4806050a87db/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-jun-10-2026",
     "directory": "calendar",
-    "gitDate": "2026-06-05T00:29:32.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - A Fistful of Flowers",
-      "date": "2026-06-09T00:00:00.000Z",
-      "url": "/events/replay-jun-09-2026",
+      "date": "2026-06-09",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "playerCap": 4,
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "A Fistful of Flowers",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "pregens": true,
+          "signupUrl": "https://www.rpgchronicles.net/session/1ec0a5dd-465e-438c-9dc8-6b31949859fa/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** June 9, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n- **Players:** 4 players\n\n## Available Scenarios\n\n1. **A Fistful of Flowers** (Pathfinder Scenario, Pregenerated Characters) - [Sign up here](https://www.rpgchronicles.net/session/1ec0a5dd-465e-438c-9dc8-6b31949859fa/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 4 players, so sign up early!\n\n> **Note:** This scenario uses pregenerated characters — no personal character needed!\n",
+    "content": "\n## Registration\n\nPlease register in advance using the link above. Space is limited to 4 players, so sign up early!\n\n> **Note:** This scenario uses pregenerated characters — no personal character needed!\n",
     "slug": "replay-jun-09-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-31T13:00:26.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Shifting Corridors Lodge Party",
-      "date": "2026-06-08T00:00:00.000Z",
-      "url": "/events/lodge-party-jun-08-2026"
+      "date": "2026-06-08",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Come celebrate with your fellow adventurers at the Shifting Corridors Lodge Party!"
     },
-    "content": "\n# Shifting Corridors Lodge Party\n\nCome celebrate with your fellow adventurers at the Shifting Corridors Lodge Party!\n\n## Details\n\n- **Date:** June 8, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Drop in and out as you please!**\n\n## Who's Invited\n\nAll players, GMs, Venture Officers, and Store Hosts — and their families! If you're part of this community, you're welcome.\n\n## What to Expect\n\nParty games (indoor and outdoor), food, and great company from across the lodge.\n\n## Getting an Invite\n\nThe location is shared privately with your invite. Reach out through any of these:\n\n- **Email:** [lodge@shiftingcorridors.com](mailto:lodge@shiftingcorridors.com)\n- **Discord:** Ask in the server\n- **In person:** Find Marty H or Sam H\n\nNo signup required — just get your invite and show up!\n",
+    "content": "\n## Additional Information\n\n- **Drop in and out as you please!**\n\n## Who's Invited\n\nAll players, GMs, Venture Officers, and Store Hosts — and their families! If you're part of this community, you're welcome.\n\n## What to Expect\n\nParty games (indoor and outdoor), food, and great company from across the lodge.\n\n## Getting an Invite\n\nThe location is shared privately with your invite. Reach out through any of these:\n\n- **Email:** [lodge@shiftingcorridors.com](mailto:lodge@shiftingcorridors.com)\n- **Discord:** Ask in the server\n- **In person:** Find Marty H or Sam H\n\nNo signup required — just get your invite and show up!\n",
     "slug": "lodge-party-jun-08-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-31T13:17:25.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Intro: Year of Boundless Wonder",
-      "date": "2026-06-07T00:00:00.000Z",
-      "url": "/events/gcg-jun-07-2026",
+      "date": "2026-06-07",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Intro: Year of Boundless Wonder",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "signupUrl": "https://www.rpgchronicles.net/session/c5df7e83-d63f-46dc-8ce7-5a432d5d29e2/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** June 7, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Intro: Year of Boundless Wonder** (Pathfinder Scenario) - [Sign up here](https://www.rpgchronicles.net/session/c5df7e83-d63f-46dc-8ce7-5a432d5d29e2/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-jun-07-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-26T14:24:42.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Dragon Who Stole Evoking Day",
-      "date": "2026-06-04T00:00:00.000Z",
-      "url": "/events/tempest-jun-04-2026",
+      "date": "2026-06-04",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 5,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Dragon Who Stole Evoking Day",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "signupUrl": "https://www.rpgchronicles.net/session/bea133d4-29bf-46dc-9008-bad825b4ea19/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** June 4, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 5 players\n\n## Available Scenarios\n\n1. **The Dragon Who Stole Evoking Day** (Pathfinder Quest) - [Sign up here](https://www.rpgchronicles.net/session/bea133d4-29bf-46dc-9008-bad825b4ea19/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-jun-04-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-26T13:19:49.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - May 27",
-      "date": "2026-05-27T00:00:00.000Z",
-      "url": "/events/diversions-may-27-2026",
+      "date": "2026-05-27",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Path of Kings",
+          "system": "Pathfinder",
+          "levels": "3-6",
+          "startTime": "17:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/430856d0-e7d0-4768-9535-75bab1319ac0/pregame"
+        },
+        {
+          "name": "Friends of the Forest",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "playerCap": 5,
+          "signupUrl": "https://www.rpgchronicles.net/session/6eca1c83-851f-4ff0-8538-5763a77cc3db/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** May 27, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Pathfinder Society\n1. **Path of Kings** (Levels 3-6, starts 5:30 PM) - [Sign up here](https://www.rpgchronicles.net/session/430856d0-e7d0-4768-9535-75bab1319ac0/pregame)\n\n### Starfinder Society\n1. **Friends of the Forest** (Levels 1-2, starts 6:00 PM, 5 players) - [Sign up here](https://www.rpgchronicles.net/session/6eca1c83-851f-4ff0-8538-5763a77cc3db/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-may-27-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-01T13:21:27.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Starfinder Society at Replay Games - The Great Absalom Relay",
-      "date": "2026-05-26T00:00:00.000Z",
-      "url": "/events/replay-may-26-2026",
+      "date": "2026-05-26",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "endTime": "21:00",
+      "intro": "Join us for Starfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Great Absalom Relay",
+          "system": "Starfinder",
+          "edition": "2E",
+          "type": "Scenario",
+          "signupUrl": "https://www.rpgchronicles.net/session/0966a386-c88a-46e6-bf70-c275169c493d/pregame"
+        }
+      ]
     },
-    "content": "\n# Starfinder Society at Replay Games\n\nJoin us for Starfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** May 26, 2026\n- **Time:** 5:30 PM - 9:00 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n\n## Available Scenarios\n\n1. **The Great Absalom Relay** (Starfinder 2E Scenario) - [Sign up here](https://www.rpgchronicles.net/session/0966a386-c88a-46e6-bf70-c275169c493d/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-may-26-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-17T14:04:09.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - In the Footsteps of Horror",
-      "date": "2026-05-21T00:00:00.000Z",
-      "url": "/events/tempest-may-21-2026",
+      "date": "2026-05-21",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "In the Footsteps of Horror",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "signupUrl": "https://www.rpgchronicles.net/session/40bcae81-4d6c-4c0b-8e86-25702baf291f/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** May 21, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **In the Footsteps of Horror** (Pathfinder Quest) - [Sign up here](https://www.rpgchronicles.net/session/40bcae81-4d6c-4c0b-8e86-25702baf291f/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-may-21-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-27T02:53:11.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - The Locked Lodge",
-      "date": "2026-05-17T00:00:00.000Z",
-      "url": "/events/gcg-may-17-2026",
+      "date": "2026-05-17",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "The Locked Lodge",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/bceae215-3def-4eb8-b9a8-54651abc47e9/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** May 17, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **The Locked Lodge** (Pathfinder Scenario, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/bceae215-3def-4eb8-b9a8-54651abc47e9/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-may-17-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-28T19:19:18.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - May 13",
-      "date": "2026-05-13T00:00:00.000Z",
-      "url": "/events/diversions-may-13-2026",
+      "date": "2026-05-13",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "The Crocodile's Smile",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/7406a021-43f0-4d9a-9384-42bb6b8dad70/pregame"
+        },
+        {
+          "name": "Perch of Liberty",
+          "levels": "3-4",
+          "startTime": "18:00",
+          "signupUrl": "https://www.rpgchronicles.net/session/2afeb9c2-b4b3-4d9c-badf-57df083645be/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** May 13, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **The Crocodile's Smile** (Levels 1-4) - **5:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/7406a021-43f0-4d9a-9384-42bb6b8dad70/pregame)\n2. **Perch of Liberty** (Levels 3-4) - **6:00 PM** - [Sign up here](https://www.rpgchronicles.net/session/2afeb9c2-b4b3-4d9c-badf-57df083645be/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-may-13-2026",
     "directory": "calendar",
-    "gitDate": "2026-05-05T12:50:21.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - A Fistful of Flowers",
-      "date": "2026-05-12T00:00:00.000Z",
-      "url": "/events/replay-may-12-2026",
+      "date": "2026-05-12",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "endTime": "21:00",
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "A Fistful of Flowers",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "pregens": true,
+          "signupUrl": "https://www.rpgchronicles.net/session/884b3aaa-b81c-466e-82db-7c9dbdc5afe4/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** May 12, 2026\n- **Time:** 5:30 PM - 9:00 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n\n## Available Scenarios\n\n1. **A Fistful of Flowers** (Pathfinder Scenario, Pregenerated Characters) - [Sign up here](https://www.rpgchronicles.net/session/884b3aaa-b81c-466e-82db-7c9dbdc5afe4/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 4 players per game, so sign up early!\n\n> **Note:** This scenario uses pregenerated characters — no personal character needed!\n",
+    "content": "\n## Registration\n\nPlease register in advance using the link above. Space is limited to 4 players per game, so sign up early!\n\n> **Note:** This scenario uses pregenerated characters — no personal character needed!\n",
     "slug": "replay-may-12-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-29T13:55:43.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Perch of Liberty",
-      "date": "2026-05-07T00:00:00.000Z",
-      "url": "/events/tempest-may-07-2026",
+      "date": "2026-05-07",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 5,
+      "levels": "3-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Perch of Liberty",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/396e19f6-4704-43c9-a782-3b8b75532304/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** May 7, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 5 players\n- **Level Range:** 3-4\n\n## Available Scenarios\n\n1. **Perch of Liberty** (Pathfinder Scenario, Levels 3-4) - [Sign up here](https://www.rpgchronicles.net/session/396e19f6-4704-43c9-a782-3b8b75532304/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-may-07-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-27T02:53:11.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Struck by Shadows",
-      "date": "2026-05-03T00:00:00.000Z",
-      "url": "/events/gcg-may-03-2026",
+      "date": "2026-05-03",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Struck by Shadows",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/274f9926-e147-4f7f-bc85-d280e694e5f9/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** May 3, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Struck by Shadows** (Pathfinder Scenario, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/274f9926-e147-4f7f-bc85-d280e694e5f9/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-may-03-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-27T02:53:11.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Great Toy Heist",
-      "date": "2026-04-30T00:00:00.000Z",
-      "url": "/events/tempest-apr-30-2026",
+      "date": "2026-04-30",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 4,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "specialNote": "This scenario uses pregenerated characters. The chronicle can be applied to any character you own, regardless of level.",
+      "scenarios": [
+        {
+          "name": "The Great Toy Heist",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "signupUrl": "https://www.rpgchronicles.net/session/a39e7feb-9a3d-4787-8a75-4083a24d70e8/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** April 30, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 4 players\n\n## Available Scenarios\n\n1. **The Great Toy Heist** (Pathfinder Scenario) - [Sign up here](https://www.rpgchronicles.net/session/a39e7feb-9a3d-4787-8a75-4083a24d70e8/pregame)\n\n> **Special Note:** This scenario uses pregenerated characters. The chronicle can be applied to any character you own, regardless of level.\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 4 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-apr-30-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-06T17:45:57.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - Decilane Academy's Delightful Disaster",
-      "date": "2026-04-28T00:00:00.000Z",
-      "url": "/events/replay-apr-28-2026",
+      "date": "2026-04-28",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "endTime": "21:00",
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Decilane Academy's Delightful Disaster",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/bc9d4fd3-7099-4001-a53d-08d0e7e6d9e4/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** April 28, 2026\n- **Time:** 5:30 PM - 9:00 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n\n## Available Scenarios\n\n1. **Decilane Academy's Delightful Disaster** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/bc9d4fd3-7099-4001-a53d-08d0e7e6d9e4/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-apr-28-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-19T13:31:14.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - To Seek The Heart of Calamity",
-      "date": "2026-04-19T00:00:00.000Z",
-      "url": "/events/gcg-apr-19-2026",
+      "date": "2026-04-19",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "To Seek The Heart of Calamity",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/ec3d52a3-6088-4f20-a5e6-792dfd170eae/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** April 19, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **To Seek The Heart of Calamity** (Pathfinder Scenario, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/ec3d52a3-6088-4f20-a5e6-792dfd170eae/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-apr-19-2026",
     "directory": "calendar",
-    "gitDate": "2026-03-26T04:09:21.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Lions of Katapesh",
-      "date": "2026-04-16T00:00:00.000Z",
-      "url": "/events/tempest-apr-16-2026",
+      "date": "2026-04-16",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Lions of Katapesh",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/8e61c61b-59b1-4c9b-b95c-be910b4534ad/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** April 16, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Lions of Katapesh** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/8e61c61b-59b1-4c9b-b95c-be910b4534ad/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-apr-16-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-06T17:45:57.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - A Star's Journey",
-      "date": "2026-04-14T00:00:00.000Z",
-      "url": "/events/replay-apr-14-2026",
+      "date": "2026-04-14",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "endTime": "21:00",
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "A Star's Journey",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/992edf19-141f-4de0-b065-bbdb9ed2c1aa/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** April 14, 2026\n- **Time:** 5:30 PM - 9:00 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n\n## Available Scenarios\n\n1. **A Star's Journey** (Pathfinder Scenario, Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/992edf19-141f-4de0-b065-bbdb9ed2c1aa/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-apr-14-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-04T16:41:33.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - April 8",
-      "date": "2026-04-08T00:00:00.000Z",
-      "url": "/events/diversions-apr-08-2026",
+      "date": "2026-04-08",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Sewer Dragon Crisis",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/074df87e-737d-4d38-9c25-1e4b6a92b71d/pregame"
+        },
+        {
+          "name": "Mountain of Sea and Sky",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/db55995b-780e-4cc4-9a42-c24936fe9134/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** April 8, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Sewer Dragon Crisis** (Pathfinder Scenario, Levels 1-4) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/074df87e-737d-4d38-9c25-1e4b6a92b71d/pregame)\n2. **Mountain of Sea and Sky** (Pathfinder Scenario, Levels 3-6) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/db55995b-780e-4cc4-9a42-c24936fe9134/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-apr-08-2026",
     "directory": "calendar",
-    "gitDate": "2026-04-01T16:39:59.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Wayfinder Origins",
-      "date": "2026-04-02T00:00:00.000Z",
-      "url": "/events/tempest-apr-02-2026",
+      "date": "2026-04-02",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "20:00",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Wayfinder Origins",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/495f7c2d-3871-47db-9262-1e2ff5c76551/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** April 2, 2026\n- **Time:** 5:30 PM - 8:00 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n\n## Available Scenarios\n\n1. **Wayfinder Origins** (Pathfinder Quest, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/495f7c2d-3871-47db-9262-1e2ff5c76551/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-apr-02-2026",
     "directory": "calendar",
-    "gitDate": "2026-03-30T14:03:21.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - Winter Queen's Dollhouse",
-      "date": "2026-03-31T00:00:00.000Z",
-      "url": "/events/replay-mar-31-2026",
+      "date": "2026-03-31",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "endTime": "21:00",
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Winter Queen's Dollhouse",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/b4cfc2ec-88e5-4d1c-949c-aa21e24f1693/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** March 31, 2026\n- **Time:** 5:30 PM - 9:00 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n\n## Available Scenarios\n\n1. **Winter Queen's Dollhouse** (Pathfinder Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/b4cfc2ec-88e5-4d1c-949c-aa21e24f1693/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-mar-31-2026",
     "directory": "calendar",
-    "gitDate": "2026-03-26T04:09:21.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Inheritor's Rite",
-      "date": "2026-03-29T00:00:00.000Z",
-      "url": "/events/gcg-mar-29-2026",
+      "date": "2026-03-29",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Inheritor's Rite",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/d4a11654-66d9-471e-9e18-8a51ce52522c/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** March 29, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Inheritor's Rite** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/d4a11654-66d9-471e-9e18-8a51ce52522c/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n\n",
+    "content": "\n",
     "slug": "gcg-mar-29-2026",
     "directory": "calendar",
-    "gitDate": "2026-03-03T16:43:17.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - March 25",
-      "date": "2026-03-25T00:00:00.000Z",
-      "url": "/events/diversions-mar-25-2026",
+      "date": "2026-03-25",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Magic in the Mist",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "startTime": "18:00",
+          "endTime": "21:00",
+          "signupUrl": "https://www.rpgchronicles.net/session/8e485fa7-5a31-401b-a319-7157e22306b4/pregame"
+        },
+        {
+          "name": "Sewer Dragon Crisis",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/a41b8e12-d083-45f5-8801-2ae4f01b92b7/pregame"
+        },
+        {
+          "name": "Once in Whispers",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "5-8",
+          "startTime": "17:30",
+          "endTime": "21:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/c8bdd5c0-6cdc-43ca-ba30-3bafd2681720/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** March 25, 2026\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Magic in the Mist** (Starfinder Scenario, Levels 1-2) - **6:00 PM - 9:00 PM** - [Sign up here](https://www.rpgchronicles.net/session/8e485fa7-5a31-401b-a319-7157e22306b4/pregame)\n2. **Sewer Dragon Crisis** (Pathfinder Scenario, Levels 1-4) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/a41b8e12-d083-45f5-8801-2ae4f01b92b7/pregame)\n3. **Once in Whispers** (Pathfinder Scenario, Levels 5-8) - **5:30 PM - 9:30 PM** - [Sign up here](https://www.rpgchronicles.net/session/c8bdd5c0-6cdc-43ca-ba30-3bafd2681720/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-mar-25-2026",
     "directory": "calendar",
-    "gitDate": "2026-03-11T21:55:44.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Tanuki Trouble",
-      "date": "2026-03-19T00:00:00.000Z",
-      "url": "/events/tempest-mar-19-2026",
+      "date": "2026-03-19",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Tanuki Trouble",
+          "type": "Quest",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/dee25749-f0c8-47d8-8215-d0d61a724473/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** March 19, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Tanuki Trouble** (Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/dee25749-f0c8-47d8-8215-d0d61a724473/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-mar-19-2026",
     "directory": "calendar",
-    "gitDate": "2026-03-08T23:41:33.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Replay Games - The Mosquito Witch",
-      "date": "2026-03-17T00:00:00.000Z",
-      "url": "/events/replay-mar-17-2026",
+      "date": "2026-03-17",
       "location": "Replay Games",
-      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402"
+      "address": "617 Center Point Rd NE, Cedar Rapids, IA 52402",
+      "startTime": "17:30",
+      "endTime": "21:00",
+      "intro": "Join us for Pathfinder Society games at Replay Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Mosquito Witch",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/b5083e6e-4dfc-4899-9123-57bbb6ca02c6/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Replay Games\n\nJoin us for Pathfinder Society games at Replay Games in Cedar Rapids!\n\n## Details\n\n- **Date:** March 17, 2026\n- **Time:** 5:30 PM - 9:00 PM Central Time\n- **Location:** Replay Games\n- **Address:** 617 Center Point Rd NE, Cedar Rapids, IA 52402\n\n## Available Scenarios\n\n1. **The Mosquito Witch** (Pathfinder Scenario, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/b5083e6e-4dfc-4899-9123-57bbb6ca02c6/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 5 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "replay-mar-17-2026",
     "directory": "calendar",
-    "gitDate": "2026-03-03T17:24:19.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Gamicon Bromine - Day 3",
-      "date": "2026-03-08T00:00:00.000Z",
-      "url": "/events/gamicon-bromine-mar-08-2026",
+      "date": "2026-03-08",
       "location": "Hyatt Regency Coralville Hotel & Conference Center",
-      "address": "300 E 9th St, Coralville, IA 52241, USA"
+      "address": "300 E 9th St, Coralville, IA 52241, USA",
+      "allDay": true,
+      "intro": "Join us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!",
+      "scenarios": [
+        {
+          "name": "Upon Wheels and Rime",
+          "system": "Pathfinder",
+          "startTime": "09:00",
+          "gamemaster": "Bret I",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/79"
+        },
+        {
+          "name": "Godsrain in a Godless Land",
+          "system": "Pathfinder",
+          "levels": "5-8",
+          "startTime": "09:00",
+          "gamemaster": "Sam H",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/356"
+        },
+        {
+          "name": "Rites of Rekindling",
+          "system": "Starfinder",
+          "startTime": "10:00",
+          "gamemaster": "Hilary MM",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/74"
+        }
+      ]
     },
-    "content": "\n# Gamicon Bromine - Day 3\n\nJoin us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!\n\n## Details\n\n- **Date:** March 8, 2026\n- **Time:** All Day Event\n- **Location:** Hyatt Regency Coralville Hotel & Conference Center\n- **Address:** 300 E 9th St, Coralville, IA 52241, USA\n\n**Important:** You must have a paid Gamicon badge to play. Badges are available at [Gamicon.org](https://gamicon.org) or at the venue the day of the event.\n\n## Available Scenarios\n\n### 9:00 AM Session\n\n1. **Upon Wheels and Rime** (Pathfinder) - GM: Bret I - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/79)\n2. **Godsrain in a Godless Land** (Pathfinder, Levels 5-8) - GM: Sam H - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/356)\n\n### 10:00 AM Session\n\n2. **Rites of Rekindling** (Starfinder) - GM: Hilary MM - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/74)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n## Additional Information\n\n**Important:** You must have a paid Gamicon badge to play. Badges are available at [Gamicon.org](https://gamicon.org) or at the venue the day of the event.\n",
     "slug": "gamicon-bromine-mar-08-2026",
     "directory": "calendar",
-    "gitDate": "2026-02-21T13:21:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Gamicon Bromine - Day 2",
-      "date": "2026-03-07T00:00:00.000Z",
-      "url": "/events/gamicon-bromine-mar-07-2026",
+      "date": "2026-03-07",
       "location": "Hyatt Regency Coralville Hotel & Conference Center",
-      "address": "300 E 9th St, Coralville, IA 52241, USA"
+      "address": "300 E 9th St, Coralville, IA 52241, USA",
+      "allDay": true,
+      "intro": "Join us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!",
+      "scenarios": [
+        {
+          "name": "Heidmarch Heist",
+          "system": "Pathfinder",
+          "startTime": "09:00",
+          "gamemaster": "Hilary MM",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/78"
+        },
+        {
+          "name": "Friends in Need",
+          "system": "Pathfinder",
+          "startTime": "09:00",
+          "gamemaster": "Marty H",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/85"
+        },
+        {
+          "name": "Take the Bait",
+          "system": "Starfinder",
+          "startTime": "10:00",
+          "gamemaster": "Bret I",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/76"
+        },
+        {
+          "name": "Swordlord's Challenge",
+          "system": "Pathfinder",
+          "startTime": "13:00",
+          "gamemaster": "Steve S",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/83"
+        },
+        {
+          "name": "Disaster at Dreamlink Labs",
+          "system": "Starfinder",
+          "startTime": "16:00",
+          "gamemaster": "Scott L",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/73"
+        },
+        {
+          "name": "The Chitterwood Walks, Part 1: Scrambling the Tribes",
+          "system": "Pathfinder",
+          "startTime": "16:00",
+          "gamemaster": "Sam H",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/81"
+        },
+        {
+          "name": "The Dragon's Plea",
+          "system": "Pathfinder",
+          "startTime": "17:00",
+          "gamemaster": "Josh G",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/87"
+        },
+        {
+          "name": "Foul Humors",
+          "system": "Starfinder",
+          "startTime": "20:00",
+          "gamemaster": "Scott L",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/77"
+        },
+        {
+          "name": "The Chitterwood Walks, Part 2: The Battle of Logas",
+          "system": "Pathfinder",
+          "startTime": "20:00",
+          "gamemaster": "Marty H",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/82"
+        },
+        {
+          "name": "Within the Glacier",
+          "system": "Pathfinder",
+          "startTime": "21:00",
+          "gamemaster": "Josh G",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/88"
+        }
+      ]
     },
-    "content": "\n# Gamicon Bromine - Day 2\n\nJoin us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!\n\n## Details\n\n- **Date:** March 7, 2026\n- **Time:** All Day Event\n- **Location:** Hyatt Regency Coralville Hotel & Conference Center\n- **Address:** 300 E 9th St, Coralville, IA 52241, USA\n\n**Important:** You must have a paid Gamicon badge to play. Badges are available at [Gamicon.org](https://gamicon.org) or at the venue the day of the event.\n\n## Available Scenarios\n\n### 9:00 AM Sessions\n\n1. **Heidmarch Heist** (Pathfinder) - GM: Hilary MM - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/78)\n2. **Friends in Need** (Pathfinder) - GM: Marty H - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/85)\n\n### 10:00 AM Session\n\n3. **Take the Bait** (Starfinder) - GM: Bret I - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/76)\n\n### 1:00 PM Session\n\n4. **Swordlord's Challenge** (Pathfinder) - GM: Steve S - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/83)\n\n### 4:00 PM Sessions\n\n5. **Disaster at Dreamlink Labs** (Starfinder) - GM: Scott L - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/73)\n6. **The Chitterwood Walks, Part 1: Scrambling the Tribes** (Pathfinder) - GM: Sam H - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/81)\n\n### 5:00 PM Session\n\n7. **The Dragon's Plea** (Pathfinder) - GM: Josh G - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/87)\n\n### 8:00 PM Sessions\n\n8. **Foul Humors** (Starfinder) - GM: Scott L - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/77)\n9. **The Chitterwood Walks, Part 2: The Battle of Logas** (Pathfinder) - GM: Marty H - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/82)\n\n### 9:00 PM Session\n\n10. **Within the Glacier** (Pathfinder) - GM: Josh G - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/88)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n## Additional Information\n\n**Important:** You must have a paid Gamicon badge to play. Badges are available at [Gamicon.org](https://gamicon.org) or at the venue the day of the event.\n",
     "slug": "gamicon-bromine-mar-07-2026",
     "directory": "calendar",
-    "gitDate": "2026-02-12T14:39:17.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Gamicon Bromine - Day 1",
-      "date": "2026-03-06T00:00:00.000Z",
-      "url": "/events/gamicon-bromine-mar-06-2026",
+      "date": "2026-03-06",
       "location": "Hyatt Regency Coralville Hotel & Conference Center",
-      "address": "300 E 9th St, Coralville, IA 52241, USA"
+      "address": "300 E 9th St, Coralville, IA 52241, USA",
+      "allDay": true,
+      "intro": "Join us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!",
+      "scenarios": [
+        {
+          "name": "Friends of the Forest",
+          "system": "Starfinder",
+          "startTime": "13:00",
+          "gamemaster": "Bret I",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/75"
+        },
+        {
+          "name": "Shipyard Sabotage",
+          "system": "Pathfinder",
+          "startTime": "13:00",
+          "gamemaster": "Hilary MM",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/80"
+        },
+        {
+          "name": "Second Confirmation",
+          "system": "Pathfinder",
+          "startTime": "13:00",
+          "gamemaster": "Josh E",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/339"
+        },
+        {
+          "name": "Nova Rush",
+          "system": "Starfinder",
+          "startTime": "18:00",
+          "gamemaster": "Scott L",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/91"
+        },
+        {
+          "name": "Tanuki Trouble",
+          "system": "Pathfinder",
+          "startTime": "18:00",
+          "gamemaster": "Josh G",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/86"
+        },
+        {
+          "name": "Mischief in the Maze",
+          "system": "Pathfinder",
+          "startTime": "18:00",
+          "gamemaster": "Lindsay E",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/344"
+        },
+        {
+          "name": "The Winter Queen's Dollhouse",
+          "system": "Pathfinder",
+          "startTime": "21:00",
+          "gamemaster": "Steve S",
+          "signupUrl": "https://tabletop.events/conventions/gamicon-bromine/schedule/84"
+        }
+      ]
     },
-    "content": "\n# Gamicon Bromine - Day 1\n\nJoin us for Pathfinder Society and Starfinder Society games at Gamicon Bromine!\n\n## Details\n\n- **Date:** March 6, 2026\n- **Time:** All Day Event\n- **Location:** Hyatt Regency Coralville Hotel & Conference Center\n- **Address:** 300 E 9th St, Coralville, IA 52241, USA\n\n**Important:** You must have a paid Gamicon badge to play. Badges are available at [Gamicon.org](https://gamicon.org) or at the venue the day of the event.\n\n## Available Scenarios\n\n### 1:00 PM Sessions\n\n1. **Friends of the Forest** (Starfinder) - GM: Bret I - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/75)\n2. **Shipyard Sabotage** (Pathfinder) - GM: Hilary MM - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/80)\n3. **Second Confirmation** (Pathfinder) - GM: Josh E - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/339)\n\n### 6:00 PM Sessions\n\n4. **Nova Rush** (Starfinder) - GM: Scott L - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/91)\n5. **Tanuki Trouble** (Pathfinder) - GM: Josh G - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/86)\n6. **Mischief in the Maze** (Pathfinder) - GM: Lindsay E - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/344)\n\n### 9:00 PM Session\n\n6. **The Winter Queen's Dollhouse** (Pathfinder) - GM: Steve S - [Sign up here](https://tabletop.events/conventions/gamicon-bromine/schedule/84)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n## Additional Information\n\n**Important:** You must have a paid Gamicon badge to play. Badges are available at [Gamicon.org](https://gamicon.org) or at the venue the day of the event.\n",
     "slug": "gamicon-bromine-mar-06-2026",
     "directory": "calendar",
-    "gitDate": "2026-02-16T02:34:56.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - February 25",
-      "date": "2026-02-25T00:00:00.000Z",
-      "url": "/events/diversions-feb-25-2026",
+      "date": "2026-02-25",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "All that Glitters",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "1-4",
+          "cancelled": true
+        },
+        {
+          "name": "Island of the Vibrant Dead",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/3e639b62-632b-4cf2-a490-d25bf1803c95/pregame"
+        },
+        {
+          "name": "Abduction",
+          "system": "Starfinder",
+          "type": "Scenario",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/402f55cd-3aa3-4495-959a-08dd58903238/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** February 25, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. All that Glitters (Pathfinder Scenario, Levels 1-4) - CANCELLED\n2. **Island of the Vibrant Dead** (Pathfinder Scenario, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/3e639b62-632b-4cf2-a490-d25bf1803c95/pregame)\n3. **Abduction** (Starfinder Scenario, Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/402f55cd-3aa3-4495-959a-08dd58903238/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-feb-25-2026",
     "directory": "calendar",
-    "gitDate": "2026-02-24T23:22:31.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Port Peril Pub Crawl",
-      "date": "2026-02-19T00:00:00.000Z",
-      "url": "/events/tempest-feb-19-2026",
+      "date": "2026-02-19",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Port Peril Pub Crawl",
+          "type": "Quest",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/49171406-61b6-4bb1-8408-07979186188b/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** February 19, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Port Peril Pub Crawl** (Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/49171406-61b6-4bb1-8408-07979186188b/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-feb-19-2026",
     "directory": "calendar",
-    "gitDate": "2026-01-31T15:49:49.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - The Devil-Wrought Disappearance",
-      "date": "2026-02-15T00:00:00.000Z",
-      "url": "/events/gcg-feb-15-2026",
+      "date": "2026-02-15",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "The Devil-Wrought Disappearance",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/077e0769-1e96-4b68-8e18-c78cc37ebc7e/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** February 15, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **The Devil-Wrought Disappearance** (Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/077e0769-1e96-4b68-8e18-c78cc37ebc7e/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-feb-15-2026",
     "directory": "calendar",
-    "gitDate": "2026-01-18T05:06:26.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - February 11",
-      "date": "2026-02-11T00:00:00.000Z",
-      "url": "/events/diversions-feb-11-2026",
+      "date": "2026-02-11",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "The Fanciful March of Urawl",
+          "system": "Pathfinder",
+          "type": "Scenario",
+          "levels": "3-6",
+          "startTime": "17:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/e1fa3869-96c4-4a17-946f-19e1c786cd76/pregame"
+        },
+        {
+          "name": "Unforgiving Fire",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "levels": "1-4",
+          "startTime": "17:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/38f140a2-3705-4eca-9c54-2ae962f67f9f/pregame"
+        },
+        {
+          "name": "Port Peril Pub Crawl",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "levels": "1-4",
+          "startTime": "19:00",
+          "signupUrl": "https://www.rpgchronicles.net/session/ae28440b-adc2-4fac-b54a-21c97c87ae32/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** February 11, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **The Fanciful March of Urawl** (Pathfinder Scenario, Levels 3-6) - Starting at 5:30 PM - [Sign up here](https://www.rpgchronicles.net/session/e1fa3869-96c4-4a17-946f-19e1c786cd76/pregame)\n2. **Unforgiving Fire** (Pathfinder Quest, Levels 1-4) - Starting at 5:30 PM - [Sign up here](https://www.rpgchronicles.net/session/38f140a2-3705-4eca-9c54-2ae962f67f9f/pregame)\n3. **Port Peril Pub Crawl** (Pathfinder Quest, Levels 1-4) - Starting at 7:00 PM - [Sign up here](https://www.rpgchronicles.net/session/ae28440b-adc2-4fac-b54a-21c97c87ae32/pregame)\n\n## Special Note\n\nThe two quests (Unforgiving Fire and Port Peril Pub Crawl) are each 90 minutes long and worth 1 XP each. Players can sign up for both quests or just one!\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n## Special Note\n\nThe two quests (Unforgiving Fire and Port Peril Pub Crawl) are each 90 minutes long and worth 1 XP each. Players can sign up for both quests or just one!\n",
     "slug": "diversions-feb-11-2026",
     "directory": "calendar",
-    "gitDate": "2026-02-03T13:46:22.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Lacking Respect",
-      "date": "2026-02-05T00:00:00.000Z",
-      "url": "/events/tempest-feb-05-2026",
+      "date": "2026-02-05",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Lacking Respect",
+          "type": "Quest",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/b0c0aab7-8105-41bf-b148-67c508a02098/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** February 5, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Lacking Respect** (Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/b0c0aab7-8105-41bf-b148-67c508a02098/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!\n",
+    "content": "\n",
     "slug": "tempest-feb-05-2026",
     "directory": "calendar",
-    "gitDate": "2026-01-19T04:01:30.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Devil at the Crossroads",
-      "date": "2026-02-01T00:00:00.000Z",
-      "url": "/events/gcg-feb-01-2026",
+      "date": "2026-02-01",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Devil at the Crossroads",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/dd0da737-18f7-46c9-bb68-927fd52a9c45/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** February 1, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Devil at the Crossroads** (Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/dd0da737-18f7-46c9-bb68-927fd52a9c45/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "gcg-feb-01-2026",
     "directory": "calendar",
-    "gitDate": "2026-01-18T05:06:26.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Escort a Mirage",
-      "date": "2026-01-29T00:00:00.000Z",
-      "url": "/events/tempest-jan-29-2026",
+      "date": "2026-01-29",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Escort a Mirage",
+          "type": "Quest",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/50b08817-de21-4451-a3e0-60f759a91f29/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** January 29, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Escort a Mirage** (Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/50b08817-de21-4451-a3e0-60f759a91f29/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-jan-29-2026",
     "directory": "calendar",
-    "gitDate": "2026-01-16T16:07:09.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - January 28",
-      "date": "2026-01-28T00:00:00.000Z",
-      "url": "/events/diversions-jan-28-2026",
+      "date": "2026-01-28",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Upon Wheels and Rime",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/34656298-7f8a-470b-86e5-b6a846c0a16e/pregame"
+        },
+        {
+          "name": "Seize and Destory",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/7d255ee4-3085-4800-9558-78715f61181e/pregame"
+        },
+        {
+          "name": "The Blackwood Lost",
+          "system": "Pathfinder",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/39ea1063-0d65-4453-b067-2fd47ac7ffba/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** January 28, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Upon Wheels and Rime** (Pathfinder, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/34656298-7f8a-470b-86e5-b6a846c0a16e/pregame)\n2. **Seize and Destory** (Starfinder, Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/7d255ee4-3085-4800-9558-78715f61181e/pregame)\n3. **The Blackwood Lost** (Pathfinder, Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/39ea1063-0d65-4453-b067-2fd47ac7ffba/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!",
+    "content": "\n",
     "slug": "diversions-jan-28-2026",
     "directory": "calendar",
-    "gitDate": "2026-01-07T14:13:05.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - The East Hill Haunting",
-      "date": "2026-01-18T00:00:00.000Z",
-      "url": "/events/gcg-jan-18-2026",
+      "date": "2026-01-18",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "The East Hill Haunting",
+          "signupUrl": "https://www.rpgchronicles.net/session/35595f4c-00bb-40c7-8e2d-fffe7140acf7/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** January 18, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **The East Hill Haunting** - [Sign up here](https://www.rpgchronicles.net/session/35595f4c-00bb-40c7-8e2d-fffe7140acf7/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "gcg-jan-18-2026",
     "directory": "calendar",
-    "gitDate": "2025-12-13T15:08:58.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Within the Glacier",
-      "date": "2026-01-15T00:00:00.000Z",
-      "url": "/events/tempest-jan-15-2026",
+      "date": "2026-01-15",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Within the Glacier",
+          "signupUrl": "https://www.rpgchronicles.net/session/1f272ada-19a3-4ac9-9359-b2496bf2c04a/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** January 15, 2026\n- **Time:** 5:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n\n## Available Scenarios\n\n1. **Within the Glacier** - [Sign up here](https://www.rpgchronicles.net/session/1f272ada-19a3-4ac9-9359-b2496bf2c04a/pregame)\n\n## Waitlist & Overflow Tables\n\nIf the main table fills up, we have additional seating available:\n\n2. **Within the Glacier** (Waitlist/Overflow Table) - [Sign up here](https://www.rpgchronicles.net/session/f43afc98-9b3c-4134-a43f-820057a217ef/pregame)\n\n*This table will only run if we have enough players to fill both the main table and overflow seating. Please sign up for the waitlist if the main table is full!*\n\n## Registration\n\nPlease register in advance using the links above. If the main table is full, please sign up for the waitlist table. We'll run the overflow table if we have sufficient players for both tables!",
+    "content": "\n## Waitlist & Overflow Tables\n\nIf the main table fills up, we have additional seating available:\n\n2. **Within the Glacier** (Waitlist/Overflow Table) - [Sign up here](https://www.rpgchronicles.net/session/f43afc98-9b3c-4134-a43f-820057a217ef/pregame)\n\n*This table will only run if we have enough players to fill both the main table and overflow seating. Please sign up for the waitlist if the main table is full!*\n\n## Registration\n\nPlease register in advance using the links above. If the main table is full, please sign up for the waitlist table. We'll run the overflow table if we have sufficient players for both tables!\n",
     "slug": "tempest-jan-15-2026",
     "directory": "calendar",
-    "gitDate": "2026-01-09T15:19:37.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - January 14",
-      "date": "2026-01-14T00:00:00.000Z",
-      "url": "/events/diversions-jan-14-2026",
+      "date": "2026-01-14",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Lost in Flames",
+          "signupUrl": "https://www.rpgchronicles.net/session/be080f90-5b24-428d-8fa8-aaee9a479914/pregame"
+        },
+        {
+          "name": "The Haunted Corridor",
+          "signupUrl": "https://www.rpgchronicles.net/session/3160f64d-87c1-4810-91cd-ebdb15abeeb9/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** January 14, 2026\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Lost in Flames** - [Sign up here](https://www.rpgchronicles.net/session/be080f90-5b24-428d-8fa8-aaee9a479914/pregame)\n2. **The Haunted Corridor** - [Sign up here](https://www.rpgchronicles.net/session/3160f64d-87c1-4810-91cd-ebdb15abeeb9/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!",
+    "content": "\n",
     "slug": "diversions-jan-14-2026",
     "directory": "calendar",
-    "gitDate": "2025-12-30T14:49:04.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Intro: Year of Shattered Sanctuaries",
-      "date": "2026-01-04T00:00:00.000Z",
-      "url": "/events/gcg-jan-04-2026",
+      "date": "2026-01-04",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Intro: Year of Shattered Sanctuaries",
+          "signupUrl": "https://www.rpgchronicles.net/session/b36977ba-f2ec-477b-9559-984874a9cf07/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** January 4, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Intro: Year of Shattered Sanctuaries** - [Sign up here](https://www.rpgchronicles.net/session/b36977ba-f2ec-477b-9559-984874a9cf07/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "gcg-jan-04-2026",
     "directory": "calendar",
-    "gitDate": "2025-12-27T15:59:12.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Silver Bark, Golden Blades",
-      "date": "2026-01-01T00:00:00.000Z",
-      "url": "/events/tempest-jan-01-2026",
+      "date": "2026-01-01",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "gamemaster": "Eli Farmer",
+      "scenarios": [
+        {
+          "name": "Silver Bark, Golden Blades",
+          "signupUrl": "https://www.rpgchronicles.net/session/6ab4e6f4-555b-415f-b537-dd531aac65e0/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** January 1, 2026\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Game Master:** Eli Farmer\n\n## Available Scenarios\n\n1. **Silver Bark, Golden Blades** - [Sign up here](https://www.rpgchronicles.net/session/6ab4e6f4-555b-415f-b537-dd531aac65e0/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "tempest-jan-01-2026",
     "directory": "calendar",
-    "gitDate": "2025-12-14T14:15:40.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - December 24",
-      "date": "2025-12-24T00:00:00.000Z",
-      "url": "/events/diversions-dec-24-2025",
+      "date": "2025-12-24",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "16:30",
+      "endTime": "19:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "specialNote": "Games start at an earlier time than normal (4:30 PM) and will last only 2-3 hours.",
+      "scenarios": [
+        {
+          "name": "Seize and Destroy",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/0e6916da-cde8-4760-b382-4ff36cf21e68/pregame"
+        },
+        {
+          "name": "Dragon's Plea",
+          "system": "Pathfinder",
+          "type": "Quest",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/5e3150d6-3117-432b-9d3b-ddf496be5554/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** December 24, 2025\n- **Time:** 4:30 PM - 7:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Special Note:** Games start at an earlier time than normal (4:30 PM) and will last only 2-3 hours.\n\n## Available Scenarios\n\n### Starfinder Society\n1. **Seize and Destroy** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/0e6916da-cde8-4760-b382-4ff36cf21e68/pregame)\n\n### Pathfinder Society\n1. **Dragon's Plea** (Quest, Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/5e3150d6-3117-432b-9d3b-ddf496be5554/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-dec-24-2025",
     "directory": "calendar",
-    "gitDate": "2025-12-05T13:19:10.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Elsewhere Feast",
-      "date": "2025-12-18T00:00:00.000Z",
-      "url": "/events/tempest-dragon-evoking-day",
+      "date": "2025-12-18",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Elsewhere Feast",
+          "type": "Quest",
+          "signupUrl": "https://www.rpgchronicles.net/session/cee04d36-433b-4d5e-8693-8c35df46d96b/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** December 18, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **The Elsewhere Feast** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/cee04d36-433b-4d5e-8693-8c35df46d96b/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-dragon-evoking-day",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - December 10",
-      "date": "2025-12-10T00:00:00.000Z",
-      "url": "/events/diversions-dec-10-2025",
+      "date": "2025-12-10",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Catastrophe's Spark",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/e17e8663-91be-4f93-9275-a8240797476c/pregame"
+        },
+        {
+          "name": "Brastlewark at War Part 1: The Gnome Defection",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/70617ede-7a42-4982-b0cc-b03e8b02500a/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** December 10, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Catastrophe's Spark** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/e17e8663-91be-4f93-9275-a8240797476c/pregame)\n2. **Brastlewark at War Part 1: The Gnome Defection** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/70617ede-7a42-4982-b0cc-b03e8b02500a/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!\n",
+    "content": "\n",
     "slug": "diversions-dec-10-2025",
     "directory": "calendar",
-    "gitDate": "2025-12-05T13:19:10.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Dinner at Lionlodge",
-      "date": "2025-12-07T00:00:00.000Z",
-      "url": "/events/gcg-dinner-lionlodge",
+      "date": "2025-12-07",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "playerCap": 4,
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "specialNote": "This one-shot uses pregenerated characters. XP and Treasure can be applied to any Pathfinder Society character.",
+      "scenarios": [
+        {
+          "name": "Dinner at Lionlodge",
+          "type": "One-Shot",
+          "signupUrl": "https://www.rpgchronicles.net/session/283c0326-6f55-43b4-a1a6-694d47b41a6b/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** December 7, 2025\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 4 players\n- **Special Note:** This one-shot uses pregenerated characters. XP and Treasure can be applied to any Pathfinder Society character.\n\n## Available Scenarios\n\n1. **Dinner at Lionlodge** (One-Shot) - [Sign up here](https://www.rpgchronicles.net/session/283c0326-6f55-43b4-a1a6-694d47b41a6b/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 4 players, so sign up early!",
+    "content": "\n",
     "slug": "gcg-dinner-lionlodge",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Greengold Dilemma",
-      "date": "2025-12-04T00:00:00.000Z",
-      "url": "/events/tempest-greengold-dilemma",
+      "date": "2025-12-04",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Greengold Dilemma",
+          "type": "Quest",
+          "signupUrl": "https://www.rpgchronicles.net/session/5736cf43-1cd9-4a6e-b5bf-20c9f61beaf4/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** December 4, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **The Greengold Dilemma** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/5736cf43-1cd9-4a6e-b5bf-20c9f61beaf4/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-greengold-dilemma",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - November 26",
-      "date": "2025-11-26T00:00:00.000Z",
-      "url": "/events/diversions-nov-26-2025",
+      "date": "2025-11-26",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Necessary Introductions",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/b56f8691-8983-4b55-8065-cb1bf6f7a593/pregame"
+        },
+        {
+          "name": "Sulfuric Negotiations",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/d0c86bf3-d8b8-47ee-bdf4-03a33e241606/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** November 26, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Necessary Introductions** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/b56f8691-8983-4b55-8065-cb1bf6f7a593/pregame)\n2. **Sulfuric Negotiations** (Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/d0c86bf3-d8b8-47ee-bdf4-03a33e241606/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!",
+    "content": "\n",
     "slug": "diversions-nov-26-2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Second Confirmation",
-      "date": "2025-11-23T00:00:00.000Z",
-      "url": "/events/tempest-second-confirmation-nov",
+      "date": "2025-11-23",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Second Confirmation",
+          "signupUrl": "https://www.rpgchronicles.net/session/13cdf4e6-24f4-4e27-946a-1d6a0ccb3b20/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** November 23, 2025\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Second Confirmation** - [Sign up here](https://www.rpgchronicles.net/session/13cdf4e6-24f4-4e27-946a-1d6a0ccb3b20/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-second-confirmation-nov",
     "directory": "calendar",
-    "gitDate": "2025-11-21T15:28:29.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Sandstone Secret",
-      "date": "2025-11-20T00:00:00.000Z",
-      "url": "/events/tempest-sandstone-secret",
+      "date": "2025-11-20",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Sandstone Secret",
+          "type": "Quest",
+          "signupUrl": "https://www.rpgchronicles.net/session/9f171bb2-db9d-46f8-9c10-043157a3f517/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** November 20, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **The Sandstone Secret** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/9f171bb2-db9d-46f8-9c10-043157a3f517/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-sandstone-secret",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - November 12",
-      "date": "2025-11-12T00:00:00.000Z",
-      "url": "/events/diversions-nov-12-2025",
+      "date": "2025-11-12",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Citadel of Corruption",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/574e7556-6d40-469a-8e35-6f7377603788/pregame"
+        },
+        {
+          "name": "Symposium on a Fallen God",
+          "levels": "3-6",
+          "signupUrl": "https://www.rpgchronicles.net/session/a437ca12-e16e-4074-8a2d-69610773e865/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** November 12, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Citadel of Corruption** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/574e7556-6d40-469a-8e35-6f7377603788/pregame)\n2. **Symposium on a Fallen God** (Levels 3-6) - [Sign up here](https://www.rpgchronicles.net/session/a437ca12-e16e-4074-8a2d-69610773e865/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited to 6 players per game, so sign up early!",
+    "content": "\n",
     "slug": "diversions-nov-12-2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Student Exchange",
-      "date": "2025-11-06T00:00:00.000Z",
-      "url": "/events/tempest-student-exchange",
+      "date": "2025-11-06",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Student Exchange",
+          "type": "Quest",
+          "signupUrl": "https://www.rpgchronicles.net/session/ecb255d5-a0f5-4584-ac8d-e73d374b69cb/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** November 6, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Student Exchange** (Quest) - [Sign up here](https://www.rpgchronicles.net/session/ecb255d5-a0f5-4584-ac8d-e73d374b69cb/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-student-exchange",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Mark of the Mantis",
-      "date": "2025-11-02T00:00:00.000Z",
-      "url": "/events/gcg-mark-of-mantis",
+      "date": "2025-11-02",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "playerCap": 4,
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "specialNote": "This module uses pregenerated characters",
+      "scenarios": [
+        {
+          "name": "Mark of the Mantis",
+          "type": "Module",
+          "signupUrl": "https://www.rpgchronicles.net/session/2f44004f-f629-427e-a8c4-c58f4ed009d0/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** November 2, 2025\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 4 players\n- **Special Note:** This module uses pregenerated characters\n\n## Available Scenarios\n\n1. **Mark of the Mantis** (Module) - [Sign up here](https://www.rpgchronicles.net/session/2f44004f-f629-427e-a8c4-c58f4ed009d0/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 4 players, so sign up early!",
+    "content": "\n",
     "slug": "gcg-mark-of-mantis",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Swordlord's Challenge",
-      "date": "2025-10-30T00:00:00.000Z",
-      "url": "/events/tempest-swordlords-challenge",
+      "date": "2025-10-30",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Swordlord's Challenge",
+          "signupUrl": "https://www.rpgchronicles.net/session/00cd2e81-8e12-4b5f-a54c-f35ace35cfc5/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** October 30, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **The Swordlord's Challenge** - [Sign up here](https://www.rpgchronicles.net/session/00cd2e81-8e12-4b5f-a54c-f35ace35cfc5/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-swordlords-challenge",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - October 22",
-      "date": "2025-10-22T00:00:00.000Z",
-      "url": "/events/diversions-oct-22-2025",
+      "date": "2025-10-22",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Invasion's Edge",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/83ebcbe8-2a3d-44b8-b79a-64c9bdaa15d6/pregame"
+        },
+        {
+          "name": "Intro to Unfettered Exploration",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/28f5a541-caa1-4b2b-a48a-0ed8c9d3ce6a/pregame"
+        },
+        {
+          "name": "The Blooming Catastrophe",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/7772298d-53b6-478f-a948-ddef572fd43a/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** October 22, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Starfinder Society\n1. **Invasion's Edge** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/83ebcbe8-2a3d-44b8-b79a-64c9bdaa15d6/pregame)\n\n### Pathfinder Society\n1. **Intro to Unfettered Exploration** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/28f5a541-caa1-4b2b-a48a-0ed8c9d3ce6a/pregame)\n2. **The Blooming Catastrophe** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/7772298d-53b6-478f-a948-ddef572fd43a/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-oct-22-2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Fury's Toll",
-      "date": "2025-10-19T00:00:00.000Z",
-      "url": "/events/gcg-furys-toll-oct",
+      "date": "2025-10-19",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Fury's Toll",
+          "signupUrl": "https://www.rpgchronicles.net/session/c0653e80-7642-4bcb-ab93-b6b8e6563d72/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** October 19, 2025\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Fury's Toll** - [Sign up here](https://www.rpgchronicles.net/session/c0653e80-7642-4bcb-ab93-b6b8e6563d72/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "gcg-furys-toll-oct",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Winter Queen's Dollhouse",
-      "date": "2025-10-02T00:00:00.000Z",
-      "url": "/events/tempest-winter-queen-dollhouse",
+      "date": "2025-10-02",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Winter Queen's Dollhouse",
+          "signupUrl": "https://www.rpgchronicles.net/session/22928d9b-3beb-4b6c-ad50-e7a60c8142cc/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** October 2, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **The Winter Queen's Dollhouse** - [Sign up here](https://www.rpgchronicles.net/session/22928d9b-3beb-4b6c-ad50-e7a60c8142cc/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-winter-queen-dollhouse",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - September 24",
-      "date": "2025-09-24T00:00:00.000Z",
-      "url": "/events/diversions-sep-24-2025",
+      "date": "2025-09-24",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Dreamlink Labs",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/95a103df-13cc-4cee-8a07-8d7dea9130c7/pregame"
+        },
+        {
+          "name": "Arclord's Abode",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/bd1565cf-86cf-446f-ba4a-8d5a6da32c2e/pregame"
+        },
+        {
+          "name": "United in Purpose",
+          "system": "Pathfinder",
+          "levels": "1-2",
+          "signupUrl": "https://www.rpgchronicles.net/session/3b79f283-8380-4709-b0c6-fa74506ea0ef/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** September 24, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Starfinder Society\n1. **Dreamlink Labs** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/95a103df-13cc-4cee-8a07-8d7dea9130c7/pregame)\n\n### Pathfinder Society\n1. **Arclord's Abode** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/bd1565cf-86cf-446f-ba4a-8d5a6da32c2e/pregame)\n2. **United in Purpose** (Levels 1-2) - [Sign up here](https://www.rpgchronicles.net/session/3b79f283-8380-4709-b0c6-fa74506ea0ef/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-sep-24-2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Fury's Toll",
-      "date": "2025-09-21T00:00:00.000Z",
-      "url": "/events/gcg-furys-toll",
+      "date": "2025-09-21",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Fury's Toll",
+          "signupUrl": "https://www.rpgchronicles.net/session/7244b682-41d9-4e50-8dcc-cc8e9744e3e1/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** September 21, 2025\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 6 players\n\n## Available Scenarios\n\n1. **Fury's Toll** - [Sign up here](https://www.rpgchronicles.net/session/7244b682-41d9-4e50-8dcc-cc8e9744e3e1/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "gcg-furys-toll",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Infernal Infiltration",
-      "date": "2025-09-18T00:00:00.000Z",
-      "url": "/events/tempest-infernal-infiltration",
+      "date": "2025-09-18",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Infernal Infiltration",
+          "signupUrl": "https://www.rpgchronicles.net/session/c93bb5bf-97cb-4072-a922-80c018db3cf9/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** September 18, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Infernal Infiltration** - [Sign up here](https://www.rpgchronicles.net/session/c93bb5bf-97cb-4072-a922-80c018db3cf9/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-infernal-infiltration",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - September 10",
-      "date": "2025-09-10T00:00:00.000Z",
-      "url": "/events/diversions-sep-10-2025",
+      "date": "2025-09-10",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Shipyard Sabotage",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/59aa83e4-ae3a-4177-b1f5-d208c3ce05ce/pregame"
+        },
+        {
+          "name": "Return to the Grave",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/64171021-1b29-4b7d-afc1-9292d2fe14c0/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** September 10, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Shipyard Sabotage** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/59aa83e4-ae3a-4177-b1f5-d208c3ce05ce/pregame)\n2. **Return to the Grave** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/64171021-1b29-4b7d-afc1-9292d2fe14c0/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-sep-10-2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games - Sewer Dragon Crisis",
-      "date": "2025-09-07T00:00:00.000Z",
-      "url": "/events/gcg-sewer-dragon-crisis",
+      "date": "2025-09-07",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:00",
+      "playerCap": 6,
+      "levels": "1-4",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Sewer Dragon Crisis",
+          "signupUrl": "https://www.rpgchronicles.net/session/010e5942-8722-48f0-b380-e839fecdce13/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** September 7, 2025\n- **Time:** 12:00 noon - 4:00 PM Central Time\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n- **Players:** 6 players\n- **Level Range:** 1-4\n\n## Available Scenarios\n\n1. **Sewer Dragon Crisis** - [Sign up here](https://www.rpgchronicles.net/session/010e5942-8722-48f0-b380-e839fecdce13/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "gcg-sewer-dragon-crisis",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - The Dacilane Academy's Show Must Go On",
-      "date": "2025-09-04T00:00:00.000Z",
-      "url": "/events/tempest-dacilane-academy",
+      "date": "2025-09-04",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "playerCap": 6,
+      "levels": "1-2",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "The Dacilane Academy's Show Must Go On",
+          "signupUrl": "https://www.rpgchronicles.net/session/3028ffc6-0f67-45e7-ba77-a70e3c741a29/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** September 4, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n- **Players:** 6 players\n- **Level Range:** 1-2\n\n## Available Scenarios\n\n1. **The Dacilane Academy's Show Must Go On** - [Sign up here](https://www.rpgchronicles.net/session/3028ffc6-0f67-45e7-ba77-a70e3c741a29/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "tempest-dacilane-academy",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder & Starfinder Society at Diversions - August 27",
-      "date": "2025-08-27T00:00:00.000Z",
-      "url": "/events/diversions-aug-27-2025",
+      "date": "2025-08-27",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "The Arclord Who Never Was",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/23a3535e-127b-4eef-8b3e-b6b1ceb3ea77/pregame"
+        },
+        {
+          "name": "Enough is Enough",
+          "system": "Pathfinder",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/0f44070c-3ae2-44d0-b666-8a6ffc52e38c/pregame"
+        },
+        {
+          "name": "Mystery of the Frozen Moon",
+          "system": "Starfinder",
+          "levels": "1-2",
+          "startTime": "17:30",
+          "endTime": "20:30",
+          "signupUrl": "https://www.rpgchronicles.net/session/eb62c1ba-2514-4981-9c95-b3250b4ac763/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder & Starfinder Society at Diversions\n\nJoin us for Pathfinder and Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** August 27, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n### Pathfinder Society\n1. **The Arclord Who Never Was** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/23a3535e-127b-4eef-8b3e-b6b1ceb3ea77/pregame)\n2. **Enough is Enough** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/0f44070c-3ae2-44d0-b666-8a6ffc52e38c/pregame)\n\n### Starfinder Society\n1. **Mystery of the Frozen Moon** (Levels 1-2, 5:30 PM - 8:30 PM) - [Sign up here](https://www.rpgchronicles.net/session/eb62c1ba-2514-4981-9c95-b3250b4ac763/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-aug-27-2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - Friends in Need",
-      "date": "2025-08-21T00:00:00.000Z",
-      "url": "/events/tempest-friends-need",
+      "date": "2025-08-21",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "Friends in Need",
+          "signupUrl": "https://www.rpgchronicles.net/session/ad20d81b-0f4d-489f-b32b-0fe903c61ce7/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** August 21, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n\n## Available Scenarios\n\n1. **Friends in Need** - [Sign up here](https://www.rpgchronicles.net/session/ad20d81b-0f4d-489f-b32b-0fe903c61ce7/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "tempest-friends-need",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - August 13",
-      "date": "2025-08-13T00:00:00.000Z",
-      "url": "/events/diversions-aug-13-2025",
+      "date": "2025-08-13",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Equal Exchanges - Necessary Introductions",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/07a089df-0586-45f3-b32d-58424e83932b/pregame"
+        },
+        {
+          "name": "Escaping the Grave",
+          "levels": "1-4",
+          "signupUrl": "https://www.rpgchronicles.net/session/c8527f0c-c2dd-415f-adb4-7859171f2930/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** August 13, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Equal Exchanges - Necessary Introductions** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/07a089df-0586-45f3-b32d-58424e83932b/pregame)\n2. **Escaping the Grave** (Levels 1-4) - [Sign up here](https://www.rpgchronicles.net/session/c8527f0c-c2dd-415f-adb4-7859171f2930/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-aug-13-2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Tempest Games - In the Footsteps of Horror",
-      "date": "2025-08-07T00:00:00.000Z",
-      "url": "/events/tempest-footsteps-horror",
+      "date": "2025-08-07",
       "location": "Tempest Games",
-      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405"
+      "address": "212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405",
+      "startTime": "17:30",
+      "endTime": "19:30",
+      "intro": "Join us for Pathfinder Society games at Tempest Games in Cedar Rapids!",
+      "scenarios": [
+        {
+          "name": "In the Footsteps of Horror",
+          "signupUrl": "https://www.rpgchronicles.net/session/d219533f-7c5f-4c3b-a1e2-d0cc5a4ba738/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Tempest Games\n\nJoin us for Pathfinder Society games at Tempest Games in Cedar Rapids!\n\n## Details\n\n- **Date:** August 7, 2025\n- **Time:** 5:30 PM - 7:30 PM Central Time\n- **Location:** Tempest Games\n- **Address:** 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405\n\n## Available Scenarios\n\n1. **In the Footsteps of Horror** - [Sign up here](https://www.rpgchronicles.net/session/d219533f-7c5f-4c3b-a1e2-d0cc5a4ba738/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "tempest-footsteps-horror",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Starfinder Society at Diversions - Battle for Nova Rush",
-      "date": "2025-07-23T00:00:00.000Z",
-      "url": "/events/diversions-battle-nova-rush",
+      "date": "2025-07-23",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Starfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Battle for Nova Rush",
+          "signupUrl": "https://www.rpgchronicles.net/session/3793181b-71db-4409-91b3-b4a2cd28d469/pregame"
+        }
+      ]
     },
-    "content": "\n# Starfinder Society at Diversions - Battle for Nova Rush\n\nJoin us for Starfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** July 23, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Battle for Nova Rush** - [Sign up here](https://www.rpgchronicles.net/session/3793181b-71db-4409-91b3-b4a2cd28d469/pregame)\n\n## Special Note\n\n**This is the first Starfinder Second Edition game available for Organized Play credit!** Don't miss this opportunity to be among the first to play Starfinder 2E in an official Organized Play setting.\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n## Special Note\n\n**This is the first Starfinder Second Edition game available for Organized Play credit!** Don't miss this opportunity to be among the first to play Starfinder 2E in an official Organized Play setting.\n",
     "slug": "diversions-battle-nova-rush",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - Mischief in the Maze",
-      "date": "2025-07-23T00:00:00.000Z",
-      "url": "/events/diversions-mischief-maze",
+      "date": "2025-07-23",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "playerCap": 6,
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Mischief in the Maze",
+          "signupUrl": "https://www.rpgchronicles.net/session/049f7cb9-9dcf-498b-9cff-40813af5ec5d/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions - Mischief in the Maze\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** July 23, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Seats Available:** 6 players\n\n## Available Scenarios\n\n1. **Mischief in the Maze** - [Sign up here](https://www.rpgchronicles.net/session/049f7cb9-9dcf-498b-9cff-40813af5ec5d/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited to 6 players, so sign up early!",
+    "content": "\n",
     "slug": "diversions-mischief-maze",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games",
-      "date": "2025-07-13T00:00:00.000Z",
-      "url": "/events/gcg-13Jul2025",
+      "date": "2025-07-13",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "17:00",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Within the Prairies",
+          "signupUrl": "https://www.rpgchronicles.net/session/5a519ffb-56a6-4eab-982f-9b8da8d232e2/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** July 13, 2025\n- **Time:** 12:00 noon - 5:00pm\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Within the Prairies** - [Sign up here](https://www.rpgchronicles.net/session/5a519ffb-56a6-4eab-982f-9b8da8d232e2/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
-    "slug": "gcg-13-july",
+    "content": "\n",
+    "slug": "gcg-13Jul2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - Second Confirmation",
-      "date": "2025-07-09T00:00:00.000Z",
-      "url": "/events/diversions-second-confirmation",
+      "date": "2025-07-09",
       "location": "Diversions",
-      "address": "119 2nd St",
-      "gamemaster": "Josh E"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "gamemaster": "Josh E",
+      "scenarios": [
+        {
+          "name": "Second Confirmation",
+          "signupUrl": "https://www.rpgchronicles.net/session/64258560-7190-4e5e-a167-1e6478b88482/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions - Second Confirmation\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** July 9, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n- **Game Master:** Josh E\n\n## Available Scenarios\n\n1. **Second Confirmation** - [Sign up here](https://www.rpgchronicles.net/session/64258560-7190-4e5e-a167-1e6478b88482/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-second-confirmation",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions - Year of Immortal Influence Intro",
-      "date": "2025-07-09T00:00:00.000Z",
-      "url": "/events/diversions-symposium-fallen-god",
+      "date": "2025-07-09",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Year of Immortal Influence: Intro",
+          "signupUrl": "https://www.rpgchronicles.net/session/cabe4362-50e0-4447-b5fc-b7361b3d586c/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions \n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** July 9, 2025\n- **Time:** 5:30 PM - 9:30 PM Central Time\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Year of Immortal Influence: Intro** - [Sign up here](https://www.rpgchronicles.net/session/cabe4362-50e0-4447-b5fc-b7361b3d586c/pregame)\n\n## Registration\n\nPlease register in advance using the link above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-symposium-fallen-god",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Geek City Games",
-      "date": "2025-06-29T00:00:00.000Z",
-      "url": "/events/gcg-29Jun2025",
+      "date": "2025-06-29",
       "location": "Geek City Games",
-      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317"
+      "address": "365 Beaver Kreek Center suite b, North Liberty, IA 52317",
+      "startTime": "12:00",
+      "endTime": "16:30",
+      "intro": "Join us for Pathfinder Society games at Geek City Games in North Liberty!",
+      "scenarios": [
+        {
+          "name": "Negotiations for the Star Gun",
+          "signupUrl": "https://www.rpgchronicles.net/session/1f7ab80c-4cdc-44c3-b13d-dcdb33d45d54/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Geek City Games\n\nJoin us for Pathfinder Society games at Geek City Games in North Liberty!\n\n## Details\n\n- **Date:** June 29, 2025\n- **Time:** 12:00 noon - 4:30pm\n- **Location:** Geek City Games\n- **Address:** 365 Beaver Kreek Center suite b, North Liberty, IA 52317\n\n## Available Scenarios\n\n1. **Negotiations for the Star Gun** - [Sign up here](https://www.rpgchronicles.net/session/1f7ab80c-4cdc-44c3-b13d-dcdb33d45d54/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
-    "slug": "gcg-29-july",
+    "content": "\n",
+    "slug": "gcg-29Jun2025",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   },
   {
     "meta": {
       "title": "Pathfinder Society at Diversions",
-      "date": "2025-06-25T00:00:00.000Z",
-      "url": "/events/diversions-game-night",
+      "date": "2025-06-25",
       "location": "Diversions",
-      "address": "119 2nd St"
+      "address": "119 2nd St #300, Coralville, IA 52241",
+      "startTime": "17:30",
+      "endTime": "21:30",
+      "intro": "Join us for Pathfinder Society games at Diversions in Coralville!",
+      "scenarios": [
+        {
+          "name": "Silver Bark, Golden Blades",
+          "signupUrl": "https://www.rpgchronicles.net/session/ec927ed1-61f4-4441-af7f-de92051b4367/pregame"
+        },
+        {
+          "name": "All That Glitters",
+          "signupUrl": "https://www.rpgchronicles.net/session/2d61cf38-9249-43b0-a514-5c849bd3d7e6/pregame"
+        }
+      ]
     },
-    "content": "\n# Pathfinder Society at Diversions\n\nJoin us for Pathfinder Society games at Diversions in Coralville!\n\n## Details\n\n- **Date:** June 25, 2025\n- **Time:** 5:30 PM - 9:30 PM\n- **Location:** Diversions\n- **Address:** 119 2nd St #300, Coralville, IA 52241\n\n## Available Scenarios\n\n1. **Silver Bark, Golden Blades** - [Sign up here](https://www.rpgchronicles.net/session/ec927ed1-61f4-4441-af7f-de92051b4367/pregame)\n2. **All That Glitters** - [Sign up here](https://www.rpgchronicles.net/session/2d61cf38-9249-43b0-a514-5c849bd3d7e6/pregame)\n\n## Registration\n\nPlease register in advance using the links above. Space is limited, so sign up early!",
+    "content": "\n",
     "slug": "diversions-game-night",
     "directory": "calendar",
-    "gitDate": "2025-11-19T16:48:03.000Z"
+    "gitDate": "2026-09-04T20:39:59.000Z"
   }
 ]

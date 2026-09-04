@@ -1,0 +1,66 @@
+name: Open Content PR
+
+# Sveltia CMS commits Game Masters' edits to the `content` branch. This raises a
+# pull request into main so those edits get a dev preview and a review before
+# they go live — Sveltia has no editorial workflow of its own yet, so without
+# this a Save would publish straight to production.
+#
+# Only ever creates: an already-open PR picks up subsequent pushes by itself.
+
+on:
+  push:
+    branches: [ content ]
+  workflow_dispatch:
+
+jobs:
+  open-pr:
+    name: Open the content pull request
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          # Full history so the "is there anything to merge?" check below can
+          # see origin/main; the default shallow checkout fetches only `content`.
+          fetch-depth: 0
+
+      - name: Open a PR if one is not already open
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          state=$(gh pr view content --json state --jq '.state' 2>/dev/null || echo "NONE")
+          if [ "$state" = "OPEN" ]; then
+            echo "A content PR is already open; this push has been added to it."
+            gh pr view content --json url --jq '.url'
+            exit 0
+          fi
+
+          if git diff --quiet origin/main..HEAD; then
+            echo "content matches main — nothing to open a PR for."
+            exit 0
+          fi
+
+          gh pr create \
+            --base main \
+            --head content \
+            --title "Content updates from the CMS" \
+            --body "$(cat <<'BODY'
+          Edits made through the [content manager](https://shiftingcorridors.com/admin.html).
+
+          A preview builds at https://dev.shiftingcorridors.com on every push to
+          `content` — check the event there before merging.
+
+          Squash it, like any other PR here. `sync-content-branch.yml` resets
+          `content` afterwards, so the rewritten commits don't strand the branch.
+          BODY
+          )"
+
+          echo "Opened:"
+          gh pr view content --json url --jq '.url'

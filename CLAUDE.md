@@ -43,6 +43,18 @@ Two themes (medieval and sci-fi) are defined in `src/styles/themes.ts` and toggl
 - `/` - Home: Calendar + News in main column, Contact + GameMasters in sidebar
 - `/events/:eventId` - Individual event detail page
 
+### Content Manager
+
+`public/admin.html` serves [Sveltia CMS](https://sveltiacms.app), a git-based CMS, so Game Masters can add events through a form instead of writing markdown. Saving commits to the `content` branch; `.github/workflows/content-pr.yml` opens a PR into `main`. See `docs/CMS_SETUP.md`.
+
+It's served at `/admin.html`, not `/admin/` — CloudFront fronts the S3 REST endpoint, which doesn't serve directory index files, and the distribution's `404 → /index.html` rule would silently return the React app instead.
+
 ### Adding Content
 
-To add a new calendar event, create a new `.md` file in `src/content/calendar/` following the existing front-matter schema. The build script handles the rest.
+To add a calendar event by hand, create a `.md` file in `src/content/calendar/`. **The filename is the URL** (`/events/<filename>`); there is no `url` front-matter field.
+
+Everything renders from front-matter — date, time, scenarios, and the registration note are all generated, so don't repeat them in the body. The body is only for sections the schema can't express. `CONTENT_UPDATE_GUIDE.md` documents the full field list.
+
+The CMS form (`public/admin-config.yml`), the `MarkdownMeta`/`Scenario` types (`src/utils/staticData.ts`), and the rendering (`src/components/EventDetails.tsx`) are three descriptions of one schema — change all three together. `src/tests/cmsConfig.test.ts` fails if content uses a key the form doesn't declare.
+
+Quote any front-matter value containing `#`: unquoted, YAML reads ` #` as a comment, which silently truncated the Diversions address in 30 files.

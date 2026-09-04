@@ -1,17 +1,13 @@
 ---
 title: Shifting Corridors Lodge Party
-date: 2026-06-08
-url: /events/lodge-party-jun-08-2026
+date: '2026-06-08'
+startTime: '17:30'
+endTime: '21:30'
+intro: Come celebrate with your fellow adventurers at the Shifting Corridors Lodge Party!
 ---
 
-# Shifting Corridors Lodge Party
+## Additional Information
 
-Come celebrate with your fellow adventurers at the Shifting Corridors Lodge Party!
-
-## Details
-
-- **Date:** June 8, 2026
-- **Time:** 5:30 PM - 9:30 PM Central Time
 - **Drop in and out as you please!**
 
 ## Who's Invited

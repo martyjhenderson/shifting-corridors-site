@@ -4,6 +4,12 @@ on:
   pull_request:
     branches: [ main ]
     types: [opened, synchronize, reopened]
+  # The CMS commits to `content`, and a PR opened by GITHUB_TOKEN does not
+  # trigger `pull_request` workflows. Deploying on the push as well means a Game
+  # Master always gets a preview, whoever opened the PR. Dev is a single fixed
+  # environment, so this is the same deployment either way.
+  push:
+    branches: [ content ]
   workflow_dispatch:
 
 jobs:
@@ -43,7 +49,7 @@ jobs:
         run: npm run aws:upload:dev
         
       - name: Comment PR with deployment info
-        if: success()
+        if: success() && github.event_name == 'pull_request'
         uses: actions/github-script@v9
         with:
           script: |
@@ -65,7 +71,7 @@ jobs:
             })
             
       - name: Comment PR on failure
-        if: failure()
+        if: failure() && github.event_name == 'pull_request'
         uses: actions/github-script@v9
         with:
           script: |

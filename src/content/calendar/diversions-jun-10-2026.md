@@ -1,30 +1,23 @@
 ---
 title: Pathfinder & Starfinder Society at Diversions - Jun 10
-date: 2026-06-10
-url: /events/diversions-jun-10-2026
+date: '2026-06-10'
 location: Diversions
-address: 119 2nd St #300, Coralville, IA 52241
+address: '119 2nd St #300, Coralville, IA 52241'
+startTime: '17:30'
+endTime: '21:30'
+intro: Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
+scenarios:
+  - name: Strings of Hell
+    system: Pathfinder
+    levels: 1-2
+    startTime: '17:30'
+    playerCap: 6
+    signupUrl: 'https://www.rpgchronicles.net/session/83b43a5c-1257-4316-b94f-04a50ee8dcc6/pregame'
+  - name: Compliance Protocol
+    system: Starfinder
+    levels: 1-2
+    startTime: '18:00'
+    playerCap: 6
+    signupUrl: 'https://www.rpgchronicles.net/session/1f67ef56-6b1c-49d0-8436-4806050a87db/pregame'
 ---
 
-# Pathfinder & Starfinder Society at Diversions
-
-Join us for Pathfinder and Starfinder Society games at Diversions in Coralville!
-
-## Details
-
-- **Date:** June 10, 2026
-- **Time:** 5:30 PM - 9:30 PM Central Time
-- **Location:** Diversions
-- **Address:** 119 2nd St #300, Coralville, IA 52241
-
-## Available Scenarios
-
-### Pathfinder Society
-1. **Strings of Hell** (Levels 1-2, starts 5:30 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/83b43a5c-1257-4316-b94f-04a50ee8dcc6/pregame)
-
-### Starfinder Society
-1. **Compliance Protocol** (Levels 1-2, starts 6:00 PM, 6 players) - [Sign up here](https://www.rpgchronicles.net/session/1f67ef56-6b1c-49d0-8436-4806050a87db/pregame)
-
-## Registration
-
-Please register in advance using the links above. Space is limited, so sign up early!
