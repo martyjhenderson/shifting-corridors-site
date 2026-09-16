@@ -1,0 +1,54 @@
+name: Tests
+
+# Until now nothing in CI ran the test suite: the only workflows were the two
+# deploys, which run `npm ci` and a build. A pull request could go green with a
+# completely broken suite.
+#
+# That matters more from here on. src/tests/eventSchema.test.ts validates every
+# file in src/content/calendar, and once the CMS is gone it is the only thing
+# standing between a malformed hand-written event and production.
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    # Covers content the CMS commits, which reaches main through a pull request
+    # opened by GITHUB_TOKEN and so triggers no `pull_request` run of its own.
+    branches: [ main, content ]
+  workflow_dispatch:
+
+# No credentials, no environment, nothing deployed: this job only reads the code
+# and runs it. Keep it that way, so it can run on any pull request unguarded.
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Unit tests and type-check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # `vitest` alone watches when it cannot detect CI; --run is unambiguous.
+      - name: Unit tests
+        run: npm test -- --run
+
+      - name: Type-check
+        run: npm run type-check
+
+      # The build generates src/data/*.json from the markdown. Running it here
+      # catches a content file that parses but breaks the pipeline, without
+      # waiting for the deploy job to fail.
+      - name: Build
+        run: npm run build
