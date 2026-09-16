@@ -3,21 +3,128 @@ name: Deploy to Dev on PR
 on:
   pull_request:
     branches: [ main ]
-    types: [opened, synchronize, reopened]
-  # The CMS commits to `content`, and a PR opened by GITHUB_TOKEN does not
-  # trigger `pull_request` workflows. Deploying on the push as well means a Game
-  # Master always gets a preview, whoever opened the PR. Dev is a single fixed
-  # environment, so this is the same deployment either way.
+    # `labeled` so that adding `deploy-preview` to a held PR starts a deployment
+    # without needing an empty push.
+    types: [opened, synchronize, reopened, labeled]
+  # Sveltia CMS commits to `content`, and a PR opened by GITHUB_TOKEN does not
+  # trigger `pull_request` workflows, so a Game Master's save would otherwise get
+  # no preview. Retire this trigger together with the CMS, not before.
   push:
     branches: [ content ]
   workflow_dispatch:
 
+# This workflow hands AWS credentials to code that came from a pull request:
+# `npm run aws:upload:dev` runs a script out of the PR's own tree, after the dev
+# OIDC role has been assumed. That is fine for a PR a maintainer wrote, and not
+# fine as a blanket rule once anything else can open one, which is what the
+# planned event submission form will do — a pull request per submission.
+#
+# So `guard` decides, without ever checking out the PR, whether this PR may reach
+# those credentials. It says yes when a maintainer wrote it, when it only touches
+# `src/content/` (data the build reads, never code the build runs), or when a
+# maintainer has vouched for it with the `deploy-preview` label.
+
 jobs:
+  guard:
+    name: May this PR use the dev credentials?
+    runs-on: ubuntu-latest
+
+    # Deliberately no checkout: nothing from the pull request executes here.
+    permissions:
+      contents: read
+      pull-requests: read
+
+    outputs:
+      approved: ${{ steps.decide.outputs.approved }}
+
+    steps:
+      - name: Decide
+        id: decide
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          EVENT: ${{ github.event_name }}
+          ASSOCIATION: ${{ github.event.pull_request.author_association }}
+          LABELLED: ${{ contains(github.event.pull_request.labels.*.name, 'deploy-preview') }}
+        run: |
+          set -euo pipefail
+
+          approve() {
+            echo "approved=true" >> "$GITHUB_OUTPUT"
+            echo "Deploying to dev: $1" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          }
+
+          # Manual runs are already maintainer-only.
+          [ "$EVENT" = "workflow_dispatch" ] && approve "manually triggered"
+
+          if [ "$EVENT" = "pull_request" ]; then
+            # OWNER/MEMBER/COLLABORATOR all mean write access to this
+            # repository, so they could push this code to a branch anyway.
+            case "$ASSOCIATION" in
+              OWNER|MEMBER|COLLABORATOR) approve "opened by a maintainer ($ASSOCIATION)" ;;
+            esac
+
+            [ "$LABELLED" = "true" ] && approve "a maintainer applied the deploy-preview label"
+          fi
+
+          # Everything else gets a preview only if it is pure content. Markdown
+          # under src/content/ is parsed by the build; it is never executed, and
+          # it cannot reach package.json, the lockfile, aws/scripts/ or .github/.
+          #
+          # Matched against an allowlist pattern rather than a `src/content/`
+          # prefix: a prefix test passes `src/content/../../aws/scripts/x.sh`.
+          # The API normalises paths so that should never arrive, but this is the
+          # gate in front of the credentials, so it does not lean on that.
+          # The content branch carries Game Masters' saves, which are markdown
+          # and nothing else; a push there that contains code is held for the
+          # same reason an outside pull request would be.
+          if [ "$EVENT" = "push" ]; then
+            files=$(gh api "repos/$REPO/compare/main...content" --jq '.files[].filename')
+          else
+            files=$(gh api --paginate "repos/$REPO/pulls/$PR/files" --jq '.[].filename')
+          fi
+
+          # Anything that is not a plain .md file under src/content/, or that
+          # contains a `..` segment, disqualifies the pull request.
+          outside=$(
+            printf '%s\n' "$files" \
+              | grep -Ev '^src/content/[A-Za-z0-9][A-Za-z0-9._/-]*\.md$|^$' \
+              || true
+          )
+          if printf '%s\n' "$files" | grep -qF '..'; then
+            outside=$(printf '%s\n' "$outside" "(path traversal in the file list)")
+          fi
+
+          if [ -n "$files" ] && [ -z "$outside" ]; then
+            approve "content-only ($(printf '%s\n' "$files" | wc -l) markdown file(s))"
+          fi
+
+          echo "approved=false" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Dev deployment held"
+            echo
+            echo "This change touches files outside \`src/content/\`, and did not come"
+            echo "from a maintainer, so it has not been given the dev AWS role."
+            echo
+            echo "On a pull request, a maintainer who has read the diff can add the"
+            echo "\`deploy-preview\` label to release it."
+            echo
+            echo "Files outside src/content/:"
+            echo
+            printf '%s\n' "$outside" | sed 's/^/    /'
+          } >> "$GITHUB_STEP_SUMMARY"
+
   deploy-dev:
     name: Deploy to Dev Environment
+    needs: guard
+    if: needs.guard.outputs.approved == 'true'
     runs-on: ubuntu-latest
     
-    # Add environment for better visibility and protection
+    # Records the deployment in the environment's activity log. Note this is
+    # visibility only: the `development` environment has no protection rules, so
+    # it gates nothing on its own -- the `guard` job above is the gate.
     environment: development
     
     permissions:
