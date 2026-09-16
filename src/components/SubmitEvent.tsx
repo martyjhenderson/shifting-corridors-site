@@ -256,7 +256,7 @@ const SubmitEvent: React.FC = () => {
         <Heading theme={theme}>This link isn’t valid</Heading>
         <p>
           Event submissions need the personal link you were sent. If you’ve lost it, or it has
-          stopped working, ask and you’ll be sent a new one.
+          stopped working, ask a Lodge organizer for a new one.
         </p>
         <BackLink to="/">Back to the calendar</BackLink>
       </Panel>
@@ -287,7 +287,7 @@ const SubmitEvent: React.FC = () => {
     <Panel theme={theme}>
       <Heading theme={theme}>{greeting}</Heading>
       <Lede>
-        Fill this in and the event goes to a Lodge organiser for a quick check before it appears on
+        Fill this in and the event goes to a Lodge organizer for a quick check before it appears on
         the calendar.
       </Lede>
 
@@ -340,7 +340,7 @@ const SubmitEvent: React.FC = () => {
             checked={allDay}
             onChange={e => setAllDay(e.target.checked)}
           />
-          <label htmlFor="allDay">All day (a convention, say) — no set start time</label>
+          <label htmlFor="allDay">All day (a convention, for example) — no set start time</label>
         </Check>
 
         {!allDay && (

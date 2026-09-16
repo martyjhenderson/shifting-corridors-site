@@ -10,7 +10,7 @@
  * The identity is soft on purpose: a link can be forwarded, and nothing proves
  * the person holding it is the person it was issued to. That is the right
  * trade-off here, because the link is not a credential for anything — it
- * authorises opening a pull request that a maintainer then reads. It buys
+ * authorizes opening a pull request that a maintainer then reads. It buys
  * attribution and it keeps drive-by bots out, and those are the two things
  * actually needed.
  */

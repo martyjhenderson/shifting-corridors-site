@@ -169,4 +169,4 @@ a PR, and try the editor on the dev preview before merging.
   doesn't serve directory index files; `/admin/` would 404 and the distribution's
   `404 → /index.html` rule would then serve the React site instead of the CMS.
 - The page is `noindex`, but it isn't a secret — it's a login screen, and GitHub
-  does the actual authorisation.
+  does the actual authorization.

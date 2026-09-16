@@ -15,7 +15,7 @@
  *   validateSubmission — everything above, plus the rules that only make sense
  *                        for untrusted input arriving from the public form: a
  *                        venue from the known list, a date in a sane window, a
- *                        signup link on a host we recognise.
+ *                        signup link on a host we recognize.
  *
  * Deliberately free of I/O and of node/browser APIs, so the Worker, the form and
  * the test suite can all import it.
@@ -280,9 +280,9 @@ export interface SubmissionOptions {
 }
 
 /**
- * Validate one submission from the public form and normalise it into an event.
+ * Validate one submission from the public form and normalize it into an event.
  *
- * Everything here is an allowlist. A field that is not recognised, a venue that
+ * Everything here is an allowlist. A field that is not recognized, a venue that
  * is not ours, a link to a host we do not know, a date years out — all rejected
  * rather than repaired, because the output of this function is committed to the
  * repository and rendered on the site.
