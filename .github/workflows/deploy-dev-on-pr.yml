@@ -75,7 +75,7 @@ jobs:
           #
           # Matched against an allowlist pattern rather than a `src/content/`
           # prefix: a prefix test passes `src/content/../../aws/scripts/x.sh`.
-          # The API normalises paths so that should never arrive, but this is the
+          # The API normalizes paths so that should never arrive, but this is the
           # gate in front of the credentials, so it does not lean on that.
           # The content branch carries Game Masters' saves, which are markdown
           # and nothing else; a push there that contains code is held for the

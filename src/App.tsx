@@ -7,6 +7,7 @@ import GameMasters from './components/GameMasters';
 import Contact from './components/Contact';
 import News from './components/News';
 import EventDetails from './components/EventDetails';
+import SubmitEvent from './components/SubmitEvent';
 import About from './components/About';
 
 const GlobalStyle = createGlobalStyle<{ theme: any }>`
@@ -134,6 +135,12 @@ const AppContent: React.FC = () => {
         <Routes>
           <Route path="/events/:eventId" element={
             <EventDetails />
+          } />
+          {/* Reached only through a Game Master's personal link; without a
+              token in the fragment the page says so rather than showing a form
+              nobody can submit. */}
+          <Route path="/submit-event" element={
+            <SubmitEvent />
           } />
           <Route path="/" element={
             <MainGrid>

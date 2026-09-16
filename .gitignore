@@ -27,6 +27,17 @@ yarn-debug.log*
 yarn-error.log*
 
 # wrangler local secrets -- INVITE_SECRET, TURNSTILE_SECRET and the GitHub App
-# private key live here when running `wrangler dev`. Never commit it.
+# private key live here when running `wrangler dev`. Never commit them.
+#
+# Matched with and without the leading dot. Only `.dev.vars` is the name
+# wrangler actually reads, but a file named `dev.vars` holds exactly the same
+# private key and was not covered by the first version of this rule.
 .dev.vars
-worker/.dev.vars
+dev.vars
+**/.dev.vars
+**/dev.vars
+!**/.dev.vars.example
+
+# wrangler's local state and build cache
+.wrangler/
+**/.wrangler/
