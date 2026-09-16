@@ -1,0 +1,44 @@
+name = "sc-event-submissions"
+main = "src/index.ts"
+compatibility_date = "2026-09-16"
+
+# Deployed to https://sc-event-submissions.ravegrunt.workers.dev
+workers_dev = true
+
+[vars]
+# Not secrets: the App ID and installation are public identifiers, and the repo
+# is public. The private key, the Turnstile secret and the invite signing secret
+# are set with `wrangler secret put` and never appear in this file.
+GITHUB_APP_ID = "4970413"
+GITHUB_INSTALLATION_ID = "162308437"
+GITHUB_REPO = "martyjhenderson/shifting-corridors-site"
+BASE_BRANCH = "main"
+ALLOWED_ORIGINS = "https://shiftingcorridors.com,https://www.shiftingcorridors.com,https://dev.shiftingcorridors.com"
+DAILY_LIMIT = "10"
+MAX_OPEN_SUBMISSIONS = "10"
+
+# Revoked invite links, and the per-Game-Master daily counters. Both are small
+# and short-lived, which is what keeps this inside the KV free tier.
+[[kv_namespaces]]
+binding = "REVOKED"
+id = "2d1bdd6bf294409b8a35aef404a0e250"
+preview_id = "05f14cac2c65421893c9b1c579fefc8f"
+
+# Burst protection only. The native rate limiter's period is 10 or 60 seconds --
+# it cannot express "per hour" -- so the longer horizons are handled elsewhere:
+# the daily cap is a KV counter per Game Master, and the real flood ceiling is
+# MAX_OPEN_SUBMISSIONS, which refuses once the review queue is deep.
+[[unsafe.bindings]]
+name = "RATE_LIMIT_IP"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 5, period = 60 }
+
+[[unsafe.bindings]]
+name = "RATE_LIMIT_GLOBAL"
+type = "ratelimit"
+namespace_id = "1002"
+simple = { limit = 20, period = 60 }
+
+[observability]
+enabled = true
