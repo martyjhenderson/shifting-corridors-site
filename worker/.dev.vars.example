@@ -1,0 +1,17 @@
+# Copy to worker/.dev.vars and fill in. That file is gitignored; this one is not,
+# so it must never hold real values.
+#
+# `wrangler dev` reads secrets from .dev.vars, so local testing needs no deployed
+# Worker and no `wrangler secret put`.
+
+# openssl rand -base64 32
+INVITE_SECRET="..."
+
+# Turnstile -> your widget -> Secret Key.
+# For local work you can use Cloudflare's always-passes test secret:
+#   1x0000000000000000000000000000000AA
+TURNSTILE_SECRET="..."
+
+# The App private key, converted to PKCS#8, as one line with \n escapes:
+#   awk 'BEGIN{ORS="\\n"} {print}' ~/sc-app-key.pkcs8.pem
+GITHUB_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"

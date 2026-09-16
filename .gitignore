@@ -25,3 +25,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# wrangler local secrets -- INVITE_SECRET, TURNSTILE_SECRET and the GitHub App
+# private key live here when running `wrangler dev`. Never commit it.
+.dev.vars
+worker/.dev.vars
