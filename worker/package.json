@@ -1,0 +1,13 @@
+{
+  "name": "sc-event-submissions",
+  "private": true,
+  "description": "Cloudflare Worker that turns an event submission into a pull request.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "4.133.0"
+  }
+}
