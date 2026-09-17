@@ -157,6 +157,39 @@ export async function countOpenSubmissions(
   return pulls.filter(p => (p.head?.ref ?? '').startsWith(prefix)).length;
 }
 
+/**
+ * Every submission branch whose name starts with this prefix.
+ *
+ * One call rather than one per candidate slug: `submission/<slug>` and
+ * `submission/<slug>-2` share a prefix, so asking once tells us about all of
+ * them. An empty result is a 409 from GitHub rather than an error.
+ */
+export async function existingBranches(
+  gh: GitHubClient,
+  repo: string,
+  prefix: string
+): Promise<Set<string>> {
+  try {
+    const refs = await gh.request<Array<{ ref: string }>>(
+      'GET',
+      `/repos/${repo}/git/matching-refs/heads/${prefix}`
+    );
+    return new Set(refs.map(r => r.ref.replace(/^refs\/heads\//, '')));
+  } catch (error) {
+    // No matching refs is not a failure; it is the common case.
+    if ((error as Error & { status?: number }).status === 404) return new Set();
+    throw error;
+  }
+}
+
+/** Raised when a branch appeared between choosing a slug and creating it. */
+export class BranchTakenError extends Error {
+  constructor(branch: string) {
+    super(`branch already exists: ${branch}`);
+    this.name = 'BranchTakenError';
+  }
+}
+
 /** True when the path is already taken, so a slug can be nudged rather than clobbering. */
 export async function fileExists(gh: GitHubClient, repo: string, path: string, ref: string): Promise<boolean> {
   try {
@@ -187,10 +220,20 @@ export async function openSubmissionPr(
     `/repos/${repo}/git/ref/heads/${baseBranch}`
   );
 
-  await gh.request('POST', `/repos/${repo}/git/refs`, {
-    ref: `refs/heads/${branch}`,
-    sha: base.object.sha,
-  });
+  try {
+    await gh.request('POST', `/repos/${repo}/git/refs`, {
+      ref: `refs/heads/${branch}`,
+      sha: base.object.sha,
+    });
+  } catch (error) {
+    // 422 here means the branch was created between choosing this slug and
+    // now -- two submissions racing. Distinguish it, because the generic
+    // handler would tell the submitter to retry, and retrying cannot help.
+    if ((error as Error & { status?: number }).status === 422) {
+      throw new BranchTakenError(branch);
+    }
+    throw error;
+  }
 
   await gh.request('PUT', `/repos/${repo}/contents/${path}`, {
     message: commitMessage,
