@@ -55,9 +55,19 @@ function futureDate(): string {
  * A GitHub that answers the five calls a submission makes, recording them so a
  * test can assert what would have been written.
  */
-function fakeGitHub(options: { existingPaths?: string[]; openSubmissions?: number } = {}) {
+function fakeGitHub(
+  options: {
+    existingPaths?: string[];
+    openSubmissions?: number;
+    existingBranches?: string[];
+    /** Branches invisible to the listing, to simulate a genuine race. */
+    hiddenBranches?: string[];
+  } = {}
+) {
   const calls: Array<{ method: string; url: string; body: unknown }> = [];
   const existing = new Set(options.existingPaths ?? []);
+  const branches = new Set(options.existingBranches ?? []);
+  const hidden = new Set(options.hiddenBranches ?? []);
 
   const fetchImpl = (async (url: string | URL | Request, init?: RequestInit) => {
     const href = String(url);
@@ -82,8 +92,22 @@ function fakeGitHub(options: { existingPaths?: string[]; openSubmissions?: numbe
         : new Response('{"message":"Not Found"}', { status: 404 });
     }
 
+    if (href.includes('/git/matching-refs/heads/')) {
+      const prefix = decodeURIComponent(href.split('/git/matching-refs/heads/')[1]);
+      return ok([...branches].filter(b => b.startsWith(prefix)).map(b => ({ ref: `refs/heads/${b}` })));
+    }
+
     if (href.includes('/git/ref/heads/')) return ok({ object: { sha: 'basesha' } });
-    if (href.includes('/git/refs') && method === 'POST') return ok({}, 201);
+
+    if (href.includes('/git/refs') && method === 'POST') {
+      const ref = (body as { ref: string }).ref.replace('refs/heads/', '');
+      // What GitHub actually returns when the branch is already there.
+      if (branches.has(ref) || hidden.has(ref)) {
+        return ok({ message: 'Reference already exists' }, 422);
+      }
+      branches.add(ref);
+      return ok({}, 201);
+    }
     if (href.includes('/contents/') && method === 'PUT') return ok({ commit: { sha: 'newsha' } }, 201);
     if (href.endsWith('/pulls') && method === 'POST') {
       return ok({ number: 42, html_url: 'https://github.com/o/r/pull/42' }, 201);
@@ -437,6 +461,72 @@ describe('what actually gets written', () => {
     const write = calls.find(c => c.method === 'PUT')!;
 
     expect(write.url).toContain(`${date}-pathfinder-society-at-tempest-games-2.md`);
+  });
+
+  // The bug this replaced: freeSlug only checked whether the file was on main,
+  // so a second submission while the first was still in review picked the same
+  // slug, failed to create the branch, and told the submitter to "try again" --
+  // which collided identically every time.
+  test('sidesteps a slug whose submission is still open, not yet merged', async () => {
+    const date = futureDate();
+    const openBranch = `submission/${date}-pathfinder-society-at-tempest-games`;
+
+    const { response, calls } = await submitAgainst(await goodBody(), {
+      existingBranches: [openBranch],
+    });
+
+    expect(response.status).toBe(201);
+
+    const write = calls.find(c => c.method === 'PUT')!;
+    expect(write.url).toContain(`${date}-pathfinder-society-at-tempest-games-2.md`);
+  });
+
+  test('steps past both a merged event and an open submission', async () => {
+    const date = futureDate();
+    const stem = `${date}-pathfinder-society-at-tempest-games`;
+
+    const { response, calls } = await submitAgainst(await goodBody(), {
+      existingPaths: [`src/content/calendar/${stem}.md`],
+      existingBranches: [`submission/${stem}-2`],
+    });
+
+    expect(response.status).toBe(201);
+    expect(calls.find(c => c.method === 'PUT')!.url).toContain(`${stem}-3.md`);
+  });
+
+  test('gives up with advice that works once every suffix is taken', async () => {
+    const date = futureDate();
+    const stem = `${date}-pathfinder-society-at-tempest-games`;
+
+    const { response } = await submitAgainst(await goodBody(), {
+      existingBranches: [
+        `submission/${stem}`,
+        `submission/${stem}-2`,
+        `submission/${stem}-3`,
+        `submission/${stem}-4`,
+        `submission/${stem}-5`,
+      ],
+    });
+
+    expect(response.status).toBe(409);
+    const body = await response.json();
+    expect(body.message).toMatch(/different name/i);
+    // Never tells them to retry, because retrying cannot help.
+    expect(body.message).not.toMatch(/try again/i);
+  });
+
+  // Between listing the branches and creating one, another submission can get
+  // there first. Rare, but the generic handler would have said "try again".
+  test('a branch appearing mid-flight is a conflict, not an opaque failure', async () => {
+    const date = futureDate();
+    const { response } = await submitAgainst(await goodBody(), {
+      hiddenBranches: [`submission/${date}-pathfinder-society-at-tempest-games`],
+    });
+
+    expect(response.status).toBe(409);
+    const body = await response.json();
+    expect(body.message).toMatch(/different name/i);
+    expect(body.message).not.toMatch(/try again/i);
   });
 
   test('refuses once the review queue is deep', async () => {

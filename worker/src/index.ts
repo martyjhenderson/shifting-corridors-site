@@ -32,9 +32,11 @@ import { buildEventMarkdown } from '../../src/shared/eventMarkdown';
 
 import { isRevoked, verifyInvite, type KVLike } from './auth';
 import {
+  BranchTakenError,
   appJwt,
   client,
   countOpenSubmissions,
+  existingBranches,
   fileExists,
   installationToken,
   openSubmissionPr,
@@ -223,7 +225,11 @@ export default {
       const finalSlug = await freeSlug(gh, env, slug);
       if (!finalSlug) {
         return json(
-          { message: 'An event with that name is already listed for that date.' },
+          {
+            message:
+              'An event with that name is already listed for that date, or is waiting to be ' +
+              'reviewed. Give it a slightly different name to tell them apart.',
+          },
           409,
           cors
         );
@@ -247,6 +253,21 @@ export default {
 
       return json({ ok: true, url: pull.url, number: pull.number }, 201, cors);
     } catch (error) {
+      if (error instanceof BranchTakenError) {
+        // Two submissions for the same event, racing. Telling this one to retry
+        // would be advice that cannot work, so say what will.
+        console.warn('submission collided', error.message);
+        return json(
+          {
+            message:
+              'Someone just submitted an event with this name for this date. Give yours a ' +
+              'slightly different name to tell them apart.',
+          },
+          409,
+          cors
+        );
+      }
+
       console.error('submission failed', error);
       return json(
         { message: 'Something went wrong saving that. It has been logged; please try again.' },
@@ -263,14 +284,28 @@ export default {
  * Two events genuinely can share a date and title — a morning and an evening
  * table — so a suffix is right rather than a refusal. Giving up after five keeps
  * a loop from turning into a subrequest budget.
+ *
+ * "Taken" means two different things, and checking only the first was a bug:
+ *
+ *   the file is on the base branch    the event is already published
+ *   a submission branch exists        an event is waiting to be reviewed
+ *
+ * An unmerged submission has no file yet, so a file-only check handed the second
+ * submitter the same slug, and creating the existing branch failed with a 422
+ * that surfaced as "please try again" — advice that could never work, since
+ * every retry collided identically.
  */
 async function freeSlug(
   gh: ReturnType<typeof client>,
   env: Env,
   slug: string
 ): Promise<string | null> {
+  // One call covers every candidate: they all start with this prefix.
+  const branches = await existingBranches(gh, env.GITHUB_REPO, `${BRANCH_PREFIX}${slug}`);
+
   for (let attempt = 1; attempt <= 5; attempt++) {
     const candidate = attempt === 1 ? slug : `${slug}-${attempt}`;
+    if (branches.has(`${BRANCH_PREFIX}${candidate}`)) continue;
     if (!(await fileExists(gh, env.GITHUB_REPO, eventPath(candidate), env.BASE_BRANCH))) {
       return candidate;
     }
