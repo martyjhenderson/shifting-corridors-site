@@ -1,0 +1,348 @@
+{
+	"$schema": "https://emdashcms.com/seed.schema.json",
+	"version": "1",
+	"meta": {
+		"name": "Shifting Corridors Lodge",
+		"description": "Events, news, and Game Masters for the Shifting Corridors Lodge",
+		"author": "Shifting Corridors Lodge"
+	},
+	"settings": {
+		"title": "Shifting Corridors Lodge",
+		"tagline": "Pathfinder and Starfinder Society in Eastern Iowa",
+		"url": "https://shiftingcorridors.com",
+		"timezone": "America/Chicago"
+	},
+	"collections": [
+		{
+			"slug": "events",
+			"label": "Events",
+			"labelSingular": "Event",
+			"description": "Game days, conventions, and other lodge events. The slug is the public URL (/events/<slug>) and can’t change once published. Date, time, scenarios, and the registration note are generated from the fields, so don’t repeat them in Extra sections.",
+			"icon": "calendar-blank",
+			"urlPattern": "/events/{slug}",
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search"
+			],
+			"titleField": "title",
+			"admin": {
+				"listColumns": [
+					"date",
+					"location",
+					"cancelled"
+				]
+			},
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "date",
+					"label": "Date",
+					"type": "string",
+					"required": true,
+					"indexed": true,
+					"validation": {
+						"pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+					},
+					"widget": "date-field:date"
+				},
+				{
+					"slug": "all_day",
+					"label": "All day (conventions, no single start time)",
+					"type": "boolean",
+					"defaultValue": false
+				},
+				{
+					"slug": "start_time",
+					"label": "Start time",
+					"type": "string",
+					"validation": {
+						"pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+					},
+					"widget": "date-field:time"
+				},
+				{
+					"slug": "end_time",
+					"label": "End time",
+					"type": "string",
+					"validation": {
+						"pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+					},
+					"widget": "date-field:time"
+				},
+				{
+					"slug": "location",
+					"label": "Location",
+					"type": "string",
+					"searchable": true
+				},
+				{
+					"slug": "address",
+					"label": "Address",
+					"type": "string"
+				},
+				{
+					"slug": "player_cap",
+					"label": "Players per table",
+					"type": "integer",
+					"validation": {
+						"min": 1
+					}
+				},
+				{
+					"slug": "levels",
+					"label": "Level range (blank if it varies per scenario)",
+					"type": "string"
+				},
+				{
+					"slug": "cancelled",
+					"label": "Cancelled (shows a banner; don’t edit the title)",
+					"type": "boolean",
+					"defaultValue": false
+				},
+				{
+					"slug": "intro",
+					"label": "Intro (one or two sentences)",
+					"type": "text",
+					"searchable": true
+				},
+				{
+					"slug": "special_note",
+					"label": "Special note",
+					"type": "string"
+				},
+				{
+					"slug": "gamemaster",
+					"label": "Game Master (only if one GM runs everything)",
+					"type": "string"
+				},
+				{
+					"slug": "scenarios",
+					"label": "Scenarios",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "name",
+								"label": "Name",
+								"type": "string",
+								"required": true
+							},
+							{
+								"slug": "system",
+								"label": "System",
+								"type": "select",
+								"options": [
+									"Pathfinder",
+									"Starfinder"
+								]
+							},
+							{
+								"slug": "edition",
+								"label": "Edition",
+								"type": "select",
+								"options": [
+									"1E",
+									"2E"
+								]
+							},
+							{
+								"slug": "type",
+								"label": "Type",
+								"type": "select",
+								"options": [
+									"Scenario",
+									"Quest",
+									"Adventure",
+									"Bounty",
+									"Module",
+									"One-Shot"
+								]
+							},
+							{
+								"slug": "levels",
+								"label": "Levels",
+								"type": "string"
+							},
+							{
+								"slug": "start_time",
+								"label": "Start time (HH:MM, only if different)",
+								"type": "string"
+							},
+							{
+								"slug": "end_time",
+								"label": "End time (HH:MM)",
+								"type": "string"
+							},
+							{
+								"slug": "player_cap",
+								"label": "Players",
+								"type": "integer"
+							},
+							{
+								"slug": "gamemaster",
+								"label": "Game Master",
+								"type": "string"
+							},
+							{
+								"slug": "repeatable",
+								"label": "Repeatable",
+								"type": "boolean"
+							},
+							{
+								"slug": "pregens",
+								"label": "Pregenerated characters",
+								"type": "boolean"
+							},
+							{
+								"slug": "cancelled",
+								"label": "Cancelled",
+								"type": "boolean"
+							},
+							{
+								"slug": "signup_url",
+								"label": "Signup URL",
+								"type": "url"
+							}
+						]
+					}
+				},
+				{
+					"slug": "body",
+					"label": "Extra sections (only what the fields above can’t say)",
+					"type": "portableText"
+				}
+			]
+		},
+		{
+			"slug": "news",
+			"label": "News",
+			"labelSingular": "Article",
+			"description": "Lodge announcements shown on the home page.",
+			"icon": "newspaper",
+			"routable": false,
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"scheduling"
+			],
+			"titleField": "title",
+			"admin": {
+				"listColumns": [
+					"date"
+				]
+			},
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "date",
+					"label": "Date",
+					"type": "string",
+					"required": true,
+					"indexed": true,
+					"validation": {
+						"pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+					},
+					"widget": "date-field:date"
+				},
+				{
+					"slug": "body",
+					"label": "Body",
+					"type": "portableText",
+					"required": true,
+					"searchable": true
+				}
+			]
+		},
+		{
+			"slug": "gamemasters",
+			"label": "Game Masters",
+			"labelSingular": "Game Master",
+			"icon": "user-circle",
+			"routable": false,
+			"supports": [
+				"drafts",
+				"revisions"
+			],
+			"titleField": "title",
+			"admin": {
+				"listColumns": [
+					"first_name",
+					"last_initial",
+					"games"
+				]
+			},
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "date",
+					"label": "Date added",
+					"type": "string",
+					"validation": {
+						"pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+					},
+					"widget": "date-field:date"
+				},
+				{
+					"slug": "first_name",
+					"label": "First name",
+					"type": "string",
+					"required": true,
+					"indexed": true
+				},
+				{
+					"slug": "last_initial",
+					"label": "Last initial",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "organized_play_number",
+					"label": "Organized Play number",
+					"type": "integer"
+				},
+				{
+					"slug": "games",
+					"label": "Games",
+					"type": "multiSelect",
+					"validation": {
+						"options": [
+							"Pathfinder",
+							"Starfinder"
+						]
+					}
+				},
+				{
+					"slug": "venture_officer",
+					"label": "Venture Officer role",
+					"type": "string"
+				},
+				{
+					"slug": "bio",
+					"label": "Bio",
+					"type": "portableText"
+				}
+			]
+		}
+	]
+}

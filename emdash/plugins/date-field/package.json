@@ -1,0 +1,16 @@
+{
+	"name": "@shifting-corridors/plugin-date-field",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Date-only and time-only pickers for EmDash string fields, storing YYYY-MM-DD and HH:MM.",
+	"exports": {
+		".": "./src/index.ts",
+		"./admin": "./src/admin.tsx"
+	},
+	"peerDependencies": {
+		"@cloudflare/kumo": "*",
+		"emdash": "*",
+		"react": "^19.0.0"
+	}
+}

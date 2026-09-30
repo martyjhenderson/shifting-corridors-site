@@ -57,4 +57,6 @@ Everything renders from front-matter — date, time, scenarios, and the registra
 
 The CMS form (`public/admin-config.yml`), the `MarkdownMeta`/`Scenario` types (`src/utils/staticData.ts`), and the rendering (`src/components/EventDetails.tsx`) are three descriptions of one schema — change all three together. `src/tests/cmsConfig.test.ts` fails if content uses a key the form doesn't declare.
 
+`emdash/` is an in-progress rewrite on EmDash (Astro on Cloudflare Workers), not yet deployed; see `emdash/README.md`. Its `seed/seed.json` is a fourth description of the same schema, in snake_case; `src/tests/emdashSeed.test.ts` fails if it drifts from the form.
+
 Quote any front-matter value containing `#`: unquoted, YAML reads ` #` as a comment, which silently truncated the Diversions address in 30 files.
