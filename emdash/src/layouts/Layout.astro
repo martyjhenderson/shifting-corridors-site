@@ -1,0 +1,74 @@
+---
+// The page shell from the React site (../src/App.tsx and ../index.html): header
+// with logo and theme toggle, fonts, analytics, and the RSS/manifest links.
+import "../styles/site.css";
+
+interface Props {
+	/** Page-specific title; the site name is appended. Omit on the home page. */
+	title?: string;
+	description?: string;
+}
+
+const SITE_NAME = "Shifting Corridors Lodge";
+const { title, description } = Astro.props;
+const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
+const pageDescription =
+	description ??
+	"Shifting Corridors Lodge - A Paizo Organized Play Lodge for the Iowa City and Cedar Rapids areas";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={pageDescription} />
+		<meta name="theme-color" content="#8B4513" />
+		<link rel="icon" href="/favicon.png" />
+		<link rel="apple-touch-icon" href="/logo192.png" />
+		<link rel="manifest" href="/manifest.json" />
+		<link rel="alternate" type="application/rss+xml" title="Shifting Corridors Lodge Calendar" href="/feed.xml" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<!--
+			Apply the saved theme before first paint, so a sci-fi reader doesn't see
+			a flash of medieval. The React app kept the choice in memory, which was
+			enough for a single-page app; pages here are separate loads.
+		-->
+		<script is:inline>
+			try {
+				if (localStorage.getItem("theme") === "scifi") document.documentElement.dataset.theme = "scifi";
+			} catch {}
+		</script>
+		<!-- Fathom - beautiful, simple website analytics -->
+		<script src="https://cdn.usefathom.com/script.js" data-site="ELTMMRHY" defer is:inline></script>
+		<!-- / Fathom -->
+	</head>
+	<body>
+		<div class="app-container">
+			<header class="site-header">
+				<a href="/" class="logo-link">
+					<img class="logo" src="/logo.png" alt="Shifting Corridors Lodge Logo" />
+				</a>
+				<button type="button" class="theme-toggle" id="theme-toggle">
+					<span class="to-scifi">Switch to Sci-Fi Theme</span>
+					<span class="to-medieval">Switch to Medieval Theme</span>
+				</button>
+			</header>
+			<slot />
+		</div>
+		<script is:inline>
+			document.getElementById("theme-toggle").addEventListener("click", () => {
+				const root = document.documentElement;
+				const next = root.dataset.theme === "scifi" ? "medieval" : "scifi";
+				root.dataset.theme = next;
+				try {
+					localStorage.setItem("theme", next);
+				} catch {}
+			});
+		</script>
+	</body>
+</html>

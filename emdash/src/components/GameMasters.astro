@@ -1,0 +1,32 @@
+---
+import type { ContentEntry } from "emdash";
+import type { Gamemaster } from "../../emdash-env";
+
+interface Props {
+	gamemasters: ContentEntry<Gamemaster>[];
+}
+const { gamemasters } = Astro.props;
+---
+
+<div class="card gamemasters">
+	<h2>Game Masters</h2>
+	<div class="gm-list">
+		{
+			gamemasters.map(({ data: gm }) => (
+				<div class="gm-card">
+					<div class="gm-name">
+						{gm.first_name} {gm.last_initial}.
+					</div>
+					{gm.venture_officer && <div class="gm-venture-officer">{gm.venture_officer}</div>}
+					<div class="gm-id">Organized Play #: {gm.organized_play_number ?? ""}</div>
+					<div class="gm-games">
+						<div class="gm-games-title">Games:</div>
+						{(gm.games ?? []).map((game) => (
+							<span class="gm-game">{game}</span>
+						))}
+					</div>
+				</div>
+			))
+		}
+	</div>
+</div>

@@ -1,0 +1,29 @@
+---
+import type { ContentEntry } from "emdash";
+import { PortableText } from "emdash/ui";
+import type { New } from "../../emdash-env";
+
+interface Props {
+	articles: ContentEntry<New>[];
+}
+const { articles } = Astro.props;
+---
+
+<div class="card news">
+	<h2>Latest News</h2>
+	<div class="news-list">
+		{
+			articles.map((article) => (
+				<div class="news-article" id={article.id}>
+					<div class="news-header">
+						<h3 class="news-title">{article.data.title}</h3>
+						<span class="news-date">{article.data.date}</span>
+					</div>
+					<div class="news-content">
+						<PortableText value={article.data.body} />
+					</div>
+				</div>
+			))
+		}
+	</div>
+</div>
