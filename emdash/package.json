@@ -1,0 +1,37 @@
+{
+  "name": "shifting-corridors-emdash",
+  "version": "0.0.3",
+  "private": true,
+  "type": "module",
+  "emdash": {
+    "label": "Shifting Corridors Lodge",
+    "seed": "seed/seed.json"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "astro build && wrangler deploy",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.3.1",
+    "@astrojs/react": "^6.0.5",
+    "@emdash-cms/cloudflare": "^1.0.1",
+    "@shifting-corridors/plugin-date-field": "file:plugins/date-field",
+    "astro": "^7.3.2",
+    "emdash": "^1.0.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@cloudflare/workers-types": "^5.20260820.1",
+    "wrangler": "^4.125.0"
+  },
+  "allowScripts": {
+    "workerd@1.20260926.1": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.28.1": true
+  }
+}

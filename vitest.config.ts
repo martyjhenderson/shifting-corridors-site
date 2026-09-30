@@ -11,7 +11,9 @@ export default defineConfig({
     // e2e/ holds Playwright specs (real-browser mobile layout checks, run
     // via `npm run test:e2e`), not Vitest tests — exclude them from the
     // default jsdom run.
-    exclude: ['e2e/**', 'node_modules/**'],
+    // emdash/ is the Astro + EmDash rewrite, a separate project with its own
+    // dependencies; its node_modules would otherwise be scanned for tests.
+    exclude: ['e2e/**', 'node_modules/**', 'emdash/**'],
   },
   resolve: {
     alias: {

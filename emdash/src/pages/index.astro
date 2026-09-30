@@ -1,0 +1,53 @@
+---
+// Placeholder home page: proves the events and news collections are wired up.
+// The real design (calendar, themes, sidebar) is ported from the React site
+// in a later step.
+import { getEmDashCollection } from "emdash";
+import { PortableText } from "emdash/ui";
+import Base from "../layouts/Base.astro";
+import { todayInLodgeTimezone } from "../utils/dates";
+
+const [eventsResult, newsResult] = await Promise.all([
+	// Newest first, so upcoming events are always inside the limit.
+	getEmDashCollection("events", { orderBy: { date: "desc" }, limit: 100 }),
+	getEmDashCollection("news", { orderBy: { date: "desc" }, limit: 10 }),
+]);
+if (eventsResult.error) throw eventsResult.error;
+if (newsResult.error) throw newsResult.error;
+if (Astro.cache?.enabled) {
+	Astro.cache.set(eventsResult.cacheHint);
+	Astro.cache.set(newsResult.cacheHint);
+}
+
+const today = todayInLodgeTimezone();
+const upcoming = eventsResult.entries.filter((e) => e.data.date >= today).reverse();
+---
+
+<Base title="Shifting Corridors Lodge">
+	<h1>Upcoming events</h1>
+	{
+		upcoming.length === 0 ? (
+			<p>No upcoming events.</p>
+		) : (
+			<ul>
+				{upcoming.map((event) => (
+					<li>
+						<a href={`/events/${event.id}`}>{event.data.title}</a> — {event.data.date}
+						{event.data.cancelled && <strong> (cancelled)</strong>}
+					</li>
+				))}
+			</ul>
+		)
+	}
+
+	<h1>News</h1>
+	{
+		newsResult.entries.map((article) => (
+			<article id={article.id}>
+				<h2>{article.data.title}</h2>
+				<p>{article.data.date}</p>
+				<PortableText value={article.data.body} />
+			</article>
+		))
+	}
+</Base>
