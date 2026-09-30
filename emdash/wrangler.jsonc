@@ -4,6 +4,12 @@
 	"main": "./src/worker.ts",
 	"compatibility_date": "2026-02-24",
 	"compatibility_flags": ["nodejs_compat"],
+	// The public origin. EmDash refuses to run setup without it, and binds
+	// passkeys to it. Change it to https://shiftingcorridors.com at cutover
+	// (see README.md, "Moving to shiftingcorridors.com").
+	"vars": {
+		"EMDASH_SITE_URL": "https://shifting-corridors.ravegrunt.workers.dev",
+	},
 	"d1_databases": [
 		{
 			"binding": "DB",

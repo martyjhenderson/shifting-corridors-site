@@ -2,6 +2,7 @@
 // The page shell from the React site (../src/App.tsx and ../index.html): header
 // with logo and theme toggle, fonts, analytics, and the RSS/manifest links.
 import "../styles/site.css";
+import { isProductionHost } from "../utils/hosts";
 
 interface Props {
 	/** Page-specific title; the site name is appended. Omit on the home page. */
@@ -11,6 +12,8 @@ interface Props {
 
 const SITE_NAME = "Shifting Corridors Lodge";
 const { title, description } = Astro.props;
+// Only the real site counts toward analytics, not the workers.dev trial or dev.
+const countVisits = isProductionHost(Astro.url);
 const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
 const pageDescription =
 	description ??
@@ -43,9 +46,7 @@ const pageDescription =
 				if (localStorage.getItem("theme") === "scifi") document.documentElement.dataset.theme = "scifi";
 			} catch {}
 		</script>
-		<!-- Fathom - beautiful, simple website analytics -->
-		<script src="https://cdn.usefathom.com/script.js" data-site="ELTMMRHY" defer is:inline></script>
-		<!-- / Fathom -->
+		{countVisits && <script src="https://cdn.usefathom.com/script.js" data-site="ELTMMRHY" defer is:inline />}
 	</head>
 	<body>
 		<div class="app-container">
