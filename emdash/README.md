@@ -6,10 +6,9 @@ S3/CloudFront; nothing here is deployed yet.
 
 ## Migration steps
 
-1. **Schema and scaffold** (done): `events`, `news`, and `gamemasters` collections in `seed/seed.json`, plus
-   placeholder pages at `/` and `/events/<slug>` that prove the queries and URLs work.
-2. Import script from `src/content/**/*.md`; check that every current `/events/<slug>` and `/feed.xml` has a
-   matching page. Port the real design.
+1. **Schema and scaffold** (done): `events`, `news`, and `gamemasters` collections in `seed/seed.json`.
+2. **Import and design port** (done): `scripts/import-content.ts` loads the markdown; the pages are ported
+   from the React site; `scripts/check-parity.ts` confirms every page matches it.
 3. Deploy to `workers.dev` alongside S3 and have a few GMs try it.
 4. Move the DNS zone to Cloudflare and point `shiftingcorridors.com` at the Worker.
 5. Retire AWS, Sveltia, and the content-branch workflows.
@@ -23,6 +22,69 @@ npm run dev
 
 Open http://localhost:4321/_emdash/admin. The first request applies `seed/seed.json` to the local D1 database
 (in `.wrangler/`). The dev server prints a **Dev bypass** link that signs you in as an admin without a passkey.
+
+The database starts empty. Load the site's content from `../src/content` with:
+
+```bash
+npm run import-content -- --dry-run                       # check every file maps, write nothing
+npm run import-content -- --url http://localhost:4321
+```
+
+Node 22.18 or later runs the TypeScript scripts directly.
+
+## Importing content
+
+`scripts/import-content.ts` reads every markdown file, maps its front-matter onto the EmDash fields
+(`scripts/lib/map-content.ts`), and creates and publishes one entry per file, with the filename as its slug.
+
+- Every file is checked before anything is written. An unknown front-matter key, a date that isn't
+  `YYYY-MM-DD`, or a time that isn't `HH:MM` stops the run, rather than being dropped.
+- An entry that already exists is skipped, so a re-run never overwrites edits made in the admin.
+  `--overwrite` replaces them with the markdown version.
+- Localhost needs no credentials. For a deployed site, create a token under **Settings → API Tokens** and pass
+  it as `EMDASH_TOKEN`.
+
+Two things don't carry over exactly:
+
+- Four Game Master files have no `title`; they get `Game Master: <First> <L>.`, which only the admin list shows.
+- `tempest-jan-15-2026` has a numbered list starting at 2. Portable Text lists always start at 1. The list
+  number isn't visible text, so the parity check doesn't flag it.
+
+EmDash's markdown converter reads `_italic_` but leaves `*italic*` as literal asterisks, so the importer
+rewrites one to the other first.
+
+## Checking parity with the React site
+
+The pages must read the same as the React site's. With both running (the React site with `npm run dev` in the
+repo root, on :3000):
+
+```bash
+npm run check-parity -- --new http://localhost:4321
+```
+
+It renders all 103 event pages, the home page, and a 404 on both sites in Chrome, and compares their visible
+text and links; it also compares the RSS feed item by item. A difference fails the run.
+
+The repo's mobile layout tests also run against this site:
+
+```bash
+cd .. && E2E_BASE_URL=http://localhost:4321 npx playwright test
+```
+
+Both sites fail the same three tests: calendar day cells are 40px tall, under the spec's 44px tap target.
+
+### Deliberate differences
+
+- An unknown URL answers **404** with the "Event Not Found" page; the React site answered 200.
+- The theme choice is remembered across pages and visits. The React site kept it in memory, which was enough
+  for a single-page app.
+- Event pages have their own `<title>` (`<event> — Shifting Corridors Lodge`) instead of the site name alone.
+- Calendar days are buttons, so they can be reached with the keyboard.
+- An RSS item's `pubDate` is when the entry was last updated; it was the markdown file's last commit. Links and
+  GUIDs are unchanged, so readers don't see items as new.
+- `/admin.html` redirects to the EmDash admin.
+- `/submit-event` isn't ported. It sends GM submissions to GitHub, which EmDash replaces; whether to keep a
+  public form is still open.
 
 ## Schema
 

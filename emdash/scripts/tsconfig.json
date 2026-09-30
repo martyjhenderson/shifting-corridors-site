@@ -1,0 +1,17 @@
+{
+	// The scripts here run under plain Node (22.18+ strips the types), not
+	// Astro, so they don't extend ../tsconfig.json. Standalone also lets the
+	// repo root's Vitest compile scripts/lib/map-content.ts in CI, where
+	// emdash/node_modules — and so astro/tsconfigs/base — isn't installed.
+	"compilerOptions": {
+		"target": "ES2024",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"types": ["node"]
+	},
+	"include": ["**/*.ts"]
+}

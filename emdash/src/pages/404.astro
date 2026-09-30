@@ -1,9 +1,15 @@
 ---
-import Base from "../layouts/Base.astro";
+// The React site answered every unknown URL with the app and a soft "Event Not
+// Found"; this is a real 404 with the same wording.
+import Layout from "../layouts/Layout.astro";
+
+Astro.response.status = 404;
 ---
 
-<Base title="Not Found">
-	<h1>Page not found</h1>
-	<p>The page you're looking for doesn't exist.</p>
-	<a href="/">Go home</a>
-</Base>
+<Layout title="Not Found">
+	<a href="/" class="back-button">Back to Calendar</a>
+	<div class="card event-container">
+		<h1>Event Not Found</h1>
+		<p>The requested event could not be found.</p>
+	</div>
+</Layout>

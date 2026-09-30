@@ -72,7 +72,10 @@ test.describe('tap targets', () => {
     await page.locator('.event-link').first().click();
     await page.waitForLoadState('networkidle');
 
-    const backButton = page.getByRole('button', { name: /back to calendar/i });
+    // A <button> on the React site, a link on the EmDash one; same tap target.
+    const backButton = page
+      .getByRole('button', { name: /back to calendar/i })
+      .or(page.getByRole('link', { name: /back to calendar/i }));
     const box = await backButton.boundingBox();
     expect(box).not.toBeNull();
     expect(box!.height).toBeGreaterThanOrEqual(MIN_TAP_TARGET);

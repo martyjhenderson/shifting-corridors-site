@@ -1,53 +1,36 @@
 ---
-// Placeholder home page: proves the events and news collections are wired up.
-// The real design (calendar, themes, sidebar) is ported from the React site
-// in a later step.
-import { getEmDashCollection } from "emdash";
-import { PortableText } from "emdash/ui";
-import Base from "../layouts/Base.astro";
-import { todayInLodgeTimezone } from "../utils/dates";
+// The home page from ../src/App.tsx: calendar, about, and news in the main
+// column; contact and Game Masters in the sidebar.
+import About from "../components/About.astro";
+import Calendar from "../components/Calendar";
+import Contact from "../components/Contact.astro";
+import GameMasters from "../components/GameMasters.astro";
+import News from "../components/News.astro";
+import Layout from "../layouts/Layout.astro";
+import { getAllEntries } from "../utils/content";
 
-const [eventsResult, newsResult] = await Promise.all([
-	// Newest first, so upcoming events are always inside the limit.
-	getEmDashCollection("events", { orderBy: { date: "desc" }, limit: 100 }),
-	getEmDashCollection("news", { orderBy: { date: "desc" }, limit: 10 }),
+const [events, news, gamemasters] = await Promise.all([
+	getAllEntries("events", { orderBy: { date: "desc" } }),
+	getAllEntries("news", { orderBy: { date: "desc" } }),
+	getAllEntries("gamemasters", { orderBy: { first_name: "asc" } }),
 ]);
-if (eventsResult.error) throw eventsResult.error;
-if (newsResult.error) throw newsResult.error;
 if (Astro.cache?.enabled) {
-	Astro.cache.set(eventsResult.cacheHint);
-	Astro.cache.set(newsResult.cacheHint);
+	for (const hint of [...events.cacheHints, ...news.cacheHints, ...gamemasters.cacheHints]) Astro.cache.set(hint);
 }
 
-const today = todayInLodgeTimezone();
-const upcoming = eventsResult.entries.filter((e) => e.data.date >= today).reverse();
+const calendarEvents = events.entries.map((e) => ({ date: e.data.date, title: e.data.title, slug: e.id }));
 ---
 
-<Base title="Shifting Corridors Lodge">
-	<h1>Upcoming events</h1>
-	{
-		upcoming.length === 0 ? (
-			<p>No upcoming events.</p>
-		) : (
-			<ul>
-				{upcoming.map((event) => (
-					<li>
-						<a href={`/events/${event.id}`}>{event.data.title}</a> — {event.data.date}
-						{event.data.cancelled && <strong> (cancelled)</strong>}
-					</li>
-				))}
-			</ul>
-		)
-	}
-
-	<h1>News</h1>
-	{
-		newsResult.entries.map((article) => (
-			<article id={article.id}>
-				<h2>{article.data.title}</h2>
-				<p>{article.data.date}</p>
-				<PortableText value={article.data.body} />
-			</article>
-		))
-	}
-</Base>
+<Layout>
+	<div class="main-grid">
+		<main class="main-content">
+			<Calendar client:load events={calendarEvents} />
+			<About />
+			<News articles={news.entries} />
+		</main>
+		<aside class="sidebar">
+			<Contact />
+			<GameMasters gamemasters={gamemasters.entries} />
+		</aside>
+	</div>
+</Layout>

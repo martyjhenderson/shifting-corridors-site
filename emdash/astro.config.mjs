@@ -21,5 +21,7 @@ export default defineConfig({
 			plugins: [dateFieldPlugin()],
 		}),
 	],
+	// The Sveltia CMS lived at /admin.html; send bookmarks to EmDash's admin.
+	redirects: { "/admin.html": "/_emdash/admin/" },
 	devToolbar: { enabled: false },
 });

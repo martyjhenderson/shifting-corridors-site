@@ -1,56 +1,92 @@
 ---
-// Placeholder event page at the same URL as today's /events/<slug>. It shows
-// every field so the schema can be checked; the real EventDetails layout is
-// ported from the React site in a later step.
-import { getEmDashEntry } from "emdash";
+// The event page from ../src/components/EventDetails.tsx, at the same URL.
+// Everything above the extra sections is generated from the fields.
+import { decodeSlug, getEmDashEntry } from "emdash";
 import { PortableText } from "emdash/ui";
-import Base from "../../layouts/Base.astro";
+import Layout from "../../layouts/Layout.astro";
+import {
+	formatEventDate,
+	formatRegistrationNote,
+	formatScenarioTags,
+	formatTimeRange,
+} from "../../utils/eventFormat";
 
-const { slug } = Astro.params;
+const slug = decodeSlug(Astro.params.slug);
 if (!slug) return Astro.rewrite("/404");
 
-const { entry: event, cacheHint, error } = await getEmDashEntry("events", slug);
+const { entry, cacheHint, error } = await getEmDashEntry("events", slug);
 if (error) throw error;
-if (!event) return Astro.rewrite("/404");
+if (!entry) return Astro.rewrite("/404");
 if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
 
-const d = event.data;
-const time = d.all_day ? "All day" : [d.start_time, d.end_time].filter(Boolean).join("–");
+const event = entry.data;
+const scenarios = event.scenarios ?? [];
+const timeRange = formatTimeRange(event);
+const registrationNote = formatRegistrationNote(event);
 ---
 
-<Base
-	title={d.title}
-	description={d.intro}
-	content={{ collection: "events", id: event.data.id, slug: event.id }}
->
-	<article {...event.edit}>
-		<h1>{d.title}</h1>
-		{d.cancelled && <p><strong>This event has been cancelled.</strong></p>}
-		{d.intro && <p>{d.intro}</p>}
-		<dl>
-			<dt>Date</dt><dd>{d.date}{time && ` · ${time}`}</dd>
-			{d.location && <><dt>Location</dt><dd>{d.location}</dd></>}
-			{d.address && <><dt>Address</dt><dd>{d.address}</dd></>}
-			{d.levels && <><dt>Levels</dt><dd>{d.levels}</dd></>}
-			{d.player_cap && <><dt>Players</dt><dd>{d.player_cap}</dd></>}
-			{d.gamemaster && <><dt>Game Master</dt><dd>{d.gamemaster}</dd></>}
-			{d.special_note && <><dt>Note</dt><dd>{d.special_note}</dd></>}
-		</dl>
+<Layout title={event.title} description={event.intro}>
+	<a href="/" class="back-button">Back to Calendar</a>
+	<div class="card event-container">
+		<h1>{event.title}</h1>
+
+		{event.cancelled && <p class="cancelled-banner">This event has been cancelled.</p>}
+
+		{event.intro && <p>{event.intro}</p>}
+
+		<h2>Details</h2>
+		<ul>
+			<li><strong>Date:</strong> {formatEventDate(event.date)}</li>
+			{timeRange && <li><strong>Time:</strong> {timeRange}</li>}
+			{event.location && <li><strong>Location:</strong> {event.location}</li>}
+			{event.address && <li><strong>Address:</strong> {event.address}</li>}
+			{event.levels && <li><strong>Level Range:</strong> {event.levels}</li>}
+			{event.player_cap && <li><strong>Players:</strong> {event.player_cap} players</li>}
+			{event.gamemaster && <li><strong>Game Master:</strong> {event.gamemaster}</li>}
+			{event.special_note && <li><strong>Special Note:</strong> {event.special_note}</li>}
+		</ul>
+
 		{
-			d.scenarios && d.scenarios.length > 0 && (
-				<ul>
-					{d.scenarios.map((s) => (
-						<li>
-							{s.signup_url && !s.cancelled ? <a href={s.signup_url}>{s.name}</a> : s.name}
-							{s.cancelled && " (cancelled)"}
-							{[s.system, s.edition, s.type, s.levels && `levels ${s.levels}`, s.gamemaster && `GM ${s.gamemaster}`]
-								.filter(Boolean)
-								.join(" · ")}
-						</li>
-					))}
-				</ul>
+			scenarios.length > 0 && (
+				<>
+					<h2>{scenarios.length === 1 ? "Scenario" : "Available Scenarios"}</h2>
+					<ol class="scenario-list">
+						{scenarios.map((scenario) => {
+							const tags = formatScenarioTags(scenario);
+							return (
+								<li>
+									<strong>{scenario.name}</strong>
+									{tags && <span class="scenario-tags"> ({tags})</span>}
+									{scenario.gamemaster && <span> — GM: {scenario.gamemaster}</span>}
+									{scenario.cancelled ? (
+										<span class="scenario-cancelled"> — Cancelled</span>
+									) : (
+										scenario.signup_url && (
+											<>
+												{" — "}
+												<a href={scenario.signup_url} target="_blank" rel="noopener noreferrer">
+													Sign up here
+												</a>
+											</>
+										)
+									)}
+								</li>
+							);
+						})}
+					</ol>
+				</>
 			)
 		}
-		{d.body && <PortableText value={d.body} />}
-	</article>
-</Base>
+
+		{
+			registrationNote && (
+				<>
+					<h2>Registration</h2>
+					<p>{registrationNote}</p>
+				</>
+			)
+		}
+
+		{event.body && event.body.length > 0 && <PortableText value={event.body} />}
+	</div>
+</Layout>
