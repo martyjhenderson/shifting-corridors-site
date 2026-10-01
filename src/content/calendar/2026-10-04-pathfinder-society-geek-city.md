@@ -2,7 +2,7 @@
 title: Pathfinder Society - Geek City
 date: '2026-10-04'
 location: Geek City Games
-address: 617 Center Point Rd NE, Cedar Rapids, IA 52402
+address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317'
 startTime: '12:00'
 endTime: '17:00'
 playerCap: 5

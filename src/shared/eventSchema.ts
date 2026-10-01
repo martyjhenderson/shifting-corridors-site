@@ -38,8 +38,8 @@ export interface Venue {
 export const VENUES: readonly Venue[] = [
   { name: 'Tempest Games', address: '212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405' },
   { name: 'Diversions', address: '119 2nd St #300, Coralville, IA 52241' },
-  { name: 'Geek City Games', address: '617 Center Point Rd NE, Cedar Rapids, IA 52402' },
-  { name: 'Replay Games', address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317' },
+  { name: 'Geek City Games', address: '365 Beaver Kreek Center suite b, North Liberty, IA 52317' },
+  { name: 'Replay Games', address: '617 Center Point Rd NE, Cedar Rapids, IA 52402' },
   {
     name: 'Hyatt Regency Coralville Hotel & Conference Center',
     address: '300 E 9th St, Coralville, IA 52241, USA',
