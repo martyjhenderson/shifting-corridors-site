@@ -2,10 +2,11 @@
 
 ## Workflows Overview
 
-This repository uses two main deployment workflows:
+This repository uses three deployment workflows:
 
 1. **Production Deployment** (`deploy-production.yml`) - Deploys to production when changes are merged to `main`
 2. **Dev Deployment on PR** (`deploy-dev-on-pr.yml`) - Deploys to dev environment when PRs are opened/updated
+3. **Submission Worker Deployment** (`deploy-worker.yml`) - Deploys the event submission Worker to Cloudflare when its code or `src/shared/` changes on `main`
 
 ## Production Deployment Workflow
 
@@ -134,6 +135,27 @@ Add the following secret for dev deployment:
 The workflow automatically adds comments to PRs with:
 - ✅ Success: Preview link and deployment details
 - ❌ Failure: Error notification with link to logs
+
+## Submission Worker Deployment Workflow
+
+The `deploy-worker.yml` workflow deploys `worker/` (the `sc-event-submissions` Worker behind the event submission form) to Cloudflare Workers.
+
+It runs on pushes to `main` that touch `worker/`, `src/shared/`, `package-lock.json`, or the workflow itself. The Worker bundles `src/shared/eventSchema.ts`, so a change to the venue list only reaches the live form once this runs. It can also be started by hand from the Actions tab.
+
+### Required Setup for Worker Deployment
+
+Add two repository secrets:
+
+- `CLOUDFLARE_API_TOKEN` - an API token made from the **Edit Cloudflare Workers** template, scoped to the account that owns `sc-event-submissions`
+- `CLOUDFLARE_ACCOUNT_ID` - that account's ID
+
+The Worker's own secrets (the GitHub App private key, the Turnstile secret, the invite signing secret) are set with `wrangler secret put` and survive deploys; the workflow never touches them.
+
+### Worker Workflow Behavior
+
+1. Installs the root dependencies (the Worker resolves `js-yaml` from them)
+2. Runs the unit tests, and stops if they fail
+3. Deploys with the Wrangler version pinned in `worker/package.json`
 
 ## Security Notes
 
