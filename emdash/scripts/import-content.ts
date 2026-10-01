@@ -5,6 +5,8 @@
  *   node scripts/import-content.ts --url http://localhost:4321
  *   EMDASH_TOKEN=ec_pat_... node scripts/import-content.ts --url https://<worker>.workers.dev
  *
+ * A token needs the content:read, content:write, and schema:read scopes.
+ *
  * Every file is mapped and checked before anything is written, so a bad file
  * stops the run without leaving half an import behind. Each entry is created
  * with the filename as its slug and then published.
@@ -82,6 +84,29 @@ async function findBySlug(client: EmDashClient, collection: string, slug: string
 	}
 }
 
+/**
+ * The token needs content:read (find existing entries), content:write (create
+ * and publish), and schema:read (the client reads each collection's fields to
+ * convert markdown). Check once, before writing anything, rather than failing
+ * every entry with the same scope error.
+ */
+async function checkAccess(client: EmDashClient, collections: string[]) {
+	try {
+		for (const collection of collections) {
+			await client.collection(collection);
+			await client.list(collection, { limit: 1 });
+		}
+	} catch (error) {
+		if (error instanceof EmDashApiError && (error.status === 401 || error.status === 403)) {
+			console.error(
+				`The token was refused (${error.message}). It needs the content:read, content:write, and schema:read scopes. Nothing was written.`,
+			);
+			process.exit(1);
+		}
+		throw error;
+	}
+}
+
 async function main() {
 	const entries = readSources();
 	const counts = Object.fromEntries(COLLECTIONS.map((c) => [c, 0]));
@@ -95,6 +120,7 @@ async function main() {
 	}
 
 	const client = createClient();
+	await checkAccess(client, [...new Set(entries.map((e) => e.collection))]);
 	const result = { created: 0, overwritten: 0, skipped: 0, failed: 0 };
 	for (const entry of entries) {
 		const label = `${entry.collection}/${entry.slug}`;

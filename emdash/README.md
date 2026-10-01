@@ -2,14 +2,15 @@
 
 This is the in-progress rewrite of the site on [EmDash](https://docs.emdashcms.com), a CMS built on Astro and
 running as a Cloudflare Worker with D1 and R2. The live site is still the React app in the repo root, on
-S3/CloudFront; nothing here is deployed yet.
+S3/CloudFront. This version runs beside it at https://shifting-corridors.ravegrunt.workers.dev for Game
+Masters to try.
 
 ## Migration steps
 
 1. **Schema and scaffold** (done): `events`, `news`, and `gamemasters` collections in `seed/seed.json`.
 2. **Import and design port** (done): `scripts/import-content.ts` loads the markdown; the pages are ported
    from the React site; `scripts/check-parity.ts` confirms every page matches it.
-3. Deploy to `workers.dev` alongside S3 and have a few GMs try it.
+3. **Trial on `workers.dev`** (deployed and imported): a few GMs try it alongside the live site.
 4. Move the DNS zone to Cloudflare and point `shiftingcorridors.com` at the Worker.
 5. Retire AWS, Sveltia, and the content-branch workflows.
 
@@ -32,6 +33,46 @@ npm run import-content -- --url http://localhost:4321
 
 Node 22.18 or later runs the TypeScript scripts directly.
 
+## Deploying
+
+```bash
+npm run deploy     # astro build && wrangler deploy
+```
+
+The Worker is `shifting-corridors`; its D1 database, R2 bucket, and session KV namespace are named after it,
+and Wrangler created them on the first deploy. The scheduled handler runs every minute, for scheduled
+publishing and maintenance.
+
+- **`EMDASH_SITE_URL`** (a var in `wrangler.jsonc`) is the site's public origin. EmDash won't run the setup
+  wizard without it, and passkeys are bound to it.
+- **`EMDASH_ENCRYPTION_KEY`** is a Worker secret (`npx wrangler secret put EMDASH_ENCRYPTION_KEY`). It encrypts
+  plugin secrets stored in the database, and a database backup doesn't include it. Keep a copy in the password
+  manager; losing it makes any stored plugin secret unreadable.
+- Every host except shiftingcorridors.com gets `X-Robots-Tag: noindex` (`src/middleware.ts`), so the trial
+  copy isn't indexed as a duplicate of the live site, and only that host loads the analytics script.
+
+## Inviting Game Masters
+
+Email isn't set up yet (see below), so invites are links you send yourself:
+
+1. **Settings → Users → Invite User**, enter the GM's email, and choose the **Contributor** role.
+2. Copy the invite link and send it to them. It works once and expires after 7 days.
+3. They open it and register a passkey.
+
+A Contributor can create and edit drafts but not publish them. Their drafts appear in the admin for an Editor
+or Admin to review and publish; a draft isn't on the public site until then.
+
+## Moving to shiftingcorridors.com
+
+Step 4 needs the DNS zone on Cloudflare. Then:
+
+1. Set up email sending first: add the `cloudflareEmail()` plugin and its `send_email` binding
+   ([docs](https://docs.emdashcms.com/deployment/cloudflare/#email)), which needs the domain on Cloudflare.
+2. Add `shiftingcorridors.com` as the Worker's custom domain, and change `EMDASH_SITE_URL` to it.
+3. **Everyone signs in again by email link and adds a new passkey.** A passkey only works on the domain it was
+   created on, so the ones made on `workers.dev` don't carry over. Invite only a few GMs during the trial.
+4. Check the analytics script appears on the real domain; only its absence elsewhere has been tested.
+
 ## Importing content
 
 `scripts/import-content.ts` reads every markdown file, maps its front-matter onto the EmDash fields
@@ -41,8 +82,9 @@ Node 22.18 or later runs the TypeScript scripts directly.
   `YYYY-MM-DD`, or a time that isn't `HH:MM` stops the run, rather than being dropped.
 - An entry that already exists is skipped, so a re-run never overwrites edits made in the admin.
   `--overwrite` replaces them with the markdown version.
-- Localhost needs no credentials. For a deployed site, create a token under **Settings → API Tokens** and pass
-  it as `EMDASH_TOKEN`.
+- Localhost needs no credentials. For a deployed site, create a token under **Settings → API Tokens** with the
+  `content:read`, `content:write`, and `schema:read` scopes, and pass it as `EMDASH_TOKEN`. The importer checks
+  the token before writing anything.
 
 Two things don't carry over exactly:
 
@@ -116,9 +158,3 @@ stay plain `YYYY-MM-DD` and 24-hour `HH:MM` strings, so they still sort, index, 
 removing the plugin just turns the pickers back into text boxes.
 
 The plugin is linked as a local `file:` dependency and has no build step: Vite compiles its TypeScript source.
-
-## Review workflow
-
-Every collection supports drafts. Give Game Masters the **Contributor** role: they can create and edit drafts
-but not publish them, so an Editor or Admin reviews and publishes. A draft returns 404 on the public site until
-it's published.
