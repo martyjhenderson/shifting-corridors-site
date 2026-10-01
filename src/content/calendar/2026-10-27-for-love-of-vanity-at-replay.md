@@ -2,7 +2,7 @@
 title: For Love of Vanity at Replay
 date: '2026-10-27'
 location: Replay Games
-address: 365 Beaver Kreek Center suite b, North Liberty, IA 52317
+address: '617 Center Point Rd NE, Cedar Rapids, IA 52402'
 startTime: '17:30'
 endTime: '20:30'
 playerCap: 6
