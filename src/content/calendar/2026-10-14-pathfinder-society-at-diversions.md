@@ -16,5 +16,5 @@ scenarios:
     system: Pathfinder
     type: Scenario
     levels: 3-6
-    signupUrl: https://www.rpgchronicles.net/session/13bfbc11-eb97-4d47-b219-362fce795428/pregame
+    cancelled: true
 ---
