@@ -7,21 +7,13 @@ endTime: 17:30
 location: Geek City Games
 address: 365 Beaver Kreek Center suite b, North Liberty, IA 52317
 playerCap: 5
-levels: ''
 cancelled: true
-intro: ''
-specialNote: ''
-gamemaster: ''
 scenarios:
-  - name: 1-02 01-02The Mosquito Witch
+  - name: 1-02 The Mosquito Witch
     system: Pathfinder
     edition: 2E
     type: Adventure
     levels: 1-4
-    startTime: ''
-    endTime: ''
-    playerCap: null
-    gamemaster: ''
     repeatable: false
     pregens: false
     cancelled: true
