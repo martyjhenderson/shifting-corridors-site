@@ -9,7 +9,7 @@ address: 365 Beaver Kreek Center suite b, North Liberty, IA 52317
 playerCap: 5
 cancelled: true
 scenarios:
-  - name: 1-02 01-02The Mosquito Witch
+  - name: 1-02 The Mosquito Witch
     system: Pathfinder
     edition: 2E
     type: Adventure
