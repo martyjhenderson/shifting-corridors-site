@@ -20,4 +20,5 @@ scenarios:
     type: Scenario
     levels: 1-2
     signupUrl: https://www.rpgchronicles.net/session/e0ae22c2-b63b-4744-8374-f3a89fe0970c/pregame
+    cancelled: true
 ---
