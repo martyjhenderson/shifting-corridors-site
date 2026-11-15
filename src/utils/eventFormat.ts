@@ -56,6 +56,7 @@ export const formatScenarioTags = (scenario: Scenario): string => {
  * that text in their markdown body instead.
  */
 export const formatRegistrationNote = (meta: MarkdownMeta): string | null => {
+  if (meta.cancelled) return null;
   const signups = (meta.scenarios ?? []).filter(s => s.signupUrl && !s.cancelled);
   if (signups.length === 0) return null;
 

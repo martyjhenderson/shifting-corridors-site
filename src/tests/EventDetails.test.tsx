@@ -143,6 +143,10 @@ describe('EventDetails Component', () => {
     await waitFor(() =>
       expect(screen.getByText(/This event has been cancelled/i)).toBeInTheDocument()
     );
+    // Every scenario reads as cancelled, with no signup link or registration note.
+    expect(screen.getAllByText(/— Cancelled/i)).toHaveLength(2);
+    expect(screen.queryByRole('link', { name: /sign up here/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/Please register in advance/)).not.toBeInTheDocument();
   });
 
   test('renders an all-day event without inventing times', async () => {
