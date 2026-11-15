@@ -6,6 +6,7 @@ address: 365 Beaver Kreek Center suite b, North Liberty, IA 52317
 startTime: '12:00'
 endTime: '16:00'
 playerCap: 6
+cancelled: true
 scenarios:
   - name: The Road Less Traveled (Creep Season 1)
     system: Pathfinder
