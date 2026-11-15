@@ -253,7 +253,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({ eventId }) => {
                         <strong>{scenario.name}</strong>
                         {tags && <span className="scenario-tags"> ({tags})</span>}
                         {scenario.gamemaster && <span> — GM: {scenario.gamemaster}</span>}
-                        {scenario.cancelled ? (
+                        {scenario.cancelled || meta.cancelled ? (
                           <span className="scenario-cancelled"> — Cancelled</span>
                         ) : (
                           scenario.signupUrl && (
