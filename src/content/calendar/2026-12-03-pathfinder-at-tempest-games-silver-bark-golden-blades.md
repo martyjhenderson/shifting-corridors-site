@@ -1,5 +1,5 @@
 ---
-title: Pathfinder at Geek City - Silver Bark, Golden Blades
+title: Pathfinder at Tempest Games - Silver Bark, Golden Blades
 date: '2026-12-03'
 location: Tempest Games
 address: 212 Edgewood Road NW, Suite K, Cedar Rapids, IA 52405
